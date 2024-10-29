@@ -5,8 +5,8 @@ import NavItem from "./NavItem";
 
 const Navigation = () => {
   return (
-    <nav className="h-28 flex items-center">
-      <div>
+    <nav className="flex items-center justify-between h-28">
+      <div className="ml-5">
         <Logo />
       </div>
       <ul className="flex">
