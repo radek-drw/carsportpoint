@@ -4,17 +4,23 @@ import Logo from "./Logo";
 import NavItem from "./NavItem";
 
 const Navigation = () => {
+  const menuItems = [
+    { label: "home", href: "/" },
+    { label: "about us", href: "/about" },
+    { label: "our partners", href: "/partners" },
+    { label: "tuning companies catalogue", href: "/catalogue" },
+    { label: "contact", href: "/contact" },
+  ];
+
   return (
     <nav className="flex items-center justify-between h-28">
       <div className="ml-5">
         <Logo />
       </div>
       <ul className="flex">
-        <NavItem label="home" href="#" />
-        <NavItem label="about us" href="#" />
-        <NavItem label="our partners" href="#" />
-        <NavItem label="tuning companies catalogue" href="#" />
-        <NavItem label="contact" href="#" />
+        {menuItems.map((item, index) => (
+          <NavItem key={index} label={item.label} href={item.href} />
+        ))}
       </ul>
     </nav>
   );
