@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Logo from "./Logo";
+import Logo from "../Logo";
 import NavItem from "./NavItem";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between h-28">
+    <nav className="flex items-center justify-between h-28 bg-white">
       <div className="ml-5">
         <Logo />
       </div>
