@@ -12,6 +12,9 @@ module.exports = {
         customGrey: "#626262",
         customLight: "#FCFCFC",
       },
+      height: {
+        600: "600px",
+      },
     },
   },
   plugins: [],
