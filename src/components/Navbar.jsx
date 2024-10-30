@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 
-const Navigation = () => {
+const Navbar = () => {
+  const [active, setActive] = useState("home");
+
   const menuItems = [
     { label: "home", href: "/" },
     { label: "about us", href: "/about" },
@@ -19,11 +21,17 @@ const Navigation = () => {
       </div>
       <ul className="flex">
         {menuItems.map((item, index) => (
-          <NavItem key={index} label={item.label} href={item.href} />
+          <NavItem
+            key={index}
+            label={item.label}
+            href={item.href}
+            isActive={active === item.label}
+            onClick={() => setActive(item.label)}
+          />
         ))}
       </ul>
     </nav>
   );
 };
 
-export default Navigation;
+export default Navbar;
