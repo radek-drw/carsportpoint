@@ -8,19 +8,23 @@ import About from "./components/About";
 import Partners from "./components/Partners";
 import Catalogue from "./components/Catalogue";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
       <Layout>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/catalogue" element={<Catalogue />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/catalogue" element={<Catalogue />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
       </Layout>
     </Router>
   );
