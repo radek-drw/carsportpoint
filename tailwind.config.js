@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         navigation: ["Orbitron", "sans-serif"],
+        primary: ["Raleway", "sans-serif"],
       },
       colors: {
         navDesktop: "#3C4346",
