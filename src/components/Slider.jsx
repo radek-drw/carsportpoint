@@ -1,19 +1,18 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+
 import { useSpring, animated } from "@react-spring/web";
 
 import slide1 from "../assets/images/slide1.jpg";
 import slide2 from "../assets/images/slide2.jpg";
 
 const Slider = () => {
-  // Define the animation for the text
   const textAnimation = useSpring({
-    from: { opacity: 0, transform: "translateY(30px)" },
+    from: { opacity: 0, transform: "translateY(100px)" },
     to: { opacity: 1, transform: "translateY(0px)" },
-    config: { duration: 800 },
+    config: { duration: 2000 },
     reset: true,
   });
 
@@ -25,7 +24,7 @@ const Slider = () => {
       loop={true}
       autoplay={{ delay: 4000, disableOnInteraction: false }}
       speed={2000}
-      className="mySwiper h-[600px] w-full font-primary text-7xl"
+      className="mySwiper h-600 w-full font-primary text-7xl"
     >
       {[slide1, slide2].map((slide, index) => (
         <SwiperSlide key={index}>
@@ -34,19 +33,24 @@ const Slider = () => {
             style={{
               backgroundImage: `url(${slide})`,
               borderRadius: "20px",
-              boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
             }}
           >
             <animated.div
               style={textAnimation}
-              className="absolute text-white font-bold bg-black bg-opacity-50 rounded-lg text-center w-auto"
+              className="text-white font-extrabold sm:text-6xl xl:text-7xl"
             >
               {index === 0 ? (
-                <span className="capitalize block w-[51.5%] mx-auto text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                  a product that can change your life
-                </span>
+                <div className="text-left capitalize">
+                  <span className="block">a product that can</span>
+                  <span className="block">change your life</span>
+                </div>
               ) : (
-                <span>tuning and remaps — We unite the best in Ireland</span>
+                <div className="text-center">
+                  <span className="block uppercase">tuning and remaps</span>
+                  <span className="block tracking-4 text-sm">
+                    We unite the best in Ireland
+                  </span>
+                </div>
               )}
             </animated.div>
           </div>
