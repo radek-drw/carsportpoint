@@ -19,11 +19,10 @@ const Slider = () => {
   return (
     <Swiper
       modules={[Autoplay, EffectFade]}
-      effect="fade"
-      fadeEffect={{ crossFade: true }}
+      effect={"fade"}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      speed={2500}
       loop={true}
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
-      speed={2000}
       className="mySwiper h-600 w-full font-primary text-7xl"
     >
       {[slide1, slide2].map((slide, index) => (
