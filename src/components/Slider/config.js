@@ -1,29 +1,31 @@
 // SLIDER TIMINGS
 export const SLIDER_TIMES = {
-  slideTime: 7000, // Slider time (without transition)
-  transitionSpeed: 1000, // Time for transition between slides
-  totalSlideTime: 8000, // Time for progress bar (slideTime + transitionSpeed)
+  slideDuration: 7000,
+  fadeTransitionDuration: 1000,
+  get progressBarAnimationDuration() {
+    return this.slideDuration + this.fadeTransitionDuration;
+  },
 };
 
 // TEXT ANIMATION
 export const TEXT_ANIMATION = {
   firstSlide: {
-    opacity: 0, // Opacity of text
-    position: "translateX(-150%)", // Start position of text
-    zoom: "scale(1.4)", // Zoom of text
-    blur: "blur(10px)", // Blur of text
-    time: 3000, // Text transition time
+    opacity: 0,
+    position: "translateX(-150%)",
+    zoom: "scale(1.4)",
+    blur: "blur(10px)",
+    animationDuration: 3000,
   },
   secondSlide: {
-    opacity: 0, // Opacity of text
-    zoom: "scale(0.4)", // Zoom of text
-    time: 2000, // Text transition time
+    opacity: 0,
+    zoom: "scale(0.4)",
+    animationDuration: 2000,
   },
 };
 
 // PROGRESS BAR
 export const PROGRESS_BAR = {
-  color: "rgba(255,255,255,0.3)", // Progress bar color
-  background: "transparent", // Background color of the progress bar
-  height: 10, // Progress bar height
+  color: "rgba(255,255,255,0.3)",
+  background: "transparent",
+  height: 10,
 };

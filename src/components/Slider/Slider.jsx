@@ -1,10 +1,15 @@
 import { useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+
 import { LinearProgress } from "@mui/material";
+
 import { useTrail, animated, easings } from "@react-spring/web";
+
+import { SLIDER_TIMES, TEXT_ANIMATION, PROGRESS_BAR } from "./config";
 
 import slide1 from "../../assets/images/slide1.jpg";
 import slide2 from "../../assets/images/slide2.jpg";
@@ -12,9 +17,10 @@ import slide2 from "../../assets/images/slide2.jpg";
 const Slider = () => {
   const [resetAnimation, setResetAnimation] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
-  const autoplayDelay = 7000;
-  const transitionSpeed = 1000;
-  const totalSlideTime = autoplayDelay + transitionSpeed;
+  const slideDuration = SLIDER_TIMES.slideDuration;
+  const fadeTransitionDuration = SLIDER_TIMES.fadeTransitionDuration;
+  const progressBarAnimationDuration =
+    SLIDER_TIMES.progressBarAnimationDuration;
 
   // Function to reset the text animation and progress bar on each slide change
   const handleSlideChange = () => {
@@ -25,29 +31,35 @@ const Slider = () => {
 
   const textAnimationsSlide1 = useTrail(2, {
     from: {
-      opacity: 0,
-      transform: "translateX(-150%) scale(1.4)",
-      filter: "blur(10px)",
+      opacity: TEXT_ANIMATION.firstSlide.opacity,
+      transform: `${TEXT_ANIMATION.firstSlide.position} ${TEXT_ANIMATION.firstSlide.zoom}`,
+      filter: TEXT_ANIMATION.firstSlide.blur,
     },
     to: {
       opacity: 1,
       transform: "translateX(0) scale(1)",
       filter: "blur(0px)",
     },
-    config: { duration: 3000, easing: easings.easeInOutCirc },
+    config: {
+      duration: TEXT_ANIMATION.firstSlide.animationDuration,
+      easing: easings.easeInOutCirc,
+    },
     reset: resetAnimation,
   });
 
   const textAnimationsSlide2 = useTrail(2, {
     from: {
-      opacity: 0,
-      transform: "scale(0.4)",
+      opacity: TEXT_ANIMATION.secondSlide.opacity,
+      transform: TEXT_ANIMATION.secondSlide.position,
     },
     to: {
       opacity: 1,
       transform: "scale(1)",
     },
-    config: { duration: 2000, easing: easings.easeInBack },
+    config: {
+      duration: TEXT_ANIMATION.secondSlide.animationDuration,
+      easing: easings.easeInBack,
+    },
     reset: resetAnimation,
   });
 
@@ -58,17 +70,17 @@ const Slider = () => {
         variant="determinate"
         value={100}
         sx={{
-          height: 10,
+          height: PROGRESS_BAR.height,
           width: "100%",
           position: "absolute",
           top: 0,
           left: 0,
           zIndex: 4,
-          backgroundColor: "transparent",
+          backgroundColor: PROGRESS_BAR.background,
           "& .MuiLinearProgress-bar": {
-            backgroundColor: "rgba(255,255,255,0.3)",
+            backgroundColor: PROGRESS_BAR.color,
             width: "100%",
-            animation: `${totalSlideTime}ms linear 0s infinite slide`,
+            animation: `${progressBarAnimationDuration}ms linear 0s infinite slide`,
           },
           "@keyframes slide": {
             from: { width: 0 },
@@ -80,8 +92,8 @@ const Slider = () => {
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect={"fade"}
-        autoplay={{ delay: autoplayDelay, disableOnInteraction: false }}
-        speed={transitionSpeed} // Fade transition speed
+        autoplay={{ delay: slideDuration, disableOnInteraction: false }}
+        speed={fadeTransitionDuration}
         loop={true}
         className="mySwiper h-600 w-full font-primary text-7xl"
         onSlideChange={handleSlideChange} // Setting the function to reset the animation
