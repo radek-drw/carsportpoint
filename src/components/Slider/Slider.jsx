@@ -1,15 +1,15 @@
 import { useState } from "react";
 
+import ProgressBar from "./ProgressBar";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { LinearProgress } from "@mui/material";
-
 import { useTrail, animated, easings } from "@react-spring/web";
 
-import { SLIDER_TIMES, TEXT_ANIMATION, PROGRESS_BAR } from "./config";
+import { SLIDER_TIMES, TEXT_ANIMATION } from "./config";
 
 import slide1 from "../../assets/images/slide1.jpg";
 import slide2 from "../../assets/images/slide2.jpg";
@@ -19,8 +19,6 @@ const Slider = () => {
   const [progressKey, setProgressKey] = useState(0);
   const slideDuration = SLIDER_TIMES.slideDuration;
   const fadeTransitionDuration = SLIDER_TIMES.fadeTransitionDuration;
-  const progressBarAnimationDuration =
-    SLIDER_TIMES.progressBarAnimationDuration;
 
   // Function to reset the text animation and progress bar on each slide change
   const handleSlideChange = () => {
@@ -65,30 +63,7 @@ const Slider = () => {
 
   return (
     <div className="relative w-full">
-      <LinearProgress
-        key={progressKey} // Change key to reset animation
-        variant="determinate"
-        value={100}
-        sx={{
-          height: PROGRESS_BAR.height,
-          width: "100%",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 4,
-          backgroundColor: PROGRESS_BAR.background,
-          "& .MuiLinearProgress-bar": {
-            backgroundColor: PROGRESS_BAR.color,
-            width: "100%",
-            animation: `${progressBarAnimationDuration}ms linear 0s infinite slide`,
-          },
-          "@keyframes slide": {
-            from: { width: 0 },
-            to: { width: "100%" },
-          },
-        }}
-      />
-
+      <ProgressBar progressKey={progressKey} />
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect={"fade"}
