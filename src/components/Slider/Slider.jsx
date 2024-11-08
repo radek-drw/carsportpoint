@@ -8,18 +8,14 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
+import slidesData from "./slidesData";
 import { useSlideAnimations } from "./textAnimations";
 
 import { SLIDER_TIMES } from "./config";
 
-import slide1 from "../../assets/images/slide1.jpg";
-import slide2 from "../../assets/images/slide2.jpg";
-
 const Slider = () => {
   const [resetAnimation, setResetAnimation] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
-  const slideDuration = SLIDER_TIMES.slideDuration;
-  const fadeTransitionDuration = SLIDER_TIMES.fadeTransitionDuration;
 
   const { textAnimationsSlide1, textAnimationsSlide2 } =
     useSlideAnimations(resetAnimation);
@@ -31,39 +27,10 @@ const Slider = () => {
     setTimeout(() => setResetAnimation(false), 0);
   };
 
-  const slidesData = [
-    {
-      image: slide1,
-      text: [
-        {
-          content: "a product that can",
-          className: "text-white font-extrabold sm:text-6xl xl:text-7xl",
-        },
-        {
-          content: "change your life",
-          className: "text-white font-extrabold sm:text-6xl xl:text-7xl",
-        },
-      ],
-      animations: textAnimationsSlide1,
-      layout: "left",
-    },
-    {
-      image: slide2,
-      text: [
-        {
-          content: "tuning and remaps",
-          className:
-            "uppercase text-white font-extrabold sm:text-6xl xl:text-7xl",
-        },
-        {
-          content: "We unite the best in Ireland",
-          className: "tracking-4 text-sm text-white",
-        },
-      ],
-      animations: textAnimationsSlide2,
-      layout: "center",
-    },
-  ];
+  const slidesWithAnimations = slidesData.map((slide, index) => ({
+    ...slide,
+    animations: index === 0 ? textAnimationsSlide1 : textAnimationsSlide2,
+  }));
 
   return (
     <div className="relative w-full">
@@ -71,13 +38,16 @@ const Slider = () => {
       <Swiper
         modules={[Autoplay, EffectFade]}
         effect={"fade"}
-        autoplay={{ delay: slideDuration, disableOnInteraction: false }}
-        speed={fadeTransitionDuration}
+        autoplay={{
+          delay: SLIDER_TIMES.slideDuration,
+          disableOnInteraction: false,
+        }}
+        speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
-        className="mySwiper h-600 w-full font-primary text-7xl"
+        className="mySwiper h-600 w-full font-primary"
         onSlideChange={handleSlideChange} // Setting the function to reset the animation
       >
-        {slidesData.map((slide, index) => (
+        {slidesWithAnimations.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
               className="relative h-full bg-cover bg-center flex items-center justify-center"
