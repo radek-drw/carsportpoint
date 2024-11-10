@@ -54,7 +54,7 @@ const Slider = () => {
               style={{
                 backgroundImage: `url(${slide.image})`,
                 borderRadius: "15px",
-                animation: "zoomIn 10s ease-in-out infinite",
+                animation: `zoomIn ${SLIDER_TIMES.slideDuration} ease-in-out infinite`,
               }}
             >
               <SlideContent
