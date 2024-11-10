@@ -33,7 +33,6 @@ const Slider = () => {
     <div className="relative w-full">
       <ProgressBar progressKey={progressKey} />
       <Swiper
-        speed={SLIDER_TIMES.fadeTransitionDuration}
         modules={[Autoplay, EffectFade]}
         effect="fade"
         autoplay={{
@@ -41,6 +40,7 @@ const Slider = () => {
           disableOnInteraction: false,
           waitForTransition: false,
         }}
+        speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
         className="mySwiper h-600 w-full font-primary"
         onSlideChange={handleSlideChange}
