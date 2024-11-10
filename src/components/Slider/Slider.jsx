@@ -1,18 +1,13 @@
 import { useState } from "react";
-
 import ProgressBar from "./ProgressBar";
 import SlideContent from "./SlideContent";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
-
 import slidesData from "./slidesData";
 import { useSlideAnimations } from "./textAnimations";
-
 import { SLIDER_TIMES } from "./config";
-
 import "./animations.css";
 
 const Slider = () => {
@@ -38,16 +33,17 @@ const Slider = () => {
     <div className="relative w-full">
       <ProgressBar progressKey={progressKey} />
       <Swiper
+        speed={SLIDER_TIMES.fadeTransitionDuration}
         modules={[Autoplay, EffectFade]}
-        effect={"fade"}
+        effect="fade"
         autoplay={{
           delay: SLIDER_TIMES.slideDuration,
           disableOnInteraction: false,
+          waitForTransition: false,
         }}
-        speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
         className="mySwiper h-600 w-full font-primary"
-        onSlideChange={handleSlideChange} // Setting the function to reset the animation
+        onSlideChange={handleSlideChange}
       >
         {slidesWithAnimations.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -56,7 +52,9 @@ const Slider = () => {
               style={{
                 backgroundImage: `url(${slide.image})`,
                 borderRadius: "15px",
-                animation: `zoomIn 9s linear infinite`,
+                // animation: isFirstSlide
+                //   ? `none` // Skip animation for the first slide to avoid speed issue
+                //   : `zoomIn ${SLIDER_TIMES.slideDuration}ms linear infinite`,
               }}
             >
               <SlideContent
