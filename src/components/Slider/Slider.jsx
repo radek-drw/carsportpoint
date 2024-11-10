@@ -13,6 +13,8 @@ import { useSlideAnimations } from "./textAnimations";
 
 import { SLIDER_TIMES } from "./config";
 
+import "./animations.css";
+
 const Slider = () => {
   const [resetAnimation, setResetAnimation] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
@@ -54,7 +56,7 @@ const Slider = () => {
               style={{
                 backgroundImage: `url(${slide.image})`,
                 borderRadius: "15px",
-                animation: `zoomIn ${SLIDER_TIMES.slideDuration} ease-in-out infinite`,
+                animation: `zoomIn 9s linear infinite`,
               }}
             >
               <SlideContent
