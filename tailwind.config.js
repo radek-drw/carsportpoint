@@ -9,7 +9,7 @@ module.exports = {
       },
       colors: {
         navDesktop: "#3C4346",
-        primaryRed: "#FF0000",
+        customRed: "#FF0000",
         customGrey: "#626262",
         customLight: "#FCFCFC",
       },
