@@ -8,8 +8,8 @@ const NavItem = ({ label, href, isActive, onClick }) => {
         to={href}
         className={`py-6 px-4 block uppercase font-navigation ${
           isActive
-            ? "text-primaryRed border-b-2 border-primaryRed"
-            : "hover:text-primaryRed hover:border-b-2 hover:border-primaryRed"
+            ? "text-customRed border-b-2 border-customRed"
+            : "hover:text-customRed hover:border-b-2 hover:border-customRed"
         }`}
       >
         {label}

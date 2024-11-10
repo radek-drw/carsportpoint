@@ -1,5 +1,5 @@
-import slide1 from "../../assets/images/slide1.jpg";
-import slide2 from "../../assets/images/slide2.jpg";
+import slide1 from "../../../assets/images/slide1.jpg";
+import slide2 from "../../../assets/images/slide2.jpg";
 
 const slidesData = [
   {
