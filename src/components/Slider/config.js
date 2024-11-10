@@ -1,6 +1,6 @@
 // SLIDER TIMINGS
 export const SLIDER_TIMES = {
-  slideDuration: 7000,
+  slideDuration: 5000,
   fadeTransitionDuration: 1000,
   get progressBarAnimationDuration() {
     return this.slideDuration + this.fadeTransitionDuration;
