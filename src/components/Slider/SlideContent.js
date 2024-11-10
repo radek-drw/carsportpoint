@@ -1,7 +1,7 @@
 import { animated } from "@react-spring/web";
 
 const SlideContent = ({ textAnimations, text, layout }) => (
-  <div className={`text-${layout} capitalize`}>
+  <div className={`text-${layout}`}>
     {text.map((line, index) => (
       <animated.div
         key={index}

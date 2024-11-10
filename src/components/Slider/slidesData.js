@@ -7,11 +7,13 @@ const slidesData = [
     text: [
       {
         content: "a product that can",
-        className: "text-white font-extrabold sm:text-6xl xl:text-7xl",
+        className:
+          "capitalize text-white font-extrabold sm:text-6xl xl:text-7xl",
       },
       {
         content: "change your life",
-        className: "text-white font-extrabold sm:text-6xl xl:text-7xl",
+        className:
+          "capitalize text-white font-extrabold sm:text-6xl xl:text-7xl",
       },
     ],
     layout: "left",
