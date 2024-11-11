@@ -42,7 +42,7 @@ const Slider = () => {
         }}
         speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
-        className="mySwiper h-600 w-full font-primary"
+        className="mySwiper h-[600px] w-full font-primary"
         onSlideChange={handleSlideChange}
       >
         {slidesWithAnimations.map((slide, index) => (

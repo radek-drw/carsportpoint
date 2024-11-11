@@ -28,7 +28,7 @@ const slidesData = [
       },
       {
         content: "We unite the best in Ireland",
-        className: "tracking-4 text-sm text-white",
+        className: "tracking-[4px] text-sm text-white",
       },
     ],
     layout: "center",
