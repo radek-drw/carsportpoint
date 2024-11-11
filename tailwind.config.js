@@ -5,19 +5,15 @@ module.exports = {
     extend: {
       fontFamily: {
         navigation: ["Orbitron", "sans-serif"],
-        primary: ["Raleway", "sans-serif"],
+        main: ["Raleway", "sans-serif"],
       },
       colors: {
-        navDesktop: "#3C4346",
+        navDesktop: "#3C4346", // desktop menu font color
         customRed: "#FF0000",
         customGrey: "#626262",
         customLight: "#FCFCFC",
-      },
-      height: {
-        600: "600px",
-      },
-      letterSpacing: {
-        4: "4px",
+        articleHead: "#20292C", // head for article's text
+        articleTxt: "#A6A8A9", // article text
       },
     },
   },
