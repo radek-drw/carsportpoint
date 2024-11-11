@@ -6,11 +6,11 @@ import ContactArticle from "./articles/ContactArticle";
 
 const ArticlesSection = () => {
   return (
-    <>
+    <section className="max-w-[1220px] mx-auto">
       <AboutArticle />
       <TuningArticle />
       <ContactArticle />
-    </>
+    </section>
   );
 };
 
