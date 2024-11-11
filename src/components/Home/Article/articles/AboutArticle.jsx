@@ -18,7 +18,7 @@ const AboutArticle = () => {
             </strong>
           </p>
         </div>
-        <div className="basis-[34%]">
+        <div className="flex-1">
           <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-4">
             website for all
           </h3>
