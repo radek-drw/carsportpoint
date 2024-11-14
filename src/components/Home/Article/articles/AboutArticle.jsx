@@ -4,7 +4,7 @@ const AboutArticle = () => {
   return (
     <article>
       <div className="flex">
-        <div className="basis-[66%] bg-red-100">
+        <div className="basis-[66%] pt-40">
           <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-4">
             About time you have found us.
           </h3>
