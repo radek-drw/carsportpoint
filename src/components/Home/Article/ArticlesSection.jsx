@@ -4,13 +4,24 @@ import AboutArticle from "./articles/AboutArticle";
 import TuningArticle from "./articles/TuningArticle";
 import ContactArticle from "./articles/ContactArticle";
 
+import home_tuning_section from "../../../assets/images/home_tuning_section.png";
+
 const ArticlesSection = () => {
   return (
-    <section className="max-w-[1220px] mx-auto">
-      <AboutArticle />
-      <TuningArticle />
-      <ContactArticle />
-    </section>
+    <>
+      <div>
+        <img
+          src={home_tuning_section}
+          alt="home_tuning_section"
+          className="absolute"
+        />
+      </div>
+      <section className="max-w-[1220px] mx-auto">
+        <AboutArticle />
+        <TuningArticle />
+        <ContactArticle />
+      </section>
+    </>
   );
 };
 
