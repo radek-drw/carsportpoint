@@ -1,6 +1,7 @@
 import React from "react";
 
 import Divider from "../../../Divider";
+import CircularProgress from "./ProgressCircle";
 
 import homeMain1 from "../../../../assets/images/homemain1.jpg";
 
@@ -44,6 +45,7 @@ const AboutArticle = () => {
           </h3>
         </div>
         <div className="mt-40 text-center px-10 py-20 bg-[#e7ecef]">
+          <CircularProgress />
           <p className="text-articleHead text-2xl font-medium pb-6">
             better performance
           </p>
