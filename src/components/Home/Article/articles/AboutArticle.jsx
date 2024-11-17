@@ -2,10 +2,12 @@ import React from "react";
 
 import Divider from "../../../Divider";
 
+import homeMain1 from "../../../../assets/images/homemain1.jpg";
+
 const AboutArticle = () => {
   return (
     <article>
-      <div className="flex">
+      <div className="flex pb-32">
         <div className="basis-[66%] pt-40">
           <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-9">
             About time you have found us.
@@ -26,12 +28,33 @@ const AboutArticle = () => {
           <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-4 mt-10">
             website for all
           </h3>
-          <h4 className="text-articleTxt sm:text-base xl:text-xl">
+          <h4 className="text-articleTxt sm:text-base xl:text-xl font-medium ">
             There is no Need to look around and read opinions on car services we
             do it all here for you. here you will only find the best of the
             best. we make it as easy as it can be for people that are new or
             petrol heads as we like to call them.
           </h4>
+        </div>
+      </div>
+      {/* ECU CUSTOM REMAPS */}
+      <div className="grid grid-cols-3">
+        <div className="bg-customRed p-10 h-[274px]">
+          <h3 className="sm:text-3xl lg:text-4xl font-bold uppercase text-white">
+            ecu custom remaps
+          </h3>
+        </div>
+        <div className="mt-40 text-center px-10 py-20 bg-[#e7ecef]">
+          <p className="text-articleHead text-2xl font-medium pb-6">
+            better performance
+          </p>
+          <p className="text-sm text-customGrey">
+            We dont only show you where to find all your car needs we aslo
+            supply custom ECU programs for garages all over Ireland, if this is
+            something that interests you, contact us
+          </p>
+        </div>
+        <div className="mt-20">
+          <img src={homeMain1} alt="CarSportPoint1" className="w-full" />
         </div>
       </div>
     </article>
