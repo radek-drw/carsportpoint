@@ -7,7 +7,7 @@ import homeMain1 from "../../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (
-    <article>
+    <article className="max-w-[1220px] mx-auto">
       <div className="flex pb-32">
         <div className="basis-[66%] pt-40">
           <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-9">
