@@ -16,7 +16,7 @@ const ArticlesSection = () => {
           className="absolute"
         />
       </div>
-      <section className="max-w-[1220px] mx-auto">
+      <section>
         <AboutArticle />
         <TuningArticle />
         <ContactArticle />
