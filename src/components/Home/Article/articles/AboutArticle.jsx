@@ -22,7 +22,7 @@ const AboutArticle = () => {
               services in Ireland
             </strong>
           </p>
-          <Divider size="193px" orientation="horizontal" />
+          <Divider size="194px" orientation="horizontal" />
         </div>
         <div className="flex-1">
           <Divider size="270px" orientation="vertical" />
