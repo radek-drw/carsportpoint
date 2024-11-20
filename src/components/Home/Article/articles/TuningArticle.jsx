@@ -9,8 +9,8 @@ import tuning4 from "../../../../assets/images/carsportpoint-tuning-4.jpg";
 
 const TuningArticle = () => {
   return (
-    <article className="flex mx-auto">
-      <div>
+    <article className="flex mx-auto mt-36">
+      <div className="basis-6/12 pl-[20vw]">
         <h2 className="sm:text-3xl lg:text-4xl text-customRed font-bold mb-10">
           Tuning
         </h2>
@@ -24,18 +24,34 @@ const TuningArticle = () => {
           best of the best
         </p>
       </div>
-      <div className="grid grid-cols-2">
-        <div>
-          <img src={tuning1} alt="tuning1" />
+      <div className="grid grid-cols-2 basis-6/12">
+        <div className="overflow-hidden">
+          <img
+            src={tuning1}
+            alt="tuning1"
+            className="w-full grayscale hover:grayscale-0 hover:scale-[1.2] transition duration-300"
+          />
         </div>
-        <div>
-          <img src={tuning2} alt="tuning2" />
+        <div className="overflow-hidden">
+          <img
+            src={tuning2}
+            alt="tuning2"
+            className="w-full grayscale hover:grayscale-0 hover:scale-[1.2] transition duration-300"
+          />
         </div>
-        <div>
-          <img src={tuning3} alt="tuning3" />
+        <div className="overflow-hidden">
+          <img
+            src={tuning3}
+            alt="tuning3"
+            className="w-full grayscale hover:grayscale-0 hover:scale-[1.2] transition duration-300"
+          />
         </div>
-        <div>
-          <img src={tuning4} alt="tuning4" />
+        <div className="overflow-hidden">
+          <img
+            src={tuning4}
+            alt="tuning4"
+            className="w-full grayscale hover:grayscale-0 hover:scale-[1.2] transition duration-300"
+          />
         </div>
       </div>
     </article>
