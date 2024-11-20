@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between h-28 bg-white">
+    <nav className="flex items-center justify-between bg-white">
       <div className="ml-5">
         <Logo />
       </div>
