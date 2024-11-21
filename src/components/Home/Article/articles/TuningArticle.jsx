@@ -1,6 +1,8 @@
 import React from "react";
 
 import Divider from "../../../Divider";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 import { UserIcon } from "@heroicons/react/24/solid";
 
@@ -11,6 +13,7 @@ import tuning4 from "../../../../assets/images/carsportpoint-tuning-4.jpg";
 import tuning5 from "../../../../assets/images/home-tuning-counterbg.png";
 
 const TuningArticle = () => {
+  const { ref, inView } = useInView({ triggerOnce: true });
   return (
     <article className="mt-36">
       <div className="flex mx-auto">
@@ -67,9 +70,16 @@ const TuningArticle = () => {
         <div className="flex-1 flex items-center">
           <div className="ml-[12vw] text-center">
             <UserIcon className="h-14 w-14 text-customRed mx-auto" />
-            <span className="text-[#444] lg:text-5xl sm:text-4xl block mt-5 mb-3">
-              55
-            </span>
+            <div ref={ref}>
+              {inView && (
+                <CountUp
+                  start={0}
+                  end={55}
+                  duration={3}
+                  className="text-[#444] lg:text-5xl sm:text-4xl block mt-5 mb-3"
+                />
+              )}
+            </div>
             <p className="text-articleHead text-xl font-medium">Services</p>
           </div>
         </div>
