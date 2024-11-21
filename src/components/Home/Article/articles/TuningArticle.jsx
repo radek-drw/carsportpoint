@@ -28,7 +28,7 @@ const TuningArticle = () => {
             is the best of the best
           </p>
         </div>
-        <div className="grid grid-cols-2 basis-6/12 ">
+        <div className="grid grid-cols-2 basis-6/12 self-start">
           <div className="overflow-hidden">
             <img
               src={tuning1}
