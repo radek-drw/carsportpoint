@@ -3,7 +3,7 @@ import React from "react";
 import Divider from "../../../Divider";
 import CircularProgress from "./ProgressCircle";
 
-import home_tuning_section from "../../../../assets/images/home_tuning_section.png";
+import home_tuning_sectionbg from "../../../../assets/images/home_tuning_sectionbg.png";
 import homeMain1 from "../../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
@@ -11,7 +11,7 @@ const AboutArticle = () => {
     <>
       <div>
         <img
-          src={home_tuning_section}
+          src={home_tuning_sectionbg}
           alt="home_tuning_section"
           className="absolute"
         />
