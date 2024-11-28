@@ -16,8 +16,8 @@ const TuningArticle = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
   return (
     <article className="mt-36">
-      <div className="flex mx-auto">
-        <div className="basis-6/12 pl-[20vw] pr-20">
+      <div className="flex">
+        <div className="basis-6/12 pl-[20vw] pr-16">
           <h2 className="sm:text-3xl lg:text-4xl text-customRed font-bold mb-10">
             Tuning
           </h2>
