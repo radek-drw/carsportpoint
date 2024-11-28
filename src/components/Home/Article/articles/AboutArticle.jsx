@@ -16,7 +16,7 @@ const AboutArticle = () => {
           className="absolute"
         />
       </div>
-      <article className="max-w-[1220px] mx-auto">
+      <article className="2xl:px-[20vw] xl:px-[14vw] lg:px-[9vw] md:px-[5vw] sm:px-[3vw] px-[2vw]">
         <div className="flex pb-32">
           <div className="basis-[66%] pt-40">
             <h3 className="text-customRed sm:text-3xl md:text-4xl font-bold mb-9">
