@@ -18,10 +18,10 @@ const TuningArticle = () => {
     <article className="mt-36">
       <div className="flex">
         <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="sm:text-3xl lg:text-4xl text-customRed font-bold mb-10">
+          <h2 className="sm:text-3xl md:text-4xl text-customRed font-bold mb-10">
             Tuning
           </h2>
-          <h3 className="sm:text-5xl xl:text-6xl font-black text-articleHead mb-20">
+          <h3 className="sm:text-5xl lg:text-6xl font-black text-articleHead mb-20">
             See how we make our cars perfect
           </h3>
           <Divider size="194px" orientation="horizontal" />

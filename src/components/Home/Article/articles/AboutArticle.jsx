@@ -19,10 +19,10 @@ const AboutArticle = () => {
       <article className="max-w-[1220px] mx-auto">
         <div className="flex pb-32">
           <div className="basis-[66%] pt-40">
-            <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-9">
+            <h3 className="text-customRed sm:text-3xl md:text-4xl font-bold mb-9">
               About time you have found us.
             </h3>
-            <h2 className="font-black text-articleHead sm:text-5xl xl:text-6xl tracking-wide mb-4">
+            <h2 className="font-black text-articleHead sm:text-5xl lg:text-6xl tracking-wide mb-4">
               Welcome to Carsportpoint.ie
             </h2>
             <p className="text-customGrey text-sm mb-20 ml-10">

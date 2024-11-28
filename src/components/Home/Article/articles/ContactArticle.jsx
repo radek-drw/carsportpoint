@@ -17,10 +17,10 @@ const ContactArticle = () => {
       </div>
       <div className="flex">
         <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="sm:text-3xl lg:text-4xl text-customRed font-bold mb-10">
+          <h2 className="sm:text-3xl md:text-4xl text-customRed font-bold mb-10">
             Contact us
           </h2>
-          <h3 className="sm:text-5xl xl:text-6xl font-black text-articleHead">
+          <h3 className="sm:text-5xl lg:text-6xl font-black text-articleHead">
             Want to be a part of something big?
           </h3>
           <p className="sm:text-[44px] lg:text-5xl mb-20 mt-4 text-customRed uppercase">
