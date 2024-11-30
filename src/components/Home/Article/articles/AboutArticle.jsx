@@ -19,10 +19,10 @@ const AboutArticle = () => {
       <article className="2xl:px-[20vw] xl:px-[14vw] lg:px-[9vw] md:px-[5vw] sm:px-[3vw] px-[2vw]">
         <div className="flex mb-32">
           <div className="basis-[66%] pt-40 pr-6">
-            <h3 className="text-customRed sm:text-3xl md:text-4xl font-bold mb-9">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-9 text-customRed">
               About time you have found us.
             </h3>
-            <h2 className="font-black text-articleHead sm:text-5xl lg:text-6xl tracking-wide mb-4">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-4">
               Welcome to Carsportpoint.ie
             </h2>
             <p className="text-customGrey text-sm mb-20 ml-10">
@@ -35,10 +35,10 @@ const AboutArticle = () => {
           </div>
           <div className="flex-1">
             <Divider size="270px" orientation="vertical" />
-            <h3 className="text-customRed sm:text-3xl lg:text-4xl font-bold mb-4 mt-10">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 mt-10 text-customRed">
               website for all
             </h3>
-            <h4 className="text-articleTxt sm:text-base xl:text-xl font-medium ">
+            <h4 className="text-sm sm:text-base xl:text-xl font-medium text-articleTxt">
               There is no Need to look around and read opinions on car services
               we do it all here for you. here you will only find the best of the
               best. we make it as easy as it can be for people that are new or
@@ -49,13 +49,13 @@ const AboutArticle = () => {
         {/* ECU CUSTOM REMAPS */}
         <div className="grid grid-cols-3">
           <div className="bg-customRed p-10 h-[274px]">
-            <h3 className="sm:text-3xl lg:text-4xl font-bold uppercase text-white">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase text-white">
               ecu custom remaps
             </h3>
           </div>
           <div className="mt-40 text-center px-10 py-20 bg-[#e7ecef]">
             <CircularProgress />
-            <p className="text-articleHead text-2xl font-medium pb-6">
+            <p className="text-xl sm:text-2xl font-medium text-articleHead pb-6">
               better performance
             </p>
             <p className="text-sm text-customGrey">

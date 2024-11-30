@@ -18,14 +18,14 @@ const TuningArticle = () => {
     <article className="mt-36">
       <div className="flex">
         <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="sm:text-3xl md:text-4xl text-customRed font-bold mb-10">
+          <h2 className="text-xl sm:text-3xl md:text-4xl text-customRed font-bold mb-10">
             Tuning
           </h2>
-          <h3 className="sm:text-5xl lg:text-6xl font-black text-articleHead mb-20">
+          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead mb-20">
             See how we make our cars perfect
           </h3>
           <Divider size="194px" orientation="horizontal" />
-          <p className="mt-14 lg:text-xl md:text-lg sm:text-base font-medium text-articleHead">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-14 font-medium text-articleHead">
             We only deal with the best so you dont need to worry if your car
             will be in good hands, we make sure any car service on this website
             is the best of the best
@@ -80,7 +80,9 @@ const TuningArticle = () => {
                 />
               )}
             </div>
-            <p className="text-articleHead text-xl font-medium">Services</p>
+            <p className="text-lg md:text-xl font-medium text-articleHead">
+              Services
+            </p>
           </div>
         </div>
       </div>
