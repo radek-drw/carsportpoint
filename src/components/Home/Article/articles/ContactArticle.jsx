@@ -1,6 +1,6 @@
 import React from "react";
 
-import homeContactSectionBg from "../../../../assets/images/home-contact-section-bg.png";
+import sectionBg1 from "../../../../assets/images/section_bg2.png";
 import about1 from "../../../../assets/images/carsportpoint-contact.jpg";
 
 import Divider from "../../../Divider";
@@ -10,7 +10,7 @@ const ContactArticle = () => {
     <article className="mt-36">
       <div>
         <img
-          src={homeContactSectionBg}
+          src={sectionBg1}
           alt="Home contact background"
           className="absolute"
         />

@@ -3,18 +3,14 @@ import React from "react";
 import Divider from "../../../Divider";
 import CircularProgress from "./ProgressCircle";
 
-import homeAboutSectionBg from "../../../../assets/images/home-about-section-bg.png";
+import sectionBg1 from "../../../../assets/images/section_bg1.png";
 import homeMain1 from "../../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (
     <>
       <div>
-        <img
-          src={homeAboutSectionBg}
-          alt="Home about background"
-          className="absolute"
-        />
+        <img src={sectionBg1} alt="Logo A" className="absolute" />
       </div>
       <article className="2xl:px-[20vw] xl:px-[14vw] lg:px-[9vw] md:px-[5vw] sm:px-[3vw] px-[2vw]">
         <div className="flex mb-32">
@@ -65,7 +61,7 @@ const AboutArticle = () => {
             </p>
           </div>
           <div className="mt-20">
-            <img src={homeMain1} alt="CarSportPoint1" className="w-full" />
+            <img src={homeMain1} alt="Car engine" className="w-full" />
           </div>
         </div>
       </article>
