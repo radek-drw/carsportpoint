@@ -8,8 +8,7 @@ const AboutUs = () => {
   return (
     <article>
       <div className="flex">
-        {/* fix image responsive height */}
-        <div className="basis-6/12 flex justify-center">
+        <div className="basis-6/12 flex justify-center self-start">
           <img src={aboutMain1} alt="CarSportPoint2" />
         </div>
         <div className="pt-[70px] px-[4vw] basis-6/12">
