@@ -41,6 +41,49 @@ const AboutUs = () => {
             className="absolute right-0"
           />
         </div>
+        <div className="flex w-6/12 mx-auto mt-20">
+          <div className="basis-6/12 px-[2vw]">
+            <h4 className="text-sm sm:text-base md:text-lg lg:text-xl pb-4 font-medium text-articleHead">
+              Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
+              Fusce tincidunt ante et nunc posuere posuere. Donec venenatis mi
+              eleifend, laoreet nulla metus.
+            </h4>
+            <p className="text-sm lg:text-lg text-customGrey">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum. Sed
+              ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt.
+            </p>
+          </div>
+          <div className="basis-6/12 pt-36 px-[2vw]">
+            <p className="text-sm lg:text-lg pb-4 text-customGrey">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum. Sed
+              ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem ape.
+            </p>
+            <p className="text-sm lg:text-lg text-customGrey">
+              Riam, eaque ipsa quae ab illo inventore veritatis et quasi
+              architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+              voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+              quia consequuntur magni dolores eos qui ratione voluptatem sequi
+              nesciunt. Neque empora incidunt ut labore et dolore magnam aliquam
+              quaerat voluptatem.
+            </p>
+          </div>
+        </div>
       </div>
     </article>
   );
