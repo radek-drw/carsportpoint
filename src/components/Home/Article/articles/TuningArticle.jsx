@@ -4,7 +4,7 @@ import Divider from "../../../Divider";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
-import { UserIcon } from "@heroicons/react/24/solid";
+import { FaUser } from "react-icons/fa";
 
 import tuning1 from "../../../../assets/images/carsportpoint-tuning-1.jpg";
 import tuning2 from "../../../../assets/images/carsportpoint-tuning-2.png";
@@ -69,7 +69,7 @@ const TuningArticle = () => {
         <Divider size="330px" orientation="vertical" />
         <div className="flex-1 flex items-center">
           <div className="ml-[12vw] text-center">
-            <UserIcon className="h-14 w-14 text-customRed mx-auto" />
+            <FaUser size={56} className="text-customRed mx-auto" />
             <div ref={ref}>
               {inView && (
                 <CountUp
