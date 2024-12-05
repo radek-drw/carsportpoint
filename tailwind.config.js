@@ -13,7 +13,8 @@ module.exports = {
         customGrey: "#626262",
         customLight: "#FCFCFC",
         articleHead: "#20292C", // head for article's text
-        articleTxt: "#A6A8A9", // article text
+        articleTxt: "#A6A8A9",
+        footerCustomGrey: "#ABACAC",
       },
     },
   },
