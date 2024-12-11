@@ -9,14 +9,14 @@ import { LuDot } from "react-icons/lu";
 
 const Footer = () => {
   return (
-    <footer className="px-10 pb-20 pt-16">
+    <footer className="px-[2vw] pb-20 pt-16">
       <div className="flex">
         <div className="basis-[65vw]">
           <div className="flex items-center text-[#1E1E1E]">
             <FaFacebook size={38} />
-            <LuDot size={46} className="mx-3 text-footerCustomGrey" />
+            <LuDot size={46} className="mx-2 text-footerCustomGrey" />
             <FaYoutube size={38} />
-            <LuDot size={46} className="mx-3 text-footerCustomGrey" />
+            <LuDot size={46} className="mx-2 text-footerCustomGrey" />
             <MdEmail size={38} />
           </div>
           <div className="w-[88px] h-[1px] my-9 bg-footerCustomGrey"></div>
