@@ -7,7 +7,7 @@ import dashboardCounter from "../../../../src/assets/images/dashboard_counter.pn
 const Performance = () => {
   return (
     <article className="mt-28">
-      <div className="flex px-10">
+      <div className="flex px-[2vw]">
         <div className="basis-[35%]">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-20">
             Better <br />
