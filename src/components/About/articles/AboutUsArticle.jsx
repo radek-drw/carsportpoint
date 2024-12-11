@@ -20,7 +20,7 @@ const AboutUs = () => {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-20">
             We are CarSportPoint <br />
             We provide
-            <span className="text-customRed">engine tuning & remaps</span>
+            <span className="text-customRed"> engine tuning & remaps</span>
           </h2>
           <Divider size="194px" orientation="horizontal" />
           <h4 className="text-sm sm:text-base md:text-lg lg:text-xl mt-14 pr-[39%] font-medium text-articleHead">
