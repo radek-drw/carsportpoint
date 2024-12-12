@@ -29,7 +29,7 @@ const Partners = () => {
           </div>
           <Divider size="128px" orientation="vertical" />
           <div className="basis-1/2 pl-[2vw] pt-12">
-            <img src={engineImg} alt="Car engine" />
+            <img src={engineImg} alt="Car engine" className="ml-auto" />
           </div>
         </div>
         <div></div>
