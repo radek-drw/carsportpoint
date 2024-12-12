@@ -3,8 +3,30 @@ import React from "react";
 import Divider from "./Divider";
 
 import engineImg from "../../src/assets/images/home_tuning_offer1.jpg";
+import aCunningham from "../../src/assets/images/A-Cunningham-1024x768-1.png";
+import abWight from "../../src/assets/images/AB-wight-1024x768-1.png";
+import elliotHenderson from "../../src/assets/images/Elliot-Henderson-1024x768-1.png";
+import galaHarriers from "../../src/assets/images/Gala-Harriers-1024x768-1.png";
+import marshallTractors from "../../src/assets/images/Marshall-Tractors-1024x768-1.png";
+import motoCarSales from "../../src/assets/images/moto-car-sales-1024x768-1.png";
+import peterHogg from "../../src/assets/images/Peter-Hogg-1024x768-1.png";
+import spg from "../../src/assets/images/spg-fire-and-security-1024x768-1.png";
+import starvin from "../../src/assets/images/starvin-1024x768-1.png";
+import monteCassino from "../../src/assets/images/monte-cassino-1024x768-1.png";
 
 const Partners = () => {
+  const images = [
+    aCunningham,
+    abWight,
+    elliotHenderson,
+    galaHarriers,
+    marshallTractors,
+    motoCarSales,
+    peterHogg,
+    spg,
+    starvin,
+    monteCassino,
+  ];
   return (
     <section>
       <article>
@@ -32,7 +54,13 @@ const Partners = () => {
             <img src={engineImg} alt="Car engine" className="ml-auto" />
           </div>
         </div>
-        <div></div>
+        <div className="grid grid-cols-5 gap-4 mx-auto xl:max-w-7xl lg:max-w-4xl md:max-w-2xl">
+          {images.map((src, index) => (
+            <div key={index} className="flex justify-center items-center">
+              <img src={src} alt="Our partners" />
+            </div>
+          ))}
+        </div>
       </article>
     </section>
   );
