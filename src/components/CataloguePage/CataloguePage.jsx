@@ -1,13 +1,13 @@
 import React from "react";
 
 import CatalogueHeader from "./CatalogueHeader";
-import AddCompanyForm from "./AddCompanyForm";
+import ContactForm from "./ContactForm";
 
 const CataloguePage = () => {
   return (
     <section className="pt-16">
       <CatalogueHeader />
-      <AddCompanyForm />
+      <ContactForm />
     </section>
   );
 };
