@@ -1,18 +1,18 @@
 import React from "react";
 
-import Divider from "./Divider";
+import Divider from "../Divider";
 
-import engineImg from "../../src/assets/images/home_tuning_offer1.jpg";
-import aCunningham from "../../src/assets/images/A-Cunningham-1024x768-1.png";
-import abWight from "../../src/assets/images/AB-wight-1024x768-1.png";
-import elliotHenderson from "../../src/assets/images/Elliot-Henderson-1024x768-1.png";
-import galaHarriers from "../../src/assets/images/Gala-Harriers-1024x768-1.png";
-import marshallTractors from "../../src/assets/images/Marshall-Tractors-1024x768-1.png";
-import motoCarSales from "../../src/assets/images/moto-car-sales-1024x768-1.png";
-import peterHogg from "../../src/assets/images/Peter-Hogg-1024x768-1.png";
-import spg from "../../src/assets/images/spg-fire-and-security-1024x768-1.png";
-import starvin from "../../src/assets/images/starvin-1024x768-1.png";
-import monteCassino from "../../src/assets/images/monte-cassino-1024x768-1.png";
+import engineImg from "../../../src/assets/images/home_tuning_offer1.jpg";
+import aCunningham from "../../../src/assets/images/A-Cunningham-1024x768-1.png";
+import abWight from "../../../src/assets/images/AB-wight-1024x768-1.png";
+import elliotHenderson from "../../../src/assets/images/Elliot-Henderson-1024x768-1.png";
+import galaHarriers from "../../../src/assets/images/Gala-Harriers-1024x768-1.png";
+import marshallTractors from "../../../src/assets/images/Marshall-Tractors-1024x768-1.png";
+import motoCarSales from "../../../src/assets/images/moto-car-sales-1024x768-1.png";
+import peterHogg from "../../../src/assets/images/Peter-Hogg-1024x768-1.png";
+import spg from "../../../src/assets/images/spg-fire-and-security-1024x768-1.png";
+import starvin from "../../../src/assets/images/starvin-1024x768-1.png";
+import monteCassino from "../../../src/assets/images/monte-cassino-1024x768-1.png";
 
 const Partners = () => {
   const images = [
