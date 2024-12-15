@@ -25,7 +25,6 @@ module.exports = {
           borderWidth: "2px",
           borderColor: "#B0B0B0",
           padding: "0.75rem",
-          marginBottom: "30px",
           borderRadius: "0.375rem",
           transition: "all 0.3s ease",
           "&:focus": {
