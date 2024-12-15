@@ -18,5 +18,27 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".input-bordered": {
+          borderWidth: "2px",
+          borderColor: "#B0B0B0",
+          padding: "0.75rem",
+          marginBottom: "30px",
+          borderRadius: "0.375rem",
+          transition: "all 0.3s ease",
+          "&:focus": {
+            outline: "none",
+            backgroundColor: "#F7FAFC",
+            borderColor: "#3182CE",
+            boxShadow: "0 0 0 3px rgba(49, 130, 206, 0.4)",
+          },
+          "&:hover": {
+            borderColor: "#3182CE",
+          },
+        },
+      });
+    },
+  ],
 };
