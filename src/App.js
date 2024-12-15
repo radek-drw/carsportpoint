@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Partners from "./components/Partners/Partners";
-import Catalogue from "./components/Catalogue";
+import Catalogue from "./components/Catalogue/Catalogue";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
