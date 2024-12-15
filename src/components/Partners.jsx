@@ -54,7 +54,7 @@ const Partners = () => {
             <img src={engineImg} alt="Car engine" className="ml-auto" />
           </div>
         </div>
-        <div className="grid grid-cols-5 gap-4 mx-auto xl:max-w-7xl lg:max-w-4xl md:max-w-2xl">
+        <div className="grid grid-cols-5 gap-4 mx-auto xl:max-w-[1260px] lg:max-w-[1004px] md:max-w-[748px] pt-5 pb-10">
           {images.map((src, index) => (
             <div key={index} className="flex justify-center items-center">
               <img src={src} alt="Our partners" />
