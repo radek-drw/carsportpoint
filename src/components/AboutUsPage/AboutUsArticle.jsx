@@ -1,12 +1,12 @@
 import React from "react";
 
-import Divider from "../../Divider";
+import Divider from "../Divider";
 
-import aboutMain1 from "../../../assets/images/aboutmain1.jpg";
-import sectionBg1 from "../../../assets/images/section_bg1.png";
-import homeTuningAbout1 from "../../../assets/images/home_tuning_about1.png";
+import aboutMain1 from "../../assets/images/aboutmain1.jpg";
+import sectionBg1 from "../../assets/images/section_bg1.png";
+import homeTuningAbout1 from "../../assets/images/home_tuning_about1.png";
 
-const AboutUs = () => {
+const AboutUsArticle = () => {
   return (
     <article>
       <div className="flex">
@@ -89,4 +89,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default AboutUsArticle;

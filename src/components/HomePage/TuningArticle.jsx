@@ -1,16 +1,16 @@
 import React from "react";
 
-import Divider from "../../../Divider";
+import Divider from "../Divider";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
 import { FaUser } from "react-icons/fa";
 
-import tuning1 from "../../../../assets/images/carsportpoint-tuning-1.jpg";
-import tuning2 from "../../../../assets/images/carsportpoint-tuning-2.png";
-import tuning3 from "../../../../assets/images/carsportpoint-tuning-3.jpg";
-import tuning4 from "../../../../assets/images/carsportpoint-tuning-4.jpg";
-import tuning5 from "../../../../assets/images/home-tuning-counterbg.png";
+import tuning1 from "../../assets/images/carsportpoint-tuning-1.jpg";
+import tuning2 from "../../assets/images/carsportpoint-tuning-2.png";
+import tuning3 from "../../assets/images/carsportpoint-tuning-3.jpg";
+import tuning4 from "../../assets/images/carsportpoint-tuning-4.jpg";
+import tuning5 from "../../assets/images/home-tuning-counterbg.png";
 
 const TuningArticle = () => {
   const { ref, inView } = useInView({ triggerOnce: true });

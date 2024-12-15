@@ -14,7 +14,7 @@ import spg from "../../../src/assets/images/spg-fire-and-security-1024x768-1.png
 import starvin from "../../../src/assets/images/starvin-1024x768-1.png";
 import monteCassino from "../../../src/assets/images/monte-cassino-1024x768-1.png";
 
-const Partners = () => {
+const PartnersPage = () => {
   const images = [
     aCunningham,
     abWight,
@@ -65,4 +65,4 @@ const Partners = () => {
     </section>
   );
 };
-export default Partners;
+export default PartnersPage;

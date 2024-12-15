@@ -1,10 +1,10 @@
 import React from "react";
 
-import Divider from "../../../Divider";
+import Divider from "../Divider";
 import CircularProgress from "./ProgressCircle";
 
-import sectionBg1 from "../../../../assets/images/section_bg1.png";
-import homeMain1 from "../../../../assets/images/homemain1.jpg";
+import sectionBg1 from "../../assets/images/section_bg1.png";
+import homeMain1 from "../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (

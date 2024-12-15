@@ -1,10 +1,10 @@
 import React from "react";
 
-import Divider from "../../Divider";
+import Divider from "../Divider";
 
-import dashboardCounter from "../../../../src/assets/images/dashboard_counter.png";
+import dashboardCounter from "../../assets/images/dashboard_counter.png";
 
-const Performance = () => {
+const PerformanceArticle = () => {
   return (
     <article className="mt-28">
       <div className="flex px-[2vw]">
@@ -41,4 +41,4 @@ const Performance = () => {
   );
 };
 
-export default Performance;
+export default PerformanceArticle;

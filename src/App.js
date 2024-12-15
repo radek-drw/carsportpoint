@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Partners from "./components/Partners/Partners";
-import Catalogue from "./components/Catalogue/Catalogue";
+import HomePage from "./components/HomePage/HomePage";
+import AboutUsPage from "./components/AboutUsPage/AboutUsPage";
+import PartnersPage from "./components/PartnersPage/PartnersPage";
+import CataloguePage from "./components/CataloguePage/CataloguePage";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -17,10 +17,10 @@ function App() {
         <Navbar />
         <main className="font-main">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/catalogue" element={<Catalogue />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutUsPage />} />
+            <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/catalogue" element={<CataloguePage />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

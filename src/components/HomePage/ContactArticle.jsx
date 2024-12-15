@@ -1,9 +1,9 @@
 import React from "react";
 
-import sectionBg1 from "../../../../assets/images/section_bg2.png";
-import about1 from "../../../../assets/images/carsportpoint-contact.jpg";
+import sectionBg1 from "../../assets/images/section_bg2.png";
+import about1 from "../../assets/images/carsportpoint-contact.jpg";
 
-import Divider from "../../../Divider";
+import Divider from "../Divider";
 
 const ContactArticle = () => {
   return (
