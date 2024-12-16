@@ -8,9 +8,10 @@ const validationSchema = Yup.object({
     .email("Invalid email address")
     .required("Email is required"),
   phone: Yup.string().matches(
+    // Optional
     /^[0-9\s\-+()]*$/,
     "Phone number must be only digits"
-  ), // Optional
+  ),
   description: Yup.string().trim().required("Message is required"), // Required
   file: Yup.mixed() // Optional
     .nullable()
@@ -58,7 +59,8 @@ const AddCompanyForm = () => (
   >
     {({ setFieldValue, isSubmitting }) => (
       <Form
-        className="mx-auto max-w-[732px] lg:max-w-[564px] md:max-w-[424px] mt-20"
+        // think to add here 50vw width and max-width 1280px?????
+        className="mx-auto xl:max-w-[732px] lg:max-w-[630px] md:max-w-[524px] mt-20"
         noValidate
       >
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-customRed">
