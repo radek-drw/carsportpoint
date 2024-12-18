@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -31,8 +31,14 @@ const validationSchema = Yup.object({
   description: Yup.string().trim().required("Message is required"),
   files: Yup.array()
     .max(MAX_FILES, `You can upload up to ${MAX_FILES} files.`)
-    .test("fileSize", "Each file must be less than 5MB.", (files) =>
-      files ? files.every((file) => file.size <= MAX_FILE_SIZE) : true
+    .test(
+      "fileSize",
+      `Each file must be less than ${(
+        MAX_FILE_SIZE /
+        (1024 * 1024)
+      ).toFixed()}MB.`,
+      (files) =>
+        files ? files.every((file) => file.size <= MAX_FILE_SIZE) : true
     )
     .test("fileType", "Invalid file type.", (files) =>
       files
@@ -42,8 +48,6 @@ const validationSchema = Yup.object({
 });
 
 const AddCompanyForm = () => {
-  const [fileLimitError, setFileLimitError] = useState("");
-
   return (
     <Formik
       initialValues={{
@@ -62,15 +66,11 @@ const AddCompanyForm = () => {
       {({ setFieldValue, values, isSubmitting }) => {
         const handleFileChange = (event) => {
           const selectedFiles = Array.from(event.currentTarget.files);
-
-          if (values.files.length + selectedFiles.length > MAX_FILES) {
-            setFileLimitError(
-              `You have reached the upload limit of ${MAX_FILES} files.`
-            );
-          } else {
-            setFileLimitError("");
-            setFieldValue("files", [...values.files, ...selectedFiles]);
-          }
+          const newFiles = [...values.files, ...selectedFiles].slice(
+            0,
+            MAX_FILES
+          );
+          setFieldValue("files", newFiles);
 
           // Clear file input so it doesn't display the file name
           event.target.value = "";
@@ -79,11 +79,6 @@ const AddCompanyForm = () => {
         const handleFileRemove = (index) => {
           const updatedFiles = values.files.filter((_, i) => i !== index);
           setFieldValue("files", updatedFiles);
-
-          // Clear file limit error if file count drops below the limit
-          if (updatedFiles.length < MAX_FILES) {
-            setFileLimitError("");
-          }
         };
 
         return (
@@ -170,13 +165,8 @@ const AddCompanyForm = () => {
               />
               <span className="text-sm text-gray-500">
                 You can upload up to {MAX_FILES} files. Each file must be less
-                than 5MB.
+                than {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB
               </span>
-              {fileLimitError && (
-                <div className="text-red-500 text-sm mt-1 font-bold">
-                  {fileLimitError}
-                </div>
-              )}
               <ErrorMessage
                 name="files"
                 component="div"
@@ -208,10 +198,20 @@ const AddCompanyForm = () => {
                             {file.name} (
                             {(file.size / (1024 * 1024)).toFixed(2)} MB)
                           </span>
-                          {/* Display error messages for invalid file types or sizes */}
+                          {/* Display error messages for invalid file type */}
                           {isInvalidFileType && (
                             <span className="text-red-500 text-xs">
                               Unsupported file type. Please upload a valid file.
+                            </span>
+                          )}
+                          {/* Display error messages for invalid file sizes */}
+                          {isInvalidFileSize && (
+                            <span className="text-red-500 text-xs">
+                              <span className="text-red-500 text-xs">
+                                File size exceeds{" "}
+                                {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB.
+                                Please upload a smaller file.
+                              </span>
                             </span>
                           )}
                         </div>
