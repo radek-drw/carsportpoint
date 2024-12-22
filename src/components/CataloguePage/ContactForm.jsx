@@ -92,12 +92,13 @@ const AddCompanyForm = () => {
 
             {/* Company name */}
             <div className="mb-8">
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
+              <label htmlFor="text" className="block text-sm font-medium mb-1">
                 Company Name
               </label>
               <Field
                 type="text"
                 name="companyName"
+                id="text"
                 className="input-bordered w-full"
               />
               <ErrorMessage
