@@ -160,7 +160,11 @@ const AddCompanyForm = () => {
                 multiple
                 disabled={values.files.length >= MAX_FILES} // Disable when limit is reached
                 onChange={handleFileChange}
-                className="w-full mb-2 disabled:opacity-50 cursor-pointer"
+                className={`w-full mb-2 disabled:opacity-50 ${
+                  values.files.length >= MAX_FILES
+                    ? "cursor-not-allowed"
+                    : "cursor-pointer"
+                }`}
                 accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff,.svg,.pdf,.doc,.docx,.xls,.xlsx,.txt"
               />
               <span className="text-sm text-gray-500">
