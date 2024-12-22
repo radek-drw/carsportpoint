@@ -154,19 +154,27 @@ const AddCompanyForm = () => {
 
             {/* Files */}
             <div className="mb-8">
-              <input
-                type="file"
-                name="files"
-                multiple
-                disabled={values.files.length >= MAX_FILES} // Disable when limit is reached
-                onChange={handleFileChange}
-                className={`w-full mb-2 disabled:opacity-50 ${
+              <label
+                className={`block w-full px-4 py-2 text-center text-white bg-blue-500 rounded cursor-pointer ${
                   values.files.length >= MAX_FILES
-                    ? "cursor-not-allowed"
-                    : "cursor-pointer"
+                    ? "bg-gray-300 cursor-not-allowed"
+                    : "hover:bg-blue-600"
                 }`}
-                accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff,.svg,.pdf,.doc,.docx,.xls,.xlsx,.txt"
-              />
+              >
+                {values.files.length >= MAX_FILES
+                  ? "File Limit Reached"
+                  : "Upload Files"}
+                <input
+                  type="file"
+                  name="files"
+                  multiple
+                  disabled={values.files.length >= MAX_FILES}
+                  onChange={handleFileChange}
+                  className="hidden"
+                  accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff,.svg,.pdf,.doc,.docx,.xls,.xlsx,.txt"
+                />
+              </label>
+
               <span className="text-sm text-gray-500">
                 You can upload up to {MAX_FILES} files. Each file must be less
                 than {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB
