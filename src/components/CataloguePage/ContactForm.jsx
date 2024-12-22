@@ -92,10 +92,12 @@ const AddCompanyForm = () => {
 
             {/* Company name */}
             <div className="mb-8">
+              <label htmlFor="email" className="block text-sm font-medium mb-1">
+                Company Name
+              </label>
               <Field
                 type="text"
                 name="companyName"
-                placeholder="Company Name"
                 className="input-bordered w-full"
               />
               <ErrorMessage
@@ -108,24 +110,41 @@ const AddCompanyForm = () => {
             <div className="flex justify-between">
               {/* E-mail */}
               <div className="basis-[47%] mb-8">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Email Address *
+                </label>
                 <Field
                   type="email"
                   name="email"
-                  placeholder="Your e-mail *"
-                  className="input-bordered w-full"
+                  id="email"
+                  className={`input-bordered w-full ${
+                    errors.email && touched.email ? "border-red-500" : ""
+                  }`}
+                  aria-describedby="email-error"
                 />
                 <ErrorMessage
                   name="email"
                   component="div"
                   className="text-red-500 text-sm mt-1 font-bold"
+                  id="email-error"
                 />
               </div>
+
               {/* Phone */}
               <div className="basis-[47%] mb-8">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium mb-1"
+                >
+                  Phone Number
+                </label>
                 <Field
                   type="tel"
                   name="phone"
-                  placeholder="Your phone"
+                  id="phone"
                   className="input-bordered w-full"
                 />
                 <ErrorMessage
