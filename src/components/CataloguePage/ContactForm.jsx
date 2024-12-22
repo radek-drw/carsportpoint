@@ -63,7 +63,7 @@ const AddCompanyForm = () => {
         // Send data to the server here
       }}
     >
-      {({ setFieldValue, values, isSubmitting }) => {
+      {({ errors, touched, setFieldValue, values, isSubmitting }) => {
         const handleFileChange = (event) => {
           const selectedFiles = Array.from(event.currentTarget.files);
           const newFiles = [...values.files, ...selectedFiles].slice(
@@ -138,13 +138,26 @@ const AddCompanyForm = () => {
 
             {/* Message */}
             <div className="mb-8">
+              <label
+                htmlFor="description"
+                className="block text-sm font-medium mb-1"
+              >
+                Company Information *
+              </label>
+
               <Field
                 as="textarea"
+                id="description"
                 name="description"
                 rows={9}
-                placeholder="Please provide some information about your company: opening hours, address, contact details, and any other important info *"
-                className="input-bordered w-full"
+                placeholder="Please provide some information about your company: opening hours, address, contact details, and any other important info"
+                className={`input-bordered w-full ${
+                  errors.description && touched.description
+                    ? "border-red-500"
+                    : ""
+                }`}
               />
+
               <ErrorMessage
                 name="description"
                 component="div"
@@ -155,10 +168,10 @@ const AddCompanyForm = () => {
             {/* Files */}
             <div className="mb-8">
               <label
-                className={`block w-full px-4 py-2 text-center text-white bg-blue-500 rounded cursor-pointer ${
+                className={`block w-full px-4 py-2 text-center text-white rounded ${
                   values.files.length >= MAX_FILES
                     ? "bg-gray-300 cursor-not-allowed"
-                    : "hover:bg-blue-600"
+                    : "bg-blue-500 hover:bg-blue-600 cursor-pointer"
                 }`}
               >
                 {values.files.length >= MAX_FILES
