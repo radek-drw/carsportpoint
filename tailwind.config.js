@@ -23,18 +23,20 @@ module.exports = {
       addComponents({
         ".input-bordered": {
           borderWidth: "2px",
-          borderColor: "#B0B0B0",
+          borderColor: "#D1D5DB",
           padding: "0.75rem",
           borderRadius: "0.375rem",
+          backgroundColor: "#FFFFFF",
           transition: "all 0.3s ease",
           "&:focus": {
             outline: "none",
-            backgroundColor: "#F7FAFC",
-            borderColor: "#3182CE",
-            boxShadow: "0 0 0 3px rgba(49, 130, 206, 0.4)",
+            backgroundColor: "#e9f7fd",
+            borderColor: "#66afe9",
+            boxShadow: "0 0 8px rgba(102, 175, 233, .6)",
           },
           "&:hover": {
-            borderColor: "#3182CE",
+            borderColor: "#66afe9",
+            backgroundColor: "#e9f7fd",
           },
         },
       });
