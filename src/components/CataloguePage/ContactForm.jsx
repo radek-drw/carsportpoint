@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { FaInfoCircle } from "react-icons/fa";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const MAX_FILES = 5;
@@ -8,14 +9,9 @@ const SUPPORTED_FORMATS = [
   "image/jpeg",
   "image/png",
   "image/gif",
-  "image/bmp",
-  "image/tiff",
-  "image/svg+xml",
   "application/pdf",
   "application/msword",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "application/vnd.ms-excel",
-  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "text/plain",
 ];
 
@@ -204,7 +200,7 @@ const AddCompanyForm = () => {
                   disabled={values.files.length >= MAX_FILES}
                   onChange={handleFileChange}
                   className="hidden"
-                  accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff,.svg,.pdf,.doc,.docx,.xls,.xlsx,.txt"
+                  accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt"
                 />
               </label>
 
@@ -245,10 +241,21 @@ const AddCompanyForm = () => {
                           </span>
                           {/* Display error messages for invalid file type */}
                           {isInvalidFileType && (
-                            <span className="text-red-500 text-xs">
-                              Unsupported file type. Please upload a valid file.
+                            <span className="text-red-500 text-xs flex items-center">
+                              Unsupported file type.
+                              <span className="relative group ml-2">
+                                <FaInfoCircle
+                                  className="text-blue-500 cursor-pointer group-hover:text-blue-700 text-base"
+                                  aria-label="Supported file types"
+                                />
+                                <span className="absolute left-0 mt-2 z-10   bg-gray-800 text-white text-xs rounded-lg shadow-lg p-3   transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 invisible group-hover:visible   whitespace-nowrap">
+                                  <strong>Supported formats: </strong>
+                                  JPG, JPEG, PNG, GIF, PDF, DOC, DOCX, TXT
+                                </span>
+                              </span>
                             </span>
                           )}
+
                           {/* Display error messages for invalid file sizes */}
                           {isInvalidFileSize && (
                             <span className="text-red-500 text-xs">
