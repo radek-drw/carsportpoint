@@ -15,6 +15,11 @@ module.exports = {
         articleHead: "#20292C", // head for article's text
         articleTxt: "#A6A8A9",
         footerCustomGrey: "#ABACAC",
+        inputBorder: "#66AFE9",
+        inputBg: "#F3FBFE",
+      },
+      boxShadow: {
+        inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
       },
     },
   },
@@ -30,13 +35,17 @@ module.exports = {
           transition: "all 0.3s ease",
           "&:focus": {
             outline: "none",
-            backgroundColor: "#f3fbfe",
-            borderColor: "#66afe9",
-            boxShadow: "0 0 8px rgba(102, 175, 233, .6)",
+            backgroundColor: "theme('colors.inputBg')",
+            borderColor: "theme('colors.inputBorder')",
+            boxShadow: "theme('boxShadow.inputShadow')",
           },
           "&:hover": {
-            borderColor: "#66afe9",
+            borderColor: "theme('colors.inputBorder')",
           },
+        },
+        "input:focus": {
+          outline: "none",
+          backgroundColor: "theme('colors.inputBg')",
         },
       });
     },
