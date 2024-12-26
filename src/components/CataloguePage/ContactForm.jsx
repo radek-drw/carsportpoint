@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FaInfoCircle } from "react-icons/fa";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const MAX_FILES = 5;
@@ -23,10 +26,19 @@ const validationSchema = Yup.object({
       "Invalid email address"
     )
     .required("Email is required"),
-  phone: Yup.string().matches(
-    /^[0-9\s\-+()]*$/,
-    "Phone number must be only digits"
+  phone: Yup.string().test(
+    "isValidPhone",
+    "Invalid phone number",
+    (value, context) => {
+      if (!value) return true;
+      const phoneNumber = parsePhoneNumberFromString(
+        value,
+        context.parent.country
+      );
+      return phoneNumber && phoneNumber.isValid();
+    }
   ),
+
   description: Yup.string().trim().required("Message is required"),
   files: Yup.array()
     .max(MAX_FILES, `You can upload up to ${MAX_FILES} files.`)
@@ -47,6 +59,8 @@ const validationSchema = Yup.object({
 });
 
 const AddCompanyForm = () => {
+  const [country, setCountry] = useState("IE");
+
   return (
     <Formik
       initialValues={{
@@ -55,6 +69,7 @@ const AddCompanyForm = () => {
         phone: "",
         description: "",
         files: [],
+        country: "IE",
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
@@ -141,12 +156,14 @@ const AddCompanyForm = () => {
                 >
                   Phone Number
                 </label>
-                <Field
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  className="input-bordered w-full"
+                <PhoneInput
+                  defaultCountry={country}
+                  value={values.phone}
+                  onChange={(phone) => setFieldValue("phone", phone)}
+                  onCountryChange={(newCountry) => setCountry(newCountry)}
+                  className="input-bordered w-full focus-within:border-inputBorder focus-within:bg-inputBg focus-within:shadow-inputShadow"
                 />
+
                 <ErrorMessage
                   name="phone"
                   component="div"
