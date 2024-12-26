@@ -30,13 +30,12 @@ module.exports = {
           transition: "all 0.3s ease",
           "&:focus": {
             outline: "none",
-            backgroundColor: "#e9f7fd",
+            backgroundColor: "#f3fbfe",
             borderColor: "#66afe9",
             boxShadow: "0 0 8px rgba(102, 175, 233, .6)",
           },
           "&:hover": {
             borderColor: "#66afe9",
-            backgroundColor: "#e9f7fd",
           },
         },
       });
