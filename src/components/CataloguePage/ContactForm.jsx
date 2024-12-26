@@ -18,7 +18,10 @@ const SUPPORTED_FORMATS = [
 const validationSchema = Yup.object({
   companyName: Yup.string(),
   email: Yup.string()
-    .email("Invalid email address")
+    .matches(
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      "Invalid email address"
+    )
     .required("Email is required"),
   phone: Yup.string().matches(
     /^[0-9\s\-+()]*$/,
