@@ -39,7 +39,7 @@ npm install formik yup react-icons libphonenumber-js react-phone-number-input
       },
 ```
 
-- **Raleway Font Family**: The Raleway font is used for the main text in the component. Make sure to include the font in 'index.html' in 'public' folder
+- **Raleway Font Family**: The Raleway font is used for the main text in the component. Make sure to include the font in `index.html` in the `<head>`
 
 ```bash
   <link
