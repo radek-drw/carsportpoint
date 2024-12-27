@@ -161,7 +161,7 @@ const AddCompanyForm = () => {
                   value={values.phone}
                   onChange={(phone) => setFieldValue("phone", phone)}
                   onCountryChange={(newCountry) => setCountry(newCountry)}
-                  className="input-bordered w-full focus-within:border-inputBorder focus-within:bg-inputBg focus-within:shadow-inputShadow"
+                  className="input-bordered w-full focus-within:border-inputBorder focus-within:shadow-inputShadow"
                 />
 
                 <ErrorMessage
