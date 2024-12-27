@@ -8,11 +8,11 @@ module.exports = {
         main: ["Raleway", "sans-serif"],
       },
       colors: {
-        navDesktop: "#3C4346", // desktop menu font color
+        navDesktop: "#3C4346",
         customRed: "#FF0000",
         customGrey: "#626262",
         customLight: "#FCFCFC",
-        articleHead: "#20292C", // head for article's text
+        articleHead: "#20292C",
         articleTxt: "#A6A8A9",
         footerCustomGrey: "#ABACAC",
         inputBorder: "#66AFE9",
@@ -24,28 +24,26 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addComponents }) {
+    function ({ addComponents, theme }) {
       addComponents({
         ".input-bordered": {
           borderWidth: "2px",
-          borderColor: "#D1D5DB",
-          padding: "0.75rem",
-          borderRadius: "0.375rem",
-          backgroundColor: "#FFFFFF",
+          borderColor: theme("colors.gray.300"),
+          padding: theme("spacing.3"),
+          borderRadius: theme("borderRadius.md"),
+          backgroundColor: theme("colors.white"),
           transition: "all 0.3s ease",
           "&:focus": {
             outline: "none",
-            backgroundColor: "theme('colors.inputBg')",
-            borderColor: "theme('colors.inputBorder')",
-            boxShadow: "theme('boxShadow.inputShadow')",
+            borderColor: theme("colors.inputBorder"),
+            boxShadow: theme("boxShadow.inputShadow"),
           },
           "&:hover": {
-            borderColor: "theme('colors.inputBorder')",
+            borderColor: theme("colors.inputBorder"),
           },
         },
         "input:focus": {
           outline: "none",
-          backgroundColor: "theme('colors.inputBg')",
         },
       });
     },
