@@ -6,15 +6,15 @@ This is a contact form component styled using Tailwind CSS. The component relies
 
 Before using the ContactForm component, ensure the following libraries are installed:
 
-    ```bash
-    npm install formik yup react-icons libphonenumber-js react-phone-number-input
-    ```
+```bash
+npm install formik yup react-icons libphonenumber-js react-phone-number-input
+```
 
-    - **Formik**: A library for handling form state and validation in React.
-    - **Yup**: A JavaScript schema builder for validation.
-    - **React Icons**: Provides customizable icons for React.
-    - **libphonenumber-js**: A library to parse, format, and validate international phone numbers.
-    - **react-phone-number-input**: A React component for international phone number input fields.
+- **Formik**: A library for handling form state and validation in React.
+- **Yup**: A JavaScript schema builder for validation.
+- **React Icons**: Provides customizable icons for React.
+- **libphonenumber-js**: A library to parse, format, and validate international phone numbers.
+- **react-phone-number-input**: A React component for international phone number input fields.
 
 ### Required Files:
 
@@ -22,7 +22,7 @@ Before using the ContactForm component, ensure the following libraries are insta
 
     - The component uses custom theme values for `inputBorder`, and `inputShadow`. Make sure to include the following in Tailwind configuration:
 
-    ```javascript
+```javascript
       theme: {
       extend: {
       colors: {
@@ -33,7 +33,8 @@ Before using the ContactForm component, ensure the following libraries are insta
       },
       },
       }
-    ```
+
+```
 
     - The component uses `.input-bordered` class for inputs with following styles:
 
@@ -86,9 +87,15 @@ Before using the ContactForm component, ensure the following libraries are insta
    import ContactForm from "./components/ContactForm"; // Adjust the path as needed
    ```
 
+````
+
+```
+
 2. Ensure that the tailwind.config.js and main.css files are configured and included in your project to prevent any styling issues.
 
 ### Notes
 
     - If you want to modify any of the custom theme values, simply update the tailwind.config.js file.
     - The component should be used in any React project that has Tailwind CSS set up.
+```
+````
