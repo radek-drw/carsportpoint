@@ -207,7 +207,7 @@ const AddCompanyForm = () => {
                 className={`block w-full px-4 py-2 text-center text-white rounded ${
                   values.files.length >= MAX_FILES
                     ? "bg-gray-300 cursor-not-allowed"
-                    : "bg-blue-500 hover:bg-blue-600 cursor-pointer"
+                    : "bg-blue-500 hover:bg-blue-700 cursor-pointer duration-300"
                 }`}
               >
                 {values.files.length >= MAX_FILES
@@ -290,7 +290,7 @@ const AddCompanyForm = () => {
                         <button
                           type="button"
                           onClick={() => handleFileRemove(index)}
-                          className="text-red-500 hover:text-red-700 font-bold text-sm"
+                          className="text-red-500 hover:text-red-700 font-bold text-sm duration-300"
                         >
                           Remove
                         </button>
@@ -305,7 +305,7 @@ const AddCompanyForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="block text-white bg-customRed border-customRed w-full px-5 py-4 rounded-md hover:bg-red-700 hover:border-red-700 transition-all duration-300"
+              className="block text-white bg-red-500 w-full px-5 py-4 rounded-md hover:bg-red-700 duration-300"
             >
               SEND NOW
             </button>
