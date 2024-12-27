@@ -16,7 +16,6 @@ module.exports = {
         articleTxt: "#A6A8A9",
         footerCustomGrey: "#ABACAC",
         inputBorder: "#66AFE9",
-        inputBg: "#F3FBFE",
       },
       boxShadow: {
         inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
