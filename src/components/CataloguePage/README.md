@@ -39,6 +39,15 @@ npm install formik yup react-icons libphonenumber-js react-phone-number-input
       },
 ```
 
+- **Raleway Font Family**: The Raleway font is used for the main text in the component. Make sure to include the font in 'HTML' in '<head>'
+
+```bash
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+```
+
 - The component uses `.input-bordered` class for inputs with following styles:
 
 ```javascript
@@ -90,7 +99,7 @@ npm install formik yup react-icons libphonenumber-js react-phone-number-input
 import ContactForm from "./components/ContactForm"; // Adjust the path as needed
 ```
 
-2. Ensure that the tailwind.config.js and main.css files are configured and included in your project to prevent any styling issues.
+2. Ensure that the tailwind.config.js and main.css files are configured and included in the project to prevent any styling issues.
 
 ### Notes
 
