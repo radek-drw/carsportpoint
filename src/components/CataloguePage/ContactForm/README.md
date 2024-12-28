@@ -1,4 +1,4 @@
-# Contact Form Component Documentation
+# Contact Form Component Documentation (Built with React and Tailwind CSS)
 
 This is a contact form component styled using Tailwind CSS. The component relies on custom theme settings in the `tailwind.config.js` and a custom autofill reset in `main.css`.
 
@@ -7,9 +7,11 @@ This is a contact form component styled using Tailwind CSS. The component relies
 Before using the ContactForm component, ensure the following libraries are installed:
 
 ```bash
-npm install formik yup react-icons libphonenumber-js react-phone-number-input
+npm install react formik yup react-icons libphonenumber-js react-phone-number-input tailwindcss
 ```
 
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework used to style the form.
 - **Formik**: A library for handling form state and validation in React.
 - **Yup**: A JavaScript schema builder for validation.
 - **React Icons**: Provides customizable icons for React.
@@ -27,40 +29,47 @@ npm install formik yup react-icons libphonenumber-js react-phone-number-input
         extend: {
           fontFamily: {
             main: ["Raleway", "sans-serif"],
+            form: ["Open Sans", "sans-serif"],
           },
           colors: {
             customRed: "#FF0000",
             inputBorder: "#66AFE9",
+            inputText: "#2D3748",
           },
           boxShadow: {
             inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
+          },
+          transitionDuration: {
+          default: "300ms",
           },
         },
       },
 ```
 
-- **Raleway Font Family**: The Raleway font is used for the main text in the component. Make sure to include the font in `index.html` in the `<head>`
+- **Raleway and Open Sans Font Family**: The Raleway font is used for the main text (head, labels, buttons) and Open Sans isused for input text. Make sure to include both fonts in the `head` section of `index.html`.
 
 ```bash
   <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"
   />
 ```
 
-- The component uses `.input-bordered` class for inputs with following styles:
+- The component uses `.input-bordered` class for inputs with following styles. Make sure to include the following in Tailwind configuration:
 
 ```javascript
       plugins: [
         function ({ addComponents, theme }) {
           addComponents({
             ".input-bordered": {
+              fontFamily: theme("fontFamily.form"),
               borderWidth: "2px",
+              color: theme("colors.inputText"),
               borderColor: theme("colors.gray.300"),
               padding: theme("spacing.3"),
               borderRadius: theme("borderRadius.md"),
               backgroundColor: theme("colors.white"),
-              transition: "all 0.3s ease",
+              transition: `all ${theme("transitionDuration.default")} ease`,
               "&:focus": {
                 outline: "none",
                 borderColor: theme("colors.inputBorder"),
@@ -80,12 +89,13 @@ npm install formik yup react-icons libphonenumber-js react-phone-number-input
 
 2.  **main.css**
 
-- The autofill input fields are reset to a white background color using the following custom CSS:
+- The autofill input fields are reset to a white background color and custom font color using the following custom CSS:
 
 ```css
 @layer base {
   input:-webkit-autofill {
     @apply bg-white;
+    -webkit-text-fill-color: theme("colors.inputText");
     transition: background-color 5000s ease-in-out 0s;
   }
 }
