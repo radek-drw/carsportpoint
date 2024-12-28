@@ -22,6 +22,9 @@ module.exports = {
       boxShadow: {
         inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
       },
+      transitionDuration: {
+        default: "300ms",
+      },
     },
   },
   plugins: [
@@ -35,7 +38,7 @@ module.exports = {
           padding: theme("spacing.3"),
           borderRadius: theme("borderRadius.md"),
           backgroundColor: theme("colors.white"),
-          transition: "all 0.3s ease",
+          transition: `all ${theme("transitionDuration.default")} ease`,
           "&:focus": {
             outline: "none",
             borderColor: theme("colors.inputBorder"),
