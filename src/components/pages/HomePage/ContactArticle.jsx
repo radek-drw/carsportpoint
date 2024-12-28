@@ -1,9 +1,9 @@
 import React from "react";
 
-import sectionBg1 from "../../assets/images/section_bg2.png";
-import about1 from "../../assets/images/carsportpoint-contact.jpg";
+import sectionBg1 from "../../../assets/images/section_bg2.png";
+import about1 from "../../../assets/images/carsportpoint-contact.jpg";
 
-import Divider from "../Divider";
+import Divider from "../../common/Divider";
 
 const ContactArticle = () => {
   return (
@@ -17,17 +17,17 @@ const ContactArticle = () => {
       </div>
       <div className="flex">
         <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="text-xl sm:text-3xl md:text-4xl text-customRed font-bold mb-10">
+          <h2 className="mb-10 text-xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Contact us
           </h2>
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead">
+          <h3 className="text-4xl font-black text-articleHead sm:text-5xl lg:text-6xl">
             Want to be a part of something big?
           </h3>
-          <p className="text-[44px] lg:text-5xl mb-20 mt-4 text-customRed uppercase">
+          <p className="mb-20 mt-4 text-[44px] uppercase text-customRed lg:text-5xl">
             get in touch
           </p>
           <Divider size="194px" orientation="horizontal" />
-          <p className="mt-14 text-sm sm:text-base lg:text-xl font-medium text-articleHead">
+          <p className="mt-14 text-sm font-medium text-articleHead sm:text-base lg:text-xl">
             If you want to be featured on this website submit your request today
             and our team will be in touch with you as soon as possible
           </p>

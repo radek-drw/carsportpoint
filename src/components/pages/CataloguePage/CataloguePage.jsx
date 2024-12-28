@@ -1,7 +1,7 @@
 import React from "react";
 
 import CatalogueHeader from "./CatalogueHeader";
-import ContactForm from "./ContactForm/ContactForm";
+import ContactForm from "../../common/ContactForm/ContactForm";
 
 const CataloguePage = () => {
   return (

@@ -1,29 +1,29 @@
 import React from "react";
 
-import Divider from "../Divider";
+import Divider from "../../common/Divider";
 
-import aboutMain1 from "../../assets/images/aboutmain1.jpg";
-import sectionBg1 from "../../assets/images/section_bg1.png";
-import homeTuningAbout1 from "../../assets/images/home_tuning_about1.png";
+import aboutMain1 from "../../../assets/images/aboutmain1.jpg";
+import sectionBg1 from "../../../assets/images/section_bg1.png";
+import homeTuningAbout1 from "../../../assets/images/home_tuning_about1.png";
 
 const AboutUsArticle = () => {
   return (
     <article>
       <div className="flex">
-        <div className="basis-6/12 flex justify-center self-start">
+        <div className="flex basis-6/12 justify-center self-start">
           <img src={aboutMain1} alt="Modified cars in garage" />
         </div>
-        <div className="pt-[70px] px-[4vw] basis-6/12">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-9 text-customRed">
+        <div className="basis-6/12 px-[4vw] pt-[70px]">
+          <h3 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
           </h3>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-20">
+          <h2 className="mb-20 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
             We are CarSportPoint <br />
             We provide
             <span className="text-customRed"> engine tuning & remaps</span>
           </h2>
           <Divider size="194px" orientation="horizontal" />
-          <h4 className="text-sm sm:text-base md:text-lg lg:text-xl mt-14 pr-[39%] font-medium text-articleHead">
+          <h4 className="mt-14 pr-[39%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
             Vivamus nec leo enim. Aliquam erat volutpat. Sed et auctor felis,
             quis consectetur justo. Sed et interdum turpis? Ut gravida ut purus
             vel luctus? Duis volutpat.
@@ -41,14 +41,14 @@ const AboutUsArticle = () => {
             className="absolute right-0"
           />
         </div>
-        <div className="flex w-6/12 mx-auto mt-20">
+        <div className="mx-auto mt-20 flex w-6/12">
           <div className="basis-6/12 px-[2vw]">
-            <h4 className="text-sm sm:text-base md:text-lg lg:text-xl pb-4 font-medium text-articleHead">
+            <h4 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
               Fusce tincidunt ante et nunc posuere posuere. Donec venenatis mi
               eleifend, laoreet nulla metus.
             </h4>
-            <p className="text-sm lg:text-lg text-customGrey">
+            <p className="text-sm text-customGrey lg:text-lg">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -64,8 +64,8 @@ const AboutUsArticle = () => {
               eos qui ratione voluptatem sequi nesciunt.
             </p>
           </div>
-          <div className="basis-6/12 pt-36 px-[2vw]">
-            <p className="text-sm lg:text-lg pb-4 text-customGrey">
+          <div className="basis-6/12 px-[2vw] pt-36">
+            <p className="pb-4 text-sm text-customGrey lg:text-lg">
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -74,7 +74,7 @@ const AboutUsArticle = () => {
               ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem ape.
             </p>
-            <p className="text-sm lg:text-lg text-customGrey">
+            <p className="text-sm text-customGrey lg:text-lg">
               Riam, eaque ipsa quae ab illo inventore veritatis et quasi
               architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
               voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed

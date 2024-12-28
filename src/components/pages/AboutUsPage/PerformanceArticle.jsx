@@ -1,22 +1,22 @@
 import React from "react";
 
-import Divider from "../Divider";
+import Divider from "../../common/Divider";
 
-import dashboardCounter from "../../assets/images/dashboard_counter.png";
+import dashboardCounter from "../../../assets/images/dashboard_counter.png";
 
 const PerformanceArticle = () => {
   return (
     <article className="mt-28">
       <div className="flex px-[2vw]">
         <div className="basis-[35%]">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-20">
+          <h2 className="mb-20 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
             Better <br />
             <span className="text-customRed">performance</span>
           </h2>
           <Divider size="194px" orientation="horizontal" />
         </div>
         <div className="basis-[25%] px-[2vw]">
-          <h4 className="text-sm sm:text-base md:text-lg lg:text-xl pb-4 font-medium text-articleHead">
+          <h4 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
             Curabitur ullamcorper vehicula metus quis laoreet! Maecenas non
             metus enim. Aliquam eu hendrerit ligula, sed malesuada nisl! Nam sed
             lacus auctor viverra fusce.

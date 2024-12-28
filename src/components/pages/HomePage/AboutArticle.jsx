@@ -1,10 +1,10 @@
 import React from "react";
 
-import Divider from "../Divider";
+import Divider from "../../common/Divider";
 import CircularProgress from "./ProgressCircle";
 
-import sectionBg1 from "../../assets/images/section_bg1.png";
-import homeMain1 from "../../assets/images/homemain1.jpg";
+import sectionBg1 from "../../../assets/images/section_bg1.png";
+import homeMain1 from "../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (
@@ -12,16 +12,16 @@ const AboutArticle = () => {
       <div>
         <img src={sectionBg1} alt="Logo A" className="absolute" />
       </div>
-      <article className="2xl:px-[20vw] xl:px-[14vw] lg:px-[9vw] md:px-[5vw] sm:px-[3vw] px-[2vw]">
-        <div className="flex mb-32">
-          <div className="basis-[66%] pt-40 pr-6">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-9 text-customRed">
+      <article className="px-[2vw] sm:px-[3vw] md:px-[5vw] lg:px-[9vw] xl:px-[14vw] 2xl:px-[20vw]">
+        <div className="mb-32 flex">
+          <div className="basis-[66%] pr-6 pt-40">
+            <h3 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
               About time you have found us.
             </h3>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-articleHead tracking-wide mb-4">
+            <h2 className="mb-4 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
               Welcome to Carsportpoint.ie
             </h2>
-            <p className="text-customGrey text-sm mb-20 ml-10">
+            <p className="mb-20 ml-10 text-sm text-customGrey">
               <strong>
                 A place where you can get in touch with all of the best car
                 services in Ireland
@@ -31,10 +31,10 @@ const AboutArticle = () => {
           </div>
           <div className="flex-1">
             <Divider size="270px" orientation="vertical" />
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 mt-10 text-customRed">
+            <h3 className="mb-4 mt-10 text-2xl font-bold text-customRed sm:text-3xl lg:text-4xl">
               website for all
             </h3>
-            <h4 className="text-sm sm:text-base xl:text-xl font-medium text-articleTxt">
+            <h4 className="text-sm font-medium text-articleTxt sm:text-base xl:text-xl">
               There is no Need to look around and read opinions on car services
               we do it all here for you. here you will only find the best of the
               best. we make it as easy as it can be for people that are new or
@@ -44,14 +44,14 @@ const AboutArticle = () => {
         </div>
         {/* ECU CUSTOM REMAPS */}
         <div className="grid grid-cols-3">
-          <div className="bg-customRed p-10 h-[274px]">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase text-white">
+          <div className="h-[274px] bg-customRed p-10">
+            <h3 className="text-2xl font-bold uppercase text-white sm:text-3xl lg:text-4xl">
               ecu custom remaps
             </h3>
           </div>
-          <div className="mt-40 text-center px-10 py-20 bg-[#e7ecef]">
+          <div className="mt-40 bg-[#e7ecef] px-10 py-20 text-center">
             <CircularProgress />
-            <p className="text-xl sm:text-2xl font-medium text-articleHead pb-6">
+            <p className="pb-6 text-xl font-medium text-articleHead sm:text-2xl">
               better performance
             </p>
             <p className="text-sm text-customGrey">
