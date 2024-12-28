@@ -11,12 +11,12 @@ const Divider = ({ size = "1px", orientation = "horizontal", rotate = 0 }) => {
   };
 
   return (
-    <div style={styles} className="bg-[#b3b5b7] relative">
+    <div style={styles} className="relative bg-[#b3b5b7]">
       <span
         className={
           isHorizontal
-            ? "absolute bg-[#20292c] h-1 w-16 -mt-0.5" // Decoration for horizontal
-            : "absolute bg-[#20292c] w-1 h-16 -ml-0.5" // Decoration for vertical
+            ? "absolute -mt-0.5 h-1 w-16 bg-[#20292c]" // Decoration for horizontal
+            : "absolute -ml-0.5 h-16 w-1 bg-[#20292c]" // Decoration for vertical
         }
       ></span>
     </div>
