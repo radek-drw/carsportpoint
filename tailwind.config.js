@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         navigation: ["Orbitron", "sans-serif"],
         main: ["Raleway", "sans-serif"],
+        form: ["Open Sans", "sans-serif"],
       },
       colors: {
         navDesktop: "#3C4346",
@@ -16,6 +17,7 @@ module.exports = {
         articleTxt: "#A6A8A9",
         footerCustomGrey: "#ABACAC",
         inputBorder: "#66AFE9",
+        inputText: "#2D3748",
       },
       boxShadow: {
         inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
@@ -26,7 +28,9 @@ module.exports = {
     function ({ addComponents, theme }) {
       addComponents({
         ".input-bordered": {
+          fontFamily: theme("fontFamily.form"),
           borderWidth: "2px",
+          color: theme("colors.inputText"),
           borderColor: theme("colors.gray.300"),
           padding: theme("spacing.3"),
           borderRadius: theme("borderRadius.md"),
