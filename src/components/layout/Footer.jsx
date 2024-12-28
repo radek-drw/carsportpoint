@@ -1,6 +1,6 @@
 import React from "react";
 
-import Logo from "../components/Logo";
+import Logo from "../common/Logo";
 
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
@@ -19,8 +19,8 @@ const Footer = () => {
             <LuDot size={46} className="mx-2 text-footerCustomGrey" />
             <MdEmail size={38} />
           </div>
-          <div className="w-[88px] h-[1px] my-9 bg-footerCustomGrey"></div>
-          <p className="text-sm w-2/4 text-footerCustomGrey">
+          <div className="my-9 h-[1px] w-[88px] bg-footerCustomGrey"></div>
+          <p className="w-2/4 text-sm text-footerCustomGrey">
             Nulla facilisi. Proin ultrices dui in diam euismod, sed iaculis nunc
             interdum suspendisse vehicula porta. Ut felis erat, faucibus ac
             ipsum in

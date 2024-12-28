@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Logo from "../Logo";
+import Logo from "../../common/Logo";
 import NavItem from "./NavItem";
 
 const Navbar = () => {
