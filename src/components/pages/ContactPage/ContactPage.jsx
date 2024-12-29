@@ -61,6 +61,7 @@ const Contact = () => {
             submitButtonTxt={"SEND A MESSAGE"}
             nameLabel={"Your name"}
             messageLabel={"Message *"}
+            includeSubjectInput={true}
           />
         </div>
       </article>
