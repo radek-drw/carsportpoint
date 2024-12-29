@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 
 const EmailField = ({ label, name, ...props }) => {
   return (
-    <div className="mb-8 basis-[47%]">
+    <div className="basis-[47%]">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
         {label}
       </label>
