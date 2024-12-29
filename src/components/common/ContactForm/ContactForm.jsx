@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import CompanyInfoSection from "./CompanyInfoSection";
+import SubjectSection from "./SubjectSection";
 import MessageSection from "./MessageSection";
 import FileUploadSection from "./FileUploadSection";
 import { validationSchema } from "./validationSchema";
@@ -11,6 +12,7 @@ const ContactForm = ({
   subtitle,
   subtitleStyle,
   nameLabel,
+  includeSubjectInput = false,
   messageLabel,
   messagePlaceholder,
   messageFieldRows,
@@ -49,6 +51,7 @@ const ContactForm = ({
             setCountry={setCountry}
             nameLabel={nameLabel}
           />
+          {includeSubjectInput && <SubjectSection />}
           <MessageSection
             messageFieldRows={messageFieldRows}
             messageLabel={messageLabel}
@@ -60,7 +63,7 @@ const ContactForm = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="block w-full rounded-md bg-red-500 px-5 py-4 text-white duration-default hover:bg-red-700"
+            className="mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white duration-default hover:bg-red-700"
           >
             {submitButtonTxt}
           </button>
