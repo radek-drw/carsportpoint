@@ -3,10 +3,16 @@ import NameField from "./NameField";
 import EmailField from "./EmailField";
 import PhoneField from "./PhoneField";
 
-const CompanyInfoSection = ({ values, setFieldValue, country, setCountry }) => {
+const CompanyInfoSection = ({
+  values,
+  setFieldValue,
+  country,
+  setCountry,
+  nameLabel,
+}) => {
   return (
     <>
-      <NameField label="Company Name" name="companyName" />
+      <NameField label={nameLabel} name="companyName" />
       <div className="flex justify-between">
         <EmailField label="Email Address *" name="email" />
         <PhoneField
