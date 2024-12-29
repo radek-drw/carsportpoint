@@ -13,9 +13,9 @@ const FileUploadField = ({
   supportedFormats,
 }) => {
   return (
-    <div className="mb-8">
+    <div className="mb-input-gap">
       <label
-        className={`block w-full rounded px-4 py-2 text-center text-white ${files.length >= maxFiles ? "cursor-not-allowed bg-gray-300" : "duration-default cursor-pointer bg-blue-500 hover:bg-blue-700"}`}
+        className={`block w-full rounded px-4 py-2 text-center text-white ${files.length >= maxFiles ? "cursor-not-allowed bg-gray-300" : "cursor-pointer bg-blue-500 duration-default hover:bg-blue-700"}`}
       >
         {files.length >= maxFiles ? "File Limit Reached" : label}
         <input
@@ -58,13 +58,13 @@ const FileUploadField = ({
                       Unsupported file type.
                       <span className="group relative ml-2">
                         <FaInfoCircle
-                          className="duration-default cursor-pointer text-base text-blue-500 group-hover:text-blue-700"
+                          className="cursor-pointer text-base text-blue-500 duration-default group-hover:text-blue-700"
                           aria-label="Supported file types"
                         />
                         <span
                           role="tooltip"
                           aria-hidden="true"
-                          className="duration-default absolute left-0 z-10 mt-2 hidden whitespace-nowrap rounded-lg bg-gray-800 p-3 text-xs text-white shadow-lg transition-opacity ease-in-out group-hover:block"
+                          className="absolute left-0 z-10 mt-2 hidden whitespace-nowrap rounded-lg bg-gray-800 p-3 text-xs text-white shadow-lg transition-opacity duration-default ease-in-out group-hover:block"
                         >
                           <strong>Supported formats: </strong>
                           JPG, JPEG, PNG, GIF, PDF, DOC, DOCX, TXT
@@ -83,7 +83,7 @@ const FileUploadField = ({
                 <button
                   type="button"
                   onClick={() => onRemove(index)}
-                  className="duration-default text-sm font-bold text-red-500 hover:text-red-700"
+                  className="text-sm font-bold text-red-500 duration-default hover:text-red-700"
                 >
                   Remove
                 </button>
