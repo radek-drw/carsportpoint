@@ -1,13 +1,17 @@
 import React from "react";
 import MessageField from "./MessageField";
 
-const MessageSection = () => {
+const MessageSection = ({
+  messageFieldRows,
+  messageLabel,
+  messagePlaceholder,
+}) => {
   return (
     <MessageField
-      label="Company Information *"
+      label={messageLabel}
       name="description"
-      rows={9}
-      placeholder="Please provide some information about your company: opening hours, address, contact details, and any other important info"
+      rows={messageFieldRows}
+      placeholder={messagePlaceholder}
     />
   );
 };
