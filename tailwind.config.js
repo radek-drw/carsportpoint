@@ -25,6 +25,7 @@ module.exports = {
       transitionDuration: {
         default: "300ms",
       },
+      spacing: { "input-gap": "1.5rem" },
     },
   },
   plugins: [
