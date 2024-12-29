@@ -12,7 +12,7 @@ const PhoneField = ({
   country,
 }) => {
   return (
-    <div className="mb-8 basis-[47%]">
+    <div className="basis-[47%]">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
         {label}
       </label>
