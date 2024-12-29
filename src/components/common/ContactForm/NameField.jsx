@@ -1,18 +1,13 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const TextField = ({ label, name, ...props }) => {
+const NameField = ({ label, name }) => {
   return (
-    <div className="mb-8">
+    <div className="mb-input-gap">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
         {label}
       </label>
-      <Field
-        id={name}
-        name={name}
-        {...props}
-        className="input-bordered w-full"
-      />
+      <Field id={name} name={name} className="input-bordered w-full" />
       <ErrorMessage
         name={name}
         component="div"
@@ -22,4 +17,4 @@ const TextField = ({ label, name, ...props }) => {
   );
 };
 
-export default TextField;
+export default NameField;
