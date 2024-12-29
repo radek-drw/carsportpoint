@@ -13,7 +13,7 @@ const CompanyInfoSection = ({
   return (
     <>
       <NameField label={nameLabel} name="companyName" />
-      <div className="flex justify-between">
+      <div className="mb-input-gap flex justify-between">
         <EmailField label="Email Address *" name="email" />
         <PhoneField
           label="Phone Number"

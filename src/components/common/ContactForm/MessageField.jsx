@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 
 const MessageField = ({ label, name, ...props }) => {
   return (
-    <div className="mb-8">
+    <div className="mb-input-gap">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
         {label}
       </label>
