@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/carsportpoint/static/css/main.017de2bd.css",
-    "main.js": "/carsportpoint/static/js/main.56938576.js",
+    "main.js": "/carsportpoint/static/js/main.15104b7e.js",
     "static/media/slide1.jpg": "/carsportpoint/static/media/slide1.2c8f155659d33b83e820.jpg",
     "static/media/slide2.jpg": "/carsportpoint/static/media/slide2.03479dbc062bbd27ee6d.jpg",
     "static/media/dashboard_counter.png": "/carsportpoint/static/media/dashboard_counter.ab65c2b0e44b86a22690.png",
@@ -29,10 +29,10 @@
     "static/media/carsportpoint-tuning-4.jpg": "/carsportpoint/static/media/carsportpoint-tuning-4.43c391bd1b727c7db6ad.jpg",
     "index.html": "/carsportpoint/index.html",
     "main.017de2bd.css.map": "/carsportpoint/static/css/main.017de2bd.css.map",
-    "main.56938576.js.map": "/carsportpoint/static/js/main.56938576.js.map"
+    "main.15104b7e.js.map": "/carsportpoint/static/js/main.15104b7e.js.map"
   },
   "entrypoints": [
     "static/css/main.017de2bd.css",
-    "static/js/main.56938576.js"
+    "static/js/main.15104b7e.js"
   ]
 }
