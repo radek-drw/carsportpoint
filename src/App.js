@@ -10,7 +10,7 @@ import Contact from "./components/pages/ContactPage/ContactPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/carsportpoint">
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
