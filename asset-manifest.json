@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/carsportpoint/static/css/main.017de2bd.css",
+    "main.js": "/carsportpoint/static/js/main.56938576.js",
+    "static/media/slide1.jpg": "/carsportpoint/static/media/slide1.2c8f155659d33b83e820.jpg",
+    "static/media/slide2.jpg": "/carsportpoint/static/media/slide2.03479dbc062bbd27ee6d.jpg",
+    "static/media/dashboard_counter.png": "/carsportpoint/static/media/dashboard_counter.ab65c2b0e44b86a22690.png",
+    "static/media/moto-car-sales-1024x768-1.png": "/carsportpoint/static/media/moto-car-sales-1024x768-1.80c90497b8b40e99d65d.png",
+    "static/media/Gala-Harriers-1024x768-1.png": "/carsportpoint/static/media/Gala-Harriers-1024x768-1.48e48f5ebcf6f0565461.png",
+    "static/media/Marshall-Tractors-1024x768-1.png": "/carsportpoint/static/media/Marshall-Tractors-1024x768-1.c68d20def5c4a11905f3.png",
+    "static/media/starvin-1024x768-1.png": "/carsportpoint/static/media/starvin-1024x768-1.0437e58ef3915389b855.png",
+    "static/media/Peter-Hogg-1024x768-1.png": "/carsportpoint/static/media/Peter-Hogg-1024x768-1.fc6ed1e3d8165659dd53.png",
+    "static/media/Elliot-Henderson-1024x768-1.png": "/carsportpoint/static/media/Elliot-Henderson-1024x768-1.9b3494da85957891958c.png",
+    "static/media/aboutmain1.jpg": "/carsportpoint/static/media/aboutmain1.71e429ac8f2571278a0f.jpg",
+    "static/media/spg-fire-and-security-1024x768-1.png": "/carsportpoint/static/media/spg-fire-and-security-1024x768-1.33264a3420c3945baaa4.png",
+    "static/media/AB-wight-1024x768-1.png": "/carsportpoint/static/media/AB-wight-1024x768-1.a15b461ecae97adb95e1.png",
+    "static/media/A-Cunningham-1024x768-1.png": "/carsportpoint/static/media/A-Cunningham-1024x768-1.971591a9c261ba32c24e.png",
+    "static/media/monte-cassino-1024x768-1.png": "/carsportpoint/static/media/monte-cassino-1024x768-1.d8ab2176332bcfbd85e2.png",
+    "static/media/home_tuning_offer1.jpg": "/carsportpoint/static/media/home_tuning_offer1.cd57e0dd2959b2d3eaf5.jpg",
+    "static/media/home_tuning_about1.png": "/carsportpoint/static/media/home_tuning_about1.dee6e65368a095eda660.png",
+    "static/media/carsportpoint-tuning-2.png": "/carsportpoint/static/media/carsportpoint-tuning-2.da466bd34152582affa8.png",
+    "static/media/tuned-car-contact-2.jpg": "/carsportpoint/static/media/tuned-car-contact-2.592b581b67c0c05151fa.jpg",
+    "static/media/carsportpoint-contact.jpg": "/carsportpoint/static/media/carsportpoint-contact.41376c8cd7fffd86a942.jpg",
+    "static/media/tuned-car-contact-1.jpg": "/carsportpoint/static/media/tuned-car-contact-1.76eb03d29324b0b65e18.jpg",
+    "static/media/home-tuning-counterbg.png": "/carsportpoint/static/media/home-tuning-counterbg.f6f9e5e77ea0dd27dd23.png",
+    "static/media/homemain1.jpg": "/carsportpoint/static/media/homemain1.0bb1c7032efc4e4ade86.jpg",
+    "static/media/carsportpoint-tuning-1.jpg": "/carsportpoint/static/media/carsportpoint-tuning-1.d7cf5b336a88911b9578.jpg",
+    "static/media/carsportpoint-tuning-3.jpg": "/carsportpoint/static/media/carsportpoint-tuning-3.41f432d15eb1c33c34a9.jpg",
+    "static/media/carsportpoint-tuning-4.jpg": "/carsportpoint/static/media/carsportpoint-tuning-4.43c391bd1b727c7db6ad.jpg",
+    "index.html": "/carsportpoint/index.html",
+    "main.017de2bd.css.map": "/carsportpoint/static/css/main.017de2bd.css.map",
+    "main.56938576.js.map": "/carsportpoint/static/js/main.56938576.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.017de2bd.css",
+    "static/js/main.56938576.js"
+  ]
+}
