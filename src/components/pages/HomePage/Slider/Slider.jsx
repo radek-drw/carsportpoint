@@ -42,19 +42,17 @@ const Slider = () => {
         }}
         speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
-        className="mySwiper h-[600px] w-full font-primary"
+        className="mySwiper font-primary h-[600px] w-full"
         onSlideChange={handleSlideChange}
       >
         {slidesWithAnimations.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative h-full bg-cover bg-center flex items-center justify-center"
+              className="relative flex h-full items-center justify-center bg-cover bg-center"
               style={{
                 backgroundImage: `url(${slide.image})`,
                 borderRadius: "15px",
-                // animation: isFirstSlide
-                //   ? `none` // Skip animation for the first slide to avoid speed issue
-                //   : `zoomIn ${SLIDER_TIMES.slideDuration}ms linear infinite`,
+                animation: `zoomIn ${SLIDER_TIMES.slideDuration + SLIDER_TIMES.fadeTransitionDuration}ms linear infinite`,
               }}
             >
               <SlideContent
