@@ -6,10 +6,10 @@ const NavItem = ({ label, href, isActive, onClick }) => {
     <li onClick={onClick} className="mr-4">
       <Link
         to={href}
-        className={`py-10 px-4 block uppercase font-navigation text-navDesktop ${
+        className={`block px-4 py-10 font-navigation uppercase text-navDesktop ${
           isActive
-            ? "text-customRed border-b-4 border-customRed"
-            : "hover:text-customRed hover:border-b-4 hover:border-customRed"
+            ? "border-b-4 border-customRed text-customRed"
+            : "hover:border-b-4 hover:border-customRed hover:text-customRed"
         }`}
       >
         {label}
