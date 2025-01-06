@@ -1,11 +1,12 @@
 // SLIDER TIMINGS
 export const SLIDER_TIMES = {
-  slideDuration: 5000,
+  slideDuration: 9000,
   fadeTransitionDuration: 1000,
-  get progressBarAnimationDuration() {
-    return this.slideDuration + this.fadeTransitionDuration;
-  },
 };
+
+// Ratios for calculating text animation durations based on slideDuration
+const FIRST_SLIDE_DURATION_RATIO = 0.28; // 28% of slideDuration
+const SECOND_SLIDE_DURATION_RATIO = 0.17; // 17% of slideDuration
 
 // TEXT ANIMATION
 export const TEXT_ANIMATION = {
@@ -14,12 +15,12 @@ export const TEXT_ANIMATION = {
     position: "translateX(-150%)",
     zoom: "scale(1.4)",
     blur: "blur(10px)",
-    animationDuration: 3000,
+    animationDuration: SLIDER_TIMES.slideDuration * FIRST_SLIDE_DURATION_RATIO,
   },
   secondSlide: {
     opacity: 0,
     zoom: "scale(0.4)",
-    animationDuration: 2000,
+    animationDuration: SLIDER_TIMES.slideDuration * SECOND_SLIDE_DURATION_RATIO,
   },
 };
 
