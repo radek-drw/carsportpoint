@@ -17,7 +17,7 @@ const ProgressBar = ({ progressKey }) => (
       "& .MuiLinearProgress-bar": {
         backgroundColor: PROGRESS_BAR.color,
         width: "100%",
-        animation: `${SLIDER_TIMES.progressBarAnimationDuration}ms linear 0s infinite slide`,
+        animation: `${SLIDER_TIMES.slideDuration}ms linear 0s infinite slide`,
       },
       "@keyframes slide": {
         from: { width: 0 },
