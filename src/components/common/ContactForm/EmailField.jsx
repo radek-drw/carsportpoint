@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const EmailField = ({ label, name, ...props }) => {
+const EmailField = ({ label, name, errors, touched }) => {
   return (
     <div className="basis-[47%]">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
@@ -11,8 +11,9 @@ const EmailField = ({ label, name, ...props }) => {
         id={name}
         name={name}
         type="email"
-        {...props}
-        className="input-bordered w-full"
+        className={`input-bordered w-full ${
+          errors.email && touched.email ? "border-red-500" : ""
+        }`}
       />
       <ErrorMessage
         name={name}
