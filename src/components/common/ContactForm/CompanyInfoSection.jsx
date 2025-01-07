@@ -9,12 +9,19 @@ const CompanyInfoSection = ({
   country,
   setCountry,
   nameLabel,
+  errors,
+  touched,
 }) => {
   return (
     <>
       <NameField label={nameLabel} name="companyName" />
       <div className="mb-input-gap flex justify-between">
-        <EmailField label="Email Address *" name="email" />
+        <EmailField
+          label="Email Address *"
+          name="email"
+          errors={errors}
+          touched={touched}
+        />
         <PhoneField
           label="Phone Number"
           name="phone"

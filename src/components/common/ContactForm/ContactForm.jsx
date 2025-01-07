@@ -37,7 +37,7 @@ const ContactForm = ({
         // Send data to the server here
       }}
     >
-      {({ values, setFieldValue, isSubmitting }) => (
+      {({ values, setFieldValue, isSubmitting, errors, touched }) => (
         <Form
           className="mx-auto mt-20 md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]"
           noValidate
@@ -50,12 +50,16 @@ const ContactForm = ({
             country={country}
             setCountry={setCountry}
             nameLabel={nameLabel}
+            errors={errors}
+            touched={touched}
           />
           {includeSubjectInput && <SubjectSection />}
           <MessageSection
             messageFieldRows={messageFieldRows}
             messageLabel={messageLabel}
             messagePlaceholder={messagePlaceholder}
+            errors={errors}
+            touched={touched}
           />
           {includeFileInput && (
             <FileUploadSection values={values} setFieldValue={setFieldValue} />
