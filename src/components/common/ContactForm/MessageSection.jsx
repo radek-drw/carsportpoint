@@ -5,6 +5,8 @@ const MessageSection = ({
   messageFieldRows,
   messageLabel,
   messagePlaceholder,
+  errors,
+  touched,
 }) => {
   return (
     <MessageField
@@ -12,6 +14,8 @@ const MessageSection = ({
       name="description"
       rows={messageFieldRows}
       placeholder={messagePlaceholder}
+      errors={errors}
+      touched={touched}
     />
   );
 };
