@@ -24,10 +24,11 @@ const ContactForm = ({
   return (
     <Formik
       initialValues={{
-        companyName: "",
+        name: "",
         email: "",
         phone: "",
         description: "",
+        subject: "",
         files: [],
         country: "IE",
       }}
