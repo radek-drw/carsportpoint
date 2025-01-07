@@ -14,7 +14,7 @@ const CompanyInfoSection = ({
 }) => {
   return (
     <>
-      <NameField label={nameLabel} name="companyName" />
+      <NameField label={nameLabel} name="name" />
       <div className="mb-input-gap flex justify-between">
         <EmailField
           label="Email Address *"
