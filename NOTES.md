@@ -48,16 +48,20 @@
     - When an invalid file type is added, a tooltip appears next to the file name, displaying a message with the supported file formats.
 
 - **Field Validation:**
+  - **Name:**
+    - Length: The name cannot exceed 50 characters. If it does, the error message will be shown.
   - **Phone Number:**
     - Uses `react-phone-number-input` and `libphonenumber-js` for formatting and validation based on the selected country.
     - An error message is displayed if the phone number is not in the correct format.
   - **Email:**
-    - Validates with a regex:
-      - Accepts: letters, numbers, dots (.), underscores (\_), percent signs (%), plus signs (+), and hyphens (-).
-      - Requires a valid domain (e.g., `domain.com`).
+    - The field is marked as required and displays an error if left empty
+    - The email must follow a valid email format (e.g., user@example.com). Invalid formats trigger the error message
+    - The email cannot exceed 320 characters, as per email standards. If the length exceeds this limit, the error message will be shown.
+  - **Subject:**
+    - The subject cannot exceed 100 characters. If it does, the error message will be shown.
+  - **Message:**
     - The field is marked as required and displays an error if left empty.
-  - **Message**
-    - The field is marked as required and displays an error if left empty.
+    - The description cannot exceed 1000 characters. If it does, the error message will be shown.
 
 ---
 
@@ -68,6 +72,7 @@
 - Add padding to the 'About' page.
 - Fix images in 'Contact' page.
 - Fix nav routing
+- Update Contact Form documentation
 
 ---
 
