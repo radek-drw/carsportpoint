@@ -25,13 +25,11 @@ export const SUPPORTED_FORMATS = [
 ];
 
 export const validationSchema = Yup.object({
-  companyName: Yup.string(),
+  name: Yup.string().trim().max(50, "Name cannot exceed 50 characters"),
   email: Yup.string()
-    .matches(
-      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-      "Invalid email address",
-    )
-    .required("Email is required"),
+    .required("Email is required")
+    .email("Invalid email address")
+    .max(320, "Email cannot exceed 320 characters"),
   phone: Yup.string().test(
     "isValidPhone",
     "Invalid phone number",
@@ -44,17 +42,25 @@ export const validationSchema = Yup.object({
       return phoneNumber && phoneNumber.isValid();
     },
   ),
-  description: Yup.string().trim().required("Message is required"),
+  description: Yup.string()
+    .trim()
+    .required("Message is required")
+    .max(1000, "Message cannot exceed 1000 characters"),
+  subject: Yup.string().trim().max(100, "Subject cannot exceed 100 characters"),
   files: Yup.array()
+    .of(Yup.mixed())
     .test(
       "fileSize",
       `Each file must be less than ${(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB.`,
       (files) =>
-        files ? files.every((file) => file.size <= MAX_FILE_SIZE) : true,
+        Array.isArray(files) &&
+        files.every((file) => file.size <= MAX_FILE_SIZE),
     )
-    .test("fileType", "Invalid file type.", (files) =>
-      files
-        ? files.every((file) => SUPPORTED_FORMATS.includes(file.type))
-        : true,
+    .test(
+      "fileType",
+      "Invalid file type.",
+      (files) =>
+        Array.isArray(files) &&
+        files.every((file) => SUPPORTED_FORMATS.includes(file.type)),
     ),
 });
