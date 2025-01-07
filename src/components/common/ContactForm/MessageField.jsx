@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const MessageField = ({ label, name, ...props }) => {
+const MessageField = ({ label, name, errors, touched }) => {
   return (
     <div className="mb-input-gap">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
@@ -11,8 +11,9 @@ const MessageField = ({ label, name, ...props }) => {
         as="textarea"
         id={name}
         name={name}
-        {...props}
-        className="input-bordered w-full"
+        className={`input-bordered w-full ${
+          errors.description && touched.description ? "border-red-500" : ""
+        }`}
       />
       <ErrorMessage
         name={name}
