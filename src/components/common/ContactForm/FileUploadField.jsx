@@ -35,7 +35,7 @@ const FileUploadField = ({
       <ErrorMessage
         name={name}
         component="div"
-        className="mt-1 text-sm font-bold text-red-500"
+        className="mt-1 text-sm text-red-500"
       />
       {files.length > 0 && (
         <ul className="mt-4">

@@ -18,7 +18,7 @@ const MessageField = ({ label, name, errors, touched }) => {
       <ErrorMessage
         name={name}
         component="div"
-        className="mt-0.5 text-sm font-bold text-red-500"
+        className="mt-0.5 text-sm text-red-500"
       />
     </div>
   );
