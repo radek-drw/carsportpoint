@@ -65,7 +65,9 @@
 
 - Determine if the logo should be a separate component.
 - Establish a naming convention for images.
-- Add padding to the "About" section.
+- Add padding to the 'About' page.
+- Fix images in 'Contact' page.
+- Fix nav routing
 
 ---
 
