@@ -11,26 +11,36 @@ import Divider from "../../common/Divider";
 
 const Contact = () => {
   return (
-    <section>
+    <section aria-labelledby="contact-us-section">
       <div className="grid grid-cols-2 items-center justify-items-center">
-        <div>
+        <figure>
           <img src={TunedCar1} alt="Tuned performance car" />
-        </div>
-        <div>
+        </figure>
+        <figure>
           <img src={TunedCar2} alt="Tuned performance car" />
-        </div>
+        </figure>
       </div>
-      <article className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]">
+      <article
+        className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]"
+        aria-labelledby="contact-details"
+      >
         <div className="md:pr-10 lg:pr-14 xl:pr-20">
-          <h3 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
+          <h1
+            className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl"
+            id="contact-us-section"
+          >
             Contact Us
-          </h3>
-          <h2 className="mb-4 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
+          </h1>
+          <h2
+            className="mb-4 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl"
+            id="contact-details"
+          >
             Call us for more details
           </h2>
           <a
             href="tel:0851234567"
             className="hover:text-customRed-dark mb-16 inline-block font-form text-[40px] text-customRed lg:text-5xl"
+            aria-label="Call us at 085 123 4567"
           >
             <div className="flex items-center hover:underline">
               <CgPhone className="mr-2" />
