@@ -12,7 +12,7 @@ import Divider from "../../common/Divider";
 const Contact = () => {
   return (
     <section>
-      <div className="grid grid-cols-2 items-center">
+      <div className="grid grid-cols-2 items-center justify-items-center">
         <div>
           <img src={TunedCar1} alt="Tuned performance car" />
         </div>
@@ -65,6 +65,9 @@ const Contact = () => {
           />
         </div>
       </article>
+      <div className="mt-24 flex justify-center">
+        <Divider size="194px" orientation="vertical" rotate="180" />
+      </div>
     </section>
   );
 };
