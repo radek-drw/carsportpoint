@@ -5,7 +5,7 @@ import ContactForm from "../../common/ContactForm/ContactForm";
 
 const CataloguePage = () => {
   return (
-    <section className="pt-16" aria-labelledby="catalogue-section">
+    <section className="pt-16">
       <CatalogueHeader />
       <ContactForm
         title={

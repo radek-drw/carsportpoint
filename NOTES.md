@@ -67,8 +67,9 @@
 
 ## TODO
 
-- Determine if the logo should be a separate component.
-- Establish a naming convention for images.
-- Add padding to the 'About' page.
-- Fix nav routing
-- Update Contact Form documentation
+- determine if the logo should be a separate component.
+- establish a naming convention for images.
+- add padding to the 'About' page.
+- fix nav routing
+- update Contact Form documentation
+- add aria to contact form

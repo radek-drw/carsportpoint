@@ -1,6 +1,6 @@
 import React from "react";
 
-import sectionBg1 from "../../../assets/images/section_bg2.png";
+import backgroundImg from "../../../assets/images/section_bg2.png";
 import about1 from "../../../assets/images/carsportpoint-contact.jpg";
 
 import Divider from "../../common/Divider";
@@ -8,14 +8,10 @@ import Divider from "../../common/Divider";
 const ContactArticle = () => {
   return (
     <article className="mt-36">
-      <div>
-        <img
-          src={sectionBg1}
-          alt="Home contact background"
-          className="absolute"
-        />
-      </div>
-      <div className="flex">
+      <div
+        className="flex bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImg})` }}
+      >
         <div className="basis-6/12 pl-[20vw] pr-16">
           <h2 className="mb-10 text-xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Contact us

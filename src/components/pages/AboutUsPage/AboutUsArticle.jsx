@@ -3,8 +3,8 @@ import React from "react";
 import Divider from "../../common/Divider";
 
 import aboutMain1 from "../../../assets/images/aboutmain1.jpg";
-import sectionBg1 from "../../../assets/images/section_bg1.png";
-import homeTuningAbout1 from "../../../assets/images/home_tuning_about1.png";
+import decorativeA from "../../../assets/images/section_bg1.png";
+import wheelBackground from "../../../assets/images/home_tuning_about1.png";
 
 const AboutUsArticle = () => {
   return (
@@ -14,40 +14,53 @@ const AboutUsArticle = () => {
           <img src={aboutMain1} alt="Modified cars in garage" />
         </div>
         <div className="basis-6/12 px-[4vw] pt-[70px]">
-          <h3 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
+          <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
-          </h3>
+          </h1>
           <h2 className="mb-20 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
             We are CarSportPoint <br />
             We provide
             <span className="text-customRed"> engine tuning & remaps</span>
           </h2>
           <Divider size="194px" orientation="horizontal" />
-          <h4 className="mt-14 pr-[39%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
+          <h3 className="mt-14 pr-[39%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
             Vivamus nec leo enim. Aliquam erat volutpat. Sed et auctor felis,
             quis consectetur justo. Sed et interdum turpis? Ut gravida ut purus
             vel luctus? Duis volutpat.
-          </h4>
+          </h3>
         </div>
       </div>
-      <div>
-        <div>
-          <img src={sectionBg1} alt="Logo A" className="absolute" />
-        </div>
-        <div>
+      <div
+        className="bg-no-repeat"
+        style={{
+          backgroundImage: `url(${decorativeA}), url(${wheelBackground})`,
+          backgroundPosition: "left, right", // Wyrównanie do prawej strony
+          backgroundSize: "contain, cover", // Określa sposób dopasowania obu obrazków
+        }}
+      >
+        {/* <div>
           <img
+            src={sectionBg1}
+            alt="Logo A"
+            className="absolute"
+            aria-hidden="true"
+          />
+        </div> */}
+        <div>
+          {/* <img
             src={homeTuningAbout1}
             alt="Wheel"
             className="absolute right-0"
-          />
+            aria-hidden="true"
+          /> */}
         </div>
         <div className="mx-auto mt-20 flex w-6/12">
           <div className="basis-6/12 px-[2vw]">
-            <h4 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
+            <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
               Fusce tincidunt ante et nunc posuere posuere. Donec venenatis mi
               eleifend, laoreet nulla metus.
-            </h4>
+            </h3>
             <p className="text-sm text-customGrey lg:text-lg">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

@@ -29,28 +29,21 @@ const PartnersPage = () => {
     { src: monteCassino, name: "Monte Cassino" },
   ];
   return (
-    <section aria-labelledby="our-partners-section">
+    <section>
       <article>
         <div className="flex pl-[4vw]">
           <div className="basis-1/2 pr-[3vw] pt-36">
-            <h1
-              className="mb-9 text-2xl font-bold uppercase text-customRed sm:text-3xl md:text-4xl"
-              id="our-partners-section"
-              aria-describedby="our-partners-desc"
-            >
+            <h1 className="mb-9 text-2xl font-bold uppercase text-customRed sm:text-3xl md:text-4xl">
               our partners
             </h1>
             <h2 className="mb-20 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
               We cooperate with the best in the industry
             </h2>
             <Divider size="194px" orientation="horizontal" />
-            <h4
-              className="mb-4 mt-14 pr-[46%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl"
-              id="our-partners-desc"
-            >
+            <h3 className="mb-4 mt-14 pr-[46%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Mauris vel tellus in urna volutpat tempus? Proin viverra varius
               massa nec commodo. Cras aliquet leo ut tellus.
-            </h4>
+            </h3>
             <p className="pr-[46%] text-sm text-customGrey">
               Proin ac leo eu nisi congue ornare eget lobortis ante. Nunc
               fermentum elementum felis quis dignissim. Aliquam vitae elit

@@ -11,30 +11,21 @@ import Divider from "../../common/Divider";
 
 const Contact = () => {
   return (
-    <section aria-labelledby="contact-us-section">
+    <section>
       <div className="grid grid-cols-2 items-center justify-items-center">
-        <figure>
+        <div>
           <img src={TunedCar1} alt="Tuned performance car" />
-        </figure>
-        <figure>
+        </div>
+        <div>
           <img src={TunedCar2} alt="Tuned performance car" />
-        </figure>
+        </div>
       </div>
-      <article
-        className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]"
-        aria-labelledby="contact-details"
-      >
+      <article className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]">
         <div className="md:pr-10 lg:pr-14 xl:pr-20">
-          <h1
-            className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl"
-            id="contact-us-section"
-          >
+          <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Contact Us
           </h1>
-          <h2
-            className="mb-4 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl"
-            id="contact-details"
-          >
+          <h2 className="mb-4 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
             Call us for more details
           </h2>
           <a
@@ -48,11 +39,11 @@ const Contact = () => {
             </div>
           </a>
           <Divider size="194px" orientation="horizontal" />
-          <h4 className="mt-16 pb-4 pr-28 text-sm font-medium leading-5 text-articleHead sm:text-base sm:leading-5 md:text-lg md:leading-5 lg:pr-40 lg:text-xl lg:leading-6 xl:pr-52">
+          <h3 className="mt-16 pb-4 pr-28 text-sm font-medium leading-5 text-articleHead sm:text-base sm:leading-5 md:text-lg md:leading-5 lg:pr-40 lg:text-xl lg:leading-6 xl:pr-52">
             Maecenas aliquam tristique lectus eget dapibus? Etiam vel sapien eu
             leo auctor efficitur! Aliquam sit amet eros cursus, consectetur erat
             vitae, facilisis metus.
-          </h4>
+          </h3>
         </div>
         <div>
           <ContactForm
