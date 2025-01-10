@@ -34,26 +34,9 @@ const AboutUsArticle = () => {
         className="bg-no-repeat"
         style={{
           backgroundImage: `url(${decorativeA}), url(${wheelBackground})`,
-          backgroundPosition: "left, right", // Wyrównanie do prawej strony
-          backgroundSize: "contain, cover", // Określa sposób dopasowania obu obrazków
+          backgroundPosition: "left, right",
         }}
       >
-        {/* <div>
-          <img
-            src={sectionBg1}
-            alt="Logo A"
-            className="absolute"
-            aria-hidden="true"
-          />
-        </div> */}
-        <div>
-          {/* <img
-            src={homeTuningAbout1}
-            alt="Wheel"
-            className="absolute right-0"
-            aria-hidden="true"
-          /> */}
-        </div>
         <div className="mx-auto mt-20 flex w-6/12">
           <div className="basis-6/12 px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
