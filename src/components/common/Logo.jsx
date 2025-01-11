@@ -5,7 +5,7 @@ import logo from "../../assets/images/carsportpoint_logo.png";
 const Logo = () => {
   return (
     <a href="#a">
-      <img src={logo} alt="carsportpoint_logo" />
+      <img src={logo} alt="Car Sport Point" />
     </a>
   );
 };
