@@ -2,7 +2,7 @@ import React from "react";
 
 import Divider from "../../common/Divider";
 
-import engineImg from "../../../../src/assets/images/home_tuning_offer1.jpg";
+import carEngine from "../../../../src/assets/images/home_tuning_offer1.jpg";
 
 import aCunningham from "../../../../src/assets/images/A-Cunningham-1024x768-1.png";
 import abWight from "../../../../src/assets/images/AB-wight-1024x768-1.png";
@@ -52,7 +52,7 @@ const PartnersPage = () => {
           </div>
           <Divider size="128px" orientation="vertical" />
           <figure className="basis-1/2 pl-[2vw] pt-12">
-            <img src={engineImg} alt="Car engine" className="ml-auto" />
+            <img src={carEngine} alt="Car engine" className="ml-auto" />
           </figure>
         </div>
         <div className="mx-auto grid grid-cols-5 gap-4 pb-10 pt-5 md:max-w-[748px] lg:max-w-[1004px] xl:max-w-[1260px]">
