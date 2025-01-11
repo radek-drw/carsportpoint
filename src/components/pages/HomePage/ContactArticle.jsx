@@ -1,16 +1,16 @@
 import React from "react";
 
-import backgroundImg from "../../../assets/images/section_bg2.png";
-import about1 from "../../../assets/images/carsportpoint-contact.jpg";
+import decorativeC from "../../../assets/images/section_bg2.png";
+import carPartsWorkshop from "../../../assets/images/carsportpoint-contact.jpg";
 
 import Divider from "../../common/Divider";
 
 const ContactArticle = () => {
   return (
-    <article className="mt-36">
+    <article className="mt-28">
       <div
         className="flex bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImg})` }}
+        style={{ backgroundImage: `url(${decorativeC})` }}
       >
         <div className="basis-6/12 pl-[20vw] pr-16">
           <h2 className="mb-10 text-xl font-bold text-customRed sm:text-3xl md:text-4xl">
@@ -29,7 +29,7 @@ const ContactArticle = () => {
           </p>
         </div>
         <div className="basis-6/12">
-          <img src={about1} alt="about1" />
+          <img src={carPartsWorkshop} alt="Car parts on a workshop bench" />
         </div>
       </div>
       <div className="flex justify-center">
