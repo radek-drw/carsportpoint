@@ -3,14 +3,14 @@ import React from "react";
 import Divider from "../../common/Divider";
 import CircularProgress from "./ProgressCircle";
 
-import backgroundImg from "../../../assets/images/section_bg1.png";
-import homeMain1 from "../../../assets/images/homemain1.jpg";
+import decorativeA from "../../../assets/images/section_bg1.png";
+import CarEngine from "../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (
     <article
       className="bg-no-repeat px-[2vw] sm:px-[3vw] md:px-[5vw] lg:px-[9vw] xl:px-[14vw] 2xl:px-[20vw]"
-      style={{ backgroundImage: `url(${backgroundImg})` }}
+      style={{ backgroundImage: `url(${decorativeA})` }}
     >
       <div className="mb-32 flex">
         <div className="basis-[66%] pr-6 pt-40">
@@ -60,7 +60,11 @@ const AboutArticle = () => {
           </p>
         </div>
         <div className="mt-20">
-          <img src={homeMain1} alt="Car engine" className="w-full" />
+          <img
+            src={CarEngine}
+            alt="Car engine prepared for chip tuning"
+            className="w-full"
+          />
         </div>
       </div>
     </article>
