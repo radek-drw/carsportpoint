@@ -11,6 +11,7 @@ const NavItem = ({ label, href, isActive, onClick }) => {
             ? "border-b-4 border-customRed text-customRed"
             : "hover:border-b-4 hover:border-customRed hover:text-customRed"
         }`}
+        aria-current={isActive ? "page" : undefined}
       >
         {label}
       </Link>
