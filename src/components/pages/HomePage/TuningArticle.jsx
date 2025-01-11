@@ -6,11 +6,11 @@ import { FaUser } from "react-icons/fa";
 
 import Divider from "../../common/Divider";
 
-import tuning1 from "../../../assets/images/carsportpoint-tuning-1.jpg";
-import tuning2 from "../../../assets/images/carsportpoint-tuning-2.png";
-import tuning3 from "../../../assets/images/carsportpoint-tuning-3.jpg";
-import tuning4 from "../../../assets/images/carsportpoint-tuning-4.jpg";
-import tuning5 from "../../../assets/images/home-tuning-counterbg.png";
+import WorkshopImage1 from "../../../assets/images/carsportpoint-tuning-1.jpg";
+import WorkshopImage2 from "../../../assets/images/carsportpoint-tuning-2.png";
+import WorkshopImage3 from "../../../assets/images/carsportpoint-tuning-3.jpg";
+import WorkshopImage4 from "../../../assets/images/carsportpoint-tuning-4.jpg";
+import decorativeCarAndParts from "../../../assets/images/home-tuning-counterbg.png";
 
 const TuningArticle = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -34,29 +34,29 @@ const TuningArticle = () => {
         <div className="grid basis-6/12 grid-cols-2 self-start">
           <div className="overflow-hidden">
             <img
-              src={tuning1}
-              alt="tuning1"
+              src={WorkshopImage1}
+              alt="Car on a dynamometer during performance testing"
               className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
             />
           </div>
           <div className="overflow-hidden">
             <img
-              src={tuning2}
-              alt="tuning2"
+              src={WorkshopImage2}
+              alt="Performance car on a dyno testing horsepower"
               className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
             />
           </div>
           <div className="overflow-hidden">
             <img
-              src={tuning3}
-              alt="tuning3"
+              src={WorkshopImage3}
+              alt="Equipment in a car tuning workshop"
               className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
             />
           </div>
           <div className="overflow-hidden">
             <img
-              src={tuning4}
-              alt="tuning4"
+              src={WorkshopImage4}
+              alt="Vehicle on a dyno for performance analysis"
               className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
             />
           </div>
@@ -64,7 +64,7 @@ const TuningArticle = () => {
       </div>
       <div className="flex">
         <div className="basis-2/4">
-          <img src={tuning5} alt="tuning5" className="ml-auto" />
+          <img src={decorativeCarAndParts} alt="" className="ml-auto" />
         </div>
         <Divider size="330px" orientation="vertical" />
         <div className="flex flex-1 items-center">
