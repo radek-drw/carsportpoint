@@ -1,7 +1,7 @@
 import React from "react";
 
-import TunedCar1 from "../../../assets/images/tuned-car-contact-1.jpg";
-import TunedCar2 from "../../../assets/images/tuned-car-contact-2.jpg";
+import WorkshopImage1 from "../../../assets/images/tuned-car-contact-1.jpg";
+import WorkshopImage2 from "../../../assets/images/tuned-car-contact-2.jpg";
 
 import ContactForm from "../../common/ContactForm/ContactForm";
 
@@ -14,10 +14,10 @@ const Contact = () => {
     <section>
       <div className="grid grid-cols-2 items-center justify-items-center">
         <div>
-          <img src={TunedCar1} alt="Tuned performance car" />
+          <img src={WorkshopImage1} alt="Car on a dyno test" />
         </div>
         <div>
-          <img src={TunedCar2} alt="Tuned performance car" />
+          <img src={WorkshopImage2} alt="Sports car on a dynamometer" />
         </div>
       </div>
       <article className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]">
