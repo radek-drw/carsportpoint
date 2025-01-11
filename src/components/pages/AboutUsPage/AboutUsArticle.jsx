@@ -2,16 +2,19 @@ import React from "react";
 
 import Divider from "../../common/Divider";
 
-import aboutMain1 from "../../../assets/images/aboutmain1.jpg";
+import modifiedCarsInGarage from "../../../assets/images/aboutmain1.jpg";
 import decorativeA from "../../../assets/images/section_bg1.png";
-import wheelBackground from "../../../assets/images/home_tuning_about1.png";
+import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
 const AboutUsArticle = () => {
   return (
     <article>
       <div className="flex">
         <div className="flex basis-6/12 justify-center self-start">
-          <img src={aboutMain1} alt="Modified cars in garage" />
+          <img
+            src={modifiedCarsInGarage}
+            alt="Modified cars in workshop garage"
+          />
         </div>
         <div className="basis-6/12 px-[4vw] pt-[70px]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
@@ -31,13 +34,13 @@ const AboutUsArticle = () => {
         </div>
       </div>
       <div
-        className="bg-no-repeat"
+        className="bg-no-repeat pt-20"
         style={{
-          backgroundImage: `url(${decorativeA}), url(${wheelBackground})`,
+          backgroundImage: `url(${decorativeA}), url(${decorativeWheel})`,
           backgroundPosition: "left, right",
         }}
       >
-        <div className="mx-auto mt-20 flex w-6/12">
+        <div className="mx-auto flex w-6/12">
           <div className="basis-6/12 px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
