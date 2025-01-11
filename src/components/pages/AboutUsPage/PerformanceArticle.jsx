@@ -2,7 +2,7 @@ import React from "react";
 
 import Divider from "../../common/Divider";
 
-import dashboardCounter from "../../../assets/images/dashboard_counter.png";
+import powerBoostDashboard from "../../../assets/images/dashboard_counter.png";
 
 const PerformanceArticle = () => {
   return (
@@ -33,7 +33,10 @@ const PerformanceArticle = () => {
         </p>
       </div>
       <div className="basis-[40%]">
-        <img src={dashboardCounter} alt="Dashboard counter" />
+        <img
+          src={powerBoostDashboard}
+          alt="Dashboard counter showing power boost"
+        />
       </div>
     </article>
   );
