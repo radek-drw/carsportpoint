@@ -15,7 +15,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between bg-white">
+    <nav
+      className="flex items-center justify-between bg-white"
+      aria-label="Main navigation"
+    >
       <div className="ml-5 max-w-[225px]">
         <Logo />
       </div>
