@@ -65,6 +65,8 @@
 
 ---
 
+## 4. ARIA attributes are added for screen reader accessibility
+
 ## TODO
 
 - determine if the logo should be a separate component.
