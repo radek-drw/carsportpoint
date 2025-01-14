@@ -19,9 +19,7 @@ const Navbar = () => {
       className="flex items-center justify-between bg-white"
       aria-label="Main navigation"
     >
-      <div className="ml-5 max-w-[225px]">
-        <Logo />
-      </div>
+      <Logo isClickable="true" className="ml-5 max-w-[225px]" />
       <ul className="flex">
         {menuItems.map((item, index) => (
           <NavItem
