@@ -14,12 +14,20 @@ const Navbar = () => {
     { label: "contact", href: "/contact" },
   ];
 
+  const handleLogoClick = () => {
+    setActive("home");
+  };
+
   return (
     <nav
       className="flex items-center justify-between bg-white"
       aria-label="Main navigation"
     >
-      <Logo isClickable="true" className="ml-5 max-w-[225px]" />
+      <Logo
+        isClickable="true"
+        className="ml-5 max-w-[225px]"
+        onClick={handleLogoClick}
+      />
       <ul className="flex">
         {menuItems.map((item, index) => (
           <NavItem
