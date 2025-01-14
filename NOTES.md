@@ -48,6 +48,7 @@
     - When an invalid file type is added, a tooltip appears next to the file name, displaying a message with the supported file formats.
 
 - **Field Validation:**
+
   - **Name:**
     - Length: The name cannot exceed 50 characters. If it does, the error message will be shown.
   - **Phone Number:**
@@ -66,6 +67,17 @@
 ---
 
 ## 4. ARIA attributes are added for screen reader accessibility
+
+## 5. Logo Component
+
+- **Props:** The Logo component accepts the following props:
+  - isClickable: Determines if the logo should be clickable. It accepts values true or false.
+  - className: Allows for custom styling of the logo.
+  - onClick: A function to handle click events when isClickable is true.
+- **Usage in Navbar:**
+  - The logo is clickable and redirects the user to the 'home' page ('/').
+- **Usage in Footer:**
+  - The logo is not clickable and serves only as a visual element.
 
 ## TODO
 
