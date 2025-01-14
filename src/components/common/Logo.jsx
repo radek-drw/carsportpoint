@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/carsportpoint_logo.png";
 
-const Logo = () => {
+const Logo = ({ isClickable = false, className = "" }) => {
+  const logoImage = <img src={logo} alt="Car Sport Point" />;
+
   return (
-    <a href="#a">
-      <img src={logo} alt="Car Sport Point" />
-    </a>
+    <div className={className}>
+      {isClickable ? <Link to="/">{logoImage}</Link> : logoImage}
+    </div>
   );
 };
 
