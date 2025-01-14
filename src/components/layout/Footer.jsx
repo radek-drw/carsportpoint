@@ -56,9 +56,7 @@ const Footer = () => {
         </p>
       </div>
 
-      <div className="flex-1">
-        <Logo />
-      </div>
+      <Logo className="flex-1" />
     </footer>
   );
 };
