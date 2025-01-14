@@ -27,7 +27,11 @@ const Footer = () => {
           >
             <FaFacebook size={ICON_SIZE} />
           </a>
-          <LuDot size={DOT_SIZE} className="mx-2 text-footerCustomGrey" />
+          <LuDot
+            size={DOT_SIZE}
+            className="mx-2 text-footerCustomGrey"
+            aria-hidden="true"
+          />
           <a
             href="https://www.youtube.com"
             target="_blank"
@@ -37,7 +41,11 @@ const Footer = () => {
           >
             <FaYoutube size={ICON_SIZE} />
           </a>
-          <LuDot size={DOT_SIZE} className="mx-2 text-footerCustomGrey" />
+          <LuDot
+            size={DOT_SIZE}
+            className="mx-2 text-footerCustomGrey"
+            aria-hidden="true"
+          />
           <a
             href="mailto:example@example.com"
             target="_blank"
