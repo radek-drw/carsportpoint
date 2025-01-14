@@ -55,8 +55,33 @@ const Footer = () => {
           in
         </p>
       </div>
-
-      <Logo className="flex-1" />
+      <div className="flex flex-1 flex-col items-center">
+        <Logo />
+        <p className="mt-8 text-center text-sm text-footerCustomGrey">
+          &copy; {new Date().getFullYear()} Car Sport Point. All rights
+          reserved.
+        </p>
+        <p className="mt-2 text-center text-xs text-footerCustomGrey">
+          Website developed by Radek Drweski.
+          <a
+            href="mailto:rdrweski@gmail.com"
+            className="text-blue-600 hover:underline"
+            aria-label="Send an email to Radek"
+          >
+            rdrweski@gmail.com
+          </a>
+          {" | "}
+          <a
+            href="https://radek-drweski.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+            aria-label="Visit Radek's portfolio website"
+          >
+            radek-drweski.com
+          </a>
+        </p>
+      </div>
     </footer>
   );
 };
