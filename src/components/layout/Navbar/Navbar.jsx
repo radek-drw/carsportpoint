@@ -5,6 +5,7 @@ import NavItem from "./NavItem";
 const Navbar = () => {
   const [active, setActive] = useState("home");
   const [isSticky, setIsSticky] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const navRef = useRef(null);
 
   const menuItems = [
@@ -21,11 +22,16 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
       if (navRef.current) {
         const navHeight = navRef.current.offsetHeight;
-        const scrollPosition = window.scrollY;
 
-        setIsSticky(scrollPosition > navHeight);
+        // Jeśli przewinięcie jest większe od wysokości nawigacji, ustaw isSticky na true
+        setIsSticky(currentScroll > navHeight);
+
+        // Aktualizuj pozycję scrolla tylko do wysokości nawigacji (maksymalnie)
+        setScrollPosition(Math.min(currentScroll, navHeight));
       }
     };
 
@@ -36,21 +42,29 @@ const Navbar = () => {
     };
   }, []);
 
+  // Dynamically calculate translateY based on scroll position
+  const translateY = isSticky ? 0 : -scrollPosition; // Nawigacja chowa się płynnie
+
   return (
     <>
       <nav
         ref={navRef}
-        className={`flex items-center justify-between bg-white transition-all duration-200 ${
-          isSticky ? "sticky top-0 z-50 shadow-md" : "relative"
+        className={`flex h-24 items-center justify-between bg-white transition-all duration-1000 ${
+          isSticky
+            ? "sticky top-0 z-50 bg-[rgba(255,255,255,0.7)] shadow-md"
+            : "relative"
         }`}
+        style={{
+          transform: `translateY(${translateY}px)`, // Równe chowanie się nawigacji
+        }}
         aria-label="Main navigation"
       >
         <Logo
           isClickable="true"
-          className="ml-5 max-w-[225px]"
+          className={`ml-5 ${isSticky ? "max-w-[90px]" : "max-w-[225px]"}`}
           onClick={handleLogoClick}
         />
-        <ul className="flex">
+        <ul className="flex h-full">
           {menuItems.map((item, index) => (
             <NavItem
               key={index}
@@ -58,6 +72,7 @@ const Navbar = () => {
               href={item.href}
               isActive={active === item.label}
               onClick={() => setActive(item.label)}
+              isSticky={isSticky}
             />
           ))}
         </ul>
