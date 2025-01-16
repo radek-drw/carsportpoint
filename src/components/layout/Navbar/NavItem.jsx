@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavItem = ({ label, href, isActive, onClick }) => {
-  const baseClasses =
-    "block px-4 py-10 font-navigation uppercase text-navDesktop";
-  const activeClasses = "border-b-4 border-customRed text-customRed";
+  const baseClasses = `flex items-center justify-center h-full px-4 font-navigation uppercase text-navDesktop transition-all duration-300`;
+  const activeClasses =
+    "shadow-[inset_0_-4px_0_0] shadow-customRed text-customRed";
   const hoverClasses =
-    "hover:border-b-4 hover:border-customRed hover:text-customRed";
+    "hover:shadow-[inset_0_-4px_0_0] hover:shadow-customRed hover:text-customRed";
 
   return (
-    <li onClick={onClick} className="mr-4">
+    <li onClick={onClick} className="h-full">
       <Link
         to={href}
         className={`${baseClasses} ${isActive ? activeClasses : hoverClasses}`}
