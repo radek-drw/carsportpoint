@@ -14,7 +14,12 @@ const CompanyInfoSection = ({
 }) => {
   return (
     <>
-      <NameField label={nameLabel} name="name" />
+      <NameField
+        label={nameLabel}
+        name="name"
+        errors={errors}
+        touched={touched}
+      />
       <div className="mb-input-gap flex justify-between">
         <EmailField
           label="Email Address *"
@@ -29,6 +34,8 @@ const CompanyInfoSection = ({
           onChange={(phone) => setFieldValue("phone", phone)}
           onCountryChange={(newCountry) => setCountry(newCountry)}
           country={country}
+          errors={errors}
+          touched={touched}
         />
       </div>
     </>
