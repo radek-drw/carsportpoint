@@ -11,6 +11,9 @@ export const MAX_FILES = 5;
   
   2. The tooltip, which displays the supported file formats, should be updated to include the new format.
      Example: <strong>Supported formats: </strong> JPG, JPEG, PNG, GIF, PDF, DOC, DOCX, TXT, NEW_TYPE
+
+  3. In aria-label in FaInfoCircle
+     Example: aria-label={"Supported formats are: jpg, jpeg, png, gif, pdf, doc, docx, txt, new_type"}
   
   The changes should be made in the following file: './FileUploadField.jsx' */
 
