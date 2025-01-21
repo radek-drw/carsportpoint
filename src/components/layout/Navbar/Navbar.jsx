@@ -27,10 +27,8 @@ const Navbar = () => {
       if (navRef.current) {
         const navHeight = navRef.current.offsetHeight;
 
-        // Jeśli przewinięcie jest większe od wysokości nawigacji, ustaw isSticky na true
         setIsSticky(currentScroll > navHeight);
 
-        // Aktualizuj pozycję scrolla tylko do wysokości nawigacji (maksymalnie)
         setScrollPosition(Math.min(currentScroll, navHeight));
       }
     };
@@ -43,7 +41,7 @@ const Navbar = () => {
   }, []);
 
   // Dynamically calculate translateY based on scroll position
-  const translateY = isSticky ? 0 : -scrollPosition; // Nawigacja chowa się płynnie
+  const translateY = isSticky ? 0 : -scrollPosition;
 
   return (
     <>
@@ -55,7 +53,7 @@ const Navbar = () => {
             : "relative"
         }`}
         style={{
-          transform: `translateY(${translateY}px)`, // Równe chowanie się nawigacji
+          transform: `translateY(${translateY}px)`,
         }}
         aria-label="Main navigation"
       >
