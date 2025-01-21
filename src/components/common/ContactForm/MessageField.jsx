@@ -2,6 +2,8 @@ import React from "react";
 import { Field, ErrorMessage } from "formik";
 
 const MessageField = ({ label, name, errors, touched }) => {
+  const errorId = `${name}-error`;
+
   return (
     <div className="mb-input-gap">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
@@ -12,12 +14,16 @@ const MessageField = ({ label, name, errors, touched }) => {
         id={name}
         name={name}
         className={`input-bordered w-full ${
-          errors.description && touched.description ? "border-red-500" : ""
+          errors[name] && touched[name] ? "border-red-500" : ""
         }`}
+        aria-required="true"
+        aria-invalid={!!errors[name] && touched[name]}
+        aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />
       <ErrorMessage
         name={name}
         component="div"
+        id={errorId}
         className="mt-0.5 text-sm text-red-500"
       />
     </div>
