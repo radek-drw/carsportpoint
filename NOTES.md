@@ -86,4 +86,5 @@
 - add padding to the 'About' page.
 - fix nav routing
 - update Contact Form documentation
-- add aria to contact form
+- add aria to contact form - DONE
+- make more maintainable SUPPORTED_FORMATS
