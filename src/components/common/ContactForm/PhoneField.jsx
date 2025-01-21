@@ -10,7 +10,11 @@ const PhoneField = ({
   onChange,
   onCountryChange,
   country,
+  errors,
+  touched,
 }) => {
+  const errorId = `${name}-error`;
+
   return (
     <div className="basis-[47%]">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
@@ -22,10 +26,13 @@ const PhoneField = ({
         onChange={onChange}
         onCountryChange={onCountryChange}
         className="input-bordered w-full focus-within:border-inputBorder focus-within:shadow-inputShadow"
+        aria-invalid={!!errors[name] && touched[name]}
+        aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />
       <ErrorMessage
         name={name}
         component="div"
+        id={errorId}
         className="mt-1 text-sm text-red-500"
       />
     </div>
