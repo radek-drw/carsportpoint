@@ -54,7 +54,9 @@ const ContactForm = ({
             errors={errors}
             touched={touched}
           />
-          {includeSubjectInput && <SubjectSection />}
+          {includeSubjectInput && (
+            <SubjectSection errors={errors} touched={touched} />
+          )}
           <MessageSection
             messageFieldRows={messageFieldRows}
             messageLabel={messageLabel}
