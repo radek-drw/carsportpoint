@@ -2,7 +2,9 @@ import React from "react";
 
 import Divider from "../../common/Divider";
 
-import modifiedCarsInGarage from "../../../assets/images/modified-cars-garage-960w.jpg";
+import modifiedCarsInGarage960w from "../../../assets/images/modified-cars-garage-960w.webp";
+import modifiedCarsInGarage480w from "../../../assets/images/modified-cars-garage-480w.webp";
+import modifiedCarsInGarage640w from "../../../assets/images/modified-cars-garage-6400w.webp";
 import decorativeA from "../../../assets/images/section_bg1.png";
 import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
@@ -11,24 +13,22 @@ const AboutUsArticle = () => {
     <article>
       <div className="flex">
         <div className="flex basis-6/12 justify-center self-start">
-          <img
-            src={modifiedCarsInGarage}
-            alt="Modified cars in workshop garage"
-            srcSet="
-    ../../../assets/images/modified-cars-garage-480w.jpg 480w,
-    ../../../assets/images/modified-cars-garage-768w.jpg 768w,
-    ../../../assets/images/modified-cars-garage-640w.jpg 640w,
-    ../../../assets/images/modified-cars-garage-768w.jpg 768w,
-    ../../../assets/images/modified-cars-garage-960w.jpg 960w
-  "
-            sizes="
-    (max-width: 480px) 480px,
-    (max-width: 768px) 768px,
-    (max-width: 1280px) 640px,
-    (max-width: 1536px) 768px,
-    960px
-  "
-          />
+          <picture>
+            <source
+              srcSet={modifiedCarsInGarage480w}
+              media="(max-width: 480px)"
+              type="image/webp"
+            />
+            <source
+              srcSet={modifiedCarsInGarage640w}
+              media="(max-width: 640px)"
+              type="image/webp"
+            />
+            <img
+              src={modifiedCarsInGarage960w}
+              alt="Modified cars in workshop garage"
+            />
+          </picture>
         </div>
         <div className="basis-6/12 px-[4vw] pt-[70px]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
