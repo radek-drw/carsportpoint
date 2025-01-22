@@ -2,7 +2,7 @@ import React from "react";
 
 import Divider from "../../common/Divider";
 
-import modifiedCarsInGarage from "../../../assets/images/aboutmain1.jpg";
+import modifiedCarsInGarage from "../../../assets/images/modified-cars-garage-960w.jpg";
 import decorativeA from "../../../assets/images/section_bg1.png";
 import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
@@ -14,6 +14,20 @@ const AboutUsArticle = () => {
           <img
             src={modifiedCarsInGarage}
             alt="Modified cars in workshop garage"
+            srcSet="
+    ../../../assets/images/modified-cars-garage-480w.jpg 480w,
+    ../../../assets/images/modified-cars-garage-768w.jpg 768w,
+    ../../../assets/images/modified-cars-garage-640w.jpg 640w,
+    ../../../assets/images/modified-cars-garage-768w.jpg 768w,
+    ../../../assets/images/modified-cars-garage-960w.jpg 960w
+  "
+            sizes="
+    (max-width: 480px) 480px,
+    (max-width: 768px) 768px,
+    (max-width: 1280px) 640px,
+    (max-width: 1536px) 768px,
+    960px
+  "
           />
         </div>
         <div className="basis-6/12 px-[4vw] pt-[70px]">
