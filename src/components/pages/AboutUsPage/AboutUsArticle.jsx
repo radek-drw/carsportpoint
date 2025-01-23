@@ -1,7 +1,7 @@
 import React from "react";
 
 import Divider from "../../common/Divider";
-import ResponsiveImage from "./ResponsiveImage";
+import ResponsiveImage from "../../common/ResponsiveImage";
 
 import modifiedCarsInGarage480w from "../../../assets/images/modified-cars-garage-480w.webp";
 import modifiedCarsInGarage640w from "../../../assets/images/modified-cars-garage-640w.webp";
