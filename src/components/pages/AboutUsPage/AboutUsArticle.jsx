@@ -1,34 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Divider from "../../common/Divider";
 
-import modifiedCarsInGarage960w from "../../../assets/images/modified-cars-garage-960w.webp";
 import modifiedCarsInGarage480w from "../../../assets/images/modified-cars-garage-480w.webp";
-import modifiedCarsInGarage640w from "../../../assets/images/modified-cars-garage-6400w.webp";
+import modifiedCarsInGarage640w from "../../../assets/images/modified-cars-garage-640w.webp";
+import modifiedCarsInGarage768w from "../../../assets/images/modified-cars-garage-768w.webp";
+import modifiedCarsInGarage960w from "../../../assets/images/modified-cars-garage-960w.webp";
+import modifiedCarsInGarage960wFallback from "../../../assets/images/modified-cars-garage-960w-fallback.jpg";
 import decorativeA from "../../../assets/images/section_bg1.png";
 import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
+const imageSources = [
+  { srcSet: modifiedCarsInGarage480w, media: "(max-width: 480px)" },
+  { srcSet: modifiedCarsInGarage640w, media: "(max-width: 640px)" },
+  { srcSet: modifiedCarsInGarage768w, media: "(max-width: 768px)" },
+  { srcSet: modifiedCarsInGarage640w, media: "(max-width: 1280px)" },
+  { srcSet: modifiedCarsInGarage960w, media: "(min-width: 1280px)" },
+];
+
 const AboutUsArticle = () => {
+  // TEMPORARY: Check if the correct image is loaded
+  useEffect(() => {
+    const handleResize = () => {
+      const picture = document.querySelector("picture");
+      const img = picture.querySelector("img");
+      console.log(`Loaded image: ${img.currentSrc}`);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <article>
       <div className="flex">
         <div className="flex basis-6/12 justify-center self-start">
           <picture>
-            <source
-              srcSet={modifiedCarsInGarage480w}
-              media="(max-width: 480px)"
-              type="image/webp"
-            />
-            <source
-              srcSet={modifiedCarsInGarage640w}
-              media="(max-width: 640px)"
-              type="image/webp"
-            />
+            {imageSources.map((source, index) => (
+              <source
+                key={index}
+                srcSet={source.srcSet}
+                media={source.media}
+                type="image/webp"
+              />
+            ))}
             <img
-              src={modifiedCarsInGarage960w}
+              src={modifiedCarsInGarage960wFallback}
               alt="Modified cars in workshop garage"
             />
           </picture>
+          ;
         </div>
         <div className="basis-6/12 px-[4vw] pt-[70px]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
