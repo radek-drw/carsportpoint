@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Divider from "../../common/Divider";
 import ResponsiveImage from "./ResponsiveImage";
@@ -12,20 +12,6 @@ import decorativeA from "../../../assets/images/section_bg1.png";
 import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
 const AboutUsArticle = () => {
-  // TEMPORARY: Check if the correct image is loaded
-  useEffect(() => {
-    const handleResize = () => {
-      const picture = document.querySelector("picture");
-      const img = picture.querySelector("img");
-      console.log(`Loaded image: ${img.currentSrc}`);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <article>
       <div className="flex">
