@@ -1,7 +1,7 @@
 import React from "react";
 
 import Divider from "../../common/Divider";
-import ResponsiveImage from "./ResponsiveImage";
+import ResponsiveImage from "../../common/ResponsiveImage";
 
 import powerBoostDashboard480w from "../../../assets/images/power-boost-dashboard-480w.webp";
 import powerBoostDashboard640w from "../../../assets/images/power-boost-dashboard-640w.webp";
