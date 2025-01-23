@@ -88,3 +88,17 @@
 - update Contact Form documentation
 - add aria to contact form - DONE
 - make more maintainable SUPPORTED_FORMATS
+
+**Code to check if the correct image is loaded**
+useEffect(() => {
+const handleResize = () => {
+const picture = document.querySelector("picture");
+const img = picture.querySelector("img");
+console.log(`Loaded image: ${img.currentSrc}`);
+};
+window.addEventListener("resize", handleResize);
+handleResize();
+return () => {
+window.removeEventListener("resize", handleResize);
+};
+}, []);
