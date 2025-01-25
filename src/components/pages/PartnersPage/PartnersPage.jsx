@@ -9,16 +9,16 @@ import carEngine768w from "../../../../src/assets/images/car-engine-768w.webp";
 import carEngine960w from "../../../../src/assets/images/car-engine-960w.webp";
 import carEngine960wFallback from "../../../../src/assets/images/car-engine-960w-fallback.jpg";
 
-import aCunningham from "../../../../src/assets/images/A-Cunningham-1024x768-1.png";
-import abWight from "../../../../src/assets/images/AB-wight-1024x768-1.png";
-import elliotHenderson from "../../../../src/assets/images/Elliot-Henderson-1024x768-1.png";
-import galaHarriers from "../../../../src/assets/images/Gala-Harriers-1024x768-1.png";
-import marshallTractors from "../../../../src/assets/images/Marshall-Tractors-1024x768-1.png";
-import motoCarSales from "../../../../src/assets/images/moto-car-sales-1024x768-1.png";
-import peterHogg from "../../../../src/assets/images/Peter-Hogg-1024x768-1.png";
-import spg from "../../../../src/assets/images/spg-fire-and-security-1024x768-1.png";
-import starvin from "../../../../src/assets/images/starvin-1024x768-1.png";
-import monteCassino from "../../../../src/assets/images/monte-cassino-1024x768-1.png";
+import aCunningham from "../../../../src/assets/images/a-cunningham.webp";
+import abWight from "../../../../src/assets/images/ab-wight.webp";
+import elliotHenderson from "../../../../src/assets/images/elliot-henderson.webp";
+import galaHarriers from "../../../../src/assets/images/gala-harriers.webp";
+import marshallTractors from "../../../../src/assets/images/marshall-tractors.webp";
+import motoCarSales from "../../../../src/assets/images/moto-car-sales.webp";
+import peterHogg from "../../../../src/assets/images/peter-hogg.webp";
+import spg from "../../../../src/assets/images/spg-fire-and-security.webp";
+import starvin from "../../../../src/assets/images/starvin.webp";
+import monteCassino from "../../../../src/assets/images/monte-cassino.webp";
 
 const PartnersPage = () => {
   const partners = [
@@ -73,9 +73,13 @@ const PartnersPage = () => {
         </div>
         <div className="mx-auto grid grid-cols-5 gap-4 pb-10 pt-5 md:max-w-[748px] lg:max-w-[1004px] xl:max-w-[1260px]">
           {partners.map((partner, index) => (
-            <figure key={index} className="flex items-center justify-center">
-              <img src={partner.src} alt={`Logo of ${partner.name}`} />
-            </figure>
+            <picture key={index} className="flex items-center justify-center">
+              <source srcSet={partner.src} type="image/webp" />
+              <img
+                src={partner.src.replace(".webp", ".jpg")}
+                alt={`Logo of ${partner.name}`}
+              />
+            </picture>
           ))}
         </div>
       </article>
