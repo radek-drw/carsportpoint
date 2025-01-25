@@ -68,6 +68,8 @@
 
 ## 4. ARIA attributes are added for screen reader accessibility
 
+Added ARIA attributes to form components and navigation items for improved accessibility. For forms, attributes like aria-invalid, aria-describedby, aria-required, and aria-labelledby enhance navigation for assistive technologies. In the NavItem component, aria-current="page" indicates the active page for better navigation interaction
+
 ## 5. Image optimization and implementation
 
 All images on the site are in WebP format, with <picture> and <source> used to provide fallback support for browsers that do not support WebP. The <picture> element also enables responsive images to load based on the screen size. To streamline this functionality I created a custom ResponsiveImage component that accepts the following props:
