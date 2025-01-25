@@ -68,7 +68,25 @@
 
 ## 4. ARIA attributes are added for screen reader accessibility
 
-## 5. Logo Component
+## 5. Image optimization and implementation
+
+All images on the site are in WebP format, with <picture> and <source> used to provide fallback support for browsers that do not support WebP. The <picture> element also enables responsive images to load based on the screen size. To streamline this functionality I created a custom ResponsiveImage component that accepts the following props:
+
+- sources: an array of WebP image sources with breakpoints
+- fallback: the JPEG fallback source
+- alt: a description for accessibility
+- lazy: controls lazy loading (default is false but can be set to true for off-screen images)
+
+- **Responsive Image Breakpoints**
+  The breakpoints defined for loading images of appropriate resolutions are:
+  - max-width: 480px
+  - max-width: 640px
+  - max-width: 768px
+  - min-width: 1280px
+
+For partner logos on the "Partners" page, the images have a fixed width of 240px. Since these are small and static, responsive sources are not necessary.
+
+## 6. Logo Component
 
 - **Props:** The Logo component accepts the following props:
   - isClickable: Determines if the logo should be clickable. It accepts values true or false.
