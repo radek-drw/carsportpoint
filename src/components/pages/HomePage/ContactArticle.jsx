@@ -1,7 +1,12 @@
 import React from "react";
 
+import ResponsiveImage from "../../common/ResponsiveImage";
+
+import carPartsWorkshop_480w from "../../../assets/images/car-parts-workshop-480w.webp";
+import carPartsWorkshop_768w from "../../../assets/images/car-parts-workshop-768w.webp";
+import carPartsWorkshop_960w from "../../../assets/images/car-parts-workshop-960w.webp";
+import carPartsWorkshop_960w_fallback from "../../../assets/images/car-parts-workshop-960w-fallback.jpg";
 import decorativeC from "../../../assets/images/section_bg2.png";
-import carPartsWorkshop from "../../../assets/images/carsportpoint-contact.jpg";
 
 import Divider from "../../common/Divider";
 
@@ -29,7 +34,15 @@ const ContactArticle = () => {
           </p>
         </div>
         <div className="basis-6/12">
-          <img src={carPartsWorkshop} alt="Car parts on a workshop bench" />
+          <ResponsiveImage
+            sources={[
+              { srcSet: carPartsWorkshop_480w, media: "(max-width: 480px)" },
+              { srcSet: carPartsWorkshop_768w, media: "(max-width: 1280px)" },
+              { srcSet: carPartsWorkshop_960w, media: "(min-width: 1281px)" },
+            ]}
+            fallback={carPartsWorkshop_960w_fallback}
+            alt="Car parts on a workshop bench"
+          />
         </div>
       </div>
       <div className="flex justify-center">
