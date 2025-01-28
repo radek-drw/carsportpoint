@@ -3,8 +3,8 @@ import React from "react";
 import Divider from "../../common/Divider";
 import CircularProgress from "./ProgressCircle";
 
+import CarEngineCloseup from "../../../assets/images/car-engine-closeup.webp";
 import decorativeA from "../../../assets/images/section_bg1.png";
-import CarEngine from "../../../assets/images/homemain1.jpg";
 
 const AboutArticle = () => {
   return (
@@ -60,11 +60,14 @@ const AboutArticle = () => {
           </p>
         </div>
         <div className="mt-20">
-          <img
-            src={CarEngine}
-            alt="Car engine prepared for chip tuning"
-            className="w-full"
-          />
+          <picture>
+            <source srcSet={CarEngineCloseup} type="image/webp" />
+            <img
+              src={CarEngineCloseup.replace(".webp", ".jpg")}
+              alt="Car engine prepared for chip tuning"
+              className="w-full"
+            />
+          </picture>
         </div>
       </div>
     </article>
