@@ -6,11 +6,30 @@ import { FaUser } from "react-icons/fa";
 
 import Divider from "../../common/Divider";
 
-import WorkshopImage1 from "../../../assets/images/carsportpoint-tuning-1.jpg";
-import WorkshopImage2 from "../../../assets/images/carsportpoint-tuning-2.png";
-import WorkshopImage3 from "../../../assets/images/carsportpoint-tuning-3.jpg";
-import WorkshopImage4 from "../../../assets/images/carsportpoint-tuning-4.jpg";
-import decorativeCarAndParts from "../../../assets/images/home-tuning-counterbg.png";
+import WorkshopImage1 from "../../../assets/images/workshop-image-1.webp";
+import WorkshopImage2 from "../../../assets/images/workshop-image-2.webp";
+import WorkshopImage3 from "../../../assets/images/workshop-image-3.webp";
+import WorkshopImage4 from "../../../assets/images/workshop-image-4.webp";
+import decorativeCarAndParts from "../../../assets/images/decorative-car-and-parts.png";
+
+const workshopImages = [
+  {
+    src: WorkshopImage1,
+    alt: "Car on a dynamometer during performance testing",
+  },
+  {
+    src: WorkshopImage2,
+    alt: "Performance car on a dyno testing horsepower",
+  },
+  {
+    src: WorkshopImage3,
+    alt: "Equipment in a car tuning workshop",
+  },
+  {
+    src: WorkshopImage4,
+    alt: "Vehicle on a dyno for performance analysis",
+  },
+];
 
 const TuningArticle = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -32,34 +51,18 @@ const TuningArticle = () => {
           </p>
         </div>
         <div className="grid basis-6/12 grid-cols-2 self-start">
-          <div className="overflow-hidden">
-            <img
-              src={WorkshopImage1}
-              alt="Car on a dynamometer during performance testing"
-              className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
-            />
-          </div>
-          <div className="overflow-hidden">
-            <img
-              src={WorkshopImage2}
-              alt="Performance car on a dyno testing horsepower"
-              className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
-            />
-          </div>
-          <div className="overflow-hidden">
-            <img
-              src={WorkshopImage3}
-              alt="Equipment in a car tuning workshop"
-              className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
-            />
-          </div>
-          <div className="overflow-hidden">
-            <img
-              src={WorkshopImage4}
-              alt="Vehicle on a dyno for performance analysis"
-              className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
-            />
-          </div>
+          {workshopImages.map((image, index) => (
+            <div key={index} className="overflow-hidden">
+              <picture>
+                <source srcSet={image.src} type="image/webp" />
+                <img
+                  src={image.src.replace(".webp", ".jpg")}
+                  alt={image.alt}
+                  className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
+                />
+              </picture>
+            </div>
+          ))}
         </div>
       </div>
       <div className="flex">
