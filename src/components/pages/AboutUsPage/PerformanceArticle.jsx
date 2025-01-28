@@ -3,11 +3,9 @@ import React from "react";
 import Divider from "../../common/Divider";
 import ResponsiveImage from "../../common/ResponsiveImage";
 
-import powerBoostDashboard480w from "../../../assets/images/power-boost-dashboard-480w.webp";
-import powerBoostDashboard640w from "../../../assets/images/power-boost-dashboard-640w.webp";
-import powerBoostDashboard768w from "../../../assets/images/power-boost-dashboard-768w.webp";
-import powerBoostDashboard1000w from "../../../assets/images/power-boost-dashboard-1000w.webp";
-import powerBoostDashboard1000wFallback from "../../../assets/images/power-boost-dashboard-1000w-fallback.jpg";
+import powerBoostDashboard_480w from "../../../assets/images/power-boost-dashboard-480w.webp";
+import powerBoostDashboard_1000w from "../../../assets/images/power-boost-dashboard-1000w.webp";
+import powerBoostDashboard_1000w_fallback from "../../../assets/images/power-boost-dashboard-1000w-fallback.jpg";
 
 const PerformanceArticle = () => {
   return (
@@ -38,16 +36,12 @@ const PerformanceArticle = () => {
         </p>
       </div>
       <div className="basis-[40%]">
-        {/* prettier-ignore */}
         <ResponsiveImage
           sources={[
-            { srcSet: powerBoostDashboard480w, media: "(max-width: 480px)" },
-            { srcSet: powerBoostDashboard640w, media: "(max-width: 640px)" },
-            { srcSet: powerBoostDashboard768w, media: "(max-width: 768px)" },
-            { srcSet: powerBoostDashboard640w, media: "(max-width: 1280px)" },
-            { srcSet: powerBoostDashboard1000w, media: "(min-width: 1280px)"},
+            { srcSet: powerBoostDashboard_480w, media: "(max-width: 480px)" },
+            { srcSet: powerBoostDashboard_1000w, media: "(min-width: 481px)" },
           ]}
-          fallback={powerBoostDashboard1000wFallback}
+          fallback={powerBoostDashboard_1000w_fallback}
           alt="Modified cars in workshop garage"
           lazy={true}
         />
