@@ -64,7 +64,7 @@ const PartnersPage = () => {
                 { srcSet: carEngine640w, media: "(max-width: 640px)" },
                 { srcSet: carEngine768w, media: "(max-width: 768px)" },
                 { srcSet: carEngine640w, media: "(max-width: 1280px)" },
-                { srcSet: carEngine960w, media: "(min-width: 1280px)" },
+                { srcSet: carEngine960w, media: "(min-width: 1281px)" },
               ]}
               fallback={carEngine960wFallback}
               alt="Modified cars in workshop garage"
