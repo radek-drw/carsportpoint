@@ -42,6 +42,7 @@ const ContactArticle = () => {
             ]}
             fallback={carPartsWorkshop_960w_fallback}
             alt="Car parts on a workshop bench"
+            lazy={true}
           />
         </div>
       </div>

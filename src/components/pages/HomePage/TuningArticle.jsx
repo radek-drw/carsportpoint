@@ -59,6 +59,7 @@ const TuningArticle = () => {
                   src={image.src.replace(".webp", ".jpg")}
                   alt={image.alt}
                   className="w-full grayscale transition duration-300 hover:scale-[1.2] hover:grayscale-0"
+                  loading="lazy"
                 />
               </picture>
             </div>

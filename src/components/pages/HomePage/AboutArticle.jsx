@@ -66,6 +66,7 @@ const AboutArticle = () => {
               src={CarEngineCloseup.replace(".webp", ".jpg")}
               alt="Car engine prepared for chip tuning"
               className="w-full"
+              loading="lazy"
             />
           </picture>
         </div>
