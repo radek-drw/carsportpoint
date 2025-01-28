@@ -1,7 +1,13 @@
 import React from "react";
 
-import DynoCarTest1 from "../../../assets/images/dyno-car-test-1.jpg";
-import DynoCarTest2 from "../../../assets/images/dyno-car-test-2.jpg";
+import ResponsiveImage from "../../common/ResponsiveImage";
+
+import DynoCarTest1_480w from "../../../assets/images/dyno-car-test-1-480w.webp";
+import DynoCarTest1_960w from "../../../assets/images/dyno-car-test-1-960w.webp";
+import DynoCarTest1_960w_fallback from "../../../assets/images/dyno-car-test-1-960w-fallback.jpg";
+import DynoCarTest2_480w from "../../../assets/images/dyno-car-test-2-480w.webp";
+import DynoCarTest2_960w from "../../../assets/images/dyno-car-test-2-960w.webp";
+import DynoCarTest2_960w_fallback from "../../../assets/images/dyno-car-test-2-960w-fallback.jpg";
 
 import ContactForm from "../../common/ContactForm/ContactForm";
 
@@ -14,10 +20,24 @@ const Contact = () => {
     <section>
       <div className="grid grid-cols-2 items-center justify-items-center">
         <div>
-          <img src={DynoCarTest1} alt="Car on a dyno test" />
+          <ResponsiveImage
+            sources={[
+              { srcSet: DynoCarTest1_480w, media: "(max-width: 480px)" },
+              { srcSet: DynoCarTest1_960w, media: "(min-width: 481px)" },
+            ]}
+            fallback={DynoCarTest1_960w_fallback}
+            alt="Car on a dyno test"
+          />
         </div>
         <div>
-          <img src={DynoCarTest2} alt="Sports car on a dynamometer" />
+          <ResponsiveImage
+            sources={[
+              { srcSet: DynoCarTest2_480w, media: "(max-width: 480px)" },
+              { srcSet: DynoCarTest2_960w, media: "(min-width: 481px)" },
+            ]}
+            fallback={DynoCarTest2_960w_fallback}
+            alt="Sports car on a dynamometer"
+          />
         </div>
       </div>
       <article className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]">
