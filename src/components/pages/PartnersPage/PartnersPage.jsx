@@ -3,11 +3,11 @@ import React from "react";
 import Divider from "../../common/Divider";
 import ResponsiveImage from "../../common/ResponsiveImage";
 
-import carEngine480w from "../../../../src/assets/images/car-engine-480w.webp";
-import carEngine640w from "../../../../src/assets/images/car-engine-640w.webp";
-import carEngine768w from "../../../../src/assets/images/car-engine-768w.webp";
-import carEngine960w from "../../../../src/assets/images/car-engine-960w.webp";
-import carEngine960wFallback from "../../../../src/assets/images/car-engine-960w-fallback.jpg";
+import carEngine_480w from "../../../../src/assets/images/car-engine-480w.webp";
+import carEngine_640w from "../../../../src/assets/images/car-engine-640w.webp";
+import carEngine_768w from "../../../../src/assets/images/car-engine-768w.webp";
+import carEngine_960w from "../../../../src/assets/images/car-engine-960w.webp";
+import carEngine_960w_fallback from "../../../../src/assets/images/car-engine-960w-fallback.jpg";
 
 import aCunningham from "../../../../src/assets/images/a-cunningham.webp";
 import abWight from "../../../../src/assets/images/ab-wight.webp";
@@ -60,13 +60,13 @@ const PartnersPage = () => {
           <div className="basis-1/2 pl-[2vw] pt-12">
             <ResponsiveImage
               sources={[
-                { srcSet: carEngine480w, media: "(max-width: 480px)" },
-                { srcSet: carEngine640w, media: "(max-width: 640px)" },
-                { srcSet: carEngine768w, media: "(max-width: 768px)" },
-                { srcSet: carEngine640w, media: "(max-width: 1280px)" },
-                { srcSet: carEngine960w, media: "(min-width: 1281px)" },
+                { srcSet: carEngine_480w, media: "(max-width: 480px)" },
+                { srcSet: carEngine_640w, media: "(max-width: 640px)" },
+                { srcSet: carEngine_768w, media: "(max-width: 768px)" },
+                { srcSet: carEngine_640w, media: "(max-width: 1280px)" },
+                { srcSet: carEngine_960w, media: "(min-width: 1281px)" },
               ]}
-              fallback={carEngine960wFallback}
+              fallback={carEngine_960w_fallback}
               alt="Modified cars in workshop garage"
             />
           </div>
