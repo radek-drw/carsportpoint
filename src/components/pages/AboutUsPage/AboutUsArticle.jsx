@@ -3,11 +3,11 @@ import React from "react";
 import Divider from "../../common/Divider";
 import ResponsiveImage from "../../common/ResponsiveImage";
 
-import modifiedCarsInGarage480w from "../../../assets/images/modified-cars-garage-480w.webp";
-import modifiedCarsInGarage640w from "../../../assets/images/modified-cars-garage-640w.webp";
-import modifiedCarsInGarage768w from "../../../assets/images/modified-cars-garage-768w.webp";
-import modifiedCarsInGarage960w from "../../../assets/images/modified-cars-garage-960w.webp";
-import modifiedCarsInGarage960wFallback from "../../../assets/images/modified-cars-garage-960w-fallback.jpg";
+import modifiedCarsInGarage_480w from "../../../assets/images/modified-cars-garage-480w.webp";
+import modifiedCarsInGarage_640w from "../../../assets/images/modified-cars-garage-640w.webp";
+import modifiedCarsInGarage_768w from "../../../assets/images/modified-cars-garage-768w.webp";
+import modifiedCarsInGarage_960w from "../../../assets/images/modified-cars-garage-960w.webp";
+import modifiedCarsInGarage_960w_fallback from "../../../assets/images/modified-cars-garage-960w-fallback.jpg";
 import decorativeA from "../../../assets/images/section_bg1.png";
 import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 
@@ -19,13 +19,13 @@ const AboutUsArticle = () => {
           {/* prettier-ignore */}
           <ResponsiveImage
             sources={[
-              { srcSet: modifiedCarsInGarage480w, media: "(max-width: 480px)" },
-              { srcSet: modifiedCarsInGarage640w, media: "(max-width: 640px)" },
-              { srcSet: modifiedCarsInGarage768w, media: "(max-width: 768px)" },
-              { srcSet: modifiedCarsInGarage640w, media: "(max-width: 1280px)"},
-              { srcSet: modifiedCarsInGarage960w, media: "(min-width: 1280px)"},
+              { srcSet: modifiedCarsInGarage_480w, media: "(max-width: 480px)" },
+              { srcSet: modifiedCarsInGarage_640w, media: "(max-width: 640px)" },
+              { srcSet: modifiedCarsInGarage_768w, media: "(max-width: 768px)" },
+              { srcSet: modifiedCarsInGarage_640w, media: "(max-width: 1280px)"},
+              { srcSet: modifiedCarsInGarage_960w, media: "(min-width: 1281px)"},
             ]}
-            fallback={modifiedCarsInGarage960wFallback}
+            fallback={modifiedCarsInGarage_960w_fallback}
             alt="Modified cars in workshop garage"
           />
         </div>
