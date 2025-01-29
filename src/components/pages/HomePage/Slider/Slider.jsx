@@ -10,6 +10,8 @@ import { useSlideAnimations } from "./textAnimations";
 import { SLIDER_TIMES } from "./config";
 import "./animations.css";
 
+import ResponsiveImage from "../../../common/ResponsiveImage";
+
 const Slider = () => {
   const [resetAnimation, setResetAnimation] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
@@ -48,13 +50,23 @@ const Slider = () => {
         {slidesWithAnimations.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative flex h-full items-center justify-center bg-cover bg-center"
+              className="relative flex h-full items-center justify-center"
               style={{
-                backgroundImage: `url(${slide.image})`,
-                borderRadius: "15px",
                 animation: `zoomIn ${SLIDER_TIMES.slideDuration + SLIDER_TIMES.fadeTransitionDuration}ms linear infinite`,
               }}
             >
+              {/* prettier-ignore */}
+              <ResponsiveImage
+                sources={[
+                  { media: "(max-width: 480px)", srcSet: slide.images.small },
+                  { media: "(max-width: 768px)", srcSet: slide.images.medium },
+                  { media: "(max-width: 1280px)", srcSet: slide.images.large },
+                  { media: "(min-width: 1281px)", srcSet: slide.images.extraLarge },
+                ]}
+                fallback={slide.images.fallback}
+                alt={`Slide ${index + 1}`}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
               <SlideContent
                 textAnimations={slide.animations}
                 text={slide.text}
