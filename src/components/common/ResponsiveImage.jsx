@@ -1,4 +1,10 @@
-const ResponsiveImage = ({ sources, fallback, alt, lazy = false }) => {
+const ResponsiveImage = ({
+  sources,
+  fallback,
+  alt,
+  lazy = false,
+  className = "",
+}) => {
   return (
     <picture>
       {sources.map((source, index) => (
@@ -9,7 +15,12 @@ const ResponsiveImage = ({ sources, fallback, alt, lazy = false }) => {
           type={source.type || "image/webp"}
         />
       ))}
-      <img src={fallback} alt={alt} loading={lazy ? "lazy" : "eager"} />
+      <img
+        src={fallback}
+        alt={alt}
+        loading={lazy ? "lazy" : "eager"}
+        className={className}
+      />
     </picture>
   );
 };
