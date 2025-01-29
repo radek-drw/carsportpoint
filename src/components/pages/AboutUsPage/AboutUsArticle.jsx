@@ -14,14 +14,14 @@ import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
 const AboutUsArticle = () => {
   return (
     <article>
-      <div className="flex">
-        <div className="flex basis-6/12 justify-center self-start">
+      <div className="flex w-full flex-col md:flex-row">
+        <div className="flex w-full justify-center md:basis-1/2">
           {/* prettier-ignore */}
           <ResponsiveImage
             sources={[
-              { srcSet: modifiedCarsInGarage_480w, media: "(max-width: 480px)" },
-              { srcSet: modifiedCarsInGarage_640w, media: "(max-width: 640px)" },
-              { srcSet: modifiedCarsInGarage_768w, media: "(max-width: 768px)" },
+              { srcSet: modifiedCarsInGarage_480w, media: "(max-width: 480px)"},
+              { srcSet: modifiedCarsInGarage_640w, media: "(max-width: 640px)"},
+              { srcSet: modifiedCarsInGarage_768w, media: "(max-width: 768px)"},
               { srcSet: modifiedCarsInGarage_640w, media: "(max-width: 1280px)"},
               { srcSet: modifiedCarsInGarage_960w, media: "(min-width: 1281px)"},
             ]}
@@ -29,7 +29,7 @@ const AboutUsArticle = () => {
             alt="Modified cars in workshop garage"
           />
         </div>
-        <div className="basis-6/12 px-[4vw] pt-[70px]">
+        <div className="w-full px-[7vw] pt-[70px] md:basis-1/2 md:px-[4vw]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
           </h1>
@@ -46,15 +46,17 @@ const AboutUsArticle = () => {
           </h3>
         </div>
       </div>
+
       <div
         className="bg-no-repeat pt-20"
         style={{
           backgroundImage: `url(${decorativeA}), url(${decorativeWheel})`,
-          backgroundPosition: "left, right",
+          backgroundPosition: "left, right bottom",
+          backgroundSize: "auto, 150px",
         }}
       >
-        <div className="mx-auto flex w-6/12">
-          <div className="basis-6/12 px-[2vw]">
+        <div className="mx-auto flex flex-col px-[7vw] md:w-1/2 md:flex-row">
+          <div className="w-full md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
               Fusce tincidunt ante et nunc posuere posuere. Donec venenatis mi
@@ -76,7 +78,7 @@ const AboutUsArticle = () => {
               eos qui ratione voluptatem sequi nesciunt.
             </p>
           </div>
-          <div className="basis-6/12 px-[2vw] pt-36">
+          <div className="w-full pt-10 md:basis-1/2 md:px-[2vw] md:pt-36">
             <p className="pb-4 text-sm text-customGrey lg:text-lg">
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
