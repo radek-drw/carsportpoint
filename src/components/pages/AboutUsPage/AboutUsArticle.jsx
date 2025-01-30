@@ -47,14 +47,23 @@ const AboutUsArticle = () => {
         </div>
       </div>
 
-      <div
-        className="bg-no-repeat pt-20"
-        style={{
-          backgroundImage: `url(${decorativeA}), url(${decorativeWheel})`,
-          backgroundPosition: "left, right bottom",
-          backgroundSize: "auto, 150px",
-        }}
-      >
+      <div className="relative pt-20">
+        <div
+          className="h- absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-85"
+          style={{
+            backgroundImage: `url(${decorativeA})`,
+            backgroundPosition: "left",
+            backgroundSize: "contain",
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 h-40 w-full translate-y-16 bg-no-repeat opacity-45"
+          style={{
+            backgroundImage: `url(${decorativeWheel})`,
+            backgroundPosition: "right",
+            backgroundSize: "contain",
+          }}
+        ></div>
         <div className="mx-auto flex flex-col px-[7vw] md:w-1/2 md:flex-row">
           <div className="w-full md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
