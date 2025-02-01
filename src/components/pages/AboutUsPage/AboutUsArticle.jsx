@@ -49,7 +49,7 @@ const AboutUsArticle = () => {
 
       <div className="relative pt-20">
         <div
-          className="h- absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-85"
+          className="absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-85"
           style={{
             backgroundImage: `url(${decorativeA})`,
             backgroundPosition: "left",
