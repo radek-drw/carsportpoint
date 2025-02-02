@@ -17,7 +17,7 @@ const PerformanceArticle = () => {
         </h2>
         <Divider size="194px" orientation="horizontal" />
       </div>
-      <div className="mb-14 basis-[25%] px-[7vw] md:mb-0 md:px-[2vw]">
+      <div className="px-mobile-padding mb-14 basis-[25%] md:mb-0 md:px-[2vw]">
         <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
           Curabitur ullamcorper vehicula metus quis laoreet! Maecenas non metus
           enim. Aliquam eu hendrerit ligula, sed malesuada nisl! Nam sed lacus
