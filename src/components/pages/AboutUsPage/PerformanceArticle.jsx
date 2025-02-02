@@ -42,7 +42,7 @@ const PerformanceArticle = () => {
             { srcSet: powerBoostDashboard_1000w, media: "(min-width: 481px)" },
           ]}
           fallback={powerBoostDashboard_1000w_fallback}
-          alt="Modified cars in workshop garage"
+          alt="Dashboard counter showing power boost"
           lazy={true}
         />
       </div>
