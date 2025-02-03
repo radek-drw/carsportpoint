@@ -72,7 +72,7 @@ Added ARIA attributes to form components and navigation items for improved acces
 
 ## 5. Image optimization and implementation
 
-All images on the site are in WebP format, with <picture> and <source> used to provide fallback support for browsers that do not support WebP. The <picture> element also enables responsive images to load based on the screen size. To streamline this functionality I created a custom ResponsiveImage component that accepts the following props:
+All images on the site are in WebP format, with <picture> and <source> used to provide fallback image in JPG to support browsers that do not support WebP. The <picture> element also enables responsive images to load based on the screen size. To streamline this functionality I created a custom ResponsiveImage component that accepts the following props:
 
 - sources: an array of WebP image sources with breakpoints
 - fallback: the JPEG fallback source
@@ -108,6 +108,7 @@ For partner logos on the "Partners" page, the images have a fixed width of 240px
 - update Contact Form documentation
 - add aria to contact form - DONE
 - make more maintainable SUPPORTED_FORMATS
+- use vite.cofig.js
 
 **Code to check if the correct image is loaded**
 useEffect(() => {
