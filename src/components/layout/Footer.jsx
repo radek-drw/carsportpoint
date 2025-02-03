@@ -12,8 +12,8 @@ const DOT_SIZE = 46;
 
 const Footer = () => {
   return (
-    <footer className="flex px-[2vw] pb-20 pt-16">
-      <div className="basis-[65vw]">
+    <footer className="px-mobile-padding flex flex-col pb-20 pt-16 md:flex-row md:px-[2vw]">
+      <div className="mb-14 md:mb-0 md:basis-[65vw]">
         <nav
           className="flex items-center text-[#1E1E1E]"
           aria-label="Social media links"
@@ -57,7 +57,7 @@ const Footer = () => {
           </a>
         </nav>
         <div className="my-9 h-[1px] w-[88px] bg-footerCustomGrey"></div>
-        <p className="w-2/4 text-sm text-footerCustomGrey">
+        <p className="w-full text-sm text-footerCustomGrey md:w-1/2">
           Nulla facilisi. Proin ultrices dui in diam euismod, sed iaculis nunc
           interdum suspendisse vehicula porta. Ut felis erat, faucibus ac ipsum
           in
