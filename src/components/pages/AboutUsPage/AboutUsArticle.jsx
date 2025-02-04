@@ -49,7 +49,7 @@ const AboutUsArticle = () => {
 
       <div className="relative pt-20">
         <div
-          className="absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-85"
+          className="opacity-8 absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat md:top-16 md:h-[500px] md:translate-y-0 md:opacity-100"
           style={{
             backgroundImage: `url(${decorativeA})`,
             backgroundPosition: "left",
@@ -57,14 +57,14 @@ const AboutUsArticle = () => {
           }}
         ></div>
         <div
-          className="absolute bottom-0 h-40 w-full translate-y-16 bg-no-repeat opacity-45"
+          className="absolute bottom-0 right-0 h-32 w-full translate-y-16 bg-red-200 bg-no-repeat opacity-45 md:bottom-auto md:translate-y-0 md:opacity-100"
           style={{
             backgroundImage: `url(${decorativeWheel})`,
             backgroundPosition: "right",
             backgroundSize: "contain",
           }}
         ></div>
-        <div className="px-mobile-padding mx-auto flex flex-col md:w-1/2 md:flex-row">
+        <div className="px-mobile-padding mx-auto flex flex-col md:w-2/3 md:flex-row">
           <div className="w-full md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
