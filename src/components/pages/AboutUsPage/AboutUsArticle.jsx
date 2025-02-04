@@ -29,7 +29,7 @@ const AboutUsArticle = () => {
             alt="Modified cars in workshop garage"
           />
         </div>
-        <div className="px-mobile-padding w-full pt-[70px] md:basis-1/2 md:px-[4vw]">
+        <div className="w-full px-mobile-padding pt-[70px] md:basis-1/2 md:px-[4vw]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
           </h1>
@@ -47,25 +47,18 @@ const AboutUsArticle = () => {
         </div>
       </div>
 
-      <div className="relative pt-20">
+      <div className="relative flex flex-col pt-20 md:flex-row">
         <div
-          className="opacity-8 absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat md:top-16 md:h-[500px] md:translate-y-0 md:opacity-100"
+          className="absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-70 md:static md:h-auto md:basis-1/5 md:translate-y-0 md:opacity-100"
           style={{
             backgroundImage: `url(${decorativeA})`,
             backgroundPosition: "left",
             backgroundSize: "contain",
           }}
         ></div>
-        <div
-          className="absolute bottom-0 right-0 h-32 w-full translate-y-16 bg-red-200 bg-no-repeat opacity-45 md:bottom-auto md:translate-y-0 md:opacity-100"
-          style={{
-            backgroundImage: `url(${decorativeWheel})`,
-            backgroundPosition: "right",
-            backgroundSize: "contain",
-          }}
-        ></div>
-        <div className="px-mobile-padding mx-auto flex flex-col md:w-2/3 md:flex-row">
-          <div className="w-full md:basis-1/2 md:px-[2vw]">
+
+        <div className="flex flex-1 flex-col px-mobile-padding md:flex-row md:px-[2vw]">
+          <div className="md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
               Fusce tincidunt ante et nunc posuere posuere. Donec venenatis mi
@@ -87,7 +80,7 @@ const AboutUsArticle = () => {
               eos qui ratione voluptatem sequi nesciunt.
             </p>
           </div>
-          <div className="w-full pt-10 md:basis-1/2 md:px-[2vw] md:pt-36">
+          <div className="pt-10 md:basis-1/2 md:px-[2vw] md:pt-36">
             <p className="pb-4 text-sm text-customGrey lg:text-lg">
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -107,6 +100,15 @@ const AboutUsArticle = () => {
             </p>
           </div>
         </div>
+
+        <div
+          className="absolute -bottom-24 h-40 w-full bg-no-repeat opacity-40 md:static md:h-auto md:basis-1/5 md:opacity-100"
+          style={{
+            backgroundImage: `url(${decorativeWheel})`,
+            backgroundPosition: "right",
+            backgroundSize: "contain",
+          }}
+        ></div>
       </div>
     </article>
   );
