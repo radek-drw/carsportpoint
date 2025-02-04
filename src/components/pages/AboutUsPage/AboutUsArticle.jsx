@@ -29,7 +29,7 @@ const AboutUsArticle = () => {
             alt="Modified cars in workshop garage"
           />
         </div>
-        <div className="w-full px-mobile-padding pt-[70px] md:basis-1/2 md:px-[4vw]">
+        <div className="px-mobile-padding w-full pt-[70px] md:basis-1/2 md:px-[4vw]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
           </h1>
@@ -57,7 +57,7 @@ const AboutUsArticle = () => {
           }}
         ></div>
 
-        <div className="flex flex-1 flex-col px-mobile-padding md:flex-row md:px-[2vw]">
+        <div className="px-mobile-padding flex flex-1 flex-col md:flex-row md:px-[2vw]">
           <div className="md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
