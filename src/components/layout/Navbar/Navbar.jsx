@@ -36,10 +36,10 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`flex h-24 items-center justify-between ${
+      className={`flex items-center justify-between ${
         isSticky
           ? "sticky top-0 z-50 h-14 bg-[rgba(255,255,255,0.8)] shadow-md"
-          : "relative"
+          : "relative h-24"
       }`}
       aria-label="Main navigation"
     >
@@ -53,7 +53,7 @@ const Navbar = () => {
             key={index}
             label={item.label}
             href={item.href}
-            isActive={location.pathname === item.href} // Sprawdzanie aktywnej zakładki na podstawie ścieżki
+            isActive={location.pathname === item.href}
           />
         ))}
       </ul>
