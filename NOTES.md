@@ -99,11 +99,20 @@ For partner logos on the "Partners" page, the images have a fixed width of 240px
 - **Usage in Footer:**
   - The logo is not clickable and serves only as a visual element.
 
+## 7. Vite Integration in the Project
+
+The project uses Vite for its speed, performance, and simpler configuration compared to Webpack.
+Reasons to use Vite:
+
+- Faster development startup – utilizes native ES modules and Hot Module Replacement (HMR) for instant updates.
+- Optimized build process – pre-bundles dependencies with esbuild, making builds significantly faster.
+- Path aliasing – allows for cleaner and more manageable imports.
+
 ## TODO
 
-- determine if the logo should be a separate component.
-- establish a naming convention for images.
-- add padding to the 'About' page.
+- determine if the logo should be a separate component
+- establish a naming convention for images
+- add padding to the 'About' page
 - fix nav routing
 - update Contact Form documentation
 - add aria to contact form - DONE
