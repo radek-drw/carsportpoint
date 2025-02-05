@@ -110,14 +110,14 @@ Reasons to use Vite:
 
 ## TODO
 
-- determine if the logo should be a separate component
-- establish a naming convention for images
+- determine if the logo should be a separate component - DONE
+- establish a naming convention for images - DONE
 - add padding to the 'About' page
-- fix nav routing
+- fix nav routing - DONE
 - update Contact Form documentation
 - add aria to contact form - DONE
 - make more maintainable SUPPORTED_FORMATS
-- use vite.cofig.js
+- use Vite - DONE
 
 **Code to check if the correct image is loaded**
 useEffect(() => {
