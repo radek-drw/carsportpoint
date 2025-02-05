@@ -4,13 +4,13 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { FaUser } from "react-icons/fa";
 
-import Divider from "../../common/Divider";
+import Divider from "@common/Divider";
 
-import WorkshopImage1 from "../../../assets/images/workshop-image-1.webp";
-import WorkshopImage2 from "../../../assets/images/workshop-image-2.webp";
-import WorkshopImage3 from "../../../assets/images/workshop-image-3.webp";
-import WorkshopImage4 from "../../../assets/images/workshop-image-4.webp";
-import decorativeCarAndParts from "../../../assets/images/decorative-car-and-parts.png";
+import WorkshopImage1 from "@images/workshop-image-1.webp";
+import WorkshopImage2 from "@images/workshop-image-2.webp";
+import WorkshopImage3 from "@images/workshop-image-3.webp";
+import WorkshopImage4 from "@images/workshop-image-4.webp";
+import decorativeCarAndParts from "@images/decorative-car-and-parts.png";
 
 const workshopImages = [
   {

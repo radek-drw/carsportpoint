@@ -1,19 +1,17 @@
 import React from "react";
 
-import ResponsiveImage from "../../common/ResponsiveImage";
+import ResponsiveImage from "@common/ResponsiveImage";
+import Divider from "@common/Divider";
+import ContactForm from "@common/ContactForm/ContactForm";
 
-import DynoCarTest1_480w from "../../../assets/images/dyno-car-test-1-480w.webp";
-import DynoCarTest1_960w from "../../../assets/images/dyno-car-test-1-960w.webp";
-import DynoCarTest1_960w_fallback from "../../../assets/images/dyno-car-test-1-960w-fallback.jpg";
-import DynoCarTest2_480w from "../../../assets/images/dyno-car-test-2-480w.webp";
-import DynoCarTest2_960w from "../../../assets/images/dyno-car-test-2-960w.webp";
-import DynoCarTest2_960w_fallback from "../../../assets/images/dyno-car-test-2-960w-fallback.jpg";
-
-import ContactForm from "../../common/ContactForm/ContactForm";
+import DynoCarTest1_480w from "@images/dyno-car-test-1-480w.webp";
+import DynoCarTest1_960w from "@images/dyno-car-test-1-960w.webp";
+import DynoCarTest1_960w_fallback from "@images/dyno-car-test-1-960w-fallback.jpg";
+import DynoCarTest2_480w from "@images/dyno-car-test-2-480w.webp";
+import DynoCarTest2_960w from "@images/dyno-car-test-2-960w.webp";
+import DynoCarTest2_960w_fallback from "@images/dyno-car-test-2-960w-fallback.jpg";
 
 import { CgPhone } from "react-icons/cg";
-
-import Divider from "../../common/Divider";
 
 const Contact = () => {
   return (

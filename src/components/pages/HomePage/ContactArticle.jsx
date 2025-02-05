@@ -1,14 +1,13 @@
 import React from "react";
 
-import ResponsiveImage from "../../common/ResponsiveImage";
+import ResponsiveImage from "@common/ResponsiveImage";
+import Divider from "@common/Divider";
 
-import carPartsWorkshop_480w from "../../../assets/images/car-parts-workshop-480w.webp";
-import carPartsWorkshop_768w from "../../../assets/images/car-parts-workshop-768w.webp";
-import carPartsWorkshop_960w from "../../../assets/images/car-parts-workshop-960w.webp";
-import carPartsWorkshop_960w_fallback from "../../../assets/images/car-parts-workshop-960w-fallback.jpg";
-import decorativeC from "../../../assets/images/section_bg2.png";
-
-import Divider from "../../common/Divider";
+import carPartsWorkshop_480w from "@images/car-parts-workshop-480w.webp";
+import carPartsWorkshop_768w from "@images/car-parts-workshop-768w.webp";
+import carPartsWorkshop_960w from "@images/car-parts-workshop-960w.webp";
+import carPartsWorkshop_960w_fallback from "@images/car-parts-workshop-960w-fallback.jpg";
+import decorativeC from "@images/section_bg2.png";
 
 const ContactArticle = () => {
   return (

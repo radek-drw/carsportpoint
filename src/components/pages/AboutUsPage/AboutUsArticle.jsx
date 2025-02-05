@@ -1,15 +1,15 @@
 import React from "react";
 
-import Divider from "../../common/Divider";
-import ResponsiveImage from "../../common/ResponsiveImage";
+import ResponsiveImage from "@common/ResponsiveImage";
+import Divider from "@common/Divider";
 
-import modifiedCarsInGarage_480w from "../../../assets/images/modified-cars-garage-480w.webp";
-import modifiedCarsInGarage_640w from "../../../assets/images/modified-cars-garage-640w.webp";
-import modifiedCarsInGarage_768w from "../../../assets/images/modified-cars-garage-768w.webp";
-import modifiedCarsInGarage_960w from "../../../assets/images/modified-cars-garage-960w.webp";
-import modifiedCarsInGarage_960w_fallback from "../../../assets/images/modified-cars-garage-960w-fallback.jpg";
-import decorativeA from "../../../assets/images/section_bg1.png";
-import decorativeWheel from "../../../assets/images/home_tuning_about1.png";
+import modifiedCarsInGarage_480w from "@images/modified-cars-garage-480w.webp";
+import modifiedCarsInGarage_640w from "@images/modified-cars-garage-640w.webp";
+import modifiedCarsInGarage_768w from "@images/modified-cars-garage-768w.webp";
+import modifiedCarsInGarage_960w from "@images/modified-cars-garage-960w.webp";
+import modifiedCarsInGarage_960w_fallback from "@images/modified-cars-garage-960w-fallback.jpg";
+import decorativeA from "@images/section_bg1.png";
+import decorativeWheel from "@images/home_tuning_about1.png";
 
 const AboutUsArticle = () => {
   return (

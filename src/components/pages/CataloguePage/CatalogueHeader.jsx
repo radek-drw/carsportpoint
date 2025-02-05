@@ -1,6 +1,6 @@
 import React from "react";
 
-import Divider from "../../common/Divider";
+import Divider from "@common/Divider";
 
 const CatalogueHeader = () => {
   return (
