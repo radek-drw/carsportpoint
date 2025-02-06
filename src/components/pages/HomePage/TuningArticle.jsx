@@ -35,9 +35,9 @@ const TuningArticle = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
   return (
     <article className="mt-36">
-      <div className="flex">
-        <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="mb-10 text-xl font-bold text-customRed sm:text-3xl md:text-4xl">
+      <div className="flex flex-col md:flex-row">
+        <div className="px-mobile-padding mb-10 w-full md:mb-0 md:basis-1/2 md:pl-[20vw] md:pr-16">
+          <h2 className="mb-10 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Tuning
           </h2>
           <h3 className="mb-20 text-4xl font-black text-articleHead sm:text-5xl lg:text-6xl">
@@ -50,7 +50,7 @@ const TuningArticle = () => {
             is the best of the best
           </p>
         </div>
-        <div className="grid basis-6/12 grid-cols-2 self-start">
+        <div className="grid basis-1/2 grid-cols-2 self-start">
           {workshopImages.map((image, index) => (
             <div key={index} className="overflow-hidden">
               <picture>
@@ -66,8 +66,8 @@ const TuningArticle = () => {
           ))}
         </div>
       </div>
-      <div className="flex">
-        <div className="basis-2/4">
+      <div className="mt-20 flex md:mt-0">
+        <div className="basis-1/2">
           <img src={decorativeCarAndParts} alt="" className="ml-auto" />
         </div>
         <Divider size="330px" orientation="vertical" />

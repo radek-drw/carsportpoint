@@ -13,11 +13,11 @@ const ContactArticle = () => {
   return (
     <article className="mt-28">
       <div
-        className="flex bg-no-repeat"
+        className="flex flex-col bg-no-repeat md:flex-row"
         style={{ backgroundImage: `url(${decorativeC})` }}
       >
-        <div className="basis-6/12 pl-[20vw] pr-16">
-          <h2 className="mb-10 text-xl font-bold text-customRed sm:text-3xl md:text-4xl">
+        <div className="px-mobile-padding w-full md:basis-1/2 md:pl-[20vw] md:pr-16">
+          <h2 className="mb-10 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Contact us
           </h2>
           <h3 className="text-4xl font-black text-articleHead sm:text-5xl lg:text-6xl">
@@ -27,7 +27,7 @@ const ContactArticle = () => {
             get in touch
           </p>
           <Divider size="194px" orientation="horizontal" />
-          <p className="mt-14 text-sm font-medium text-articleHead sm:text-base lg:text-xl">
+          <p className="mb-10 mt-14 text-sm font-medium text-articleHead sm:text-base md:mb-0 lg:text-xl">
             If you want to be featured on this website submit your request today
             and our team will be in touch with you as soon as possible
           </p>

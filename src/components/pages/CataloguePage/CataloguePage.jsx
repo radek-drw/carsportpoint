@@ -5,7 +5,7 @@ import ContactForm from "@common/ContactForm/ContactForm";
 
 const CataloguePage = () => {
   return (
-    <section className="pt-16">
+    <section className="px-mobile-padding pt-16 md:px-0">
       <CatalogueHeader />
       <ContactForm
         title={

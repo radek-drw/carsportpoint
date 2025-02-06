@@ -20,7 +20,7 @@ const CompanyInfoSection = ({
         errors={errors}
         touched={touched}
       />
-      <div className="mb-input-gap flex justify-between">
+      <div className="mb-input-gap flex flex-col items-center justify-between md:flex-row">
         <EmailField
           label="Email Address *"
           name="email"

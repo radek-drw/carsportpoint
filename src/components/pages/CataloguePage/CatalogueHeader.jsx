@@ -13,8 +13,8 @@ const CatalogueHeader = () => {
           The best tuning companies in Ireland
         </h2>
         <Divider size="194px" orientation="horizontal" />
-        <div className="mt-20 flex">
-          <div className="basis-1/2 pl-4 pr-2">
+        <div className="mt-20 flex-col md:flex-row">
+          <div className="basis-1/2 md:pl-4 md:pr-2">
             <h3 className="pb-4 text-sm font-medium leading-5 text-articleHead sm:text-base sm:leading-5 md:text-lg md:leading-5 lg:text-xl lg:leading-6">
               Nam ac diam ipsum. pretium scelerisque eleifend justo vel bibendum
               sapien massa ac turpis faucibus orci luctus non, consectetuer
@@ -30,7 +30,7 @@ const CatalogueHeader = () => {
               ipsum. Integer aliquam purus. Quisque lorem tortor fringilla.
             </p>
           </div>
-          <div className="basis-1/2 pl-2 pt-7">
+          <div className="basis-1/2 pt-7 md:pl-2">
             <p className="pb-4 text-sm leading-6 text-customGrey lg:text-lg">
               Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a
               pellentesque dui, non felis. Maecenas malesuada elit lectus felis,

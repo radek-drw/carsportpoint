@@ -5,7 +5,7 @@ const EmailField = ({ label, name, errors, touched }) => {
   const errorId = `${name}-error`;
 
   return (
-    <div className="basis-[47%]">
+    <div className="mb-input-gap w-full md:mb-0 md:basis-[47%]">
       <label htmlFor={name} className="mb-1 block text-sm font-medium">
         {label}
       </label>

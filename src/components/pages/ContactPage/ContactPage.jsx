@@ -16,7 +16,7 @@ import { CgPhone } from "react-icons/cg";
 const Contact = () => {
   return (
     <section>
-      <div className="grid grid-cols-2 items-center justify-items-center">
+      <div className="grid items-center justify-items-center md:grid-cols-2">
         <div>
           <ResponsiveImage
             sources={[
@@ -38,7 +38,7 @@ const Contact = () => {
           />
         </div>
       </div>
-      <article className="mx-auto mt-16 grid grid-cols-2 md:max-w-[692px] lg:max-w-[968px] xl:max-w-[1224px]">
+      <article className="px-mobile-padding mx-auto mt-16 grid md:max-w-[692px] md:grid-cols-2 md:px-0 lg:max-w-[968px] xl:max-w-[1224px]">
         <div className="md:pr-10 lg:pr-14 xl:pr-20">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             Contact Us
@@ -48,7 +48,7 @@ const Contact = () => {
           </h2>
           <a
             href="tel:0851234567"
-            className="hover:text-customRed-dark mb-16 inline-block font-form text-[40px] text-customRed lg:text-5xl"
+            className="hover:text-customRed-dark mb-14 inline-block font-form text-[40px] text-customRed lg:text-5xl"
             aria-label="Call us at 085 123 4567"
           >
             <div className="flex items-center hover:underline">
@@ -57,7 +57,7 @@ const Contact = () => {
             </div>
           </a>
           <Divider size="194px" orientation="horizontal" />
-          <h3 className="mt-16 pb-4 pr-28 text-sm font-medium leading-5 text-articleHead sm:text-base sm:leading-5 md:text-lg md:leading-5 lg:pr-40 lg:text-xl lg:leading-6 xl:pr-52">
+          <h3 className="mt-14 pb-4 pr-28 text-sm font-medium leading-5 text-articleHead sm:text-base sm:leading-5 md:text-lg md:leading-5 lg:pr-40 lg:text-xl lg:leading-6 xl:pr-52">
             Maecenas aliquam tristique lectus eget dapibus? Etiam vel sapien eu
             leo auctor efficitur! Aliquam sit amet eros cursus, consectetur erat
             vitae, facilisis metus.
@@ -84,7 +84,7 @@ const Contact = () => {
           />
         </div>
       </article>
-      <div className="mt-24 flex justify-center">
+      <div className="mt-20 flex justify-center">
         <Divider size="194px" orientation="vertical" rotate="180" />
       </div>
     </section>
