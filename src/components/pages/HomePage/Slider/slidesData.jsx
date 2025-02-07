@@ -22,13 +22,11 @@ const slidesData = [
     text: [
       {
         content: "a product that can",
-        className:
-          "capitalize text-white font-extrabold sm:text-6xl xl:text-7xl",
+        className: "capitalize text-white font-extrabold text-5xl xl:text-7xl",
       },
       {
         content: "change your life",
-        className:
-          "capitalize text-white font-extrabold sm:text-6xl xl:text-7xl",
+        className: "capitalize text-white font-extrabold text-5xl xl:text-7xl",
       },
     ],
     layout: "left",
@@ -44,12 +42,11 @@ const slidesData = [
     text: [
       {
         content: "tuning and remaps",
-        className:
-          "uppercase text-white font-extrabold sm:text-6xl xl:text-7xl",
+        className: "uppercase text-white font-extrabold text-5xl xl:text-7xl",
       },
       {
         content: "We unite the best in Ireland",
-        className: "tracking-[4px] text-sm text-white",
+        className: "tracking-[4px] text-sm text-white xl:text-lg",
       },
     ],
     layout: "center",
