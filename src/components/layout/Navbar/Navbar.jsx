@@ -67,23 +67,23 @@ const Navbar = () => {
 
       <nav
         ref={navbarRef}
-        className={`flex items-center justify-end font-navigation uppercase md:justify-between ${
+        className={`flex items-center justify-end font-navigation uppercase xl:justify-between ${
           isSticky
-            ? "md:sticky md:top-0 md:z-50 md:h-14 md:bg-[rgba(255,255,255,0.8)] md:shadow-md"
+            ? "xl:sticky xl:top-0 xl:z-50 xl:h-14 xl:bg-[rgba(255,255,255,0.8)] xl:shadow-md"
             : "relative h-24"
         }`}
         aria-label="Main navigation"
       >
-        <div className="absolute left-1/2 -translate-x-1/2 transform">
+        <div className="absolute left-1/2 -translate-x-1/2 transform xl:static xl:ml-5 xl:translate-x-0">
           <Logo
             isClickable={true}
-            className={`${isSticky ? "md:max-w-[90px]" : "max-w-[225px]"}`}
+            className={`${isSticky ? "xl:max-w-[90px]" : "max-w-[225px]"}`}
           />
         </div>
 
         {/* Ikona burgera (widoczna tylko na mobile) */}
         <button
-          className="z-50 p-5 focus:outline-none md:hidden md:p-0"
+          className="z-50 p-5 focus:outline-none xl:hidden xl:p-0"
           onClick={() => setIsMenuOpen(true)}
           aria-label="Open menu"
         >
@@ -91,7 +91,7 @@ const Navbar = () => {
         </button>
 
         {/* Menu dla desktop */}
-        <ul className="hidden h-full md:flex">
+        <ul className="hidden h-full xl:flex">
           {menuItems.map((item, index) => (
             <NavItem
               key={index}
@@ -106,7 +106,7 @@ const Navbar = () => {
         {/* Menu dla mobile */}
         <div
           ref={mobileMenuRef}
-          className={`fixed right-0 top-0 z-50 h-full w-64 transform bg-[#191919] shadow-lg transition-transform duration-300 md:hidden ${
+          className={`fixed right-0 top-0 z-50 h-full w-64 transform bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
