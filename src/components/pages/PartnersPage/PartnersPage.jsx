@@ -111,7 +111,7 @@ const PartnersPage = () => {
           <Divider size="128px" orientation="vertical" />
         </div>
         <div className="flex flex-col md:flex-row md:pl-[4vw]">
-          <div className="px-mobile-padding basis-1/2 pt-32 md:pl-0 md:pr-[3vw] md:pt-36">
+          <div className="basis-1/2 px-mobile-padding pt-32 md:pl-0 md:pr-[3vw] md:pt-36">
             <h1 className="mb-9 text-2xl font-bold uppercase text-customRed sm:text-3xl md:text-4xl">
               our partners
             </h1>
@@ -119,11 +119,11 @@ const PartnersPage = () => {
               We cooperate with the best in the industry
             </h2>
             <Divider size="194px" orientation="horizontal" />
-            <h3 className="mb-4 mt-14 pr-[40%] text-sm font-medium text-articleHead sm:text-base md:pr-[46%] md:text-lg lg:text-xl">
+            <h3 className="mb-4 mt-14 text-sm font-medium text-articleHead sm:text-base md:pr-[46%] md:text-lg lg:text-xl">
               Mauris vel tellus in urna volutpat tempus? Proin viverra varius
               massa nec commodo. Cras aliquet leo ut tellus.
             </h3>
-            <p className="pr-[40%] text-sm text-customGrey md:pr-[46%]">
+            <p className="text-sm text-customGrey md:pr-[46%]">
               Proin ac leo eu nisi congue ornare eget lobortis ante. Nunc
               fermentum elementum felis quis dignissim. Aliquam vitae elit
               tellus. Nunc ac est ut lorem cras amet.
