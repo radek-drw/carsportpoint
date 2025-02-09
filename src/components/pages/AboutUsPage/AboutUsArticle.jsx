@@ -29,7 +29,7 @@ const AboutUsArticle = () => {
             alt="Modified cars in workshop garage"
           />
         </div>
-        <div className="px-mobile-padding w-full pt-[70px] md:basis-1/2 md:px-[4vw]">
+        <div className="w-full px-mobile-padding pt-[70px] md:basis-1/2 md:px-[4vw]">
           <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
             About us
           </h1>
@@ -39,7 +39,7 @@ const AboutUsArticle = () => {
             <span className="text-customRed"> engine tuning & remaps</span>
           </h2>
           <Divider size="194px" orientation="horizontal" />
-          <h3 className="mt-14 pr-[39%] text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
+          <h3 className="mt-14 text-sm font-medium text-articleHead sm:text-base md:pr-[39%] md:text-lg lg:text-xl">
             Vivamus nec leo enim. Aliquam erat volutpat. Sed et auctor felis,
             quis consectetur justo. Sed et interdum turpis? Ut gravida ut purus
             vel luctus? Duis volutpat.
@@ -47,7 +47,7 @@ const AboutUsArticle = () => {
         </div>
       </div>
 
-      <div className="relative flex flex-col pt-20 md:flex-row">
+      <div className="relative mt-14 flex flex-col md:mt-20 md:flex-row">
         <div
           className="absolute top-1/2 h-72 w-full -translate-y-1/2 bg-no-repeat opacity-70 md:static md:h-auto md:basis-1/5 md:translate-y-0 md:opacity-100"
           style={{
@@ -57,7 +57,7 @@ const AboutUsArticle = () => {
           }}
         ></div>
 
-        <div className="px-mobile-padding flex flex-1 flex-col md:flex-row md:px-[2vw]">
+        <div className="flex flex-1 flex-col px-mobile-padding md:flex-row md:px-[2vw]">
           <div className="md:basis-1/2 md:px-[2vw]">
             <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
               Aenean aliquet facilisis arcu, at tristique arcu vestibulum nec.
