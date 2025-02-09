@@ -5,7 +5,7 @@ import Divider from "@common/Divider";
 const CatalogueHeader = () => {
   return (
     <article>
-      <div className="mx-auto md:max-w-[692px] md:px-14 lg:max-w-[968px] lg:px-20 xl:max-w-[1224px] xl:px-24">
+      <div className="mx-auto mb-20 md:mb-20 md:max-w-[692px] md:px-14 lg:max-w-[968px] lg:px-20 xl:max-w-[1224px] xl:px-24">
         <h1 className="mb-9 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
           Tuning Catalogue
         </h1>
