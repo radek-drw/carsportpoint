@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
+import { FiMenu } from "react-icons/fi";
+import { IoCloseOutline } from "react-icons/io5";
+
 import Logo from "../../common/Logo";
 import NavItem from "./NavItem";
 
@@ -87,7 +91,7 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(true)}
           aria-label="Open menu"
         >
-          <span className="text-3xl text-customRed">&#9776;</span>
+          <FiMenu size={30} className="text-customRed" />
         </button>
 
         {/* Menu dla desktop */}
@@ -111,13 +115,16 @@ const Navbar = () => {
           }`}
         >
           <button
-            className="text-burgerItemColor absolute right-5 top-1 text-4xl"
+            className="text-burgerItemColor absolute right-5 top-3 text-4xl"
             onClick={() => setIsMenuOpen(false)}
             aria-label="Close menu"
           >
-            &times;
+            <IoCloseOutline
+              size={30}
+              className="text-[#A6A6A6] hover:text-white"
+            />
           </button>
-          <ul className="flex h-full flex-col justify-items-start pt-32">
+          <ul className="flex h-full flex-col justify-items-start pt-20">
             {menuItems.map((item, index) => (
               <NavItem
                 key={index}
