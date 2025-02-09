@@ -10,14 +10,14 @@ import powerBoostDashboard_1000w_fallback from "@images/power-boost-dashboard-10
 const PerformanceArticle = () => {
   return (
     <article className="mt-28 flex flex-col md:flex-row md:px-[2vw]">
-      <div className="mb-20 basis-[35%] pl-5 md:mb-0 md:pl-0">
+      <div className="mb-14 basis-[35%] pl-5 md:mb-0 md:pl-0">
         <h2 className="mb-20 text-4xl font-black tracking-wide text-articleHead sm:text-5xl lg:text-6xl">
           Better <br />
           <span className="text-customRed">performance</span>
         </h2>
         <Divider size="194px" orientation="horizontal" />
       </div>
-      <div className="px-mobile-padding mb-14 basis-[25%] md:mb-0 md:px-[2vw]">
+      <div className="mb-14 basis-[25%] px-mobile-padding md:mb-0 md:px-[2vw]">
         <h3 className="pb-4 text-sm font-medium text-articleHead sm:text-base md:text-lg lg:text-xl">
           Curabitur ullamcorper vehicula metus quis laoreet! Maecenas non metus
           enim. Aliquam eu hendrerit ligula, sed malesuada nisl! Nam sed lacus
