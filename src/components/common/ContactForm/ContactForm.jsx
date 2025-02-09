@@ -40,7 +40,7 @@ const ContactForm = ({
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) => (
         <Form
-          className="mx-auto mt-28 md:mt-20 md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]"
+          className="mx-auto md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]"
           noValidate
         >
           {title && <h3 className={`${titleStyle}`}>{title}</h3>}
