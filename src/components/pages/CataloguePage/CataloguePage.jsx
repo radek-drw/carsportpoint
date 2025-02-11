@@ -1,12 +1,14 @@
 import React from "react";
 
 import CatalogueHeader from "./CatalogueHeader";
+import Companies from "./Companies/Companies";
 import ContactForm from "@common/ContactForm/ContactForm";
 
 const CataloguePage = () => {
   return (
     <section className="px-mobile-padding pt-16 md:px-0">
       <CatalogueHeader />
+      <Companies />
       <ContactForm
         title={
           <>
