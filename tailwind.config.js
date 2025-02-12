@@ -22,9 +22,6 @@ module.exports = {
       boxShadow: {
         inputShadow: "0 0 8px rgba(102, 175, 233, 0.6)",
       },
-      transitionDuration: {
-        default: "300ms",
-      },
       spacing: { "input-gap": "1.5rem", "mobile-padding": "7vw" },
     },
   },
@@ -39,7 +36,6 @@ module.exports = {
           padding: theme("spacing.3"),
           borderRadius: theme("borderRadius.md"),
           backgroundColor: theme("colors.white"),
-          transition: `all ${theme("transitionDuration.default")} ease`,
           "&:focus": {
             outline: "none",
             borderColor: theme("colors.inputBorder"),
@@ -51,6 +47,29 @@ module.exports = {
         },
         "input:focus": {
           outline: "none",
+        },
+        // BTN
+        ".btn": {
+          padding: `${theme("spacing.2")} ${theme("spacing.4")}`,
+          borderRadius: theme("borderRadius.md"),
+          backgroundColor: theme("colors.blue.500"),
+          color: theme("colors.white"),
+          ".blue-btn": {
+            ...theme("components.btn"),
+            backgroundColor: theme("colors.blue.500"),
+
+            "&:hover": {
+              backgroundColor: theme("colors.blue.600"),
+            },
+          },
+          ".red-btn": {
+            ...theme("components.btn"),
+            backgroundColor: theme("colors.red.500"),
+
+            "&:hover": {
+              backgroundColor: theme("colors.red.600"),
+            },
+          },
         },
       });
     },
