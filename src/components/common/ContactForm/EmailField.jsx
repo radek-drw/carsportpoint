@@ -13,7 +13,7 @@ const EmailField = ({ label, name, errors, touched }) => {
         id={name}
         name={name}
         type="email"
-        className={`input-bordered w-full ${
+        className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
         aria-required="true"

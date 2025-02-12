@@ -12,7 +12,7 @@ const NameField = ({ label, name, errors, touched }) => {
       <Field
         id={name}
         name={name}
-        className="input-bordered w-full"
+        className="input-bordered w-full transition"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />

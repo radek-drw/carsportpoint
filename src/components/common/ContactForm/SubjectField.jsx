@@ -14,7 +14,11 @@ const SubjectField = ({ label, name, errors, touched }) => {
       >
         {label}
       </label>
-      <Field id={name} name={name} className="input-bordered w-full" />
+      <Field
+        id={name}
+        name={name}
+        className="input-bordered w-full transition"
+      />
       <ErrorMessage
         name={name}
         component="div"

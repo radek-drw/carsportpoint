@@ -13,7 +13,7 @@ const MessageField = ({ label, name, errors, touched }) => {
         as="textarea"
         id={name}
         name={name}
-        className={`input-bordered w-full ${
+        className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
         aria-required="true"

@@ -25,7 +25,7 @@ const PhoneField = ({
         value={value}
         onChange={onChange}
         onCountryChange={onCountryChange}
-        className="input-bordered w-full focus-within:border-inputBorder focus-within:shadow-inputShadow"
+        className="input-bordered w-full transition focus-within:border-inputBorder focus-within:shadow-inputShadow"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />
