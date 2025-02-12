@@ -145,7 +145,7 @@ const PartnersPage = () => {
         </div>
 
         {/* PARTNERS  */}
-        <div className="mx-auto grid grid-cols-1 gap-4 pb-10 pt-5 md:max-w-[748px] md:grid-cols-5 lg:max-w-[1004px] xl:max-w-[1260px]">
+        <div className="mx-auto grid grid-cols-1 gap-4 pb-10 pt-5 md:max-w-[748px] md:grid-cols-5 md:px-6 lg:max-w-[1004px] xl:max-w-[1260px]">
           {partners.map((partner, index) => (
             <div
               key={index}
