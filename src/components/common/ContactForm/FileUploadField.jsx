@@ -19,7 +19,7 @@ const FileUploadField = ({
     <div className="mb-input-gap">
       <label
         htmlFor={name}
-        className={`block w-full rounded px-4 py-2 text-center text-white ${files.length >= maxFiles ? "cursor-not-allowed bg-gray-300" : "cursor-pointer bg-blue-500 duration-default hover:bg-blue-700"}`}
+        className={`block w-full text-center ${files.length >= maxFiles ? "cursor-not-allowed bg-gray-300" : "btn blue-btn cursor-pointer transition"}`}
       >
         {files.length >= maxFiles ? "File Limit Reached" : label}
         <input
