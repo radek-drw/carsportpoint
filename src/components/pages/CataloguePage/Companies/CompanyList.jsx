@@ -1,10 +1,10 @@
 const CompanyList = ({ companyData, setHoveredCompany, setActiveCompany }) => {
   return (
-    <ul className="rounded-lg px-3 py-4 shadow-lg md:px-4">
+    <ul className="rounded-lg shadow-lg">
       {companyData.map((company) => (
         <li
           key={company.id}
-          className="cursor-pointer py-2 transition hover:bg-gray-200 md:px-2"
+          className="cursor-pointer px-4 py-2 transition hover:bg-gray-200"
           onMouseEnter={() => setHoveredCompany(company)}
           onMouseLeave={() => setHoveredCompany(null)}
           onClick={() => setActiveCompany(company)}
