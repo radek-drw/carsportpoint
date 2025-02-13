@@ -14,18 +14,18 @@ const Companies = () => {
   };
 
   return (
-    <article className="mx-auto mb-24 md:max-w-[692px] md:px-14 lg:max-w-[968px] lg:px-20 xl:max-w-[1224px] xl:px-24">
-      <div>
+    <article className="mx-auto mb-24 flex px-[3vw]">
+      <div className="basis-2/5 pr-[1vw]">
         <CompanyList
           companyData={companyData}
           setHoveredCompany={setHoveredCompany}
           setActiveCompany={setActiveCompany}
         />
-        <div className="mb-10 mt-10">
+        <div className="mb-10 mt-4">
           <ResetMapButton onReset={handleResetMap} />
         </div>
       </div>
-      <div>
+      <div className="flex-grow">
         <CompanyMap
           companyData={companyData}
           hoveredCompany={hoveredCompany}
