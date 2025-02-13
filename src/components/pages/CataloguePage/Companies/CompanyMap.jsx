@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+import CompanyInfoWindow from "./CompanyInfoWindow";
 
 const mapContainerStyle = {
   width: "100%",
-  height: "600px",
+  height: "650px",
 };
 
 const center = {
@@ -19,15 +20,18 @@ const CompanyMap = ({ companyData, hoveredCompany, activeCompany }) => {
   });
 
   const [map, setMap] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
   useEffect(() => {
     if (map) {
       if (activeCompany) {
         map.panTo({ lat: activeCompany.lat, lng: activeCompany.lng });
         map.setZoom(12);
+        setSelectedCompany(activeCompany);
       } else {
         map.panTo(center);
         map.setZoom(defaultZoom);
+        setSelectedCompany(null);
       }
     }
   }, [activeCompany, map]);
@@ -49,6 +53,7 @@ const CompanyMap = ({ companyData, hoveredCompany, activeCompany }) => {
         <MarkerF
           key={company.id}
           position={{ lat: company.lat, lng: company.lng }}
+          onClick={() => setSelectedCompany(company)}
           icon={{
             url:
               hoveredCompany?.id === company.id ||
@@ -63,6 +68,11 @@ const CompanyMap = ({ companyData, hoveredCompany, activeCompany }) => {
           }}
         />
       ))}
+
+      <CompanyInfoWindow
+        selectedCompany={selectedCompany}
+        onClose={() => setSelectedCompany(null)}
+      />
     </GoogleMap>
   );
 };
