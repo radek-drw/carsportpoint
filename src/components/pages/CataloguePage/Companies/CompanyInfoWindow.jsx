@@ -33,7 +33,7 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
             <strong>Hours:</strong> {selectedCompany.opening_hours}
           </p>
 
-          {/* Klikalna Galeria Zdjęć */}
+          {/* Images */}
           {images?.length > 0 && (
             <div className="mt-2 flex gap-2">
               {images.map((image, index) => (
@@ -48,7 +48,7 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
             </div>
           )}
 
-          {/* Przycisk 'Get Directions' */}
+          {/* Button 'Get Directions' */}
           <div className="mt-3">
             <a
               href={directionsUrl}
@@ -86,10 +86,6 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
               items={images}
               showThumbnails={true}
               showPlayButton={false}
-              reactModalStyle={{
-                background: "rgba(100, 100, 0, 0.8)",
-                padding: "10px",
-              }}
             />
           </div>
         </div>
