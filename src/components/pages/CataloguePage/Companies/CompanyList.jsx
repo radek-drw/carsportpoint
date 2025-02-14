@@ -1,4 +1,8 @@
-const CompanyList = ({ companyData, setHoveredCompany, setActiveCompany }) => {
+import { useCompany } from "@context/CompanyContext";
+
+const CompanyList = ({ companyData }) => {
+  const { setActiveCompany, setHoveredCompany } = useCompany();
+
   return (
     <ul className="rounded-lg shadow-lg">
       {companyData.map((company) => (

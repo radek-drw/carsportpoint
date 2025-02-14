@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+
 import CompanyInfoWindow from "./CompanyInfoWindow";
+
+import { useCompany } from "@context/CompanyContext";
 
 const mapContainerStyle = {
   width: "100%",
@@ -14,13 +18,13 @@ const center = {
 
 const defaultZoom = 7;
 
-const CompanyMap = ({ companyData, hoveredCompany, activeCompany }) => {
+const CompanyMap = ({ companyData }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
+  const { activeCompany, hoveredCompany, setSelectedCompany } = useCompany();
   const [map, setMap] = useState(null);
-  const [selectedCompany, setSelectedCompany] = useState(null);
 
   useEffect(() => {
     if (map) {
@@ -69,10 +73,7 @@ const CompanyMap = ({ companyData, hoveredCompany, activeCompany }) => {
         />
       ))}
 
-      <CompanyInfoWindow
-        selectedCompany={selectedCompany}
-        onClose={() => setSelectedCompany(null)}
-      />
+      <CompanyInfoWindow />
     </GoogleMap>
   );
 };

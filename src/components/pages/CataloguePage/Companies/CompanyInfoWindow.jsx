@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { InfoWindowF } from "@react-google-maps/api";
 
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-import { IoCloseOutline } from "react-icons/io5";
+import ImageGalleryModal from "./ImageGalleryModal";
 
-const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+import { useCompany } from "@context/CompanyContext";
+
+const CompanyInfoWindow = () => {
+  const {
+    isGalleryOpen,
+    setIsGalleryOpen,
+    selectedCompany,
+    setSelectedCompany,
+  } = useCompany();
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!selectedCompany) return null;
 
@@ -21,7 +28,7 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
     <>
       <InfoWindowF
         position={{ lat: selectedCompany.lat, lng: selectedCompany.lng }}
-        onCloseClick={onClose}
+        onCloseClick={() => setSelectedCompany(null)}
       >
         <div className="p-2">
           <h2 className="text-lg font-bold">{selectedCompany.name}</h2>
@@ -33,7 +40,7 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
             <strong>Hours:</strong> {selectedCompany.opening_hours}
           </p>
 
-          {/* Images */}
+          {/* Thumbnail images */}
           {images?.length > 0 && (
             <div className="mt-2 flex gap-2">
               {images.map((image, index) => (
@@ -42,13 +49,16 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
                   src={image.thumbnail}
                   alt={`${selectedCompany.name} - image ${index + 1}`}
                   className="h-24 w-40 transform cursor-pointer rounded-lg transition hover:scale-105 hover:shadow-xl"
-                  onClick={() => setIsGalleryOpen(true)}
+                  onClick={() => {
+                    setCurrentImageIndex(index);
+                    setIsGalleryOpen(true);
+                  }}
                 />
               ))}
             </div>
           )}
 
-          {/* Button 'Get Directions' */}
+          {/* Button with 'Get Directions' */}
           <div className="mt-3">
             <a
               href={directionsUrl}
@@ -62,33 +72,9 @@ const CompanyInfoWindow = ({ selectedCompany, onClose }) => {
         </div>
       </InfoWindowF>
 
-      {/* Modal z Galerią na pełnym ekranie */}
+      {/* GALLERY MODAL */}
       {isGalleryOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-55"
-          onClick={() => setIsGalleryOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl rounded-lg bg-white px-4 pb-4 pt-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute right-2 top-1 z-50"
-              onClick={() => setIsGalleryOpen(false)}
-            >
-              <IoCloseOutline
-                size={38}
-                className="text-customGrey hover:text-gray-900"
-              />
-            </button>
-
-            <ImageGallery
-              items={images}
-              showThumbnails={true}
-              showPlayButton={false}
-            />
-          </div>
-        </div>
+        <ImageGalleryModal images={images} startIndex={currentImageIndex} />
       )}
     </>
   );
