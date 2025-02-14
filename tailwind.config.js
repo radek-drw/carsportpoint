@@ -52,23 +52,20 @@ module.exports = {
         ".btn": {
           padding: `${theme("spacing.2")} ${theme("spacing.4")}`,
           borderRadius: theme("borderRadius.md"),
-          backgroundColor: theme("colors.blue.500"),
           color: theme("colors.white"),
-          ".blue-btn": {
-            ...theme("components.btn"),
-            backgroundColor: theme("colors.blue.500"),
+          transition: "all 150ms ease",
+        },
+        ".blue-btn": {
+          backgroundColor: theme("colors.blue.500"),
 
-            "&:hover": {
-              backgroundColor: theme("colors.blue.600"),
-            },
+          "&:hover": {
+            backgroundColor: theme("colors.blue.600"),
           },
-          ".red-btn": {
-            ...theme("components.btn"),
-            backgroundColor: theme("colors.red.500"),
-
-            "&:hover": {
-              backgroundColor: theme("colors.red.600"),
-            },
+        },
+        ".red-btn": {
+          backgroundColor: theme("colors.red.500"),
+          "&:hover": {
+            backgroundColor: theme("colors.red.600"),
           },
         },
       });
