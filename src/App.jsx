@@ -6,6 +6,7 @@ import AboutUsPage from "./components/pages/AboutUsPage/AboutUsPage";
 import PartnersPage from "./components/pages/PartnersPage/PartnersPage";
 import CataloguePage from "./components/pages/CataloguePage/CataloguePage";
 import Contact from "./components/pages/ContactPage/ContactPage";
+import AdminPage from "./components/pages/AdminPage/AdminPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/catalogue" element={<CataloguePage />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Layout>
     </Router>
