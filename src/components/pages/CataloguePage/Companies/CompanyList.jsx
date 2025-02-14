@@ -1,23 +1,29 @@
-import { useCompany } from "@context/CompanyContext";
+import companyData from "./companyData.json";
 
-const CompanyList = ({ companyData }) => {
+import { useCompany } from "@context/CompanyContext";
+import ResetMapButton from "./ResetMapButton";
+
+const CompanyList = () => {
   const { setActiveCompany, setHoveredCompany } = useCompany();
 
   return (
-    <ul className="rounded-lg shadow-lg">
-      {companyData.map((company) => (
-        <li
-          key={company.id}
-          className="cursor-pointer px-4 py-2 transition hover:bg-gray-200"
-          onMouseEnter={() => setHoveredCompany(company)}
-          onMouseLeave={() => setHoveredCompany(null)}
-          onClick={() => setActiveCompany(company)}
-        >
-          <strong>{company.name}</strong>
-          <p>{company.address}</p>
-        </li>
-      ))}
-    </ul>
+    <div className="basis-2/5 pr-[1vw]">
+      <ul className="rounded-lg shadow-lg">
+        {companyData.map((company) => (
+          <li
+            key={company.id}
+            className="cursor-pointer px-4 py-2 transition hover:bg-gray-200"
+            onMouseEnter={() => setHoveredCompany(company)}
+            onMouseLeave={() => setHoveredCompany(null)}
+            onClick={() => setActiveCompany(company)}
+          >
+            <strong>{company.name}</strong>
+            <p>{company.address}</p>
+          </li>
+        ))}
+      </ul>
+      <ResetMapButton />
+    </div>
   );
 };
 
