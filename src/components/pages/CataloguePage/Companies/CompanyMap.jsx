@@ -14,10 +14,11 @@ const mapContainerStyle = {
 
 const center = {
   lat: 53.41291,
-  lng: -8.24389,
+  lng: -8.01389,
 };
 
-const defaultZoom = 7;
+const ZOOM_LARGE_SCREEN = 7;
+const ZOOM_SMALL_SCREEN = 6.6;
 
 const CompanyMap = () => {
   const { isLoaded } = useLoadScript({
@@ -26,7 +27,23 @@ const CompanyMap = () => {
 
   const { activeCompany, hoveredCompany, setSelectedCompany } = useCompany();
   const [map, setMap] = useState(null);
+  const [defaultZoom, setDefaultZoom] = useState(ZOOM_LARGE_SCREEN);
 
+  // Updates map zoom when the screen width changes
+  useEffect(() => {
+    const handleResize = () => {
+      setDefaultZoom(
+        window.innerWidth <= 640 ? ZOOM_SMALL_SCREEN : ZOOM_LARGE_SCREEN,
+      );
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Adjusts map position and zoom when the user selects a different company from the list
   useEffect(() => {
     if (map) {
       if (activeCompany) {
