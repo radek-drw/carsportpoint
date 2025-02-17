@@ -21,7 +21,9 @@ const CompanyList = () => {
           <li
             key={company.id}
             className={`cursor-pointer px-4 py-2 transition hover:bg-gray-200 ${
-              hoveredCompany?.id === company.id ? "underline" : "no-underline"
+              hoveredCompany?.id === company.id
+                ? "bg-gray-200"
+                : "bg-transparent"
             }`}
             onMouseEnter={() => setHoveredCompany(company)}
             onMouseLeave={() => setHoveredCompany(null)}
