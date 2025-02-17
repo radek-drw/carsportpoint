@@ -4,7 +4,7 @@ import { useCompany } from "@context/CompanyContext";
 import ResetMapButton from "./ResetMapButton";
 
 const CompanyList = () => {
-  const { setActiveCompany, setHoveredCompany } = useCompany();
+  const { setActiveCompany, hoveredCompany, setHoveredCompany } = useCompany();
 
   return (
     <div className="basis-1/2 md:pr-[1vw]">
@@ -12,7 +12,7 @@ const CompanyList = () => {
         {companyData.map((company) => (
           <li
             key={company.id}
-            className="cursor-pointer px-4 py-2 transition hover:bg-gray-200"
+            className={`cursor-pointer px-4 py-2 transition hover:bg-gray-200 ${hoveredCompany?.id === company.id ? "bg-gray-200" : "bg-transparent"}`}
             onMouseEnter={() => setHoveredCompany(company)}
             onMouseLeave={() => setHoveredCompany(null)}
             onClick={() => setActiveCompany(company)}

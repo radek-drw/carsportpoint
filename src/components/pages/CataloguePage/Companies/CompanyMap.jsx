@@ -25,7 +25,12 @@ const CompanyMap = () => {
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
-  const { activeCompany, hoveredCompany, setSelectedCompany } = useCompany();
+  const {
+    activeCompany,
+    hoveredCompany,
+    setHoveredCompany,
+    setSelectedCompany,
+  } = useCompany();
   const [map, setMap] = useState(null);
   const [defaultZoom, setDefaultZoom] = useState(ZOOM_LARGE_SCREEN);
 
@@ -77,6 +82,8 @@ const CompanyMap = () => {
             key={company.id}
             position={{ lat: company.lat, lng: company.lng }}
             onClick={() => setSelectedCompany(company)}
+            onMouseOver={() => setHoveredCompany(company)}
+            onMouseOut={() => setHoveredCompany(null)}
             icon={{
               url:
                 hoveredCompany?.id === company.id ||
