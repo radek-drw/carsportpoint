@@ -7,7 +7,7 @@ const CompanyList = () => {
   const { setActiveCompany, setHoveredCompany } = useCompany();
 
   return (
-    <div className="basis-2/5 pr-[1vw]">
+    <div className="basis-1/2 md:pr-[1vw]">
       <ul className="rounded-lg shadow-lg">
         {companyData.map((company) => (
           <li
