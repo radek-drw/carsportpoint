@@ -8,7 +8,7 @@ import CompanyMap from "./CompanyMap";
 const Companies = () => {
   return (
     <CompanyProvider>
-      <article className="mx-auto mb-24 flex px-[3vw]">
+      <article className="mx-auto mb-24 flex max-w-[1280px] flex-col md:px-10 lg:flex-row">
         <CompanyList />
         <CompanyMap />
       </article>
