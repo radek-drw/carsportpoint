@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useRef } from "react";
 
 const CompanyContext = createContext();
 
@@ -9,6 +9,7 @@ export const CompanyProvider = ({ children }) => {
   const [hoveredCompany, setHoveredCompany] = useState(null);
   const [activeCompany, setActiveCompany] = useState(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(null);
+  const mapRef = useRef(null);
 
   return (
     <CompanyContext.Provider
@@ -21,6 +22,7 @@ export const CompanyProvider = ({ children }) => {
         setActiveCompany,
         isGalleryOpen,
         setIsGalleryOpen,
+        mapRef,
       }}
     >
       {children}

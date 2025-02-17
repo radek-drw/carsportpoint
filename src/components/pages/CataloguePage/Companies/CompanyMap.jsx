@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
-
 import CompanyInfoWindow from "./CompanyInfoWindow";
 import companyData from "./companyData.json";
-
 import { useCompany } from "@context/CompanyContext";
 
 const mapContainerStyle = {
@@ -30,7 +27,9 @@ const CompanyMap = () => {
     hoveredCompany,
     setHoveredCompany,
     setSelectedCompany,
+    mapRef,
   } = useCompany();
+
   const [map, setMap] = useState(null);
   const [defaultZoom, setDefaultZoom] = useState(ZOOM_LARGE_SCREEN);
 
@@ -48,7 +47,7 @@ const CompanyMap = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Adjusts map position and zoom when the user selects a different company from the list
+  // Adjusts map position and zoom when the user selects a different company
   useEffect(() => {
     if (map) {
       if (activeCompany) {
@@ -66,7 +65,7 @@ const CompanyMap = () => {
   if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
-    <div className="flex-grow">
+    <div ref={mapRef} className="flex-grow">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={defaultZoom}
