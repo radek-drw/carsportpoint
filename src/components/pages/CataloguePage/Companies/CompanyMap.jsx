@@ -17,20 +17,21 @@ const center = {
 const ZOOM_LARGE_SCREEN = 7;
 const ZOOM_SMALL_SCREEN = 6.6;
 
-// API key only in dev, but set to an empty string in production ""
-// This prevents the key from being exposed on GitHub Pages.
-const googleMapsApiKey =
-  import.meta.env.DEV ? import.meta.env.VITE_GOOGLE_MAPS_API_KEY : "";
+// API key only in dev | Set to an empty string in production
+// This prevents the API key from being exposed on GitHub Pages
+const googleMapsApiKey = import.meta.env.DEV
+  ? import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+  : "";
 
 if (googleMapsApiKey) {
-    console.log("Google Maps API Key is available only in dev mode.");
- } else {
-    console.warn("Google Maps is running without an API key (for testing).");
-  }
+  console.log("Google Maps API Key is available only in dev mode.");
+} else {
+  console.warn("Google Maps is running without an API key (for testing).");
+}
 
 const CompanyMap = () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey
+    googleMapsApiKey,
   });
 
   const {
