@@ -40,21 +40,23 @@ const CompanyInfoWindow = () => {
             <strong>Hours:</strong> {selectedCompany.opening_hours}
           </p>
 
-          {/* Thumbnail images */}
+          {/* Thumbnail images  */}
           {images?.length > 0 && (
-            <div className="mt-2 flex gap-2">
-              {images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image.thumbnail}
-                  alt={`${selectedCompany.name} - image ${index + 1}`}
-                  className="h-24 w-40 transform cursor-pointer rounded-lg transition hover:scale-105 hover:shadow-xl"
-                  onClick={() => {
-                    setCurrentImageIndex(index);
-                    setIsGalleryOpen(true);
-                  }}
-                />
-              ))}
+            <div className="mt-2 overflow-x-auto">
+              <div className="flex gap-2">
+                {images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image.thumbnail}
+                    alt={`${selectedCompany.name} - image ${index + 1}`}
+                    className="max-h-20 flex-shrink-0 cursor-pointer rounded-lg object-contain transition hover:opacity-75"
+                    onClick={() => {
+                      setCurrentImageIndex(index);
+                      setIsGalleryOpen(true);
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           )}
 
