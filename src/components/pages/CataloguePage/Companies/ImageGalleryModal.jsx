@@ -1,10 +1,10 @@
 import React from "react";
-
 import ImageGallery from "react-image-gallery";
+
+import { useCompany } from "../../../../context/CompanyContext";
+
 import "react-image-gallery/styles/css/image-gallery.css";
 import { IoCloseOutline } from "react-icons/io5";
-
-import { useCompany } from "@context/CompanyContext";
 
 const ImageGalleryModal = ({ images, startIndex }) => {
   if (!images?.length) return null;
@@ -17,11 +17,11 @@ const ImageGalleryModal = ({ images, startIndex }) => {
       onClick={() => setIsGalleryOpen(false)}
     >
       <div
-        className="relative w-full max-w-4xl rounded-lg bg-white px-4 pb-4 pt-14"
+        className="relative w-full max-w-3xl rounded-lg bg-white px-4 pb-4 pt-10"
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute right-0 top-0 z-50 p-2"
+          className="absolute right-2 top-1 z-50"
           onClick={() => setIsGalleryOpen(false)}
         >
           <IoCloseOutline
