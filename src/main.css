@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Override default browser styles for autofilled input fields (e.g., Chrome's yellow background) */
+  input:-webkit-autofill {
+    @apply bg-white;
+    -webkit-text-fill-color: theme("colors.inputText");
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
