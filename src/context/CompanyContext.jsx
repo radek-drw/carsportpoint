@@ -8,9 +8,10 @@ export const CompanyProvider = ({ children }) => {
   const [map, setMap] = useState(null);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [hoveredCompany, setHoveredCompany] = useState(null);
-  const [activeCompany, setActiveCompany] = useState(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(null);
   const [defaultZoom, setDefaultZoom] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [galleryImages, setGalleryImages] = useState([]);
   const mapRef = useRef(null);
 
   return (
@@ -22,12 +23,14 @@ export const CompanyProvider = ({ children }) => {
         setSelectedCompany,
         hoveredCompany,
         setHoveredCompany,
-        activeCompany,
-        setActiveCompany,
         isGalleryOpen,
         setIsGalleryOpen,
         defaultZoom,
         setDefaultZoom,
+        currentImageIndex,
+        setCurrentImageIndex,
+        galleryImages,
+        setGalleryImages,
         mapRef,
       }}
     >
