@@ -9,7 +9,7 @@ const MarkerList = () => {
     hoveredCompany,
     setHoveredCompany,
     setSelectedCompany,
-    activeCompany,
+    selectedCompany,
   } = useCompany();
 
   return companyData.map((company) => (
@@ -21,11 +21,13 @@ const MarkerList = () => {
       onMouseOut={() => setHoveredCompany(null)}
       icon={{
         url:
-          hoveredCompany?.id === company.id || activeCompany?.id === company.id
+          hoveredCompany?.id === company.id ||
+          selectedCompany?.id === company.id
             ? "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
             : "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
         scaledSize:
-          hoveredCompany?.id === company.id || activeCompany?.id === company.id
+          hoveredCompany?.id === company.id ||
+          selectedCompany?.id === company.id
             ? new window.google.maps.Size(50, 50)
             : new window.google.maps.Size(30, 30),
       }}
