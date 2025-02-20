@@ -3,6 +3,7 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
 import MarkerList from "./MarkerList";
 import CompanyInfoWindow from "./CompanyInfoWindow";
+import ImageGalleryModal from "./ImageGalleryModal";
 
 import { useCompany } from "@context/CompanyContext";
 
@@ -28,12 +29,13 @@ const googleMapsApiKey = import.meta.env.DEV
 const MapContainer = () => {
   const { isLoaded } = useLoadScript({ googleMapsApiKey });
   const {
-    activeCompany,
+    selectedCompany,
     map,
     setMap,
     setSelectedCompany,
     defaultZoom,
     setDefaultZoom,
+    isGalleryOpen,
     mapRef,
   } = useCompany();
 
@@ -52,17 +54,17 @@ const MapContainer = () => {
   // Adjusts map position and zoom when the user selects a different company from list
   useEffect(() => {
     if (map) {
-      if (activeCompany) {
-        map.panTo({ lat: activeCompany.lat, lng: activeCompany.lng });
+      if (selectedCompany) {
+        map.panTo({ lat: selectedCompany.lat, lng: selectedCompany.lng });
         map.setZoom(12);
-        setSelectedCompany(activeCompany);
+        setSelectedCompany(selectedCompany);
       } else {
         map.panTo(center);
         map.setZoom(defaultZoom);
         setSelectedCompany(null);
       }
     }
-  }, [activeCompany, map]);
+  }, [selectedCompany, map]);
 
   if (!isLoaded) return <div>Loading Maps...</div>;
 
@@ -72,14 +74,15 @@ const MapContainer = () => {
         mapContainerStyle={mapContainerStyle}
         zoom={defaultZoom}
         center={
-          activeCompany
-            ? { lat: activeCompany.lat, lng: activeCompany.lng }
+          selectedCompany
+            ? { lat: selectedCompany.lat, lng: selectedCompany.lng }
             : center
         }
         onLoad={(mapInstance) => setMap(mapInstance)}
       >
         <MarkerList />
         <CompanyInfoWindow />
+        {isGalleryOpen && <ImageGalleryModal />}
       </GoogleMap>
     </div>
   );
