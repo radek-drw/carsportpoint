@@ -1,14 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
+
 import companyData from "./companyData.json";
-import { useCompany } from "@context/CompanyContext";
+
 import ResetMapButton from "./ResetMapButton";
 
+import { useCompany } from "@context/CompanyContext";
+
 const CompanyList = () => {
-  const { setActiveCompany, hoveredCompany, setHoveredCompany, mapRef } =
+  const { setSelectedCompany, hoveredCompany, setHoveredCompany, mapRef } =
     useCompany();
 
   const handleCompanyClick = (company) => {
-    setActiveCompany(company);
+    setSelectedCompany(company);
     if (mapRef.current) {
       mapRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
