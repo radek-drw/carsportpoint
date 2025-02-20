@@ -1,15 +1,15 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
-
-import { useCompany } from "../../../../context/CompanyContext";
-
 import "react-image-gallery/styles/css/image-gallery.css";
+
 import { IoCloseOutline } from "react-icons/io5";
 
-const ImageGalleryModal = ({ images, startIndex }) => {
-  if (!images?.length) return null;
+import { useCompany } from "@context/CompanyContext";
 
-  const { setIsGalleryOpen } = useCompany();
+const ImageGalleryModal = () => {
+  const { setIsGalleryOpen, galleryImages, currentImageIndex } = useCompany();
+
+  if (!galleryImages?.length) return null;
 
   return (
     <div
@@ -31,10 +31,10 @@ const ImageGalleryModal = ({ images, startIndex }) => {
         </button>
 
         <ImageGallery
-          items={images}
+          items={galleryImages}
           showThumbnails={true}
           showPlayButton={false}
-          startIndex={startIndex}
+          startIndex={currentImageIndex}
         />
       </div>
     </div>
