@@ -82,7 +82,7 @@ const MapContainer = () => {
       >
         <MarkerList />
         <CompanyInfoWindow />
-        {isGalleryOpen && <ImageGalleryModal />}
+        <ImageGalleryModal />
       </GoogleMap>
     </div>
   );
