@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -7,9 +7,22 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useCompany } from "@context/CompanyContext";
 
 const ImageGalleryModal = () => {
-  const { setIsGalleryOpen, galleryImages, currentImageIndex } = useCompany();
+  const { isGalleryOpen, setIsGalleryOpen, galleryImages, currentImageIndex } =
+    useCompany();
 
-  if (!galleryImages?.length) return null;
+  if (!galleryImages?.length || !isGalleryOpen) return null;
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsGalleryOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div
