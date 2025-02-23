@@ -35,7 +35,6 @@ const MapContainer = () => {
     setSelectedCompany,
     defaultZoom,
     setDefaultZoom,
-    isGalleryOpen,
     mapRef,
   } = useCompany();
 
