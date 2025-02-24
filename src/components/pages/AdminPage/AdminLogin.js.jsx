@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-const AdminLogin = ({ onLogin }) => {
+import { useAdmin } from "@context/AdminContext";
+
+const AdminLogin = () => {
+  const { setIsLoggedIn } = useAdmin();
+
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -10,7 +14,7 @@ const AdminLogin = ({ onLogin }) => {
     e.preventDefault();
     if (password === "admin123") {
       setError("");
-      onLogin();
+      setIsLoggedIn(true);
     } else {
       setError("Invalid password. Try again.");
     }
