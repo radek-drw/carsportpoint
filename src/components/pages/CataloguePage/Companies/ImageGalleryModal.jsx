@@ -4,13 +4,11 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import { IoCloseOutline } from "react-icons/io5";
 
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const ImageGalleryModal = () => {
   const { isGalleryOpen, setIsGalleryOpen, galleryImages, currentImageIndex } =
     useCompany();
-
-  if (!galleryImages?.length || !isGalleryOpen) return null;
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -22,7 +20,10 @@ const ImageGalleryModal = () => {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [setIsGalleryOpen]);
+
+  // Render nothing if the gallery is closed or there are no images
+  if (!galleryImages?.length || !isGalleryOpen) return null;
 
   return (
     <div
