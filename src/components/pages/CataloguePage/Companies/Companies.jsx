@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CompanyProvider } from "@context/CompanyContext";
+import { CompanyProvider } from "@context/CompanyMapContext";
 
 import CompanyList from "./CompanyList";
 import MapContainer from "./MapContainer";

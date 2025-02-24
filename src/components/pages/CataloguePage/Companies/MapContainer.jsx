@@ -5,7 +5,7 @@ import MarkerList from "./MarkerList";
 import CompanyInfoWindow from "./CompanyInfoWindow";
 import ImageGalleryModal from "./ImageGalleryModal";
 
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const center = {
   lat: 53.41291,

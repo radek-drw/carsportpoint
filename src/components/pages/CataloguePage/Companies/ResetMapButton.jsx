@@ -1,4 +1,4 @@
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const ResetMapButton = () => {
   const { setSelectedCompany } = useCompany();

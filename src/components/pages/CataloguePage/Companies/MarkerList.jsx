@@ -2,7 +2,7 @@ import { MarkerF } from "@react-google-maps/api";
 
 import companyData from "./companyData.json";
 
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const MarkerList = () => {
   const {

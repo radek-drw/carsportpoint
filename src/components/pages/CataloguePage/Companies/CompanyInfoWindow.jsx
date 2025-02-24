@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { InfoWindowF } from "@react-google-maps/api";
 
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const CompanyInfoWindow = () => {
   const {

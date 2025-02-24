@@ -4,7 +4,7 @@ import companyData from "./companyData.json";
 
 import ResetMapButton from "./ResetMapButton";
 
-import { useCompany } from "@context/CompanyContext";
+import { useCompany } from "@context/CompanyMapContext";
 
 const CompanyList = () => {
   const { setSelectedCompany, hoveredCompany, setHoveredCompany, mapRef } =
