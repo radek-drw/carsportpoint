@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 import AdminLogin from "./AdminLogin.js";
 import AdminDashboard from "./AdminDashboard";
 
-const AdminPage = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+import { AdminProvider, useAdmin } from "@context/AdminContext";
 
+const AdminContent = () => {
+  const { isLoggedIn } = useAdmin();
+  return <section>{isLoggedIn ? <AdminDashboard /> : <AdminLogin />}</section>;
+};
+
+const AdminPage = () => {
   return (
-    <section>
-      {isLoggedIn ? (
-        <AdminDashboard onLogout={() => setIsLoggedIn(false)} />
-      ) : (
-        <AdminLogin onLogin={() => setIsLoggedIn(true)} />
-      )}
-    </section>
+    <AdminProvider>
+      <AdminContent />
+    </AdminProvider>
   );
 };
 
