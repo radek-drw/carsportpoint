@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useRef } from "react";
 
-const CompanyContext = createContext();
+const CompanyMapContext = createContext();
 
-export const useCompany = () => useContext(CompanyContext);
+export const useCompany = () => useContext(CompanyMapContext);
 
 export const CompanyProvider = ({ children }) => {
   const [map, setMap] = useState(null);
@@ -15,7 +15,7 @@ export const CompanyProvider = ({ children }) => {
   const mapRef = useRef(null);
 
   return (
-    <CompanyContext.Provider
+    <CompanyMapContext.Provider
       value={{
         map,
         setMap,
@@ -35,6 +35,6 @@ export const CompanyProvider = ({ children }) => {
       }}
     >
       {children}
-    </CompanyContext.Provider>
+    </CompanyMapContext.Provider>
   );
 };
