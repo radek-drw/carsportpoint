@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-const AdminDashboard = ({ onLogout }) => {
+import { useAdmin } from "@context/AdminContext";
+
+const AdminDashboard = () => {
+  const { setIsLoggedIn } = useAdmin();
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -123,7 +127,7 @@ const AdminDashboard = ({ onLogout }) => {
           </button>
         </form>
         <button
-          onClick={onLogout}
+          onClick={() => setIsLoggedIn(false)}
           className="btn red-btn mt-4 w-full py-2 font-semibold"
         >
           Logout
