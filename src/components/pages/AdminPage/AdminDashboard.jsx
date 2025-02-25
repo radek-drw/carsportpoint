@@ -25,7 +25,7 @@ const AdminDashboard = () => {
   ];
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleFileChange = (e) => {
@@ -77,10 +77,10 @@ const AdminDashboard = () => {
 
           {/* Pole do przesyłania zdjęć */}
           <label
-            className={`btn mb-20 block w-full bg-gray-100 text-center text-gray-700 hover:bg-gray-200 ${
+            className={`btn mb-20 block w-full bg-gray-100 text-center text-gray-700 ${
               formData.images.length >= MAX_FILES
-                ? "cursor-not-allowed bg-gray-300"
-                : "blue-btn cursor-pointer"
+                ? "cursor-not-allowed"
+                : "blue-btn cursor-pointer hover:bg-gray-200"
             }`}
           >
             {formData.images.length >= MAX_FILES
@@ -105,7 +105,7 @@ const AdminDashboard = () => {
                   <img
                     src={src}
                     alt={`Preview ${index}`}
-                    className="h-16 w-16 rounded-md object-cover shadow"
+                    className="h-16 w-16 rounded-md object-cover shadow shadow-slate-400"
                   />
                   <button
                     type="button"
