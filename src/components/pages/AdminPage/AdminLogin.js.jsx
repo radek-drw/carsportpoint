@@ -5,7 +5,6 @@ import { useAdmin } from "@context/AdminContext";
 
 const AdminLogin = () => {
   const { setIsLoggedIn } = useAdmin();
-
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +12,6 @@ const AdminLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (password === "admin123") {
-      setError("");
       setIsLoggedIn(true);
     } else {
       setError("Invalid password. Try again.");
@@ -23,7 +21,6 @@ const AdminLogin = () => {
   return (
     <div className="absolute left-0 top-0 flex min-h-screen w-full items-center justify-center bg-gray-100">
       <div className="w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-lg">
-        {/* Header section */}
         <h2 className="mb-4 text-2xl font-semibold text-gray-700">
           Admin Panel
         </h2>
@@ -31,7 +28,6 @@ const AdminLogin = () => {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="relative rounded-md border focus-within:border-inputBorder focus-within:shadow-inputShadow hover:border-inputBorder">
-            {/* Password input */}
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter password"
@@ -39,6 +35,7 @@ const AdminLogin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
             {/* Toggle password visibility */}
             <button
               type="button"
@@ -56,7 +53,6 @@ const AdminLogin = () => {
           {/* Display error message if password is incorrect */}
           {error && <p className="text-sm text-red-500">{error}</p>}
 
-          {/* Login button */}
           <button
             type="submit"
             className="btn blue-btn w-full py-2 font-semibold"
