@@ -1,7 +1,7 @@
 import React from "react";
 
 import AdminLogin from "./AdminLogin.js";
-import AdminDashboard from "./AdminDashboard";
+import AdminDashboard from "./AdminDashboard/AdminDashboard.jsx";
 
 import { AdminProvider, useAdmin } from "@context/AdminContext";
 
