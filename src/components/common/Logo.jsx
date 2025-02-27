@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/carsportpoint_logo.png";
 
-const Logo = ({ isClickable = false, className = "", onClick }) => {
+const Logo = ({ isClickable = false, className = "" }) => {
   const logoImage = (
     <img src={logo} alt={isClickable ? "Car Sport Point" : ""} />
   );
@@ -11,7 +11,7 @@ const Logo = ({ isClickable = false, className = "", onClick }) => {
   return (
     <div className={className}>
       {isClickable ? (
-        <Link to="/" onClick={onClick} aria-label="Go to homepage">
+        <Link to="/" aria-label="Go to homepage">
           {logoImage}
         </Link>
       ) : (
