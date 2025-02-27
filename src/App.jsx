@@ -10,7 +10,7 @@ import AdminPage from "./components/pages/AdminPage/AdminPage";
 
 function App() {
   return (
-    <Router basename="/carsportpoint">
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
