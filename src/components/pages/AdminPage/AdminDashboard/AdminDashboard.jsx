@@ -2,6 +2,7 @@ import React from "react";
 
 import AdminForm from "./AdminForm";
 import LogoutButton from "./LogoutButton";
+import Logo from "../../../common/Logo.jsx";
 
 const AdminDashboard = () => {
   return (
@@ -13,6 +14,7 @@ const AdminDashboard = () => {
         <AdminForm />
         <LogoutButton />
       </div>
+      <Logo isClickable className="absolute left-3 top-2 w-56" />
     </div>
   );
 };

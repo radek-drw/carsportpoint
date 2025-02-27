@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
+import Logo from "../../common/Logo.jsx";
+
 import { useAdmin } from "@context/AdminContext";
 
 const AdminLogin = () => {
@@ -61,6 +63,7 @@ const AdminLogin = () => {
           </button>
         </form>
       </div>
+      <Logo isClickable className="absolute left-3 top-2 w-56" />
     </div>
   );
 };
