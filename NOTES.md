@@ -118,6 +118,8 @@ Reasons to use Vite:
 - add aria to contact form - DONE
 - make more maintainable SUPPORTED_FORMATS
 - use Vite - DONE
+- write documentation for Companies list integrated with Google Maps
+- write documentation about Admin panel
 
 **Code to check if the correct image is loaded**
 useEffect(() => {
