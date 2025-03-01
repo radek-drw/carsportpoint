@@ -1,14 +1,27 @@
-import React from "react";
-
-import companyData from "./companyData.json";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ResetMapButton from "./ResetMapButton";
-
 import { useCompany } from "@context/CompanyMapContext";
+
+const API_URL = "https://8kb4dzrcxb.execute-api.eu-west-1.amazonaws.com";
 
 const CompanyList = () => {
   const { setSelectedCompany, hoveredCompany, setHoveredCompany, mapRef } =
     useCompany();
+  const [companies, setCompanies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setCompanies(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleCompanyClick = (company) => {
     setSelectedCompany(company);
@@ -20,7 +33,7 @@ const CompanyList = () => {
   return (
     <div className="basis-1/2 md:pr-[1vw]">
       <ul className="rounded-lg shadow-lg">
-        {companyData.map((company) => (
+        {companies.map((company) => (
           <li
             key={company.id}
             className={`cursor-pointer px-4 py-2 transition hover:bg-gray-200 ${
