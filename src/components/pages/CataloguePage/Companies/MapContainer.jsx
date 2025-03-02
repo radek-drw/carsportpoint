@@ -20,11 +20,7 @@ const mapContainerStyle = {
   height: "650px",
 };
 
-// API key only in dev | Set to an empty string in production
-// This prevents the API key from being exposed on GitHub Pages
-const googleMapsApiKey = import.meta.env.DEV
-  ? import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-  : "";
+const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "";
 
 const MapContainer = () => {
   const { isLoaded } = useLoadScript({ googleMapsApiKey });
