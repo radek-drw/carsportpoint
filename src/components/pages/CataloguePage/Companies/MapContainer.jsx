@@ -20,7 +20,7 @@ const mapContainerStyle = {
   height: "650px",
 };
 
-const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY || "";
+const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "";
 
 const MapContainer = () => {
   const { isLoaded } = useLoadScript({ googleMapsApiKey });
