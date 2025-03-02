@@ -1,7 +1,5 @@
 import { MarkerF } from "@react-google-maps/api";
 
-import companyData from "./companyData.json";
-
 import { useCompany } from "@context/CompanyMapContext";
 
 const MarkerList = () => {
@@ -10,9 +8,10 @@ const MarkerList = () => {
     setHoveredCompany,
     setSelectedCompany,
     selectedCompany,
+    companies,
   } = useCompany();
 
-  return companyData.map((company) => (
+  return companies.map((company) => (
     <MarkerF
       key={company.id}
       position={{ lat: company.lat, lng: company.lng }}
