@@ -2,9 +2,6 @@ import React from "react";
 import ResetMapButton from "./ResetMapButton";
 import { useCompany } from "@context/CompanyMapContext";
 
-const API_URL =
-  "https://cr6hha4le3.execute-api.eu-west-1.amazonaws.com/getCompanies";
-
 const CompanyList = () => {
   const {
     companies,
