@@ -1,0 +1,16 @@
+{
+  "name": "aws-lambda-functions",
+  "version": "1.0.0",
+  "description": "A set of AWS Lambda functions that interact with AWS services",
+  "license": "ISC",
+  "author": "Radek Drweski",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.758.0",
+    "@aws-sdk/client-ssm": "^3.759.0",
+    "@aws-sdk/util-dynamodb": "^3.758.0"
+  }
+}
