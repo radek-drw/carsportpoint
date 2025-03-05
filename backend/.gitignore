@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules/
+
+# AWS SAM & Serverless Framework build artifacts
+.aws-sam/
+.serverless/
+
+# AWS credentials and environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log*
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# AWS Lambda zip packages
+*.zip
