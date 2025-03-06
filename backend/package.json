@@ -6,7 +6,8 @@
   "author": "Radek Drweski",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy:getGoogleMapsKey": "zip getGoogleMapsApiKey.zip getGoogleMapsApiKey.js && aws lambda update-function-code --function-name getGoogleMapsApiKey --zip-file fileb://getGoogleMapsApiKey.zip",
+    "deploy:getCompanies": "zip getCompanies.zip getCompanies.js && aws lambda update-function-code --function-name getCompanies --zip-file fileb://getCompanies.zip"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.758.0",
