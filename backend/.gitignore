@@ -1,5 +1,5 @@
-# Node.js dependencies
-node_modules/
+# Dependencies
+/node_modules/
 
 # AWS SAM & Serverless Framework build artifacts
 .aws-sam/
@@ -10,6 +10,7 @@ node_modules/
 .env.local
 .env.production
 .env.development
+.env.test
 
 # Log files
 npm-debug.log*
@@ -26,3 +27,7 @@ debug.log*
 
 # AWS Lambda zip packages
 *.zip
+
+# Build artifacts
+/dist
+/build
