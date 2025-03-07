@@ -122,6 +122,7 @@ Reasons to use Vite:
 - write documentation about Admin panel
 - write documentation about AWS and its key services like Amplify, DynamoDB, S3, API Gateway, and Lambda
 - add loading animation to companies list, map and images
+- add documentation about scripts 'deploy' in /backend
 
 **Code to check if the correct image is loaded**
 useEffect(() => {
