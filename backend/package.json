@@ -6,8 +6,10 @@
   "author": "Radek Drweski",
   "type": "module",
   "scripts": {
-    "deploy:getGoogleMapsKey": "zip getGoogleMapsApiKey.zip getGoogleMapsApiKey.js && aws lambda update-function-code --function-name getGoogleMapsApiKey --zip-file fileb://getGoogleMapsApiKey.zip",
-    "deploy:getCompanies": "zip getCompanies.zip getCompanies.js && aws lambda update-function-code --function-name getCompanies --zip-file fileb://getCompanies.zip"
+    "deploy:getGoogleMapsApiKey": "powershell Compress-Archive -Path getGoogleMapsApiKey.mjs -DestinationPath getGoogleMapsApiKey.zip; aws lambda update-function-code --function-name getGoogleMapsApiKey --zip-file fileb://getGoogleMapsApiKey.zip --no-cli-pager; Remove-Item -Path ./getGoogleMapsApiKey.zip",
+    "deploy:getCompanies": "powershell Compress-Archive -Path getCompanies.mjs -DestinationPath getCompanies.zip; aws lambda update-function-code --function-name getCompanies --zip-file fileb://getCompanies.zip --no-cli-pager; Remove-Item -Path ./getCompanies.zip -Force",
+    "test:getGoogleMapsApiKey": "node test-getGoogleMapsApiKey",
+    "test:getCompanies": "node test-getCompanies"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.758.0",
