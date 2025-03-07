@@ -1,4 +1,4 @@
-import { handler } from "./getGoogleMapsApiKey.js";
+import { handler } from "./getGoogleMapsApiKey.mjs";
 
 handler()
   .then((response) => {
