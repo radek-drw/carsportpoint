@@ -18,23 +18,30 @@ export const handler = async (event) => {
     images, // If you are uploading images, ensure they have links to S3
   };
 
-  // Prepare the PutItem command to insert data into DynamoDB
   const command = new PutItemCommand({
     TableName: TABLE_NAME,
-    Item: item, // The item to be inserted
+    Item: item,
   });
 
   try {
-    // Send the command to DynamoDB
     await client.send(command);
 
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
       body: JSON.stringify({ message: "Company details saved successfully" }),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
       body: JSON.stringify({ error: "Failed to save data" }),
     };
   }
