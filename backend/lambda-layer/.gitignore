@@ -1,0 +1,5 @@
+# Ignore the zip file
+layer.zip
+
+# Ignore the nodejs folder
+nodejs/
