@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import { useAdmin } from "@context/AdminContext";
@@ -8,6 +8,14 @@ const AdminLogin = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  // Create a reference for the password input field
+  const passwordInputRef = useRef(null);
+
+  // Set focus to the input field when the component is mounted
+  useEffect(() => {
+    passwordInputRef.current?.focus();
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,6 +34,7 @@ const AdminLogin = () => {
       <form onSubmit={handleLogin} className="space-y-4">
         <div className="relative rounded-md border focus-within:border-inputBorder focus-within:shadow-inputShadow hover:border-inputBorder">
           <input
+            ref={passwordInputRef} // Attach the ref here
             type={showPassword ? "text" : "password"}
             placeholder="Enter password"
             className="w-full bg-transparent py-2 pl-2 pr-10"
