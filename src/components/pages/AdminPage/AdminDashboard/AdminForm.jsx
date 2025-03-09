@@ -7,6 +7,9 @@ import ImagePreview from "./ImagePreview";
 
 import { useAdmin } from "@context/AdminContext";
 
+const API_URL =
+  "https://vkaymzas8j.execute-api.eu-west-1.amazonaws.com/saveCompanyDetails";
+
 const inputsConfig = [
   { name: "name", type: "text", placeholder: "Company Name" },
   { name: "address", type: "text", placeholder: "Address" },
@@ -25,15 +28,11 @@ const AdminForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://yqnupu35z8.execute-api.eu-west-1.amazonaws.com/add-item",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await axios.post(API_URL, formData, {
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      });
 
       if (response.status === 200) {
         alert("Company details submitted!");
