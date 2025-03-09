@@ -1,5 +1,7 @@
 import React from "react";
 
+import axios from "axios";
+
 import ImageUpload from "./ImageUpload";
 import ImagePreview from "./ImagePreview";
 
@@ -19,9 +21,29 @@ const AdminForm = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Company details submitted!");
+
+    try {
+      const response = await axios.post(
+        "https://yqnupu35z8.execute-api.eu-west-1.amazonaws.com/add-item",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.status === 200) {
+        alert("Company details submitted!");
+      } else {
+        alert("Failed to submit details.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit details.");
+    }
   };
 
   return (
