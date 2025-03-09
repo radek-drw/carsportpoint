@@ -9,7 +9,6 @@ const AdminLogin = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  // Create a reference for the password input field
   const passwordInputRef = useRef(null);
 
   // Set focus to the input field when the component is mounted
@@ -34,7 +33,7 @@ const AdminLogin = () => {
       <form onSubmit={handleLogin} className="space-y-4">
         <div className="relative rounded-md border focus-within:border-inputBorder focus-within:shadow-inputShadow hover:border-inputBorder">
           <input
-            ref={passwordInputRef} // Attach the ref here
+            ref={passwordInputRef}
             type={showPassword ? "text" : "password"}
             placeholder="Enter password"
             className="w-full bg-transparent py-2 pl-2 pr-10"
