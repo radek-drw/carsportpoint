@@ -61,7 +61,17 @@ const MapContainer = () => {
     }
   }, [selectedCompany, map]);
 
-  if (!isLoaded) return <div>Loading Maps...</div>;
+  if (!isLoaded) {
+    return (
+      <div
+        className="flex flex-grow flex-col items-center justify-center"
+        style={{ height: mapContainerStyle.height }}
+      >
+        <div className="h-16 w-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
+        <p className="mt-4 text-gray-600">Loading Google Maps...</p>
+      </div>
+    );
+  }
 
   return (
     <div ref={mapRef} className="flex-grow">
