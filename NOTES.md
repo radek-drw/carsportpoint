@@ -123,17 +123,5 @@ Reasons to use Vite:
 - write documentation about AWS and its key services like Amplify, DynamoDB, S3, API Gateway, and Lambda
 - add loading animation to companies list, map and images
 - add documentation about scripts 'deploy' in /backend
-
-**Code to check if the correct image is loaded**
-useEffect(() => {
-const handleResize = () => {
-const picture = document.querySelector("picture");
-const img = picture.querySelector("img");
-console.log(`Loaded image: ${img.currentSrc}`);
-};
-window.addEventListener("resize", handleResize);
-handleResize();
-return () => {
-window.removeEventListener("resize", handleResize);
-};
-}, []);
+- added loading state in CompanyList and Google Maps
+- function that requires sending node_modules to Lambda due to the use of uuid package
