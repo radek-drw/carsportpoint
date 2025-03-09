@@ -19,6 +19,7 @@ export const CompanyProvider = ({ children }) => {
   const [galleryImages, setGalleryImages] = useState([]);
   const [companies, setCompanies] = useState([]);
   const mapRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +28,8 @@ export const CompanyProvider = ({ children }) => {
         setCompanies(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -53,6 +56,8 @@ export const CompanyProvider = ({ children }) => {
         companies,
         setCompanies,
         mapRef,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}
