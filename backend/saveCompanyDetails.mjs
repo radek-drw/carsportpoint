@@ -1,21 +1,20 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { v4 as uuidv4 } from "uuid"; // Importing uuid to generate a unique ID
+import { v4 as uuidv4 } from "uuid";
 
-// Initialize DynamoDB client
 const client = new DynamoDBClient({ region: "eu-west-1" });
-const TABLE_NAME = "companies"; // The name of your DynamoDB table
+const TABLE_NAME = "companies";
 
 export const handler = async (event) => {
   const data = JSON.parse(event.body); // Receiving data from the form
-  const { name, address, phone, opening_hours, images } = data; // Destructuring the data
+  const { name, address, phone, opening_hours, images } = data;
 
   const item = {
-    id: uuidv4(), // Use uuidv4 to generate a unique ID
-    name,
-    address,
-    phone,
-    opening_hours,
-    images, // If you are uploading images, ensure they have links to S3
+    id: { S: uuidv4() },
+    name: { S: name },
+    address: { S: address },
+    phone: { S: phone },
+    opening_hours: { S: opening_hours },
+    images: { L: images.map((image) => ({ S: image })) },
   };
 
   const command = new PutItemCommand({
@@ -36,13 +35,17 @@ export const handler = async (event) => {
       body: JSON.stringify({ message: "Company details saved successfully" }),
     };
   } catch (error) {
+    console.error("Error saving data to DynamoDB:", error);
     return {
       statusCode: 500,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
       },
-      body: JSON.stringify({ error: "Failed to save data" }),
+      body: JSON.stringify({
+        error: "Failed to save data",
+        details: error.message,
+      }),
     };
   }
 };
