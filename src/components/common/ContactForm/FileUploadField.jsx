@@ -1,44 +1,57 @@
 import React from "react";
 import { ErrorMessage } from "formik";
 import { FaInfoCircle } from "react-icons/fa";
+import {
+  MAX_FILES,
+  MAX_FILE_SIZE,
+  SUPPORTED_FORMATS,
+} from "./validationSchema";
 
 const FileUploadField = ({
-  label,
-  name,
+  label = "Upload Files",
+  name = "files",
   files,
-  onChange,
-  onRemove,
-  maxFiles,
-  maxFileSize,
-  supportedFormats,
+  setFieldValue,
 }) => {
   const errorId = `${name}-error`;
   const descriptionId = `${name}-description`;
+
+  const handleFileChange = (event) => {
+    const selectedFiles = Array.from(event.currentTarget.files);
+    const newFiles = [...files, ...selectedFiles].slice(0, MAX_FILES);
+    setFieldValue(name, newFiles);
+    event.target.value = "";
+  };
+
+  const handleFileRemove = (index) => {
+    const updatedFiles = files.filter((_, i) => i !== index);
+    setFieldValue(name, updatedFiles);
+  };
 
   return (
     <div className="mb-input-gap">
       <label
         htmlFor={name}
-        className={`block w-full text-center ${files.length >= maxFiles ? "cursor-not-allowed bg-gray-300" : "btn blue-btn cursor-pointer"}`}
+        className={`btn block w-full text-center ${files.length >= MAX_FILES ? "cursor-not-allowed bg-gray-300" : "blue-btn cursor-pointer"}`}
       >
-        {files.length >= maxFiles ? "File Limit Reached" : label}
+        {files.length >= MAX_FILES ? "File Limit Reached" : label}
         <input
           id={name}
           type="file"
           name={name}
           multiple
-          disabled={files.length >= maxFiles}
-          onChange={onChange}
+          disabled={files.length >= MAX_FILES}
+          onChange={handleFileChange}
           className="hidden"
           accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt"
           aria-labelledby={name}
           aria-describedby={`${descriptionId} ${errorId}`}
-          aria-disabled={files.length >= maxFiles}
+          aria-disabled={files.length >= MAX_FILES}
         />
       </label>
       <span className="text-sm text-gray-500" id={descriptionId}>
-        You can upload up to {maxFiles} files. Each file must be less than{" "}
-        {(maxFileSize / (1024 * 1024)).toFixed()}MB
+        You can upload up to {MAX_FILES} files. Each file must be less than{" "}
+        {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB
       </span>
       <ErrorMessage
         name={name}
@@ -49,8 +62,8 @@ const FileUploadField = ({
       {files.length > 0 && (
         <ul className="mt-4">
           {files.map((file, index) => {
-            const isInvalidFileType = !supportedFormats.includes(file.type);
-            const isInvalidFileSize = file.size > maxFileSize;
+            const isInvalidFileType = !SUPPORTED_FORMATS.includes(file.type);
+            const isInvalidFileSize = file.size > MAX_FILE_SIZE;
             return (
               <li
                 key={index}
@@ -86,14 +99,14 @@ const FileUploadField = ({
                   {isInvalidFileSize && (
                     <span className="text-xs text-red-500">
                       File size exceeds{" "}
-                      {(maxFileSize / (1024 * 1024)).toFixed()}MB. Please upload
-                      a smaller file.
+                      {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB. Please
+                      upload a smaller file.
                     </span>
                   )}
                 </div>
                 <button
                   type="button"
-                  onClick={() => onRemove(index)}
+                  onClick={() => handleFileRemove(index)}
                   className="duration-default text-sm font-bold text-red-500 hover:text-red-700"
                 >
                   Remove
