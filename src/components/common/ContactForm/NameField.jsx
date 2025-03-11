@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const NameField = ({ label, name, errors, touched }) => {
+const NameField = ({ label = "Name", name = "name", errors, touched }) => {
   const errorId = `${name}-error`;
 
   return (
