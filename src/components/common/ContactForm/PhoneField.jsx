@@ -4,8 +4,8 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const PhoneField = ({
-  label,
-  name,
+  label = "Phone Number",
+  name = "phone",
   value,
   onChange,
   onCountryChange,
