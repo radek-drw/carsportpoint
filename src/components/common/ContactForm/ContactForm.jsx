@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import NameField from "./NameField";
 import SubjectField from "./SubjectField";
@@ -9,10 +9,6 @@ import EmailField from "./EmailField";
 import PhoneField from "./PhoneField";
 
 const ContactForm = ({
-  title,
-  titleStyle,
-  subtitle,
-  subtitleStyle,
   includeSubjectInput = false,
   messagePlaceholder,
   messageFieldRows,
@@ -40,8 +36,6 @@ const ContactForm = ({
           className="mx-auto md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]"
           noValidate
         >
-          {title && <h3 className={`${titleStyle}`}>{title}</h3>}
-          {subtitle && <h4 className={`${subtitleStyle}`}>{subtitle}</h4>}
           <NameField errors={errors} touched={touched} />
           <div className="mb-input-gap flex flex-col items-center justify-between md:flex-row">
             <EmailField errors={errors} touched={touched} />
