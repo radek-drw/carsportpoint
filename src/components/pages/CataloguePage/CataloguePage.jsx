@@ -9,25 +9,27 @@ const CataloguePage = () => {
     <section className="px-mobile-padding pt-16 md:px-0">
       <CatalogueHeader />
       <Companies />
-      <ContactForm
-        title={
-          <>
-            Do you want to add your company?
-            <span className="mt-2 block">Please fill the form</span>
-          </>
-        }
-        titleStyle={
-          "mb-8 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl"
-        }
-        messageFieldRows={9}
-        includeFileInput={true}
-        submitButtonTxt={"SEND NOW"}
-        nameLabel={"Company name"}
-        messageLabel={"Company Information *"}
-        messagePlaceholder={
-          "Please provide some information about your company: opening hours, address, contact details, and any other important info"
-        }
-      />
+
+      {/* Contact form */}
+      <div className="mx-auto md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]">
+        <h2 className="mt-16 text-2xl font-bold text-customRed sm:text-3xl md:text-4xl">
+          Add your company
+        </h2>
+        <p className="mb-14 mt-4 text-lg text-articleHead">
+          Are you a company owner? Add your company to our catalogue to reach
+          more customers
+        </p>
+        <ContactForm
+          messageFieldRows={9}
+          includeFileInput={true}
+          submitButtonTxt={"SEND NOW"}
+          nameLabel={"Company name"}
+          messageLabel={"Company Information *"}
+          messagePlaceholder={
+            "Please provide some information about your company: opening hours, address, contact details, and any other important info"
+          }
+        />
+      </div>
     </section>
   );
 };
