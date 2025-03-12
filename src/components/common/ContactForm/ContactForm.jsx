@@ -32,10 +32,7 @@ const ContactForm = ({
       }}
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) => (
-        <Form
-          className="mx-auto md:max-w-[524px] lg:max-w-[630px] xl:max-w-[732px]"
-          noValidate
-        >
+        <Form noValidate>
           <NameField errors={errors} touched={touched} />
           <div className="mb-input-gap flex flex-col items-center justify-between md:flex-row">
             <EmailField errors={errors} touched={touched} />
