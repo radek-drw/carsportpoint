@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ErrorMessage } from "formik";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -8,11 +8,10 @@ const PhoneField = ({
   name = "phone",
   value,
   onChange,
-  onCountryChange,
-  country,
   errors,
   touched,
 }) => {
+  const [country, setCountry] = useState("IE");
   const errorId = `${name}-error`;
 
   return (
@@ -24,7 +23,7 @@ const PhoneField = ({
         defaultCountry={country}
         value={value}
         onChange={onChange}
-        onCountryChange={onCountryChange}
+        onCountryChange={setCountry}
         className="input-bordered w-full transition focus-within:border-inputBorder focus-within:shadow-inputShadow"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}

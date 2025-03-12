@@ -19,8 +19,6 @@ const ContactForm = ({
   includeFileInput = false,
   submitButtonTxt,
 }) => {
-  const [country, setCountry] = useState("IE");
-
   return (
     <Formik
       initialValues={{
@@ -30,12 +28,11 @@ const ContactForm = ({
         description: "",
         subject: "",
         files: [],
-        country: "IE",
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
         console.log(values);
-        // Send data to the server here
+        // Send data to the API
       }}
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) => (
@@ -51,8 +48,6 @@ const ContactForm = ({
             <PhoneField
               value={values.phone}
               onChange={(phone) => setFieldValue("phone", phone)}
-              onCountryChange={(newCountry) => setCountry(newCountry)}
-              country={country}
               errors={errors}
               touched={touched}
             />
