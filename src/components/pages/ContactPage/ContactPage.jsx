@@ -13,7 +13,7 @@ import DynoCarTest2_960w_fallback from "@images/dyno-car-test-2-960w-fallback.jp
 
 import { CgPhone } from "react-icons/cg";
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <section>
       {/* Image section */}
@@ -101,4 +101,4 @@ const Contact = () => {
     </section>
   );
 };
-export default Contact;
+export default ContactPage;
