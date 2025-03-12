@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
-import CompanyInfoSection from "./CompanyInfoSection";
-import SubjectSection from "./SubjectSection";
-import MessageSection from "./MessageSection";
-import FileUploadSection from "./FileUploadSection";
+import NameField from "./NameField";
+import SubjectField from "./SubjectField";
+import MessageField from "./MessageField";
+import FileUploadField from "./FileUploadField";
 import { validationSchema } from "./validationSchema";
+import EmailField from "./EmailField";
+import PhoneField from "./PhoneField";
 
 const ContactForm = ({
   title,
   titleStyle,
   subtitle,
   subtitleStyle,
-  nameLabel,
   includeSubjectInput = false,
-  messageLabel,
   messagePlaceholder,
   messageFieldRows,
   includeFileInput = false,
@@ -45,32 +45,37 @@ const ContactForm = ({
         >
           {title && <h3 className={`${titleStyle}`}>{title}</h3>}
           {subtitle && <h4 className={`${subtitleStyle}`}>{subtitle}</h4>}
-          <CompanyInfoSection
-            values={values}
-            setFieldValue={setFieldValue}
-            country={country}
-            setCountry={setCountry}
-            nameLabel={nameLabel}
-            errors={errors}
-            touched={touched}
-          />
+          <NameField errors={errors} touched={touched} />
+          <div className="mb-input-gap flex flex-col items-center justify-between md:flex-row">
+            <EmailField errors={errors} touched={touched} />
+            <PhoneField
+              value={values.phone}
+              onChange={(phone) => setFieldValue("phone", phone)}
+              onCountryChange={(newCountry) => setCountry(newCountry)}
+              country={country}
+              errors={errors}
+              touched={touched}
+            />
+          </div>
           {includeSubjectInput && (
-            <SubjectSection errors={errors} touched={touched} />
+            <SubjectField errors={errors} touched={touched} />
           )}
-          <MessageSection
-            messageFieldRows={messageFieldRows}
-            messageLabel={messageLabel}
-            messagePlaceholder={messagePlaceholder}
+          <MessageField
             errors={errors}
             touched={touched}
+            messageFieldRows={messageFieldRows}
+            messagePlaceholder={messagePlaceholder}
           />
           {includeFileInput && (
-            <FileUploadSection values={values} setFieldValue={setFieldValue} />
+            <FileUploadField
+              files={values.files}
+              setFieldValue={setFieldValue}
+            />
           )}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white duration-default hover:bg-red-700"
+            className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
           >
             {submitButtonTxt}
           </button>
