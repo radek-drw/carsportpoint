@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 
 const MessageField = ({
   label = "Message *",
-  name = "description",
+  name = "message",
   errors,
   touched,
   messageFieldRows,
