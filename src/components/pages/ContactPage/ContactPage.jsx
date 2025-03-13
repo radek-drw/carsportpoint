@@ -18,7 +18,7 @@ const contactFormConfig = [
     type: "name",
     name: "name",
     label: "Name",
-    // placeholder,
+    placeholder: "Enter your name",
   },
   {
     type: "group",
@@ -29,13 +29,13 @@ const contactFormConfig = [
         type: "email",
         name: "email",
         label: "Email",
-        placeholder: "Enter your email", // Przykład z placeholderem
+        placeholder: "Enter your email",
       },
       {
         type: "phone",
         name: "phone",
         label: "Phone",
-        placeholder: "Enter your phone number", // Przykład z placeholderem
+        placeholder: "Enter your phone number",
       },
     ],
   },
@@ -43,21 +43,21 @@ const contactFormConfig = [
     type: "subject",
     name: "subject",
     label: "Subject",
-    placeholder: "Enter your subject", // Przykład z placeholderem
+    placeholder: "Enter your subject",
   },
   {
     type: "message",
     name: "message",
     label: "Message",
-    placeholder: "Your message here...", // Przykład z placeholderem
+    placeholder: "Your message here",
     rows: 6,
   },
   {
     type: "file",
     name: "files",
     label: "Upload Files",
-    maxFilesCount: 5, // Maksymalna liczba plików
-    maxFileSize: 5, // Maksymalny rozmiar pliku w MB
+    maxFilesCount: 5,
+    maxFileSize: 5,
   },
 ];
 
