@@ -7,12 +7,7 @@ import {
   SUPPORTED_FORMATS,
 } from "./validationSchema";
 
-const FileUploadField = ({
-  label = "Upload Files",
-  name = "files",
-  files,
-  setFieldValue,
-}) => {
+const FileUploadField = ({ label, name, files, setFieldValue }) => {
   const errorId = `${name}-error`;
   const descriptionId = `${name}-description`;
 
