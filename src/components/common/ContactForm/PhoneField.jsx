@@ -4,8 +4,9 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const PhoneField = ({
-  label = "Phone Number",
-  name = "phone",
+  name,
+  label,
+  placeholder,
   value,
   onChange,
   errors,
@@ -16,10 +17,13 @@ const PhoneField = ({
 
   return (
     <div className="w-full md:basis-[47%]">
-      <label htmlFor={name} className="mb-1 block text-sm font-medium">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={name} className="mb-1 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <PhoneInput
+        placeholder={placeholder || undefined}
         defaultCountry={country}
         value={value}
         onChange={onChange}
