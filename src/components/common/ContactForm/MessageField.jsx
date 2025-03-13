@@ -2,26 +2,28 @@ import React from "react";
 import { Field, ErrorMessage } from "formik";
 
 const MessageField = ({
-  label = "Message *",
-  name = "message",
+  label,
+  name,
+  placeholder,
   errors,
   touched,
   messageFieldRows,
-  messagePlaceholder,
 }) => {
   const errorId = `${name}-error`;
 
   return (
     <div className="mb-input-gap">
-      <label htmlFor={name} className="mb-1 block text-sm font-medium">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={name} className="mb-1 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <Field
         as="textarea"
         id={name}
         name={name}
+        placeholder={placeholder || undefined}
         rows={messageFieldRows}
-        placeholder={messagePlaceholder}
         className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
