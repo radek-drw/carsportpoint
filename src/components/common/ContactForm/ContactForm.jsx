@@ -33,7 +33,7 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
         <Form noValidate>
           {fieldsConfig.map((field, index) => {
             if (field.type === "group") {
-              // Renderuj grupę pól
+              // Render a group of fields
               return (
                 <div key={`group-${index}`} className={field.className}>
                   {field.fields.map((subField) => {
@@ -42,6 +42,9 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
                         return (
                           <EmailField
                             key={subField.name}
+                            name={subField.name}
+                            label={subField.label}
+                            placeholder={subField.placeholder}
                             errors={errors}
                             touched={touched}
                           />
@@ -50,6 +53,9 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
                         return (
                           <PhoneField
                             key={subField.name}
+                            name={subField.name}
+                            label={subField.label}
+                            placeholder={subField.placeholder}
                             value={values[subField.name]}
                             onChange={(value) =>
                               setFieldValue(subField.name, value)
@@ -66,12 +72,13 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
               );
             }
 
-            // Renderuj pojedyncze pole
+            // Render a single field
             switch (field.type) {
               case "name":
                 return (
                   <NameField
-                    key="name"
+                    key={field.name}
+                    name={field.name}
                     label={field.label}
                     placeholder={field.placeholder}
                     errors={errors}
@@ -81,26 +88,32 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
               case "subject":
                 return (
                   <SubjectField
-                    key="subject"
+                    key={field.name}
+                    name={field.name}
+                    label={field.label}
+                    placeholder={field.placeholder}
                     errors={errors}
                     touched={touched}
-                    placeholder={field.placeholder}
                   />
                 );
               case "message":
                 return (
                   <MessageField
-                    key="message"
+                    key={field.name}
+                    name={field.name}
+                    label={field.label}
+                    placeholder={field.placeholder}
                     errors={errors}
                     touched={touched}
                     messageFieldRows={field.rows}
-                    messagePlaceholder={field.placeholder}
                   />
                 );
               case "file":
                 return (
                   <FileUploadField
-                    key="files"
+                    key={field.name}
+                    name={field.name}
+                    label={field.label}
                     files={values.files || []}
                     setFieldValue={setFieldValue}
                     maxFilesCount={field.maxFilesCount}
