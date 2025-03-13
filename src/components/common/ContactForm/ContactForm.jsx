@@ -8,23 +8,21 @@ import { validationSchema } from "./validationSchema";
 import EmailField from "./EmailField";
 import PhoneField from "./PhoneField";
 
-const ContactForm = ({
-  includeSubjectInput = false,
-  messagePlaceholder,
-  messageFieldRows,
-  includeFileInput = false,
-  submitButtonTxt,
-}) => {
+const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
+  const initialValues = fieldsConfig.reduce((acc, field) => {
+    if (field.type === "group") {
+      field.fields.forEach((subField) => {
+        acc[subField.name] = subField.initialValue || "";
+      });
+    } else {
+      acc[field.name] = field.initialValue || "";
+    }
+    return acc;
+  }, {});
+
   return (
     <Formik
-      initialValues={{
-        name: "",
-        email: "",
-        phone: "",
-        description: "",
-        subject: "",
-        files: [],
-      }}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={(values) => {
         console.log(values);
@@ -33,31 +31,86 @@ const ContactForm = ({
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) => (
         <Form noValidate>
-          <NameField errors={errors} touched={touched} />
-          <div className="mb-input-gap flex flex-col items-center justify-between md:flex-row">
-            <EmailField errors={errors} touched={touched} />
-            <PhoneField
-              value={values.phone}
-              onChange={(phone) => setFieldValue("phone", phone)}
-              errors={errors}
-              touched={touched}
-            />
-          </div>
-          {includeSubjectInput && (
-            <SubjectField errors={errors} touched={touched} />
-          )}
-          <MessageField
-            errors={errors}
-            touched={touched}
-            messageFieldRows={messageFieldRows}
-            messagePlaceholder={messagePlaceholder}
-          />
-          {includeFileInput && (
-            <FileUploadField
-              files={values.files}
-              setFieldValue={setFieldValue}
-            />
-          )}
+          {fieldsConfig.map((field, index) => {
+            if (field.type === "group") {
+              // Renderuj grupę pól
+              return (
+                <div key={`group-${index}`} className={field.className}>
+                  {field.fields.map((subField) => {
+                    switch (subField.type) {
+                      case "email":
+                        return (
+                          <EmailField
+                            key={subField.name}
+                            errors={errors}
+                            touched={touched}
+                          />
+                        );
+                      case "phone":
+                        return (
+                          <PhoneField
+                            key={subField.name}
+                            value={values[subField.name]}
+                            onChange={(value) =>
+                              setFieldValue(subField.name, value)
+                            }
+                            errors={errors}
+                            touched={touched}
+                          />
+                        );
+                      default:
+                        return null;
+                    }
+                  })}
+                </div>
+              );
+            }
+
+            // Renderuj pojedyncze pole
+            switch (field.type) {
+              case "name":
+                return (
+                  <NameField
+                    key="name"
+                    label={field.label}
+                    placeholder={field.placeholder}
+                    errors={errors}
+                    touched={touched}
+                  />
+                );
+              case "subject":
+                return (
+                  <SubjectField
+                    key="subject"
+                    errors={errors}
+                    touched={touched}
+                    placeholder={field.placeholder}
+                  />
+                );
+              case "message":
+                return (
+                  <MessageField
+                    key="message"
+                    errors={errors}
+                    touched={touched}
+                    messageFieldRows={field.rows}
+                    messagePlaceholder={field.placeholder}
+                  />
+                );
+              case "file":
+                return (
+                  <FileUploadField
+                    key="files"
+                    files={values.files || []}
+                    setFieldValue={setFieldValue}
+                    maxFilesCount={field.maxFilesCount}
+                    maxFileSize={field.maxFileSize}
+                  />
+                );
+              default:
+                return null;
+            }
+          })}
           <button
             type="submit"
             disabled={isSubmitting}
