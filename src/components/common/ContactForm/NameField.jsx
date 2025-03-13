@@ -1,7 +1,13 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const NameField = ({ label = "Name", name = "name", errors, touched }) => {
+const NameField = ({
+  name = "name",
+  label = "",
+  placeholder = "",
+  errors,
+  touched,
+}) => {
   const errorId = `${name}-error`;
 
   return (
@@ -12,6 +18,7 @@ const NameField = ({ label = "Name", name = "name", errors, touched }) => {
       <Field
         id={name}
         name={name}
+        placeholder={placeholder}
         className="input-bordered w-full transition"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
