@@ -45,7 +45,7 @@ export const validationSchema = Yup.object({
       return phoneNumber && phoneNumber.isValid();
     },
   ),
-  description: Yup.string()
+  message: Yup.string()
     .trim()
     .required("Message is required")
     .max(1000, "Message cannot exceed 1000 characters"),
