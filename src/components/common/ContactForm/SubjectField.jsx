@@ -1,27 +1,22 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const SubjectField = ({
-  label = "Subject",
-  name = "subject",
-  errors,
-  touched,
-}) => {
+const SubjectField = ({ label, name, placeholder, errors, touched }) => {
   const errorId = `${name}-error`;
 
   return (
     <div className="mb-input-gap">
-      <label
-        htmlFor={name}
-        className="mb-1 block text-sm font-medium"
-        aria-invalid={!!errors[name] && touched[name]}
-        aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
-      >
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={name} className="mb-1 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <Field
         id={name}
         name={name}
+        placeholder={placeholder || undefined}
+        aria-invalid={!!errors[name] && touched[name]}
+        aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
         className="input-bordered w-full transition"
       />
       <ErrorMessage
