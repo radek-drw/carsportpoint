@@ -4,7 +4,7 @@ import NameField from "./NameField";
 import SubjectField from "./SubjectField";
 import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
-import { validationSchema } from "./validationSchema";
+import { createValidationSchema } from "./validationSchema";
 import EmailField from "./EmailField";
 import PhoneField from "./PhoneField";
 
@@ -20,10 +20,30 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
     return acc;
   }, {});
 
+  // Finds the file field configuration in fieldsConfig
+  const fileFieldConfig = fieldsConfig.find((field) => field.type === "file");
+
+  // Sets the maximum file size in bytes (converts MB to bytes)
+  // Ensures the value is a valid number, non-negative, and not too large (e.g., max 100MB)
+  const maxFileSize =
+    Number.isFinite(fileFieldConfig?.maxFileSize) &&
+    fileFieldConfig.maxFileSize > 0 &&
+    fileFieldConfig.maxFileSize <= 100
+      ? fileFieldConfig.maxFileSize * 1024 * 1024
+      : 5 * 1024 * 1024; // Default to 5MB if not specified or invalid
+
+  // Sets the maximum number of files, ensuring it's a valid, non-negative number and not too large (e.g., max 20 files)
+  const maxFilesCount =
+    Number.isFinite(fileFieldConfig?.maxFilesCount) &&
+    fileFieldConfig.maxFilesCount > 0 &&
+    fileFieldConfig.maxFilesCount <= 20
+      ? fileFieldConfig.maxFilesCount
+      : 5; // Default to 5 if not specified or invalid
+
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={createValidationSchema(maxFileSize)}
       onSubmit={(values) => {
         console.log(values);
         // Send data to the API
@@ -116,8 +136,8 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
                     label={field.label}
                     files={values.files || []}
                     setFieldValue={setFieldValue}
-                    maxFilesCount={field.maxFilesCount}
-                    maxFileSize={field.maxFileSize}
+                    maxFilesCount={maxFilesCount}
+                    maxFileSize={maxFileSize}
                   />
                 );
               default:
