@@ -24,21 +24,62 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
   const fileFieldConfig = fieldsConfig.find((field) => field.type === "file");
 
   // Sets the maximum file size in bytes (converts MB to bytes)
-  // Ensures the value is a valid number, non-negative, and not too large (e.g., max 100MB)
   const maxFileSize =
     Number.isFinite(fileFieldConfig?.maxFileSize) &&
-    fileFieldConfig.maxFileSize > 0 &&
-    fileFieldConfig.maxFileSize <= 100
+    fileFieldConfig.maxFileSize > 0
       ? fileFieldConfig.maxFileSize * 1024 * 1024
       : 5 * 1024 * 1024; // Default to 5MB if not specified or invalid
 
+  // If the maxFileSize is not a valid number or is invalid (negative or zero), log an error
+  if (
+    fileFieldConfig?.maxFileSize &&
+    !Number.isFinite(fileFieldConfig.maxFileSize)
+  ) {
+    console.error("maxFileSize must be a valid number. Defaulting to 5MB.");
+    maxFileSize = 5 * 1024 * 1024; // Default value
+  } else if (fileFieldConfig?.maxFileSize && fileFieldConfig.maxFileSize <= 0) {
+    console.error("maxFileSize must be a positive number. Defaulting to 5MB.");
+    maxFileSize = 5 * 1024 * 1024; // Default value
+  }
+
+  // If the maxFileSize exceeds 100MB, log an error and set default value
+  if (fileFieldConfig?.maxFileSize && maxFileSize > 100 * 1024 * 1024) {
+    console.error("maxFileSize must not exceed 100MB. Defaulting to 5MB.");
+    maxFileSize = 5 * 1024 * 1024; // Default value
+  }
+
   // Sets the maximum number of files, ensuring it's a valid, non-negative number and not too large (e.g., max 20 files)
-  const maxFilesCount =
+  let maxFilesCount =
     Number.isFinite(fileFieldConfig?.maxFilesCount) &&
     fileFieldConfig.maxFilesCount > 0 &&
     fileFieldConfig.maxFilesCount <= 20
       ? fileFieldConfig.maxFilesCount
       : 5; // Default to 5 if not specified or invalid
+
+  // If maxFilesCount is not a valid number or exceeds 20, log an error and set default value
+  if (
+    fileFieldConfig?.maxFilesCount &&
+    !Number.isFinite(fileFieldConfig.maxFilesCount)
+  ) {
+    console.error(
+      "maxFilesCount must be a valid number. Defaulting to 5 files.",
+    );
+    maxFilesCount = 5; // Default value
+  } else if (
+    fileFieldConfig?.maxFilesCount &&
+    fileFieldConfig.maxFilesCount <= 0
+  ) {
+    console.error(
+      "maxFilesCount must be a positive number. Defaulting to 5 files.",
+    );
+    maxFilesCount = 5; // Default value
+  } else if (fileFieldConfig?.maxFilesCount && maxFilesCount > 20) {
+    console.error("maxFilesCount must not exceed 20. Defaulting to 5 files.");
+    maxFilesCount = 5; // Default value
+  }
+
+  // console.log(`Max file size: ${maxFileSize} bytes`);
+  // console.log(`Max files count: ${maxFilesCount}`);
 
   return (
     <Formik
