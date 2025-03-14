@@ -1,19 +1,22 @@
 import React from "react";
 import { ErrorMessage } from "formik";
 import { FaInfoCircle } from "react-icons/fa";
-import {
-  MAX_FILES,
-  MAX_FILE_SIZE,
-  SUPPORTED_FORMATS,
-} from "./validationSchema";
+import { SUPPORTED_FORMATS } from "./validationSchema";
 
-const FileUploadField = ({ label, name, files, setFieldValue }) => {
+const FileUploadField = ({
+  label,
+  name,
+  files,
+  setFieldValue,
+  maxFilesCount,
+  maxFileSize,
+}) => {
   const errorId = `${name}-error`;
   const descriptionId = `${name}-description`;
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.currentTarget.files);
-    const newFiles = [...files, ...selectedFiles].slice(0, MAX_FILES);
+    const newFiles = [...files, ...selectedFiles].slice(0, maxFilesCount);
     setFieldValue(name, newFiles);
     event.target.value = "";
   };
@@ -27,26 +30,26 @@ const FileUploadField = ({ label, name, files, setFieldValue }) => {
     <div className="mb-input-gap">
       <label
         htmlFor={name}
-        className={`btn block w-full text-center ${files.length >= MAX_FILES ? "cursor-not-allowed bg-gray-300" : "blue-btn cursor-pointer"}`}
+        className={`btn block w-full text-center ${files.length >= maxFilesCount ? "cursor-not-allowed bg-gray-300" : "blue-btn cursor-pointer"}`}
       >
-        {files.length >= MAX_FILES ? "File Limit Reached" : label}
+        {files.length >= maxFilesCount ? "File Limit Reached" : label}
         <input
           id={name}
           type="file"
           name={name}
           multiple
-          disabled={files.length >= MAX_FILES}
+          disabled={files.length >= maxFilesCount}
           onChange={handleFileChange}
           className="hidden"
           accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.txt"
           aria-labelledby={name}
           aria-describedby={`${descriptionId} ${errorId}`}
-          aria-disabled={files.length >= MAX_FILES}
+          aria-disabled={files.length >= maxFilesCount}
         />
       </label>
       <span className="text-sm text-gray-500" id={descriptionId}>
-        You can upload up to {MAX_FILES} files. Each file must be less than{" "}
-        {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB
+        You can upload up to {maxFilesCount} files. Each file must be less than{" "}
+        {(maxFileSize / (1024 * 1024)).toFixed()}MB
       </span>
       <ErrorMessage
         name={name}
@@ -58,7 +61,7 @@ const FileUploadField = ({ label, name, files, setFieldValue }) => {
         <ul className="mt-4">
           {files.map((file, index) => {
             const isInvalidFileType = !SUPPORTED_FORMATS.includes(file.type);
-            const isInvalidFileSize = file.size > MAX_FILE_SIZE;
+            const isInvalidFileSize = file.size > maxFileSize;
             return (
               <li
                 key={index}
@@ -94,8 +97,8 @@ const FileUploadField = ({ label, name, files, setFieldValue }) => {
                   {isInvalidFileSize && (
                     <span className="text-xs text-red-500">
                       File size exceeds{" "}
-                      {(MAX_FILE_SIZE / (1024 * 1024)).toFixed()}MB. Please
-                      upload a smaller file.
+                      {(maxFileSize / (1024 * 1024)).toFixed()}MB. Please upload
+                      a smaller file.
                     </span>
                   )}
                 </div>
