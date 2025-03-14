@@ -78,9 +78,6 @@ const ContactForm = ({ fieldsConfig, submitButtonTxt }) => {
     maxFilesCount = 5; // Default value
   }
 
-  // console.log(`Max file size: ${maxFileSize} bytes`);
-  // console.log(`Max files count: ${maxFilesCount}`);
-
   return (
     <Formik
       initialValues={initialValues}
