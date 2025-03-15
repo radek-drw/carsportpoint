@@ -132,7 +132,7 @@ const ContactPage = () => {
             tortor.
           </h4>
           <ContactForm
-            fieldsConfig={contactFormConfig}
+            config={contactFormConfig}
             submitButtonTxt="SEND A MESSAGE"
           />
         </section>
