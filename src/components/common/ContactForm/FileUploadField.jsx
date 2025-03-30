@@ -49,7 +49,7 @@ const FileUploadField = ({
       </label>
       <span className="text-sm text-gray-500" id={descriptionId}>
         You can upload up to {maxFilesCount} files. Each file must be less than{" "}
-        {(maxFileSize / (1024 * 1024)).toFixed()}MB
+        {maxFileSize}MB
       </span>
       <ErrorMessage
         name={name}
