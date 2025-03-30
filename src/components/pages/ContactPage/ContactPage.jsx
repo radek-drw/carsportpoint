@@ -132,7 +132,9 @@ const ContactPage = () => {
             tortor.
           </h4>
           <ContactForm
-            config={contactFormConfig}
+            fieldsVisibility={{}}
+            displayMode="label"
+            overrides={{ files: { maxFileSize: 2, maxFilesCount: 4 } }}
             submitButtonTxt="SEND A MESSAGE"
           />
         </section>
