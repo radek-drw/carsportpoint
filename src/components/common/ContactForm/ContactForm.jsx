@@ -1,145 +1,152 @@
 import React from "react";
 import { Formik, Form } from "formik";
 
-import EmailField from "./EmailField";
-import FileUploadField from "./FileUploadField";
-import MessageField from "./MessageField";
 import NameField from "./NameField";
-import SubjectField from "./SubjectField";
+import EmailField from "./EmailField";
 import PhoneField from "./PhoneField";
-import { createValidationSchema } from "./validationSchema";
+import SubjectField from "./SubjectField";
+import MessageField from "./MessageField";
+import FileUploadField from "./FileUploadField";
 
-import { validateConfig } from "./utils/validateConfig";
+import { validationSchema } from "./validationSchema";
 
-const ContactForm = ({ config, submitButtonTxt }) => {
-  const validatedConfig = validateConfig(config);
-  // Pobranie konfiguracji pola plików, jeśli istnieje
-  const fileFieldConfig = validatedConfig.find(
-    (field) => field.type === "file",
-  );
+const defaultConfig = {
+  name: { label: "Name", placeholder: "Enter your name" },
+  email: { label: "Email", placeholder: "Enter your email" },
+  phone: { label: "Phone", placeholder: "Enter your phone number" },
+  subject: { label: "Subject", placeholder: "Enter your subject" },
+  message: { label: "Message", placeholder: "Your message here", rows: 6 },
+  files: { label: "Upload Files", maxFilesCount: 5, maxFileSize: 5 },
+};
 
-  const initialValues = validatedConfig.reduce((acc, field) => {
-    if (field.type === "group") {
-      field.fields.forEach((subField) => {
-        acc[subField.name] = subField.initialValue || "";
-      });
-    } else {
-      acc[field.name] = field.initialValue || "";
+const ContactForm = ({
+  fieldsVisibility = {},
+  displayMode = "label",
+  overrides = {},
+}) => {
+  const mergedConfig = Object.keys(defaultConfig).reduce((acc, key) => {
+    if (fieldsVisibility[key] !== false) {
+      acc[key] = { ...defaultConfig[key], ...overrides[key] };
     }
+    return acc;
+  }, {});
+
+  const initialValues = Object.keys(mergedConfig).reduce((acc, key) => {
+    acc[key] = "";
     return acc;
   }, {});
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={createValidationSchema(fileFieldConfig?.maxFileSize)}
-      onSubmit={(values) => {
-        console.log(values);
-      }}
+      validationSchema={validationSchema}
+      onSubmit={(values) => console.log(values)}
     >
-      {({ values, setFieldValue, isSubmitting, errors, touched }) => (
+      {({ values, setFieldValue, errors, touched }) => (
         <Form noValidate>
-          {validatedConfig.map((field, index) => {
-            if (field.type === "group") {
-              return (
-                <div key={`group-${index}`} className={field.className}>
-                  {field.fields.map((subField) => {
-                    switch (subField.type) {
-                      case "email":
-                        return (
-                          <EmailField
-                            key={subField.name}
-                            name={subField.name}
-                            label={subField.label}
-                            placeholder={subField.placeholder}
-                            errors={errors}
-                            touched={touched}
-                          />
-                        );
-                      case "phone":
-                        return (
-                          <PhoneField
-                            key={subField.name}
-                            name={subField.name}
-                            label={subField.label}
-                            placeholder={subField.placeholder}
-                            value={values[subField.name]}
-                            onChange={(value) =>
-                              setFieldValue(subField.name, value)
-                            }
-                            errors={errors}
-                            touched={touched}
-                          />
-                        );
-                      default:
-                        return null;
-                    }
-                  })}
-                </div>
-              );
-            }
+          {mergedConfig.name && (
+            <NameField
+              name="name"
+              label={
+                displayMode !== "placeholder" ? mergedConfig.name.label : ""
+              }
+              placeholder={
+                displayMode !== "label" ? mergedConfig.name.placeholder : ""
+              }
+              errors={errors}
+              touched={touched}
+            />
+          )}
 
-            switch (field.type) {
-              case "name":
-                return (
-                  <NameField
-                    key={field.name}
-                    name={field.name}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    errors={errors}
-                    touched={touched}
-                  />
-                );
-              case "subject":
-                return (
-                  <SubjectField
-                    key={field.name}
-                    name={field.name}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    errors={errors}
-                    touched={touched}
-                  />
-                );
-              case "message":
-                return (
-                  <MessageField
-                    key={field.name}
-                    name={field.name}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    errors={errors}
-                    touched={touched}
-                    messageFieldRows={field.rows}
-                  />
-                );
-              case "file":
-                return (
-                  <FileUploadField
-                    key={field.name}
-                    name={field.name}
-                    label={field.label}
-                    files={values.files || []}
-                    setFieldValue={setFieldValue}
-                    maxFilesCount={field.maxFilesCount} // Bezpośrednie przekazanie
-                    maxFileSize={field.maxFileSize} // Bezpośrednie przekazanie
-                  />
-                );
-              default:
-                return null;
-            }
-          })}
+          {(mergedConfig.email || mergedConfig.phone) && (
+            <div className="mb-input-gap flex flex-col items-start justify-between md:flex-row">
+              {mergedConfig.email && (
+                <EmailField
+                  name="email"
+                  label={
+                    displayMode !== "placeholder"
+                      ? mergedConfig.email.label
+                      : ""
+                  }
+                  placeholder={
+                    displayMode !== "label"
+                      ? mergedConfig.email.placeholder
+                      : ""
+                  }
+                  errors={errors}
+                  touched={touched}
+                />
+              )}
+              {mergedConfig.phone && (
+                <PhoneField
+                  name="phone"
+                  label={
+                    displayMode !== "placeholder"
+                      ? mergedConfig.phone.label
+                      : ""
+                  }
+                  placeholder={
+                    displayMode !== "label"
+                      ? mergedConfig.phone.placeholder
+                      : ""
+                  }
+                  value={values.phone}
+                  onChange={(phone) => setFieldValue("phone", phone)}
+                  errors={errors}
+                  touched={touched}
+                />
+              )}
+            </div>
+          )}
+
+          {mergedConfig.subject && (
+            <SubjectField
+              name="subject"
+              label={
+                displayMode !== "placeholder" ? mergedConfig.subject.label : ""
+              }
+              placeholder={
+                displayMode !== "label" ? mergedConfig.subject.placeholder : ""
+              }
+              errors={errors}
+              touched={touched}
+            />
+          )}
+          {mergedConfig.message && (
+            <MessageField
+              name="message"
+              label={
+                displayMode !== "placeholder" ? mergedConfig.message.label : ""
+              }
+              placeholder={
+                displayMode !== "label" ? mergedConfig.message.placeholder : ""
+              }
+              rows={mergedConfig.message.rows}
+              errors={errors}
+              touched={touched}
+            />
+          )}
+          {mergedConfig.files && (
+            <FileUploadField
+              name="files"
+              label={mergedConfig.files.label}
+              files={values.files || []}
+              maxFilesCount={mergedConfig.files.maxFilesCount}
+              maxFileSize={mergedConfig.files.maxFileSize}
+              setFieldValue={setFieldValue}
+            />
+          )}
+
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
+            className="mt-4 rounded bg-blue-500 px-6 py-2 text-white"
           >
-            {submitButtonTxt}
+            Submit
           </button>
         </Form>
       )}
     </Formik>
   );
 };
+
 export default ContactForm;
