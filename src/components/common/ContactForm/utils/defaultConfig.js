@@ -5,4 +5,5 @@ export const defaultConfig = {
   subject: { label: "Subject", placeholder: "Enter your subject" },
   message: { label: "Message", placeholder: "Your message here", rows: 6 },
   files: { label: "Upload Files", maxFilesCount: 5, maxFileSize: 5 },
+  buttonLabel: "Send a Message",
 };
