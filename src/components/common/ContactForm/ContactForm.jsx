@@ -17,12 +17,15 @@ const ContactForm = ({
   displayMode = "label",
   overrides = {},
 }) => {
-  const mergedConfig = Object.keys(defaultConfig).reduce((acc, key) => {
-    if (fieldsVisibility[key] !== false) {
-      acc[key] = { ...defaultConfig[key], ...overrides[key] };
-    }
-    return acc;
-  }, {});
+  const mergedConfig = {
+    ...Object.keys(defaultConfig).reduce((acc, key) => {
+      if (fieldsVisibility[key] !== false) {
+        acc[key] = { ...defaultConfig[key], ...overrides[key] };
+      }
+      return acc;
+    }, {}),
+    buttonLabel: overrides.buttonLabel || defaultConfig.buttonLabel,
+  };
 
   const initialValues = Object.keys(mergedConfig).reduce((acc, key) => {
     acc[key] = "";
@@ -134,7 +137,7 @@ const ContactForm = ({
             type="submit"
             className="mt-4 rounded bg-blue-500 px-6 py-2 text-white"
           >
-            Submit
+            {mergedConfig.buttonLabel}
           </button>
         </Form>
       )}
