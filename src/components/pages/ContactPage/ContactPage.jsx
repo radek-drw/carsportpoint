@@ -70,7 +70,6 @@ const ContactPage = () => {
           </div>
         </section>
 
-        {/* Contact form */}
         <section aria-labelledby="write-us-heading">
           <h3
             id="write-us-heading"
@@ -83,11 +82,14 @@ const ContactPage = () => {
             dignissim tortor, at fermentum lacus dolor id dui. Sed scelerisque
             tortor.
           </h4>
+
           <ContactForm
             fieldsVisibility={{}}
             displayMode="label"
-            overrides={{ files: { maxFileSize: 5, maxFilesCount: 3 } }}
-            submitButtonTxt="SEND A MESSAGE"
+            overrides={{
+              files: { maxFileSize: 5, maxFilesCount: 3 },
+              buttonLabel: "Send a message",
+            }}
           />
         </section>
       </div>
