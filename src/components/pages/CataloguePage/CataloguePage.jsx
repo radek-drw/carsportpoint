@@ -20,14 +20,12 @@ const CataloguePage = () => {
           more customers
         </p>
         <ContactForm
-          messageFieldRows={9}
-          includeFileInput={true}
-          submitButtonTxt={"SEND NOW"}
-          nameLabel={"Company name"}
-          messageLabel={"Company Information *"}
-          messagePlaceholder={
-            "Please provide some information about your company: opening hours, address, contact details, and any other important info"
-          }
+          fieldsVisibility={{}}
+          displayMode="label"
+          overrides={{
+            files: { maxFileSize: 5, maxFilesCount: 10 },
+            buttonLabel: "Send a message",
+          }}
         />
       </div>
     </section>
