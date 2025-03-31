@@ -1,6 +1,8 @@
 import * as Yup from "yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
+import { defaultConfig } from "./utils/defaultConfig";
+
 /* NOTE: When adding a new file type in SUPPORTED_FORMATS, make sure to update two places:
   
   1. The 'accept' attribute in the <input> tag to allow the selection of the new file extensions. 
@@ -24,8 +26,17 @@ export const SUPPORTED_FORMATS = [
   "text/plain",
 ];
 
-export const createValidationSchema = (maxFileSize) =>
-  Yup.object({
+export const getValidationSchema = (overrides = {}) => {
+  const mergedConfig = {
+    ...defaultConfig,
+    ...overrides,
+    files: { ...defaultConfig.files, ...overrides.files },
+  };
+
+  const maxFileSize = mergedConfig.files.maxFileSize;
+  const maxFilesCount = mergedConfig.files.maxFilesCount;
+
+  return Yup.object({
     name: Yup.string().trim().max(50, "Name cannot exceed 50 characters"),
     email: Yup.string()
       .required("Email is required")
@@ -52,18 +63,25 @@ export const createValidationSchema = (maxFileSize) =>
       .max(100, "Subject cannot exceed 100 characters"),
     files: Yup.array()
       .of(Yup.mixed())
+      .max(
+        maxFilesCount,
+        `You can upload up to ${maxFilesCount} file${maxFilesCount > 1 ? "s" : ""}.`,
+      )
       .test(
         "fileSize",
-        `Each file must be less than ${(maxFileSize / (1024 * 1024)).toFixed()}MB.`,
+        `Each file must be less than ${maxFileSize}MB.`,
         (files) =>
-          Array.isArray(files) &&
-          files.every((file) => file.size <= maxFileSize),
+          !files ||
+          files.length === 0 ||
+          files.every((file) => file.size <= maxFileSize * 1024 * 1024),
       )
       .test(
         "fileType",
         "Invalid file type.",
         (files) =>
-          Array.isArray(files) &&
+          !files ||
+          files.length === 0 ||
           files.every((file) => SUPPORTED_FORMATS.includes(file.type)),
       ),
   });
+};
