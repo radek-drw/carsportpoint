@@ -61,7 +61,7 @@ const FileUploadField = ({
         <ul className="mt-4">
           {files.map((file, index) => {
             const isInvalidFileType = !SUPPORTED_FORMATS.includes(file.type);
-            const isInvalidFileSize = file.size > maxFileSize;
+            const isInvalidFileSize = file.size / (1024 * 1024) > maxFileSize;
             return (
               <li
                 key={index}
@@ -96,9 +96,8 @@ const FileUploadField = ({
                   )}
                   {isInvalidFileSize && (
                     <span className="text-xs text-red-500">
-                      File size exceeds{" "}
-                      {(maxFileSize / (1024 * 1024)).toFixed()}MB. Please upload
-                      a smaller file.
+                      File size exceeds {maxFileSize}MB. Please upload a smaller
+                      file.
                     </span>
                   )}
                 </div>
