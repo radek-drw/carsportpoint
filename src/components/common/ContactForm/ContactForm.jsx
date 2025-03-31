@@ -8,16 +8,9 @@ import SubjectField from "./SubjectField";
 import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
 
-import { validationSchema } from "./validationSchema";
+import { defaultConfig } from "./utils/defaultConfig";
 
-const defaultConfig = {
-  name: { label: "Name", placeholder: "Enter your name" },
-  email: { label: "Email", placeholder: "Enter your email" },
-  phone: { label: "Phone", placeholder: "Enter your phone number" },
-  subject: { label: "Subject", placeholder: "Enter your subject" },
-  message: { label: "Message", placeholder: "Your message here", rows: 6 },
-  files: { label: "Upload Files", maxFilesCount: 5, maxFileSize: 5 },
-};
+import { getValidationSchema } from "./validationSchema";
 
 const ContactForm = ({
   fieldsVisibility = {},
@@ -39,7 +32,7 @@ const ContactForm = ({
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={getValidationSchema(overrides)}
       onSubmit={(values) => console.log(values)}
     >
       {({ values, setFieldValue, errors, touched }) => (
