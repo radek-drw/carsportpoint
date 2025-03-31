@@ -13,54 +13,6 @@ import DynoCarTest2_960w_fallback from "@images/dyno-car-test-2-960w-fallback.jp
 
 import { CgPhone } from "react-icons/cg";
 
-const contactFormConfig = [
-  {
-    type: "name",
-    name: "name",
-    label: "Name",
-    placeholder: "Enter your name",
-  },
-  {
-    type: "group",
-    className:
-      "mb-input-gap flex flex-col items-center justify-between md:flex-row",
-    fields: [
-      {
-        type: "email",
-        name: "email",
-        label: "Email",
-        placeholder: "Enter your email",
-      },
-      {
-        type: "phone",
-        name: "phone",
-        label: "Phone",
-        placeholder: "Enter your phone number",
-      },
-    ],
-  },
-  {
-    type: "subject",
-    name: "subject",
-    label: "Subject",
-    placeholder: "Enter your subject",
-  },
-  {
-    type: "message",
-    name: "message",
-    label: "Message",
-    placeholder: "Your message here",
-    rows: 6,
-  },
-  {
-    type: "file",
-    name: "files",
-    label: "Upload Files",
-    maxFilesCount: 5,
-    maxFileSize: 5,
-  },
-];
-
 const ContactPage = () => {
   return (
     <section>
@@ -134,7 +86,7 @@ const ContactPage = () => {
           <ContactForm
             fieldsVisibility={{}}
             displayMode="label"
-            overrides={{ files: { maxFileSize: 2, maxFilesCount: 4 } }}
+            overrides={{ files: { maxFileSize: 5, maxFilesCount: 3 } }}
             submitButtonTxt="SEND A MESSAGE"
           />
         </section>
