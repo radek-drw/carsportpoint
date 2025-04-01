@@ -90,6 +90,7 @@ const ContactPage = () => {
               files: { maxFilesCount: 3, maxFileSize: 5, label: "test" },
               message: { rows: 4 },
               buttonLabel: "Send a message",
+              phone: { country: "US" },
             }}
           />
         </section>
