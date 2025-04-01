@@ -1,14 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const MessageField = ({
-  label,
-  name,
-  placeholder,
-  errors,
-  touched,
-  messageFieldRows,
-}) => {
+const MessageField = ({ label, name, placeholder, errors, touched, rows }) => {
   const errorId = `${name}-error`;
 
   return (
@@ -23,7 +16,7 @@ const MessageField = ({
         id={name}
         name={name}
         placeholder={placeholder || undefined}
-        rows={messageFieldRows}
+        rows={rows}
         className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
