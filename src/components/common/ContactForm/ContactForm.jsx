@@ -36,9 +36,11 @@ const ContactForm = ({
     <Formik
       initialValues={initialValues}
       validationSchema={getValidationSchema(overrides)}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => {
+        console.log("Form submitted:", values);
+      }}
     >
-      {({ values, setFieldValue, errors, touched }) => (
+      {({ values, setFieldValue, isSubmitting, errors, touched }) => (
         <Form noValidate>
           {mergedConfig.name && (
             <NameField
@@ -135,7 +137,8 @@ const ContactForm = ({
 
           <button
             type="submit"
-            className="mt-4 rounded bg-blue-500 px-6 py-2 text-white"
+            disabled={isSubmitting}
+            className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
           >
             {mergedConfig.buttonLabel}
           </button>
