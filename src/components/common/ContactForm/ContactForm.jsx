@@ -88,6 +88,7 @@ const ContactForm = ({
                       ? mergedConfig.phone.placeholder
                       : ""
                   }
+                  country={mergedConfig.phone.country}
                   value={values.phone}
                   onChange={(phone) => setFieldValue("phone", phone)}
                   errors={errors}
