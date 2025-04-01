@@ -87,7 +87,8 @@ const ContactPage = () => {
             fieldsVisibility={{}}
             displayMode="label"
             overrides={{
-              files: { maxFileSize: 5, maxFilesCount: 3 },
+              files: { maxFilesCount: 3, maxFileSize: 5, label: "test" },
+              message: { rows: 4 },
               buttonLabel: "Send a message",
             }}
           />
