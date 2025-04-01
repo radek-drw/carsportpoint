@@ -1,18 +1,12 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const EmailField = ({
-  name,
-  label = "Email",
-  placeholder = label === "" ? "Email" : "",
-  errors,
-  touched,
-}) => {
+const EmailField = ({ name, label, placeholder, errors, touched }) => {
   const errorId = `${name}-error`;
 
   return (
     <div className="mb-input-gap w-full md:mb-0 md:basis-[47%]">
-      {label !== "" && (
+      {label && (
         <label htmlFor={name} className="mb-1 block text-sm font-medium">
           {label}
         </label>
@@ -20,7 +14,7 @@ const EmailField = ({
       <Field
         id={name}
         name={name}
-        placeholder={placeholder}
+        placeholder={placeholder || undefined}
         type="email"
         className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
