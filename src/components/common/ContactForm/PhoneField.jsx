@@ -23,6 +23,7 @@ const PhoneField = ({
         </label>
       )}
       <PhoneInput
+        id={name}
         placeholder={placeholder || undefined}
         defaultCountry={country}
         value={value}
