@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ErrorMessage } from "formik";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -7,13 +7,21 @@ const PhoneField = ({
   name,
   label,
   placeholder,
+  country,
   value,
   onChange,
   errors,
   touched,
 }) => {
-  const [country, setCountry] = useState("IE");
+  const [currentCountry, setCurrentCountry] = useState(country);
   const errorId = `${name}-error`;
+
+  // Updates 'currentCountry' when 'country' prop changes to keep the state in sync
+  useEffect(() => {
+    if (country) {
+      setCurrentCountry(country);
+    }
+  }, [country]);
 
   return (
     <div className="w-full md:basis-[47%]">
@@ -25,10 +33,10 @@ const PhoneField = ({
       <PhoneInput
         id={name}
         placeholder={placeholder || undefined}
-        defaultCountry={country}
+        defaultCountry={currentCountry}
         value={value}
         onChange={onChange}
-        onCountryChange={setCountry}
+        onCountryChange={setCurrentCountry}
         className="input-bordered w-full transition focus-within:border-inputBorder focus-within:shadow-inputShadow"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
