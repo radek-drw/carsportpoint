@@ -24,13 +24,16 @@ const ContactForm = ({
       }
       return acc;
     }, {}),
-    buttonLabel: overrides.buttonLabel || defaultConfig.buttonLabel,
   };
 
-  const initialValues = Object.keys(mergedConfig).reduce((acc, key) => {
-    acc[key] = "";
-    return acc;
-  }, {});
+  const initialValues = Object.keys(mergedConfig)
+    .filter((key) => key !== "buttonLabel")
+    .reduce((acc, key) => {
+      acc[key] = "";
+      return acc;
+    }, {});
+
+  const buttonLabel = overrides.buttonLabel || defaultConfig.buttonLabel;
 
   return (
     <Formik
@@ -141,7 +144,7 @@ const ContactForm = ({
             disabled={isSubmitting}
             className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
           >
-            {mergedConfig.buttonLabel}
+            {buttonLabel}
           </button>
         </Form>
       )}
