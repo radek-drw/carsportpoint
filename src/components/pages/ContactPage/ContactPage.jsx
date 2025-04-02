@@ -91,6 +91,7 @@ const ContactPage = () => {
               message: { rows: 4 },
               buttonLabel: "Send a message",
               phone: { country: "US" },
+              name: { required: false },
             }}
           />
         </section>
