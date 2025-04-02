@@ -37,30 +37,42 @@ export const getValidationSchema = (overrides = {}) => {
   const maxFilesCount = mergedConfig.files.maxFilesCount;
 
   return Yup.object({
-    name: Yup.string().trim().max(50, "Name cannot exceed 50 characters"),
+    name: Yup.string()
+      .trim()
+      .max(50, "Name cannot exceed 50 characters")
+      .when("$required", (required, schema) => {
+        return required ? schema.required("Name is required") : schema;
+      }),
     email: Yup.string()
-      .required("Email is required")
       .email("Invalid email address")
-      .max(320, "Email cannot exceed 320 characters"),
-    phone: Yup.string().test(
-      "isValidPhone",
-      "Invalid phone number",
-      (value, context) => {
+      .max(320, "Email cannot exceed 320 characters")
+      .when("$required", (required, schema) => {
+        return required ? schema.required("Email is required") : schema;
+      }),
+    phone: Yup.string()
+      .test("isValidPhone", "Invalid phone number", (value, context) => {
         if (!value) return true;
         const phoneNumber = parsePhoneNumberFromString(
           value,
           context.parent.country,
         );
         return phoneNumber && phoneNumber.isValid();
-      },
-    ),
+      })
+      .when("$required", (required, schema) => {
+        return required ? schema.required("Phone is required") : schema;
+      }),
     message: Yup.string()
       .trim()
-      .required("Message is required")
-      .max(1000, "Message cannot exceed 1000 characters"),
+      .max(1000, "Message cannot exceed 1000 characters")
+      .when("$required", (required, schema) => {
+        return required ? schema.required("Message is required") : schema;
+      }),
     subject: Yup.string()
       .trim()
-      .max(100, "Subject cannot exceed 100 characters"),
+      .max(100, "Subject cannot exceed 100 characters")
+      .when("$required", (required, schema) => {
+        return required ? schema.required("Subject is required") : schema;
+      }),
     files: Yup.array()
       .of(Yup.mixed())
       .max(
