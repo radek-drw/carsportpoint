@@ -7,29 +7,28 @@ export const defaultConfig = {
   email: {
     label: "Email",
     placeholder: "Enter your email",
-    // required: true,
+    required: true,
   },
   phone: {
     label: "Phone",
     placeholder: "Enter your phone number",
     country: "IE",
-    // required: true,
+    required: true,
   },
   subject: {
     label: "Subject",
     placeholder: "Enter your subject",
-    // required: true,
+    required: true,
   },
   message: {
     label: "Message",
     placeholder: "Your message here",
     rows: 6,
-    // required: true,
+    required: true,
   },
   files: {
     label: "Upload Files",
     maxFilesCount: 5,
     maxFileSize: 5,
-    // required: false,
   },
 };
