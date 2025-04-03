@@ -16,6 +16,7 @@ const ContactForm = ({
   fieldsVisibility = {},
   displayMode = "label",
   overrides = {},
+  submitBtnLabel = "Send a Message",
 }) => {
   const mergedConfig = {
     ...Object.keys(defaultConfig).reduce((acc, key) => {
@@ -25,6 +26,7 @@ const ContactForm = ({
       return acc;
     }, {}),
   };
+  console.log("Merged Config:", mergedConfig);
 
   const initialValues = Object.keys(mergedConfig)
     .filter((key) => key !== "buttonLabel")
@@ -32,8 +34,6 @@ const ContactForm = ({
       acc[key] = "";
       return acc;
     }, {});
-
-  const buttonLabel = overrides.buttonLabel || defaultConfig.buttonLabel;
 
   return (
     <Formik
@@ -144,7 +144,7 @@ const ContactForm = ({
             disabled={isSubmitting}
             className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
           >
-            {buttonLabel}
+            {submitBtnLabel}
           </button>
         </Form>
       )}
