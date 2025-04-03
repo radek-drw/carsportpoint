@@ -91,7 +91,7 @@ const ContactPage = () => {
               files: { maxFilesCount: 3, maxFileSize: 5, label: "test" },
               message: { rows: 4 },
               phone: { country: "US" },
-              name: { required: false },
+              // name: { required: false },
             }}
           />
         </section>
