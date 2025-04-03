@@ -40,8 +40,9 @@ export const getValidationSchema = (overrides = {}) => {
     name: Yup.string()
       .trim()
       .max(50, "Name cannot exceed 50 characters")
-      .when("$required", (required, schema) => {
-        return required ? schema.required("Name is required") : schema;
+      .when([], {
+        is: () => mergedConfig.name.required,
+        then: (schema) => schema.required("Name is required"),
       }),
     email: Yup.string()
       .email("Invalid email address")
