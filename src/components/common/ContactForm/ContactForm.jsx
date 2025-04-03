@@ -26,7 +26,6 @@ const ContactForm = ({
       return acc;
     }, {}),
   };
-  console.log("Merged Config:", mergedConfig);
 
   const initialValues = Object.keys(mergedConfig)
     .filter((key) => key !== "buttonLabel")
@@ -54,6 +53,7 @@ const ContactForm = ({
               placeholder={
                 displayMode !== "label" ? mergedConfig.name.placeholder : ""
               }
+              required={mergedConfig.name.required}
               errors={errors}
               touched={touched}
             />
@@ -74,6 +74,7 @@ const ContactForm = ({
                       ? mergedConfig.email.placeholder
                       : ""
                   }
+                  required={mergedConfig.email.required}
                   errors={errors}
                   touched={touched}
                 />
@@ -91,6 +92,7 @@ const ContactForm = ({
                       ? mergedConfig.phone.placeholder
                       : ""
                   }
+                  required={mergedConfig.phone.required}
                   country={mergedConfig.phone.country}
                   value={values.phone}
                   onChange={(phone) => setFieldValue("phone", phone)}
@@ -110,6 +112,7 @@ const ContactForm = ({
               placeholder={
                 displayMode !== "label" ? mergedConfig.subject.placeholder : ""
               }
+              required={mergedConfig.subject.required}
               errors={errors}
               touched={touched}
             />
@@ -123,6 +126,7 @@ const ContactForm = ({
               placeholder={
                 displayMode !== "label" ? mergedConfig.message.placeholder : ""
               }
+              required={mergedConfig.message.required}
               rows={mergedConfig.message.rows}
               errors={errors}
               touched={touched}
