@@ -1,7 +1,15 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 
-const MessageField = ({ label, name, placeholder, errors, touched, rows }) => {
+const MessageField = ({
+  label,
+  name,
+  placeholder,
+  required,
+  errors,
+  touched,
+  rows,
+}) => {
   const errorId = `${name}-error`;
 
   return (
@@ -20,7 +28,7 @@ const MessageField = ({ label, name, placeholder, errors, touched, rows }) => {
         className={`input-bordered w-full transition ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
-        aria-required="true"
+        aria-required={required}
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />

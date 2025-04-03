@@ -7,6 +7,7 @@ const PhoneField = ({
   name,
   label,
   placeholder,
+  required,
   country,
   value,
   onChange,
@@ -37,7 +38,10 @@ const PhoneField = ({
         value={value}
         onChange={onChange}
         onCountryChange={setCurrentCountry}
-        className="input-bordered w-full transition focus-within:border-inputBorder focus-within:shadow-inputShadow"
+        className={`focus-within:shadow-inputShadow" input-bordered w-full transition focus-within:border-inputBorder ${
+          errors[name] && touched[name] ? "border-red-500" : ""
+        }`}
+        required={required}
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />
