@@ -46,25 +46,38 @@ export const getValidationSchema = (overrides = {}) => {
       }),
     email: Yup.string()
       .email("Invalid email address")
-      .max(320, "Email cannot exceed 320 characters"),
-    phone: Yup.string().test(
-      "isValidPhone",
-      "Invalid phone number",
-      (value, context) => {
+      .max(320, "Email cannot exceed 320 characters")
+      .when([], {
+        is: () => mergedConfig.email.required,
+        then: (schema) => schema.required("Email is required"),
+      }),
+    phone: Yup.string()
+      .test("isValidPhone", "Invalid phone number", (value, context) => {
         if (!value) return true;
         const phoneNumber = parsePhoneNumberFromString(
           value,
           context.parent.country,
         );
         return phoneNumber && phoneNumber.isValid();
-      },
-    ),
-    message: Yup.string()
-      .trim()
-      .max(1000, "Message cannot exceed 1000 characters"),
+      })
+      .when([], {
+        is: () => mergedConfig.phone.required,
+        then: (schema) => schema.required("Phone is required"),
+      }),
     subject: Yup.string()
       .trim()
-      .max(100, "Subject cannot exceed 100 characters"),
+      .max(100, "Subject cannot exceed 100 characters")
+      .when([], {
+        is: () => mergedConfig.subject.required,
+        then: (schema) => schema.required("Subject is required"),
+      }),
+    message: Yup.string()
+      .trim()
+      .max(1000, "Message cannot exceed 1000 characters")
+      .when([], {
+        is: () => mergedConfig.message.required,
+        then: (schema) => schema.required("Message is required"),
+      }),
     files: Yup.array()
       .of(Yup.mixed())
       .max(
