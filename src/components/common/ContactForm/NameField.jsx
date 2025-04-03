@@ -15,7 +15,10 @@ const NameField = ({ name, label, placeholder, errors, touched }) => {
         id={name}
         name={name}
         placeholder={placeholder || undefined}
-        className="input-bordered w-full transition"
+        className={`input-bordered w-full transition ${
+          errors[name] && touched[name] ? "border-red-500" : ""
+        }`}
+        aria-required="true"
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}
       />
