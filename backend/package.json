@@ -9,12 +9,15 @@
     "deploy:getGoogleMapsApiKey": "powershell Compress-Archive -Path getGoogleMapsApiKey.mjs -DestinationPath getGoogleMapsApiKey.zip; aws lambda update-function-code --function-name getGoogleMapsApiKey --zip-file fileb://getGoogleMapsApiKey.zip --no-cli-pager; Remove-Item -Path ./getGoogleMapsApiKey.zip",
     "deploy:getCompanies": "powershell Compress-Archive -Path getCompanies.mjs -DestinationPath getCompanies.zip; aws lambda update-function-code --function-name getCompanies --zip-file fileb://getCompanies.zip --no-cli-pager; Remove-Item -Path ./getCompanies.zip",
     "deploy:saveCompanyDetails": "powershell Compress-Archive -Path saveCompanyDetails.mjs -DestinationPath saveCompanyDetails.zip; aws lambda update-function-code --function-name saveCompanyDetails --zip-file fileb://saveCompanyDetails.zip --no-cli-pager; Remove-Item -Path ./saveCompanyDetails.zip",
+    "deploy:sendContactForm": "powershell Compress-Archive -Path sendContactForm.mjs -DestinationPath sendContactForm.zip; aws lambda update-function-code --function-name sendContactForm --zip-file fileb://sendContactForm.zip --no-cli-pager; Remove-Item -Path ./sendContactForm.zip",
     "test:getGoogleMapsApiKey": "node test-getGoogleMapsApiKey",
     "test:getCompanies": "node test-getCompanies",
-    "test:saveCompanyDetails": "node test-saveCompanyDetails"
+    "test:saveCompanyDetails": "node test-saveCompanyDetails",
+    "test:sendContactForm": "node test-sendContactForm"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.758.0",
+    "@aws-sdk/client-ses": "^3.782.0",
     "@aws-sdk/client-ssm": "^3.759.0",
     "@aws-sdk/util-dynamodb": "^3.758.0",
     "uuid": "^11.1.0"
