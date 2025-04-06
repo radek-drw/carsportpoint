@@ -85,8 +85,8 @@ const validateCustomConfig = (customConfig) => {
 const validateProps = (
   visibleFields,
   displayMode,
-  customConfig,
   submitLabel,
+  customConfig,
 ) => {
   validateVisibleFields(visibleFields);
   validateDisplayMode(displayMode);
