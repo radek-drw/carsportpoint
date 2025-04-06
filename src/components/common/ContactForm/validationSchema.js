@@ -26,11 +26,11 @@ export const SUPPORTED_FORMATS = [
   "text/plain",
 ];
 
-export const getValidationSchema = (overrides = {}) => {
+export const getValidationSchema = (customConfig = {}) => {
   const mergedConfig = {
     ...defaultConfig,
-    ...overrides,
-    files: { ...defaultConfig.files, ...overrides.files },
+    ...customConfig,
+    files: { ...defaultConfig.files, ...customConfig.files },
   };
 
   const maxFileSize = mergedConfig.files.maxFileSize;
