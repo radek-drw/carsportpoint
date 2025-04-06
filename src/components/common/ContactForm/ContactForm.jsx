@@ -20,7 +20,7 @@ const ContactForm = ({
   customConfig = {},
   submitLabel = "Send a Message",
 }) => {
-  validateProps(visibleFields, displayMode, customConfig, submitLabel);
+  validateProps(visibleFields, displayMode, submitLabel, customConfig);
 
   const mergedConfig = {
     ...Object.keys(defaultConfig).reduce((acc, key) => {
