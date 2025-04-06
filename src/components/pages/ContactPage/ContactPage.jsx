@@ -84,41 +84,13 @@ const ContactPage = () => {
           </h4>
 
           <ContactForm
-            visibleFields={{ message: false }}
-            displayMode="both"
-            submitLabel="Send a Message"
+            visibleFields={{ files: false }}
             customConfig={{
               name: {
-                label: "Name",
-                placeholder: "Enter name",
-                required: true,
-              },
-              email: {
-                label: "Email",
-                placeholder: "Enter email",
-                required: true,
+                required: false,
               },
               phone: {
-                label: "Phone",
-                placeholder: "Enter phone",
-                country: "CA",
-                required: true,
-              },
-              subject: {
-                label: "Subject",
-                placeholder: "Enter your subject",
-                required: true,
-              },
-              message: {
-                label: "Message",
-                placeholder: "Your message here",
-                rows: 6,
-                required: true,
-              },
-              files: {
-                maxFilesCount: 3,
-                maxFileSize: 6,
-                label: "Upload Files",
+                required: false,
               },
             }}
           />
@@ -126,7 +98,7 @@ const ContactPage = () => {
       </div>
 
       {/* Decorative divider */}
-      <div className="mt-20 flex justify-center">
+      <div className="mt-24 flex justify-center">
         <Divider size="194px" orientation="vertical" rotate="180" />
       </div>
     </section>
