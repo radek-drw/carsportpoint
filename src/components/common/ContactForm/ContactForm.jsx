@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
+import axios from "axios";
 
 import NameField from "./NameField";
 import EmailField from "./EmailField";
@@ -7,6 +8,10 @@ import PhoneField from "./PhoneField";
 import SubjectField from "./SubjectField";
 import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
+
+import { motion, AnimatePresence } from "framer-motion";
+
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { defaultConfig } from "./utils/defaultConfig";
 
@@ -20,6 +25,8 @@ const ContactForm = ({
   customConfig = {},
   submitLabel = "Send a Message",
 }) => {
+  const [successMessage, setSuccessMessage] = useState("");
+
   validateProps(visibleFields, displayMode, submitLabel, customConfig);
 
   const mergedConfig = {
@@ -36,12 +43,24 @@ const ContactForm = ({
     return acc;
   }, {});
 
+  const API_URL =
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm";
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={getValidationSchema(customConfig)}
-      onSubmit={(values) => {
-        console.log("Form submitted:", values);
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
+        try {
+          await axios.post(API_URL, values);
+          setSuccessMessage("The form has been successfully submitted!");
+          setTimeout(() => setSuccessMessage(""), 5000);
+          resetForm();
+        } catch (error) {
+          console.error("Submission error:", error);
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) => (
@@ -148,10 +167,31 @@ const ContactForm = ({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
+            className={`mt-12 flex w-full items-center justify-center gap-2 rounded-md px-5 py-4 text-white transition duration-300 ${
+              isSubmitting ? "bg-gray-400" : "bg-red-500 hover:bg-red-700"
+            }`}
           >
-            {submitLabel}
+            {isSubmitting ? (
+              <>
+                <ClipLoader color="#fff" size={20} />
+                Sending...
+              </>
+            ) : (
+              submitLabel
+            )}
           </button>
+          <AnimatePresence>
+            {successMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="absolute mt-4 rounded-md bg-green-100 px-4 py-3 text-sm text-green-800 shadow"
+              >
+                {successMessage}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Form>
       )}
     </Formik>
