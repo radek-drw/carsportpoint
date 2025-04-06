@@ -84,15 +84,42 @@ const ContactPage = () => {
           </h4>
 
           <ContactForm
-            fieldsVisibility={{ subject: true }}
-            displayMode="label"
-            submitBtnLabel="Send a test"
-            overrides={{
-              name: { required: true },
-              email: { required: true },
-              phone: { country: "CA", required: true },
-              message: { rows: 4, required: true },
-              files: { maxFilesCount: 3, maxFileSize: 5, label: "test" },
+            visibleFields={{ message: false }}
+            displayMode="both"
+            submitLabel="Send a Message"
+            customConfig={{
+              name: {
+                label: "Name",
+                placeholder: "Enter name",
+                required: true,
+              },
+              email: {
+                label: "Email",
+                placeholder: "Enter email",
+                required: true,
+              },
+              phone: {
+                label: "Phone",
+                placeholder: "Enter phone",
+                country: "CA",
+                required: true,
+              },
+              subject: {
+                label: "Subject",
+                placeholder: "Enter your subject",
+                required: true,
+              },
+              message: {
+                label: "Message",
+                placeholder: "Your message here",
+                rows: 6,
+                required: true,
+              },
+              files: {
+                maxFilesCount: 3,
+                maxFileSize: 6,
+                label: "Upload Files",
+              },
             }}
           />
         </section>
