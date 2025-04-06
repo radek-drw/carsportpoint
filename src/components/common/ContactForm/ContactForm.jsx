@@ -10,34 +10,36 @@ import FileUploadField from "./FileUploadField";
 
 import { defaultConfig } from "./utils/defaultConfig";
 
+import validateProps from "./utils/validateProps";
+
 import { getValidationSchema } from "./validationSchema";
 
 const ContactForm = ({
-  fieldsVisibility = {},
+  visibleFields = {},
   displayMode = "label",
-  overrides = {},
-  submitBtnLabel = "Send a Message",
+  customConfig = {},
+  submitLabel = "Send a Message",
 }) => {
+  validateProps(visibleFields, displayMode, customConfig, submitLabel);
+
   const mergedConfig = {
     ...Object.keys(defaultConfig).reduce((acc, key) => {
-      if (fieldsVisibility[key] !== false) {
-        acc[key] = { ...defaultConfig[key], ...overrides[key] };
+      if (visibleFields[key] !== false) {
+        acc[key] = { ...defaultConfig[key], ...customConfig[key] };
       }
       return acc;
     }, {}),
   };
 
-  const initialValues = Object.keys(mergedConfig)
-    .filter((key) => key !== "buttonLabel")
-    .reduce((acc, key) => {
-      acc[key] = "";
-      return acc;
-    }, {});
+  const initialValues = Object.keys(mergedConfig).reduce((acc, key) => {
+    acc[key] = "";
+    return acc;
+  }, {});
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={getValidationSchema(overrides)}
+      validationSchema={getValidationSchema(customConfig)}
       onSubmit={(values) => {
         console.log("Form submitted:", values);
       }}
@@ -148,7 +150,7 @@ const ContactForm = ({
             disabled={isSubmitting}
             className="duration-default mt-12 block w-full rounded-md bg-red-500 px-5 py-4 text-white hover:bg-red-700"
           >
-            {submitBtnLabel}
+            {submitLabel}
           </button>
         </Form>
       )}
