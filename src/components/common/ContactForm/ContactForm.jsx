@@ -27,6 +27,9 @@ const ContactForm = ({
 }) => {
   const [successMessage, setSuccessMessage] = useState("");
 
+  // validateProps is a function that checks the data types of props passed to ContactForm.
+  // If any property has an incorrect type or contains invalid values,
+  // the function throws an error with an appropriate message and stops further code execution
   validateProps(visibleFields, displayMode, submitLabel, customConfig);
 
   const mergedConfig = {
