@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import axios from "axios";
 
@@ -8,8 +8,10 @@ import PhoneField from "./PhoneField";
 import SubjectField from "./SubjectField";
 import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
+import SuccessMessage from "./formStatus/SuccessMessage";
+import ErrorMessage from "./formStatus/ErrorMessage";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -26,6 +28,10 @@ const ContactForm = ({
   submitLabel = "Send a Message",
 }) => {
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const successTimeoutRef = useRef(null);
+  const errorTimeoutRef = useRef(null);
 
   // validateProps is a function that checks the data types of props passed to ContactForm.
   // If any property has an incorrect type or contains invalid values,
@@ -46,8 +52,11 @@ const ContactForm = ({
     return acc;
   }, {});
 
+  const MESSAGE_DELAY = 100;
+  const MESSAGE_DURATION = 5000;
+
   const API_URL =
-    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm";
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm1";
 
   return (
     <Formik
@@ -56,11 +65,25 @@ const ContactForm = ({
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         try {
           await axios.post(API_URL, values);
-          setSuccessMessage("The form has been successfully submitted!");
-          setTimeout(() => setSuccessMessage(""), 5000);
+          setSuccessMessage("");
+          clearTimeout(successTimeoutRef.current);
+          setTimeout(() => {
+            setSuccessMessage("The form has been successfully submitted!");
+          }, MESSAGE_DELAY);
+          successTimeoutRef.current = setTimeout(() => {
+            setSuccessMessage("");
+          }, MESSAGE_DURATION);
           resetForm();
         } catch (error) {
           console.error("Submission error:", error);
+          setErrorMessage("");
+          clearTimeout(errorTimeoutRef.current);
+          setTimeout(() => {
+            setErrorMessage("Something went wrong. Please try again later");
+          }, MESSAGE_DELAY);
+          errorTimeoutRef.current = setTimeout(() => {
+            setErrorMessage("");
+          }, MESSAGE_DURATION);
         } finally {
           setSubmitting(false);
         }
@@ -184,16 +207,14 @@ const ContactForm = ({
             )}
           </button>
           <AnimatePresence>
-            {successMessage && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute mt-4 rounded-md bg-green-100 px-4 py-3 text-sm text-green-800 shadow"
-              >
-                {successMessage}
-              </motion.div>
-            )}
+            <SuccessMessage
+              message={successMessage}
+              onClose={() => setSuccessMessage("")}
+            />
+            <ErrorMessage
+              message={errorMessage}
+              onClose={() => setErrorMessage("")}
+            />
           </AnimatePresence>
         </Form>
       )}
