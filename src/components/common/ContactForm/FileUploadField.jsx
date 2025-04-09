@@ -64,7 +64,7 @@ const FileUploadField = ({
             const isInvalidFileSize = file.size / (1024 * 1024) > maxFileSize;
             return (
               <li
-                key={index}
+                key={`${file.name}-${file.size}-${index}`}
                 className="mb-2 flex items-center justify-between rounded-md bg-gray-100 p-2"
               >
                 <div className="flex w-3/4 flex-col">
