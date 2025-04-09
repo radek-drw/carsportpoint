@@ -207,14 +207,20 @@ const ContactForm = ({
             )}
           </button>
           <AnimatePresence>
-            <SuccessMessage
-              message={successMessage}
-              onClose={() => setSuccessMessage("")}
-            />
-            <ErrorMessage
-              message={errorMessage}
-              onClose={() => setErrorMessage("")}
-            />
+            {successMessage && (
+              <SuccessMessage
+                key="success"
+                message={successMessage}
+                onClose={() => setSuccessMessage("")}
+              />
+            )}
+            {errorMessage && (
+              <ErrorMessage
+                key="error"
+                message={errorMessage}
+                onClose={() => setErrorMessage("")}
+              />
+            )}
           </AnimatePresence>
         </Form>
       )}
