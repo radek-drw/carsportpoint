@@ -56,7 +56,7 @@ const ContactForm = ({
   const MESSAGE_DURATION = 5000;
 
   const API_URL =
-    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm1";
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm";
 
   return (
     <Formik
