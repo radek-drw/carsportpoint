@@ -84,7 +84,8 @@ const ContactPage = () => {
           </h4>
 
           <ContactForm
-            visibleFields={{ files: false }}
+            // visibleFields={{ files: false }}
+            // OBSŁUGA PLIKÓW DO DODANIA
             customConfig={{
               name: {
                 required: false,
