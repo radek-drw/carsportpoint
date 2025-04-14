@@ -55,8 +55,11 @@ const ContactForm = ({
   const MESSAGE_DELAY = 100;
   const MESSAGE_DURATION = 5000;
 
-  const API_URL =
-    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm";
+  const SEND_CONTACT_FORM_URL =
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm1";
+
+  const S3_UPLOAD_URL =
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/uploadFiles";
 
   return (
     <Formik
@@ -64,7 +67,24 @@ const ContactForm = ({
       validationSchema={getValidationSchema(customConfig)}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         try {
-          await axios.post(API_URL, values);
+          let fileUrls = [];
+          if (values.files && values.files.length > 0) {
+            const formData = new FormData();
+            values.files.forEach((file) => formData.append("files", file));
+
+            const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            });
+
+            fileUrls = fileUploadRes.data.urls;
+          }
+          const payload = {
+            ...values,
+            files: fileUrls,
+          };
+          await axios.post(SEND_CONTACT_FORM_URL, payload);
           setSuccessMessage("");
           clearTimeout(successTimeoutRef.current);
           setTimeout(() => {
