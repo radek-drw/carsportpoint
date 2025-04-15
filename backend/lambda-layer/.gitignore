@@ -1,5 +1,20 @@
-# Ignore the zip file
-layer.zip
+# Node modules - do not commit dependencies
+nodejs/node_modules/
 
-# Ignore the nodejs folder
-nodejs/
+# Lock files (optional, if you don't want to commit them)
+nodejs/package-lock.json
+nodejs/yarn.lock
+
+# Temporary ZIP files
+lambda-layer.zip
+
+# System junk files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE settings (e.g., VSCode)
+.vscode/
+.idea/
+
+# Log files
+*.log
