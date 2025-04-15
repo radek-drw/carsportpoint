@@ -10,6 +10,7 @@
     "deploy:getCompanies": "powershell Compress-Archive -Path getCompanies.mjs -DestinationPath getCompanies.zip; aws lambda update-function-code --function-name getCompanies --zip-file fileb://getCompanies.zip --no-cli-pager; Remove-Item -Path ./getCompanies.zip",
     "deploy:saveCompanyDetails": "powershell Compress-Archive -Path saveCompanyDetails.mjs -DestinationPath saveCompanyDetails.zip; aws lambda update-function-code --function-name saveCompanyDetails --zip-file fileb://saveCompanyDetails.zip --no-cli-pager; Remove-Item -Path ./saveCompanyDetails.zip",
     "deploy:sendContactForm": "powershell Compress-Archive -Path sendContactForm.mjs -DestinationPath sendContactForm.zip; aws lambda update-function-code --function-name sendContactForm --zip-file fileb://sendContactForm.zip --no-cli-pager; Remove-Item -Path ./sendContactForm.zip",
+    "deploy:uploadFilesToS3": "powershell Compress-Archive -Path uploadFilesToS3.mjs -DestinationPath uploadFilesToS3.zip; aws lambda update-function-code --function-name uploadFilesToS3 --zip-file fileb://uploadFilesToS3.zip --no-cli-pager; Remove-Item -Path ./uploadFilesToS3.zip",
     "test:getGoogleMapsApiKey": "node test-getGoogleMapsApiKey",
     "test:getCompanies": "node test-getCompanies",
     "test:saveCompanyDetails": "node test-saveCompanyDetails",
