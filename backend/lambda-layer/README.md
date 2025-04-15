@@ -33,18 +33,15 @@ npm install <package-name>
 
 # Command Usage
 
-To create a Lambda layer, use the following command (make sure you are in the lambda-layer path when using this command):
-
-```shell
-cd ..
-```
+To create a Lambda layer, use the following command:
 
 ```shell
 npm run build
 ```
 
 Explanation
-This command creates a zip file (layer.zip) containing the nodejs/node_modules directory, which will be uploaded to AWS Lambda
+
+- This command creates a zip file (layer.zip) containing the nodejs/node_modules directory, which will be uploaded to AWS Lambda
 
 # Current Dependencies
 
