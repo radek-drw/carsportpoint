@@ -40,7 +40,7 @@ cd ..
 ```
 
 ```shell
-Compress-Archive -Path nodejs -DestinationPath layer.zip -Force
+npm run build
 ```
 
 Explanation
