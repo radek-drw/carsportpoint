@@ -11,9 +11,33 @@ The AWS Lambda Layer was created to store external dependencies that are not nat
 - Enhances Code Reusability: Multiple Lambda functions can use the same layer without duplicating dependencies
 - Optimizes Deployment: Updating dependencies does not require redeploying each Lambda function
 
+# Installing New Packages
+
+Make sure you are in nodejs folder:
+
+```shell
+cd nodejs
+```
+
+Run command to install packages:
+
+```shell
+npm install
+```
+
+Installing new packages:
+
+```shell
+npm install <package-name>
+```
+
 # Command Usage
 
 To create a Lambda layer, use the following command (make sure you are in the lambda-layer path when using this command):
+
+```shell
+cd ..
+```
 
 ```shell
 Compress-Archive -Path nodejs -DestinationPath layer.zip -Force
@@ -22,26 +46,17 @@ Compress-Archive -Path nodejs -DestinationPath layer.zip -Force
 Explanation
 This command creates a zip file (layer.zip) containing the nodejs/node_modules directory, which will be uploaded to AWS Lambda
 
-# Installing New Packages
-
-- Install packages with the --no-save flag to avoid creating package.json:
-
-```shell
-npm install <package-name> --no-save
-```
-
-- Re-compress node_modules into layer.zip
-
 # Current Dependencies
 
-Currently, the node_modules directory contains the following package:
+Currently, the node_modules directory contains the following packages:
 
 - uuid: A simple, fast generation of RFC4122 UUIDs
+- busboy: A streaming parser for HTML form data for Node.js
 
 If a new package is added, make sure to update this documentation to reflect the change
 
 If you need to remove a package from the layer, use the following command:
 
 ```shell
-npm uninstall <package-name> --no-save
+npm uninstall <package-name>
 ```
