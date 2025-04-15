@@ -72,11 +72,7 @@ const ContactForm = ({
             const formData = new FormData();
             values.files.forEach((file) => formData.append("files", file));
 
-            const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            });
+            const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData);
 
             fileUrls = fileUploadRes.data.urls;
           }
