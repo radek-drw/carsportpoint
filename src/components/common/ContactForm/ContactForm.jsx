@@ -56,10 +56,10 @@ const ContactForm = ({
   const MESSAGE_DURATION = 5000;
 
   const SEND_CONTACT_FORM_URL =
-    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm1";
+    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/sendContactForm";
 
   const S3_UPLOAD_URL =
-    "https://qxzl1w9qrh.execute-api.eu-west-1.amazonaws.com/uploadFiles";
+    "https://76dy56vmwa.execute-api.eu-west-1.amazonaws.com/uploadFilesToS3";
 
   return (
     <Formik
