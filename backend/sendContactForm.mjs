@@ -4,7 +4,7 @@ const ses = new SESClient({ region: "eu-west-1" });
 
 export const handler = async (event) => {
   const body = JSON.parse(event.body);
-  const { name, email, phone, subject, message } = body;
+  const { name, email, phone, subject, message, files } = body;
 
   const emailParams = {
     Source: "rdrweski@outlook.com",
@@ -16,14 +16,27 @@ export const handler = async (event) => {
         Data: "New message from Contact Form",
       },
       Body: {
-        Text: {
+        Html: {
           Data: `
-            Subject: ${subject || "not provided"}
-            Name: ${name || "not provided"}
-            Email: ${email}
-            Phone: ${phone || "not provided"}
-            Message: ${message}
-            `,
+                <p><strong>Subject:</strong> ${subject || "not provided"}</p>
+                <p><strong>Name:</strong> ${name || "not provided"}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone || "not provided"}</p>
+                <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
+                <p><strong>Attached Files:</strong></p>
+                <ul>
+                  ${
+                    files && files.length > 0
+                      ? files
+                          .map(
+                            (file) =>
+                              `<li><a href="${file.url}">${file.name}</a></li>`,
+                          )
+                          .join("")
+                      : "<li>No files attached</li>"
+                  }
+                </ul>
+              `,
         },
       },
     },
