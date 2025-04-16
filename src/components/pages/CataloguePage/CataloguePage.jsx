@@ -20,11 +20,12 @@ const CataloguePage = () => {
           more customers
         </p>
         <ContactForm
-          fieldsVisibility={{}}
           displayMode="label"
-          overrides={{
-            files: { maxFileSize: 5, maxFilesCount: 10 },
-            buttonLabel: "Send a message",
+          customConfig={{
+            name: { required: false },
+            email: { required: false },
+            phone: { required: false },
+            subject: { required: false },
           }}
         />
       </div>
