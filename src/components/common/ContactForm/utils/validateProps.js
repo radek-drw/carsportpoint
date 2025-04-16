@@ -38,6 +38,12 @@ const validateCustomConfig = (customConfig) => {
     throw new Error("Invalid prop: 'customConfig' should be an object.");
   }
 
+  if (customConfig.email?.required === false) {
+    throw new Error(
+      "Email field must be required to ensure proper Reply-To setup in SES.",
+    );
+  }
+
   Object.entries(customConfig).forEach(([key, config]) => {
     if (typeof config !== "object" || config === null) {
       throw new Error(`Invalid field config: '${key}' should be an object.`);
