@@ -114,17 +114,14 @@ const ContactForm = ({
         }
       }}
     >
-      {({ values, setFieldValue, isSubmitting, errors, touched }) => (
+      {({ values, setFieldValue, isSubmitting, errors, touched }) =>
+        /* prettier-ignore */
         <Form noValidate>
           {mergedConfig.name && (
             <NameField
               name="name"
-              label={
-                displayMode !== "placeholder" ? mergedConfig.name.label : ""
-              }
-              placeholder={
-                displayMode !== "label" ? mergedConfig.name.placeholder : ""
-              }
+              label={displayMode !== "placeholder" ? mergedConfig.name.label : ""}
+              placeholder={displayMode !== "label" ? mergedConfig.name.placeholder : ""}
               required={mergedConfig.name.required}
               errors={errors}
               touched={touched}
@@ -136,16 +133,8 @@ const ContactForm = ({
               {mergedConfig.email && (
                 <EmailField
                   name="email"
-                  label={
-                    displayMode !== "placeholder"
-                      ? mergedConfig.email.label
-                      : ""
-                  }
-                  placeholder={
-                    displayMode !== "label"
-                      ? mergedConfig.email.placeholder
-                      : ""
-                  }
+                  label={displayMode !== "placeholder" ? mergedConfig.email.label : ""}
+                  placeholder={displayMode !== "label" ? mergedConfig.email.placeholder : ""}
                   required={mergedConfig.email.required}
                   errors={errors}
                   touched={touched}
@@ -154,16 +143,8 @@ const ContactForm = ({
               {mergedConfig.phone && (
                 <PhoneField
                   name="phone"
-                  label={
-                    displayMode !== "placeholder"
-                      ? mergedConfig.phone.label
-                      : ""
-                  }
-                  placeholder={
-                    displayMode !== "label"
-                      ? mergedConfig.phone.placeholder
-                      : ""
-                  }
+                  label={displayMode !== "placeholder" ? mergedConfig.phone.label : ""}
+                  placeholder={displayMode !== "label" ? mergedConfig.phone.placeholder: ""}
                   required={mergedConfig.phone.required}
                   country={mergedConfig.phone.country}
                   value={values.phone}
@@ -178,12 +159,8 @@ const ContactForm = ({
           {mergedConfig.subject && (
             <SubjectField
               name="subject"
-              label={
-                displayMode !== "placeholder" ? mergedConfig.subject.label : ""
-              }
-              placeholder={
-                displayMode !== "label" ? mergedConfig.subject.placeholder : ""
-              }
+              label={displayMode !== "placeholder" ? mergedConfig.subject.label : ""}
+              placeholder={displayMode !== "label" ? mergedConfig.subject.placeholder : ""}
               required={mergedConfig.subject.required}
               errors={errors}
               touched={touched}
@@ -192,12 +169,8 @@ const ContactForm = ({
           {mergedConfig.message && (
             <MessageField
               name="message"
-              label={
-                displayMode !== "placeholder" ? mergedConfig.message.label : ""
-              }
-              placeholder={
-                displayMode !== "label" ? mergedConfig.message.placeholder : ""
-              }
+              label={displayMode !== "placeholder" ? mergedConfig.message.label : ""} 
+              placeholder={displayMode !== "label" ? mergedConfig.message.placeholder : ""}
               required={mergedConfig.message.required}
               rows={mergedConfig.message.rows}
               errors={errors}
@@ -248,7 +221,7 @@ const ContactForm = ({
             )}
           </AnimatePresence>
         </Form>
-      )}
+      }
     </Formik>
   );
 };
