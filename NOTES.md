@@ -125,3 +125,4 @@ Reasons to use Vite:
 - add documentation about scripts 'deploy' in /backend
 - added loading state in CompanyList and Google Maps
 - function that requires sending node_modules to Lambda due to the use of uuid package
+- check in S3 bucket 'company-images-bucket-csp' for images (purpose)
