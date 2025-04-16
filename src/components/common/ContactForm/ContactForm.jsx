@@ -74,7 +74,10 @@ const ContactForm = ({
 
             const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData);
 
-            fileUrls = fileUploadRes.data.urls;
+            fileUrls = fileUploadRes.data.urls.map((url, index) => ({
+              url,
+              name: values.files[index].name,
+            }));
           }
           const payload = {
             ...values,
