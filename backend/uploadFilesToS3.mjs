@@ -22,7 +22,8 @@ export const handler = async (event) => {
 
     bb.on("file", (fieldname, file, info) => {
       const { filename, mimeType } = info;
-      const fileKey = `${uuidv4()}-${filename}`;
+      const shortUuid = uuidv4().split("-")[0];
+      const fileKey = `${shortUuid}_${filename}`;
 
       const chunks = [];
 
