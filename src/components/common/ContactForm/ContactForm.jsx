@@ -16,7 +16,7 @@ import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { defaultConfig } from "./utils/defaultConfig";
-
+import { sanitizeFileName } from "./utils/sanitizeFileName";
 import validateProps from "./utils/validateProps";
 
 import { getValidationSchema } from "./validationSchema";
@@ -70,13 +70,19 @@ const ContactForm = ({
           let fileUrls = [];
           if (values.files && values.files.length > 0) {
             const formData = new FormData();
-            values.files.forEach((file) => formData.append("files", file));
+            values.files.forEach((file) => {
+              const sanitizedName = sanitizeFileName(file.name);
+              const sanitizedFile = new File([file], sanitizedName, {
+                type: file.type,
+              });
+              formData.append("files", sanitizedFile);
+            });
 
             const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData);
 
             fileUrls = fileUploadRes.data.urls.map((url, index) => ({
               url,
-              name: values.files[index].name,
+              name: sanitizeFileName(values.files[index].name),
             }));
           }
           const payload = {
