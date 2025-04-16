@@ -25,17 +25,21 @@ export const handler = async (event) => {
                 <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
                 <p><strong>Attached Files:</strong></p>
                 <ul>
-                  ${
-                    files && files.length > 0
-                      ? files
-                          .map(
-                            (file) =>
-                              `<li><a href="${file.url}">${file.name}</a></li>`,
-                          )
-                          .join("")
-                      : "<li>No files attached</li>"
-                  }
-                </ul>
+                   ${
+                     files && files.length > 0
+                       ? files
+                           .map(
+                             (file) =>
+                               `<li>
+                                  <a href="${file.url}" target="_blank" rel="noopener noreferrer">${file.name}</a>
+                                    &nbsp;
+                                  <a href="${file.url}" download="${file.name}" style="font-size: 12px;">[Download]</a>
+                                </li>`,
+                           )
+                           .join("")
+                       : "<li>No files attached</li>"
+                   }
+              </ul>
               `,
         },
       },
