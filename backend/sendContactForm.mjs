@@ -33,7 +33,7 @@ export const handler = async (event) => {
                                `<li>
                                 📎 <a href="${file.url}" target="_blank" rel="noopener noreferrer">${file.name}</a>
                                       &nbsp;|&nbsp;
-                                    <span style="font-size:12px; color:gray;">(Open or right-click to download)</span>
+                                    <span style="font-size:12px; color:gray;">(Click to download or view the file)</span>
                                 </li>
                       `,
                            )
