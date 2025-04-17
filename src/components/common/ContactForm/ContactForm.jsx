@@ -8,8 +8,8 @@ import PhoneField from "./PhoneField";
 import SubjectField from "./SubjectField";
 import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
-import SuccessMessage from "./formStatus/SuccessMessage";
-import ErrorMessage from "./formStatus/ErrorMessage";
+import SuccessMessage from "./formSubmitStatus/SuccessMessage";
+import ErrorMessage from "./formSubmitStatus/ErrorMessage";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -83,6 +83,7 @@ const ContactForm = ({
             fileUrls = fileUploadRes.data.urls.map((url, index) => ({
               url,
               name: sanitizeFileName(values.files[index].name),
+              size: values.files[index].size,
             }));
           }
           const payload = {
