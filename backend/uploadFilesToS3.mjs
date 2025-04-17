@@ -4,62 +4,54 @@ import busboy from "busboy";
 
 const s3Client = new S3Client({ region: "eu-west-1" });
 const BUCKET_NAME = "contact-form-file-uploads-csp";
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "OPTIONS,POST",
+};
 
 export const handler = async (event) => {
+  const contentType =
+    event.headers["Content-Type"] || event.headers["content-type"];
+
+  if (!contentType?.startsWith("multipart/form-data")) {
+    return {
+      statusCode: 400,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: "Invalid content type" }),
+    };
+  }
+
   try {
-    const contentType =
-      event.headers["Content-Type"] || event.headers["content-type"];
-    if (!contentType.startsWith("multipart/form-data")) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "Invalid content type" }),
-      };
-    }
-
     const bb = busboy({ headers: { "content-type": contentType } });
+    const uploads = [];
 
-    const fileUploadPromises = [];
-
-    bb.on("file", (fieldname, file, info) => {
-      const { filename, mimeType } = info;
-      const shortUuid = uuidv4().split("-")[0];
-      const fileKey = `${shortUuid}_${filename}`;
-
+    bb.on("file", (fieldname, file, { filename, mimeType }) => {
+      const key = `${uuidv4().split("-")[0]}_${filename}`;
       const chunks = [];
 
-      file.on("data", (data) => {
-        chunks.push(data);
-      });
-
+      file.on("data", (chunk) => chunks.push(chunk));
       file.on("end", () => {
-        const fileBuffer = Buffer.concat(chunks);
-        const uploadPromise = s3Client
+        const buffer = Buffer.concat(chunks);
+        const upload = s3Client
           .send(
             new PutObjectCommand({
               Bucket: BUCKET_NAME,
-              Key: fileKey,
-              Body: fileBuffer,
+              Key: key,
+              Body: buffer,
               ContentType: mimeType,
             }),
           )
-          .then(() => {
-            return `https://${BUCKET_NAME}.s3.eu-west-1.amazonaws.com/${fileKey}`;
-          });
+          .then(
+            () => `https://${BUCKET_NAME}.s3.eu-west-1.amazonaws.com/${key}`,
+          );
 
-        fileUploadPromises.push(uploadPromise);
+        uploads.push(upload);
       });
     });
 
-    const result = await new Promise((resolve, reject) => {
-      bb.on("finish", async () => {
-        try {
-          const urls = await Promise.all(fileUploadPromises);
-          resolve(urls);
-        } catch (err) {
-          reject(err);
-        }
-      });
-
+    const fileUrls = await new Promise((resolve, reject) => {
+      bb.on("finish", () => resolve(Promise.all(uploads)));
       bb.on("error", reject);
 
       bb.end(
@@ -69,23 +61,15 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "OPTIONS,POST",
-      },
-      body: JSON.stringify({ success: true, urls: result }),
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ success: true, urls: fileUrls }),
     };
-  } catch (error) {
-    console.error("Upload error:", error);
+  } catch (err) {
+    console.error("Upload error:", err);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "OPTIONS,POST",
-      },
-      body: JSON.stringify({ success: false, error: error.message }),
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ success: false, error: err.message }),
     };
   }
 };
