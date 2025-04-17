@@ -32,6 +32,7 @@ export const handler = async (event) => {
                              (file) =>
                                `<li>
                                 📎 <a href="${file.url}" target="_blank" rel="noopener noreferrer">${file.name}</a>
+                                  <span style="font-size:12px; color:gray;">&nbsp;(${(file.size / (1024 * 1024)).toFixed(2)} MB)</span>
                                       &nbsp;|&nbsp;
                                     <span style="font-size:12px; color:gray;">(Click to download or view the file)</span>
                                 </li>
