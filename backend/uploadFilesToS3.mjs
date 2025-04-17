@@ -2,7 +2,7 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
 import busboy from "busboy";
 
-const s3 = new S3Client({ region: "eu-west-1" });
+const s3Client = new S3Client({ region: "eu-west-1" });
 const BUCKET_NAME = "contact-form-file-uploads-csp";
 
 export const handler = async (event) => {
@@ -33,7 +33,7 @@ export const handler = async (event) => {
 
       file.on("end", () => {
         const fileBuffer = Buffer.concat(chunks);
-        const uploadPromise = s3
+        const uploadPromise = s3Client
           .send(
             new PutObjectCommand({
               Bucket: BUCKET_NAME,

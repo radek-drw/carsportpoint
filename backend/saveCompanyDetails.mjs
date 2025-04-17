@@ -1,7 +1,7 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
 
-const client = new DynamoDBClient({ region: "eu-west-1" });
+const dynamoClient = new DynamoDBClient({ region: "eu-west-1" });
 const TABLE_NAME = "companies";
 
 export const handler = async (event) => {
@@ -23,7 +23,7 @@ export const handler = async (event) => {
   });
 
   try {
-    await client.send(command);
+    await dynamoClient.send(command);
 
     return {
       statusCode: 200,

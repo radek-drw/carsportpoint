@@ -1,6 +1,6 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
-const ses = new SESClient({ region: "eu-west-1" });
+const sesClient = new SESClient({ region: "eu-west-1" });
 
 export const handler = async (event) => {
   const body = JSON.parse(event.body);
@@ -51,7 +51,7 @@ export const handler = async (event) => {
 
   try {
     const command = new SendEmailCommand(emailParams);
-    await ses.send(command);
+    await sesClient.send(command);
 
     return {
       statusCode: 200,
