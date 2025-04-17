@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import axios from "axios";
+import { AnimatePresence } from "framer-motion";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import NameField from "./NameField";
 import EmailField from "./EmailField";
@@ -10,10 +12,6 @@ import MessageField from "./MessageField";
 import FileUploadField from "./FileUploadField";
 import SuccessMessage from "./formSubmitStatus/SuccessMessage";
 import ErrorMessage from "./formSubmitStatus/ErrorMessage";
-
-import { AnimatePresence } from "framer-motion";
-
-import ClipLoader from "react-spinners/ClipLoader";
 
 import { defaultConfig } from "./utils/defaultConfig";
 import { sanitizeFileName } from "./utils/sanitizeFileName";
