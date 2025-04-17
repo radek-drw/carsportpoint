@@ -27,8 +27,12 @@ const CompanyList = () => {
       <ul className="rounded-lg shadow-lg">
         {isLoading
           ? [...Array(6)].map((_, index) => (
-              <SkeletonTheme baseColor="#d1d5db" highlightColor="#f9fafb">
-                <li key={index} className="rounded-md px-4 py-2">
+              <SkeletonTheme
+                baseColor="#d1d5db"
+                highlightColor="#f9fafb"
+                key={index}
+              >
+                <li className="rounded-md px-4 py-2">
                   <Skeleton height={22} width="80%" duration={1} />
                   <Skeleton
                     height={15}
