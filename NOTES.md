@@ -126,3 +126,9 @@ Reasons to use Vite:
 - added loading state in CompanyList and Google Maps
 - function that requires sending node_modules to Lambda due to the use of uuid package
 - check in S3 bucket 'company-images-bucket-csp' for images (purpose)
+
+## KEYS
+
+- shorten UUID to first 8 characters in file upload key for better readability
+- validateProps in ContactForm
+- animation effect while loading company data on catalagoue page (react-loading-skeleton)
