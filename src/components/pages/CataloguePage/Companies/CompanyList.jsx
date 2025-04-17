@@ -2,7 +2,7 @@ import React from "react";
 import ResetMapButton from "./ResetMapButton";
 import { useCompany } from "@context/CompanyMapContext";
 
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const CompanyList = () => {
@@ -27,10 +27,17 @@ const CompanyList = () => {
       <ul className="rounded-lg shadow-lg">
         {isLoading
           ? [...Array(6)].map((_, index) => (
-              <li key={index} className="px-4 py-2">
-                <Skeleton height={22} width="80%" />
-                <Skeleton height={15} width="60%" />
-              </li>
+              <SkeletonTheme baseColor="#d1d5db" highlightColor="#f9fafb">
+                <li key={index} className="rounded-md px-4 py-2">
+                  <Skeleton height={22} width="80%" duration={1} />
+                  <Skeleton
+                    height={15}
+                    width="60%"
+                    style={{ marginTop: 6 }}
+                    duration={1}
+                  />
+                </li>
+              </SkeletonTheme>
             ))
           : companies.map((company) => (
               <li
