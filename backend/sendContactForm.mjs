@@ -47,11 +47,13 @@ export const handler = async (event) => {
     await sesClient.send(command);
     return {
       statusCode: 200,
+      body: JSON.stringify({ success: true }),
     };
   } catch (error) {
     console.error("SES error:", error);
     return {
       statusCode: 500,
+      body: JSON.stringify({ success: false }),
     };
   }
 };
