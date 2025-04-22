@@ -1,24 +1,29 @@
+// External libraries
 import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
-import axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
-import NameField from "./NameField";
-import EmailField from "./EmailField";
-import PhoneField from "./PhoneField";
-import SubjectField from "./SubjectField";
-import MessageField from "./MessageField";
-import FileUploadField from "./FileUploadField";
-import SuccessMessage from "./formSubmitStatus/SuccessMessage";
-import ErrorMessage from "./formSubmitStatus/ErrorMessage";
+// Local form fields (components)
+import NameField from "./fields/NameField";
+import EmailField from "./fields/EmailField";
+import PhoneField from "./fields/PhoneField";
+import SubjectField from "./fields/SubjectField";
+import MessageField from "./fields/MessageField";
+import FileUploadField from "./fields/FileUploadField";
 
-import { defaultConfig } from "./utils/defaultConfig";
+// Form feedback UI
+import FeedbackMessage from "./formSubmitStatus/FeedbackMessage";
+import { showMessage } from "./formSubmitStatus/showMessage";
 
-import validateProps from "./utils/validateProps";
-import { handleFormSubmit } from "./utils/handleFormSubmit";
+// Configs & validation
+import { defaultConfig } from "./utils/config/defaultConfig";
+import validateProps from "./utils/validators/validateProps";
+import { getValidationSchema } from "./utils/validators/validationSchema";
 
-import { getValidationSchema } from "./validationSchema";
+// API handlers
+import { sendContactForm } from "./utils/api/sendContactForm";
+import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
 
 const ContactForm = ({
   visibleFields = {},
@@ -51,23 +56,42 @@ const ContactForm = ({
     return acc;
   }, {});
 
-  const MESSAGE_DELAY = 100;
-  const MESSAGE_DURATION = 5000;
-
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={getValidationSchema(customConfig)}
-      onSubmit={(values, helpers) =>
-        handleFormSubmit(
-          values,
-          helpers,
-          setSuccessMessage,
-          setErrorMessage,
-          successTimeoutRef,
-          errorTimeoutRef,
-        )
-      }
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
+        try {
+          let fileUrls = [];
+
+          if (values.files && values.files.length > 0) {
+            fileUrls = await uploadFilesToS3(values.files);
+          }
+
+          const payload = {
+            ...values,
+            files: fileUrls,
+          };
+
+          await sendContactForm(payload);
+
+          showMessage(
+            setSuccessMessage,
+            successTimeoutRef,
+            "The form has been successfully submitted!",
+          );
+          resetForm();
+        } catch (error) {
+          console.error("Submission error:", error);
+          showMessage(
+            setErrorMessage,
+            errorTimeoutRef,
+            "Something went wrong. Please try again later",
+          );
+        } finally {
+          setSubmitting(false);
+        }
+      }}
     >
       {({ values, setFieldValue, isSubmitting, errors, touched }) =>
         /* prettier-ignore */
@@ -159,17 +183,20 @@ const ContactForm = ({
               submitLabel
             )}
           </button>
+
           <AnimatePresence>
             {successMessage && (
-              <SuccessMessage
+              <FeedbackMessage
                 key="success"
+                type="success"
                 message={successMessage}
                 onClose={() => setSuccessMessage("")}
               />
             )}
             {errorMessage && (
-              <ErrorMessage
+              <FeedbackMessage
                 key="error"
+                type="error"
                 message={errorMessage}
                 onClose={() => setErrorMessage("")}
               />
