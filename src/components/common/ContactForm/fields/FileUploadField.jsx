@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorMessage } from "formik";
 import { FaInfoCircle } from "react-icons/fa";
-import { SUPPORTED_FORMATS } from "./validationSchema";
+import { SUPPORTED_FORMATS } from "../utils/validators/validationSchema";
 
 const FileUploadField = ({
   label,

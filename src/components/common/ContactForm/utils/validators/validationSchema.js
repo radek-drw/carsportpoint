@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-import { defaultConfig } from "./utils/defaultConfig";
+import { defaultConfig } from "../config/defaultConfig";
 
 /* NOTE: When adding a new file type in SUPPORTED_FORMATS, make sure to update two places:
   
