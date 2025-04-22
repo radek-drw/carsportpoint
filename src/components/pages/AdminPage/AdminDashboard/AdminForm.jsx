@@ -34,14 +34,13 @@ const AdminForm = () => {
         },
       });
 
-      if (response.status === 200) {
-        alert("Company details submitted!");
-      } else {
-        alert("Failed to submit details.");
-      }
+      alert(response.data.message);
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to submit details.");
+      alert(
+        error.response?.data?.message ||
+          "Something went wrong. Please try again later",
+      );
     }
   };
 
