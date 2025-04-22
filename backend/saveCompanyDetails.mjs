@@ -11,7 +11,7 @@ const CORS_HEADERS = {
 };
 
 export const handler = async (event) => {
-  const data = JSON.parse(event.body); // Receiving data from the form
+  const data = JSON.parse(event.body);
   const { name, address, phone, opening_hours, images } = data;
 
   const item = {
