@@ -4,6 +4,12 @@ import { v4 as uuidv4 } from "uuid";
 const dynamoClient = new DynamoDBClient({ region: "eu-west-1" });
 const TABLE_NAME = "companies";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export const handler = async (event) => {
   const data = JSON.parse(event.body); // Receiving data from the form
   const { name, address, phone, opening_hours, images } = data;
@@ -27,21 +33,14 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
+      headers: CORS_HEADERS,
       body: JSON.stringify({ message: "Company details saved successfully" }),
     };
   } catch (error) {
     console.error("Error saving data to DynamoDB:", error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
+      headers: CORS_HEADERS,
       body: JSON.stringify({
         error: "Failed to save data",
         details: error.message,
