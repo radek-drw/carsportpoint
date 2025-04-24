@@ -44,6 +44,12 @@ Each backend function has an associated test file that ensures the function work
 npm run test:sendContactForm
 ```
 
+- **Deploy Function**:
+
+```bash
+npm run deploy:sendContactForm
+```
+
 ### 2. `test-saveCompanyDetails.js`
 
 - **Location**: `tests/test-saveCompanyDetails.js`
@@ -57,6 +63,12 @@ npm run test:sendContactForm
 npm run test:saveCompanyDetails
 ```
 
+- **Deploy Function**:
+
+```bash
+npm run deploy:saveCompanyDetails
+```
+
 ### 3. `test-getCompanies.js`
 
 - **Location**: `tests/test-getCompanies.js`
@@ -68,4 +80,10 @@ npm run test:saveCompanyDetails
 
 ```bash
 npm run test:getCompanies
+```
+
+- **Deploy Function**:
+
+```bash
+npm run deploy:getCompanies
 ```
