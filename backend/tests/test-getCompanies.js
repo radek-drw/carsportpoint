@@ -1,4 +1,4 @@
-import { handler } from "./getCompanies.mjs";
+import { handler } from "../functions/getCompanies.mjs";
 
 handler()
   .then((response) => {
