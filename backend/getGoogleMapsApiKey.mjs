@@ -9,7 +9,7 @@ export const handler = async (event) => {
       new GetParameterCommand({
         Name: "/amplify/shared/d15pql8ca0vxrn/GOOGLE_MAPS_API_KEY",
         WithDecryption: true,
-      }),
+      })
     );
 
     const apiKey = param.Parameter.Value;
