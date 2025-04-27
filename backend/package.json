@@ -21,6 +21,8 @@
     "@aws-sdk/client-ses": "^3.782.0",
     "@aws-sdk/client-ssm": "^3.759.0",
     "@aws-sdk/util-dynamodb": "^3.758.0",
+    "busboy": "^1.6.0",
+    "form-data": "^4.0.2",
     "uuid": "^11.1.0",
     "yup": "^1.6.1"
   }
