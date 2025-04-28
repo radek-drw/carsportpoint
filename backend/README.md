@@ -56,3 +56,22 @@ npm run test:getCompanies
 ```bash
 npm run deploy:getCompanies
 ```
+
+### 4. `uploadFilesToS3`
+
+- **Location**: `functions/uploadFilesToS3.mjs`
+- **Description**:
+  - Handles file uploads from the contact form (cataloguePage) to an S3 bucket. It accepts multipart form data, uploads files, and returns URLs for the uploaded files
+- **Test Purpose**:
+  - Can be run locally to test file upload functionality independently of the frontend and without deploying to AWS Lambda
+- **Run Test**:
+
+```bash
+npm run test:uploadFilesToS3
+```
+
+- **Deploy Function to AWS Lambda**:
+
+```bash
+npm run deploy:uploadFilesToS3
+```
