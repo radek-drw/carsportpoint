@@ -134,3 +134,4 @@ Reasons to use Vite:
 - animation effect while loading company data on catalagoue page (react-loading-skeleton)
 - when a user uploads files with unsafe characters in their names, the frontend uses a custom sanitizeFileName method to clean them — making the names safe for uploading (e.g., to S3)
 - add loading companies data and google maps only when become visible on screen (save fetching data requests)
+- HARDEST PART IS SYNCHRONIZE FORM VALIDATION WITIH FRONTEND AND BACKEND
