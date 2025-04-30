@@ -23,9 +23,6 @@ const CataloguePage = () => {
           displayMode="label"
           customConfig={{
             name: { required: false },
-            phone: { required: false },
-            subject: { required: false },
-            message: { required: false },
           }}
         />
       </div>
