@@ -17,9 +17,9 @@ import FeedbackMessage from "./formSubmitStatus/FeedbackMessage";
 import { showMessage } from "./formSubmitStatus/showMessage";
 
 // Configs & validation
-import { defaultConfig } from "./utils/config/defaultConfig";
 import validateProps from "./utils/validators/validateProps";
-import { getValidationSchema } from "./utils/validators/validationSchema";
+import { defaultConfig } from "@shared/defaultConfig";
+import { getValidationSchema } from "@shared/validationSchema";
 
 // API handlers
 import { sendContactForm } from "./utils/api/sendContactForm";
@@ -71,6 +71,7 @@ const ContactForm = ({
           const payload = {
             ...values,
             files: fileUrls,
+            customConfig,
           };
 
           await sendContactForm(payload);
