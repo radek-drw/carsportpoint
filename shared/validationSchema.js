@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 
-import { defaultConfig } from "../config/defaultConfig";
+import { defaultConfig } from "./defaultConfig.js";
 
 /* NOTE: When adding a new file type in SUPPORTED_FORMATS, make sure to update two places:
   
@@ -27,12 +27,15 @@ export const SUPPORTED_FORMATS = [
 ];
 
 export const getValidationSchema = (customConfig = {}) => {
+  // console.log("CUSTOM CONFIG:", JSON.stringify(customConfig, null, 2)); // debugging line
+  // console.log("RAW CUSTOM CONFIG:", customConfig); // debugging line
+
   const mergedConfig = {
     ...defaultConfig,
     ...customConfig,
     files: { ...defaultConfig.files, ...customConfig.files },
   };
-
+  // console.log("MERGED CONFIG:", JSON.stringify(mergedConfig, null, 2)); // debugging line
   const maxFileSize = mergedConfig.files.maxFileSize;
   const maxFilesCount = mergedConfig.files.maxFilesCount;
 
@@ -51,19 +54,33 @@ export const getValidationSchema = (customConfig = {}) => {
         is: () => mergedConfig.email.required,
         then: (schema) => schema.required("Email is required"),
       }),
-    phone: Yup.string()
-      .test("isValidPhone", "Invalid phone number", (value, context) => {
-        if (!value) return true;
-        const phoneNumber = parsePhoneNumberFromString(
-          value,
-          context.parent.country,
-        );
-        return phoneNumber && phoneNumber.isValid();
-      })
-      .when([], {
-        is: () => mergedConfig.phone.required,
-        then: (schema) => schema.required("Phone is required"),
-      }),
+    phone: Yup.string().when([], {
+      is: () => mergedConfig.phone.required,
+      then: (schema) =>
+        schema
+          .required("Phone is required")
+          .test("isValidPhone", "Invalid phone number", (value, context) => {
+            const phoneNumber = parsePhoneNumberFromString(
+              value,
+              context.parent.country
+            );
+            return phoneNumber && phoneNumber.isValid();
+          }),
+      otherwise: (schema) =>
+        schema.test(
+          "isValidPhone",
+          "Invalid phone number",
+          (value, context) => {
+            if (!value) return true;
+            const phoneNumber = parsePhoneNumberFromString(
+              value,
+              context.parent.country
+            );
+            return phoneNumber && phoneNumber.isValid();
+          }
+        ),
+    }),
+
     subject: Yup.string()
       .trim()
       .max(100, "Subject cannot exceed 100 characters")
@@ -82,7 +99,9 @@ export const getValidationSchema = (customConfig = {}) => {
       .of(Yup.mixed())
       .max(
         maxFilesCount,
-        `You can upload up to ${maxFilesCount} file${maxFilesCount > 1 ? "s" : ""}.`,
+        `You can upload up to ${maxFilesCount} file${
+          maxFilesCount > 1 ? "s" : ""
+        }.`
       )
       .test(
         "fileSize",
@@ -90,7 +109,7 @@ export const getValidationSchema = (customConfig = {}) => {
         (files) =>
           !files ||
           files.length === 0 ||
-          files.every((file) => file.size <= maxFileSize * 1024 * 1024),
+          files.every((file) => file.size <= maxFileSize * 1024 * 1024)
       )
       .test(
         "fileType",
@@ -98,7 +117,7 @@ export const getValidationSchema = (customConfig = {}) => {
         (files) =>
           !files ||
           files.length === 0 ||
-          files.every((file) => SUPPORTED_FORMATS.includes(file.type)),
+          files.every((file) => SUPPORTED_FORMATS.includes(file.type))
       ),
   });
 };
