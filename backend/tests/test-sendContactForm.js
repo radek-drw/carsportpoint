@@ -2,23 +2,33 @@ import { handler } from "../functions/sendContactForm.mjs";
 
 const testEvent = {
   body: JSON.stringify({
-    name: "John Doe",
+    name: "",
     email: "john.doe@example.com",
-    phone: "123456789",
-    subject: "Request for Proposal",
-    message: "Hello, I would like to learn more about your services.",
+    phone: "",
+    subject: "asdasd",
+    message: "adasdasd",
     files: [
       {
         url: "https://s3.amazonaws.com/fake-bucket/sample1.pdf",
         name: "sample1.pdf",
         size: 1048576,
+        type: "application/pdf",
       },
       {
         url: "https://s3.amazonaws.com/fake-bucket/image.png",
         name: "image.png",
         size: 5242880,
+        type: "image/png",
       },
     ],
+    customConfig: {
+      name: {
+        required: false,
+      },
+      phone: {
+        required: false,
+      },
+    },
   }),
 };
 
