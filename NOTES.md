@@ -135,3 +135,16 @@ Reasons to use Vite:
 - when a user uploads files with unsafe characters in their names, the frontend uses a custom sanitizeFileName method to clean them — making the names safe for uploading (e.g., to S3)
 - add loading companies data and google maps only when become visible on screen (save fetching data requests)
 - HARDEST PART IS SYNCHRONIZE FORM VALIDATION WITIH FRONTEND AND BACKEND
+- find out what is 'npm workspace'
+
+# BEFORE HOLIDAY
+
+**what I have done**
+zaczalem robic walidacje po stronie backendu, moim celem bylo skorzystac z tgego samego pliku walidacyjnego (validationSchema) z którego korzysta front end więc musiałem dokonać sporo zmian w strukturze miedzy innymi. A więc tak: stwprzyłem w katalogu głównym katalgi frontend, backend i shared. z frontendu przeniosłem validationSchema do shared tak aby backend mógł go też widzieć. z frontendu usunąłem yup i libphonenumber-js i zainstalowałęm je w katalogu głównym (jeśli front end bedzie potrzebowal tych zależności kiedys to sobie znajdzie w katalogu nadrzędnym). do katalogu shared przeniosłem defaultConfig tak żeby validation miał go blisko i wszystko było bardziej logiczne i maintainable. w ContactForm dodałem do payload customConfig tak żeby backend lambda go widział. w backendzie sendCOntactForm customConfig jest odbierany i od razu przekazywany do validationSchrma do procesu walidacji, formData tak samo. test-sendContactForm dostaje fakowe dane w celach testowych lokalnie, razem z customConfig fakeowym i to działa.
+
+**what to do**
+
+- sprawdzic w lambdzie aws w konsoli czy rzeczywiście jest przesyłany customCOnfig (console.log)
+- jest problem z walidacją numeru telefonu (pokazuje invalid phone number - problem jest w context.parent.country w validationSchema, ale ze tam dane sa przekazywane dynamicznie to nie mozna tego zmieniac)
+- npm workspace wykonac
+- uzyc bundlera (esbuild) do backendu 'sendContactForm' w celu zbundlowania validationSchema ale zaleznosci takie jak yup i libphonenumber-js nie bundlowac (lambda skorzysta w lambda-layers)
