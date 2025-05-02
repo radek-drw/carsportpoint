@@ -14,6 +14,7 @@ export default defineConfig({
       "@images": path.resolve(__dirname, "src/assets/images"),
       "@common": path.resolve(__dirname, "src/components/common"),
       "@context": path.resolve(__dirname, "src/context"),
+      "@shared": path.resolve(__dirname, "../shared"),
     },
   },
 });
