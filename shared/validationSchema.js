@@ -27,15 +27,15 @@ export const SUPPORTED_FORMATS = [
 ];
 
 export const getValidationSchema = (customConfig = {}) => {
-  // console.log("CUSTOM CONFIG:", JSON.stringify(customConfig, null, 2)); // debugging line
-  // console.log("RAW CUSTOM CONFIG:", customConfig); // debugging line
-
   const mergedConfig = {
     ...defaultConfig,
     ...customConfig,
     files: { ...defaultConfig.files, ...customConfig.files },
   };
-  // console.log("MERGED CONFIG:", JSON.stringify(mergedConfig, null, 2)); // debugging line
+
+  console.log("Merged config:", mergedConfig);
+  const isRequired = (field) => mergedConfig[field]?.required;
+
   const maxFileSize = mergedConfig.files.maxFileSize;
   const maxFilesCount = mergedConfig.files.maxFilesCount;
 
@@ -44,55 +44,50 @@ export const getValidationSchema = (customConfig = {}) => {
       .trim()
       .max(50, "Name cannot exceed 50 characters")
       .when([], {
-        is: () => mergedConfig.name.required,
+        is: () => isRequired("name"),
         then: (schema) => schema.required("Name is required"),
       }),
     email: Yup.string()
       .email("Invalid email address")
       .max(320, "Email cannot exceed 320 characters")
       .when([], {
-        is: () => mergedConfig.email.required,
+        is: () => isRequired("email"),
         then: (schema) => schema.required("Email is required"),
       }),
     phone: Yup.string().when([], {
-      is: () => mergedConfig.phone.required,
+      is: () => isRequired("phone"),
       then: (schema) =>
         schema
           .required("Phone is required")
           .test("isValidPhone", "Invalid phone number", (value, context) => {
             const phoneNumber = parsePhoneNumberFromString(
               value,
-              context.parent.country
+              mergedConfig.phone.country
             );
             return phoneNumber && phoneNumber.isValid();
           }),
       otherwise: (schema) =>
-        schema.test(
-          "isValidPhone",
-          "Invalid phone number",
-          (value, context) => {
-            if (!value) return true;
-            const phoneNumber = parsePhoneNumberFromString(
-              value,
-              context.parent.country
-            );
-            return phoneNumber && phoneNumber.isValid();
-          }
-        ),
+        schema.test("isValidPhone", "Invalid phone number", (value) => {
+          if (!value) return true;
+          const phoneNumber = parsePhoneNumberFromString(
+            value,
+            mergedConfig.phone.country
+          );
+          return phoneNumber && phoneNumber.isValid();
+        }),
     }),
-
     subject: Yup.string()
       .trim()
       .max(100, "Subject cannot exceed 100 characters")
       .when([], {
-        is: () => mergedConfig.subject.required,
+        is: () => isRequired("subject"),
         then: (schema) => schema.required("Subject is required"),
       }),
     message: Yup.string()
       .trim()
       .max(1000, "Message cannot exceed 1000 characters")
       .when([], {
-        is: () => mergedConfig.message.required,
+        is: () => isRequired("message"),
         then: (schema) => schema.required("Message is required"),
       }),
     files: Yup.array()
