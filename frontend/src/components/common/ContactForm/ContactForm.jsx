@@ -59,8 +59,9 @@ const ContactForm = ({
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={getValidationSchema(customConfig)}
-      onSubmit={async (values, { setSubmitting, resetForm }) => {
+      // validationSchema={getValidationSchema(customConfig)}
+      validationSchema={null} // <- Temporarily set to null for testing
+      onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
           let fileUrls = [];
 
@@ -84,11 +85,21 @@ const ContactForm = ({
           resetForm();
         } catch (error) {
           console.error("Submission error:", error);
-          showMessage(
-            setErrorMessage,
-            errorTimeoutRef,
-            "Something went wrong. Please try again later",
-          );
+
+          // Jeśli to walidacja z backendu (status 400), przetwarzamy błędy:
+          if (
+            error?.response?.status === 400 &&
+            error?.response?.data?.errors
+          ) {
+            setErrors(error.response.data.errors); // <- kluczowy moment
+          } else {
+            // W przypadku innego błędu (np. 500, brak internetu)
+            showMessage(
+              setErrorMessage,
+              errorTimeoutRef,
+              "Something went wrong. Please try again later",
+            );
+          }
         } finally {
           setSubmitting(false);
         }
