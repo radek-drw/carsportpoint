@@ -60,7 +60,6 @@ const ContactForm = ({
     <Formik
       initialValues={initialValues}
       // validationSchema={getValidationSchema(customConfig)}
-      validationSchema={null} // <- Temporarily set to null for testing
       onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
           let fileUrls = [];
