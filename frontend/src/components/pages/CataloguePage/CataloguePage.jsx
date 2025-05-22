@@ -21,9 +21,9 @@ const CataloguePage = () => {
         </p>
         <ContactForm
           displayMode="label"
-          customConfig={{
-            name: { required: false },
-          }}
+          // customConfig={{
+          //   name: { required: false },
+          // }}
         />
       </div>
     </section>
