@@ -22,14 +22,6 @@ const testEvent = {
         type: "image/png",
       },
     ],
-    customConfig: {
-      name: {
-        required: false,
-      },
-      phone: {
-        required: false,
-      },
-    },
   }),
 };
 
