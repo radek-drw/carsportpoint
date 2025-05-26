@@ -4,9 +4,9 @@ const testEvent = {
   body: JSON.stringify({
     name: "",
     email: "john.doe@example.com",
-    phone: "",
+    phone: "0858112473",
     subject:
-      "qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopp",
+      "qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyui",
     message: "adasdasd",
     files: [
       {
@@ -22,6 +22,7 @@ const testEvent = {
         type: "image/png",
       },
     ],
+    customConfig: {},
   }),
 };
 
