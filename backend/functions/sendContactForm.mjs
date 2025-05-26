@@ -63,26 +63,40 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
     // 4. Obsługa błędów walidacji
     if (error instanceof Yup.ValidationError) {
-      console.error("Validation error:", error.errors);
+      console.error("Validation error:", error.inner);
+
+      const formattedErrors = error.inner.reduce((acc, err) => {
+        if (err.path) acc[err.path] = err.message;
+        return acc;
+      }, {});
+
       return {
         statusCode: 400,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           success: false,
           message: "Validation failed",
-          errors: error.errors, // wszystkie błędy jako tablica
+          errors: formattedErrors,
         }),
       };
     }
 
     // 5. Obsługa błędów serwera
-    console.error("Server error:", error);
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ success: false }),
     };
   }
