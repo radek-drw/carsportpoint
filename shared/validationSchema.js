@@ -33,7 +33,7 @@ export const getValidationSchema = (customConfig = {}) => {
     files: { ...defaultConfig.files, ...customConfig.files },
   };
 
-  console.log("Merged config:", mergedConfig);
+  // console.log("Merged config:", mergedConfig);
   const isRequired = (field) => mergedConfig[field]?.required;
 
   const maxFileSize = mergedConfig.files.maxFileSize;
