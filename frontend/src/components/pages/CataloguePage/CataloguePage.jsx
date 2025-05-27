@@ -19,12 +19,7 @@ const CataloguePage = () => {
           Are you a company owner? Add your company to our catalogue to reach
           more customers
         </p>
-        <ContactForm
-          displayMode="label"
-          // customConfig={{
-          //   name: { required: false },
-          // }}
-        />
+        <ContactForm />
       </div>
     </section>
   );
