@@ -25,12 +25,7 @@ import { getValidationSchema } from "@shared/validationSchema";
 import { sendContactForm } from "./utils/api/sendContactForm";
 import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
 
-const ContactForm = ({
-  visibleFields = {},
-  displayMode = "label",
-  customConfig = {},
-  submitLabel = "Send a Message",
-}) => {
+const ContactForm = ({ displayMode = "label" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -40,21 +35,25 @@ const ContactForm = ({
   // validateProps is a function that checks the data types of props passed to ContactForm.
   // If any property has an incorrect type or contains invalid values,
   // the function throws an error with an appropriate message and stops further code execution
-  validateProps(visibleFields, displayMode, submitLabel, customConfig);
+  validateProps(displayMode);
 
-  const mergedConfig = {
-    ...Object.keys(defaultConfig).reduce((acc, key) => {
-      if (visibleFields[key] !== false) {
-        acc[key] = { ...defaultConfig[key], ...customConfig[key] };
-      }
+  const visibleFields = Object.entries(defaultConfig).reduce(
+    (acc, [key, config]) => {
+      if (key === "submitLabel") return acc; // what about submitLabel?
+      if (config.visible === false) return acc;
+      acc[key] = config;
       return acc;
-    }, {}),
-  };
+    },
+    {},
+  );
 
-  const initialValues = Object.keys(mergedConfig).reduce((acc, key) => {
-    acc[key] = "";
+  // Initial values based on visible fields
+  const initialValues = Object.keys(visibleFields).reduce((acc, key) => {
+    acc[key] = key === "files" ? [] : "";
     return acc;
   }, {});
+
+  console.log("Initial values:", initialValues);
 
   return (
     <Formik
@@ -85,14 +84,12 @@ const ContactForm = ({
         } catch (error) {
           console.error("Submission error:", error);
 
-          // Jeśli to walidacja z backendu (status 400), przetwarzamy błędy:
           if (
             error?.response?.status === 400 &&
             error?.response?.data?.errors
           ) {
-            setErrors(error.response.data.errors); // <- kluczowy moment
+            setErrors(error.response.data.errors);
           } else {
-            // W przypadku innego błędu (np. 500, brak internetu)
             showMessage(
               setErrorMessage,
               errorTimeoutRef,
@@ -107,36 +104,36 @@ const ContactForm = ({
       {({ values, setFieldValue, isSubmitting, errors, touched }) =>
         /* prettier-ignore */
         <Form noValidate>
-          {mergedConfig.name && (
+          {visibleFields.name && (
             <NameField
               name="name"
-              label={displayMode !== "placeholder" ? mergedConfig.name.label : ""}
-              placeholder={displayMode !== "label" ? mergedConfig.name.placeholder : ""}
-              required={mergedConfig.name.required}
+              label={displayMode !== "placeholder" ? visibleFields.name.label : ""}
+              placeholder={displayMode !== "label" ? visibleFields.name.placeholder : ""}
+              required={visibleFields.name.required}
               errors={errors}
               touched={touched}
             />
           )}
 
-          {(mergedConfig.email || mergedConfig.phone) && (
+          {(visibleFields.email || visibleFields.phone) && (
             <div className="mb-input-gap flex flex-col items-start justify-between md:flex-row">
-              {mergedConfig.email && (
+              {visibleFields.email && (
                 <EmailField
                   name="email"
-                  label={displayMode !== "placeholder" ? mergedConfig.email.label : ""}
-                  placeholder={displayMode !== "label" ? mergedConfig.email.placeholder : ""}
-                  required={mergedConfig.email.required}
+                  label={displayMode !== "placeholder" ? visibleFields.email.label : ""}
+                  placeholder={displayMode !== "label" ? visibleFields.email.placeholder : ""}
+                  required={visibleFields.email.required}
                   errors={errors}
                   touched={touched}
                 />
               )}
-              {mergedConfig.phone && (
+              {visibleFields.phone && (
                 <PhoneField
                   name="phone"
-                  label={displayMode !== "placeholder" ? mergedConfig.phone.label : ""}
-                  placeholder={displayMode !== "label" ? mergedConfig.phone.placeholder: ""}
-                  required={mergedConfig.phone.required}
-                  country={mergedConfig.phone.country}
+                  label={displayMode !== "placeholder" ? visibleFields.phone.label : ""}
+                  placeholder={displayMode !== "label" ? visibleFields.phone.placeholder: ""}
+                  required={visibleFields.phone.required}
+                  country={visibleFields.phone.country}
                   value={values.phone}
                   onChange={(phone) => setFieldValue("phone", phone)}
                   errors={errors}
@@ -146,34 +143,34 @@ const ContactForm = ({
             </div>
           )}
 
-          {mergedConfig.subject && (
+          {visibleFields.subject && (
             <SubjectField
               name="subject"
-              label={displayMode !== "placeholder" ? mergedConfig.subject.label : ""}
-              placeholder={displayMode !== "label" ? mergedConfig.subject.placeholder : ""}
-              required={mergedConfig.subject.required}
+              label={displayMode !== "placeholder" ? visibleFields.subject.label : ""}
+              placeholder={displayMode !== "label" ? visibleFields.subject.placeholder : ""}
+              required={visibleFields.subject.required}
               errors={errors}
               touched={touched}
             />
           )}
-          {mergedConfig.message && (
+          {visibleFields.message && (
             <MessageField
               name="message"
-              label={displayMode !== "placeholder" ? mergedConfig.message.label : ""} 
-              placeholder={displayMode !== "label" ? mergedConfig.message.placeholder : ""}
-              required={mergedConfig.message.required}
-              rows={mergedConfig.message.rows}
+              label={displayMode !== "placeholder" ? visibleFields.message.label : ""} 
+              placeholder={displayMode !== "label" ? visibleFields.message.placeholder : ""}
+              required={visibleFields.message.required}
+              rows={visibleFields.message.rows}
               errors={errors}
               touched={touched}
             />
           )}
-          {mergedConfig.files && (
+          {visibleFields.files && (
             <FileUploadField
               name="files"
-              label={mergedConfig.files.label}
+              label={visibleFields.files.label}
               files={values.files || []}
-              maxFilesCount={mergedConfig.files.maxFilesCount}
-              maxFileSize={mergedConfig.files.maxFileSize}
+              maxFilesCount={visibleFields.files.maxFilesCount}
+              maxFileSize={visibleFields.files.maxFileSize}
               setFieldValue={setFieldValue}
             />
           )}
@@ -191,7 +188,7 @@ const ContactForm = ({
                 Sending...
               </>
             ) : (
-              submitLabel
+              defaultConfig.submitLabel
             )}
           </button>
 
