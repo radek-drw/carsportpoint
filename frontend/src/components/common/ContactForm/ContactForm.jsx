@@ -19,7 +19,7 @@ import { showMessage } from "./formSubmitStatus/showMessage";
 // Configs & validation
 import validateProps from "./utils/validators/validateProps";
 import { defaultConfig } from "@shared/defaultConfig";
-import { getValidationSchema } from "@shared/validationSchema";
+import { validationSchema } from "@shared/validationSchema";
 
 // API handlers
 import { sendContactForm } from "./utils/api/sendContactForm";
@@ -53,12 +53,10 @@ const ContactForm = ({ displayMode = "label" }) => {
     return acc;
   }, {});
 
-  console.log("Initial values:", initialValues);
-
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={getValidationSchema(customConfig)}
+      validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
           let fileUrls = [];
@@ -70,7 +68,6 @@ const ContactForm = ({ displayMode = "label" }) => {
           const payload = {
             ...values,
             files: fileUrls,
-            customConfig,
           };
 
           await sendContactForm(payload);
