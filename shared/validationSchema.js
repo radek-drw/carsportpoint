@@ -26,18 +26,11 @@ export const SUPPORTED_FORMATS = [
   "text/plain",
 ];
 
-export const getValidationSchema = (customConfig = {}) => {
-  const mergedConfig = {
-    ...defaultConfig,
-    ...customConfig,
-    files: { ...defaultConfig.files, ...customConfig.files },
-  };
+export const validationSchema = () => {
+  const isRequired = (field) => defaultConfig[field]?.required;
 
-  // console.log("Merged config:", mergedConfig);
-  const isRequired = (field) => mergedConfig[field]?.required;
-
-  const maxFileSize = mergedConfig.files.maxFileSize;
-  const maxFilesCount = mergedConfig.files.maxFilesCount;
+  const maxFileSize = defaultConfig.files.maxFileSize;
+  const maxFilesCount = defaultConfig.files.maxFilesCount;
 
   return Yup.object({
     name: Yup.string()
@@ -62,7 +55,7 @@ export const getValidationSchema = (customConfig = {}) => {
           .test("isValidPhone", "Invalid phone number", (value, context) => {
             const phoneNumber = parsePhoneNumberFromString(
               value,
-              mergedConfig.phone.country
+              defaultConfig.phone.country
             );
             return phoneNumber && phoneNumber.isValid();
           }),
@@ -71,7 +64,7 @@ export const getValidationSchema = (customConfig = {}) => {
           if (!value) return true;
           const phoneNumber = parsePhoneNumberFromString(
             value,
-            mergedConfig.phone.country
+            defaultConfig.phone.country
           );
           return phoneNumber && phoneNumber.isValid();
         }),
