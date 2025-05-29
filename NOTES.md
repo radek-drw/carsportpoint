@@ -148,3 +148,4 @@ zaczalem robic walidacje po stronie backendu, moim celem bylo skorzystac z tgego
 - jest problem z walidacją numeru telefonu (pokazuje invalid phone number - problem jest w context.parent.country w validationSchema, ale ze tam dane sa przekazywane dynamicznie to nie mozna tego zmieniac)
 - npm workspace wykonac
 - uzyc bundlera (esbuild) do backendu 'sendContactForm' w celu zbundlowania validationSchema ale zaleznosci takie jak yup i libphonenumber-js nie bundlowac (lambda skorzysta w lambda-layers)
+- dodac api's do index.js
