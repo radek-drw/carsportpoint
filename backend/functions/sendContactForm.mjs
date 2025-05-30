@@ -1,5 +1,6 @@
 import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
-import { getValidationSchema } from "../../shared/validationSchema.js";
+import { validationSchema } from "../../shared/validationSchema.js";
+
 import * as Yup from "yup";
 
 const sesClient = new SESClient({ region: "eu-west-1" });
@@ -24,13 +25,17 @@ const formatFileList = (files) => {
     .join("");
 };
 
-export const handler = async (event) => {
+export const sendContactForm = async (event) => {
   try {
+    console.log("Received event:", JSON.stringify(event, null, 2));
     const body = JSON.parse(event.body);
+    console.log("Parsed body:", body);
 
-    const { customConfig, ...formData } = body;
+    const { formData } = body;
 
-    const schema = getValidationSchema(customConfig);
+    const schema = validationSchema();
+    // console.log("formData:", formData);
+    // console.log("schema:", schema.describe());
     await schema.validate(formData, { abortEarly: false });
 
     const { name, email, phone, subject, message, files } = formData;
@@ -63,9 +68,6 @@ export const handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
@@ -80,9 +82,6 @@ export const handler = async (event) => {
 
       return {
         statusCode: 400,
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
           success: false,
           message: "Validation failed",
@@ -94,9 +93,6 @@ export const handler = async (event) => {
     // 5. Obsługa błędów serwera
     return {
       statusCode: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({ success: false }),
     };
   }
