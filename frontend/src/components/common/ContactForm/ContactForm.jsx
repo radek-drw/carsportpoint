@@ -22,8 +22,10 @@ import { defaultConfig } from "@shared/defaultConfig";
 import { validationSchema } from "@shared/validationSchema";
 
 // API handlers
-import { sendContactForm } from "./utils/api/sendContactForm";
+import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
+
 import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
+// import { sendContactForm, uploadFilesToS3 } from "./utils/api"; // this will be when the backend is ready
 
 const ContactForm = ({ displayMode = "label" }) => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -56,7 +58,7 @@ const ContactForm = ({ displayMode = "label" }) => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
           let fileUrls = [];
