@@ -26,19 +26,20 @@ const formatFileList = (files) => {
 };
 
 export const sendContactForm = async (event) => {
+  // console.log("Received event:", event);
   try {
-    console.log("Received event:", JSON.stringify(event, null, 2));
-    const body = JSON.parse(event.body);
-    console.log("Parsed body:", body);
+    // const body = JSON.parse(event.body);
+    // console.log("Parsed body:", body);
 
-    const { formData } = body;
+    // const { formData } = event;
+    // console.log("Event:", event.name);
 
+    console.log("Before validation");
     const schema = validationSchema();
-    // console.log("formData:", formData);
-    // console.log("schema:", schema.describe());
-    await schema.validate(formData, { abortEarly: false });
+    await schema.validate(event, { abortEarly: false });
+    console.log("Validation passed"); // this line won't print
 
-    const { name, email, phone, subject, message, files } = formData;
+    const { name, email, phone, subject, message, files } = event;
 
     const htmlBody = `
       <p><strong>Subject:</strong> ${subject || "not provided"}</p>
@@ -70,7 +71,9 @@ export const sendContactForm = async (event) => {
       statusCode: 200,
       body: JSON.stringify({ success: true }),
     };
-  } catch (error) {
+  } catch (parseError) {
+    // console.error("Failed to parse event.body:", event.body);
+    // console.error("Parsing error:", parseError);
     // 4. Obsługa błędów walidacji
     if (error instanceof Yup.ValidationError) {
       console.error("Validation error:", error.inner);
