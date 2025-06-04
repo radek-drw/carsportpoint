@@ -71,6 +71,7 @@ const ContactForm = ({ displayMode = "label" }) => {
             ...values,
             files: fileUrls,
           };
+          // console.log("Form submission payload:", payload);
 
           await sendContactForm(payload);
 
