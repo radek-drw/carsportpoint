@@ -29,10 +29,10 @@ export const sendContactForm = async (event) => {
   // console.log("Received event:", event);
   try {
     // const body = JSON.parse(event.body);
-    // console.log("Parsed body:", body);
+    console.log("Parsed body:", body);
 
     // const { formData } = event;
-    // console.log("Event:", event.name);
+    console.log("Event:", event.name);
 
     console.log("Before validation");
     const schema = validationSchema();
