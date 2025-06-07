@@ -27,7 +27,7 @@ import { sendContactForm } from "../../../../../backend/functions/sendContactFor
 import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
 // import { sendContactForm, uploadFilesToS3 } from "./utils/api"; // this will be when the backend is ready
 
-const ContactForm = ({ displayMode = "label" }) => {
+const ContactForm = ({ displayMode = "placeholder" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
