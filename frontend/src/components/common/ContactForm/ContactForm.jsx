@@ -41,7 +41,7 @@ const ContactForm = ({ displayMode = "placeholder" }) => {
 
   const visibleFields = Object.entries(defaultConfig).reduce(
     (acc, [key, config]) => {
-      if (key === "submitLabel") return acc; // what about submitLabel?
+      if (key === "submitLabel") return acc;
       if (config.visible === false) return acc;
       acc[key] = config;
       return acc;
