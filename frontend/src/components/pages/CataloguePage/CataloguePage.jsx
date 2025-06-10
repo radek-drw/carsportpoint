@@ -19,7 +19,7 @@ const CataloguePage = () => {
           Are you a company owner? Add your company to our catalogue to reach
           more customers
         </p>
-        <ContactForm displayMode="placeholder" />
+        <ContactForm displayMode="both" />
       </div>
     </section>
   );
