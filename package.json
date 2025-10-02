@@ -1,10 +1,8 @@
 {
-  "name": "carsportpoint",
-  "version": "1.0.0",
-  "type": "module",
-  "description": "Monorepo for frontend and backend (Lambda) for carsportpoint project",
-  "dependencies": {
-    "libphonenumber-js": "^1.12.8",
-    "yup": "^1.6.1"
-  }
+  "name": "car-sport-point",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
 }
