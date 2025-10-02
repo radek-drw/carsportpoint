@@ -1,12 +1,26 @@
+# Dependencies
 node_modules/
-**/dist/
+
+# Build artifacts
+dist/
 build/
 coverage/
-.DS_Store
+.aws-sam/
+.serverless/
+
+# Logs
 *.log
+npm-debug.log*
+
+# Environment
 .env
+.env.local
+.env.*.local
+
+# OS / Editors
+.DS_Store
 .vscode/
 .idea/
-*.tmp
-*.swp
-.aws-sam/
+
+# TypeScript
+*.tsbuildinfo
