@@ -3,13 +3,11 @@
 ## 1. Slider on the 'Home' Page
 
 - **Technologies Used:**
-
   - `swiper` - for image slides.
   - `react-spring/web` - for text animations.
   - `mui/material` - for the progress bar.
 
 - **Slider Configuration (config.js):**
-
   - Adjustable slide duration:
     - Used in text animation and progress bar animation.
     - Includes a ratio for the duration of the first and second slides.
@@ -33,7 +31,6 @@
 ## 3. Contact Form
 
 - **File Validation:**
-
   - **Libraries:** `formik` and `yup` - for form validation.
   - **Supported File Types:** `.jpg, .jpeg, .png, .gif, .pdf, .doc, .docx, .txt`.
   - **Maximum File Size:** 5 MB.
@@ -48,7 +45,6 @@
     - When an invalid file type is added, a tooltip appears next to the file name, displaying a message with the supported file formats.
 
 - **Field Validation:**
-
   - **Name:**
     - Length: The name cannot exceed 50 characters. If it does, the error message will be shown.
   - **Phone Number:**
@@ -108,6 +104,19 @@ Reasons to use Vite:
 - Optimized build process – pre-bundles dependencies with esbuild, making builds significantly faster.
 - Path aliasing – allows for cleaner and more manageable imports.
 
+## Prettier Configuration (`.prettierrc`)
+
+- **Purpose:** Configures **Prettier**, the code formatter used in this project.
+- **Tailwind Plugin:**
+
+```json
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+- This plugin automatically sorts Tailwind CSS classes in a logical order
+
 ## TODO
 
 - determine if the logo should be a separate component - DONE
@@ -149,3 +158,7 @@ zaczalem robic walidacje po stronie backendu, moim celem bylo skorzystac z tgego
 - npm workspace wykonac
 - uzyc bundlera (esbuild) do backendu 'sendContactForm' w celu zbundlowania validationSchema ale zaleznosci takie jak yup i libphonenumber-js nie bundlowac (lambda skorzysta w lambda-layers)
 - dodac api's do index.js
+
+```
+
+```
