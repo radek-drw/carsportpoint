@@ -1,10 +1,14 @@
-## Prettier Configuration
+# How to Use `prettier-plugin-tailwindcss`
 
-- this project uses Prettier for code formatting
-- the `.prettierrc` file is located in `frontend/` directory
-- Prettier runs automatically on save
+**Location of config file `.prettierrc`:**
 
-**Purpose**
+- `frontend/`
 
-- automatically sorts Tailwind CSS classes in logical order for readability and cleaner diffs
+**What it does:**
+
+- automatically sorts Tailwind CSS classes in logical order for readability
 - ensures consistent code style
+- runs automatically when you save (if Prettier on save is enabled)
+
+**How to use:**  
+Make sure both `prettier` and `prettier-plugin-tailwindcss` are installed in project
