@@ -104,19 +104,6 @@ Reasons to use Vite:
 - Optimized build process – pre-bundles dependencies with esbuild, making builds significantly faster.
 - Path aliasing – allows for cleaner and more manageable imports.
 
-## Prettier Configuration (`.prettierrc`)
-
-- **Purpose:** Configures **Prettier**, the code formatter used in this project.
-- **Tailwind Plugin:**
-
-```json
-{
-  "plugins": ["prettier-plugin-tailwindcss"]
-}
-```
-
-- This plugin automatically sorts Tailwind CSS classes in a logical order
-
 ## TODO
 
 - determine if the logo should be a separate component - DONE
