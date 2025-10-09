@@ -19,7 +19,7 @@
     "prettier": "^3.6.2"
   },
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix",
     "format": "prettier --write .",
     "prepare": "husky install"
   },
