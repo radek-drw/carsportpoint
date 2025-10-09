@@ -76,7 +76,10 @@ const Navbar = () => {
     <>
       {/* Mobile menu overlay | Darkens the background when menu is open */}
       <div
-        className={`fixed inset-0 z-30 bg-black transition-opacity duration-300 ${
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && closeMenu()}
+        className={`fixed inset-0 z-30 bg-red-500 transition-opacity duration-300 ${
           isMenuOpen
             ? "pointer-events-auto opacity-60"
             : "pointer-events-none opacity-0"
