@@ -26,18 +26,9 @@ const formatFileList = (files) => {
 };
 
 export const sendContactForm = async (event) => {
-  // console.log("Received event:", event);
   try {
-    // const body = JSON.parse(event.body);
-    console.log("Parsed body:", body);
-
-    // const { formData } = event;
-    console.log("Event:", event.name);
-
-    console.log("Before validation");
     const schema = validationSchema();
     await schema.validate(event, { abortEarly: false });
-    console.log("Validation passed"); // this line won't print
 
     const { name, email, phone, subject, message, files } = event;
 
@@ -71,7 +62,7 @@ export const sendContactForm = async (event) => {
       statusCode: 200,
       body: JSON.stringify({ success: true }),
     };
-  } catch (parseError) {
+  } catch (error) {
     // console.error("Failed to parse event.body:", event.body);
     // console.error("Parsing error:", parseError);
     // 4. Obsługa błędów walidacji
