@@ -1,5 +1,4 @@
 import { MarkerF } from "@react-google-maps/api";
-
 import { useCompany } from "@context/CompanyMapContext";
 
 const MarkerList = () => {

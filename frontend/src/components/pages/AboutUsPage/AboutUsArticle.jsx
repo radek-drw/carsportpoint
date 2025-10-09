@@ -1,8 +1,6 @@
 import React from "react";
-
 import ResponsiveImage from "@common/ResponsiveImage";
 import Divider from "@common/Divider";
-
 import modifiedCarsInGarage_480w from "@images/modified-cars-garage-480w.webp";
 import modifiedCarsInGarage_640w from "@images/modified-cars-garage-640w.webp";
 import modifiedCarsInGarage_768w from "@images/modified-cars-garage-768w.webp";

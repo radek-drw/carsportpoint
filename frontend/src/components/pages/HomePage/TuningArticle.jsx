@@ -1,11 +1,8 @@
 import React from "react";
-
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { FaUser } from "react-icons/fa";
-
 import Divider from "@common/Divider";
-
 import WorkshopImage1 from "@images/workshop-image-1.webp";
 import WorkshopImage2 from "@images/workshop-image-2.webp";
 import WorkshopImage3 from "@images/workshop-image-3.webp";

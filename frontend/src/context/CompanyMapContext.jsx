@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useRef, useEffect } from "react";
-
 import axios from "axios";
 
 const CompanyMapContext = createContext();

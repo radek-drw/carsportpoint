@@ -1,4 +1,5 @@
 import { useTrail, easings } from "@react-spring/web";
+
 import { TEXT_ANIMATION } from "./config";
 
 export const useSlideAnimations = (resetAnimation) => {

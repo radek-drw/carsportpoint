@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+
 import { handler } from "../functions/uploadFilesToS3.mjs";
 
 // In ESM, manually define __dirname

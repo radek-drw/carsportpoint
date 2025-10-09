@@ -3,7 +3,6 @@ import slide1_768w from "@images/slide1-768w.webp";
 import slide1_1280w from "@images/slide1-1280w.webp";
 import slide1_1920w from "@images/slide1-1920w.webp";
 import slide1_1920w_fallback from "@images/slide1-1920w-fallback.jpg";
-
 import slide2_480w from "@images/slide2-480w.webp";
 import slide2_768w from "@images/slide2-768w.webp";
 import slide2_1280w from "@images/slide2-1280w.webp";

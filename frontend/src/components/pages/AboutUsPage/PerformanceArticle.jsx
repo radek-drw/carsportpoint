@@ -1,8 +1,6 @@
 import React from "react";
-
 import ResponsiveImage from "@common/ResponsiveImage";
 import Divider from "@common/Divider";
-
 import powerBoostDashboard_480w from "@images/power-boost-dashboard-480w.webp";
 import powerBoostDashboard_1000w from "@images/power-boost-dashboard-1000w.webp";
 import powerBoostDashboard_1000w_fallback from "@images/power-boost-dashboard-1000w-fallback.jpg";

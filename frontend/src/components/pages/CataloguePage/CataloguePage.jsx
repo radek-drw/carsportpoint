@@ -1,6 +1,6 @@
 import React from "react";
-
 import ContactForm from "@common/ContactForm/ContactForm";
+
 import CatalogueHeader from "./CatalogueHeader";
 import Companies from "./Companies/Companies";
 

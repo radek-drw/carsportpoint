@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-
 import { FiMenu } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 
 import Logo from "../../common/Logo";
+
 import NavItem from "./NavItem";
 
 const menuItems = [

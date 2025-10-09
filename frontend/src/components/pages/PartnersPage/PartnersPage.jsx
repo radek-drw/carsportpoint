@@ -1,14 +1,11 @@
 import React from "react";
-
 import ResponsiveImage from "@common/ResponsiveImage";
 import Divider from "@common/Divider";
-
 import carEngine_480w from "@images/car-engine-480w.webp";
 import carEngine_640w from "@images/car-engine-640w.webp";
 import carEngine_768w from "@images/car-engine-768w.webp";
 import carEngine_960w from "@images/car-engine-960w.webp";
 import carEngine_960w_fallback from "@images/car-engine-960w-fallback.jpg";
-
 import aCunningham_240w from "@images/a-cunningham-240w.webp";
 import aCunningham_484w from "@images/a-cunningham-484w.webp";
 import aCunningham_484w_fallback from "@images/a-cunningham-484w-fallback.jpg";

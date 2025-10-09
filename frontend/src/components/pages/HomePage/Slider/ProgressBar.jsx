@@ -1,4 +1,5 @@
 import { LinearProgress } from "@mui/material";
+
 import { PROGRESS_BAR, SLIDER_TIMES } from "./config";
 
 const ProgressBar = ({ progressKey }) => (

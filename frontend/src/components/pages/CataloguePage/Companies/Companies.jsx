@@ -1,5 +1,4 @@
 import React from "react";
-
 import { CompanyProvider } from "@context/CompanyMapContext";
 
 import CompanyList from "./CompanyList";

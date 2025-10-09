@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-
 import { useCompany } from "@context/CompanyMapContext";
+
 import MarkerList from "./MarkerList";
 import CompanyInfoWindow from "./CompanyInfoWindow";
 import ImageGalleryModal from "./ImageGalleryModal";

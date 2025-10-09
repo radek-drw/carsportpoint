@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Flat } from "@alptugidin/react-circular-progress-bar";
 
 const CircularProgress = () => {

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+
 import ResponsiveImage from "../../../common/ResponsiveImage";
+
 import ProgressBar from "./ProgressBar";
 import SlideContent from "./SlideContent";
 import "swiper/css";

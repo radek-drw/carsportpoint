@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
 import { useAdmin } from "@context/AdminContext";
 
 const AdminLogin = () => {

@@ -1,8 +1,6 @@
 import React from "react";
-
 import ResponsiveImage from "@common/ResponsiveImage";
 import Divider from "@common/Divider";
-
 import carPartsWorkshop_480w from "@images/car-parts-workshop-480w.webp";
 import carPartsWorkshop_768w from "@images/car-parts-workshop-768w.webp";
 import carPartsWorkshop_960w from "@images/car-parts-workshop-960w.webp";
