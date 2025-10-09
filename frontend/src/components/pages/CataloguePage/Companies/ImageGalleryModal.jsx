@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-
 import { IoCloseOutline } from "react-icons/io5";
+import "react-image-gallery/styles/css/image-gallery.css";
 import { useCompany } from "@context/CompanyMapContext";
 
 const ImageGalleryModal = () => {

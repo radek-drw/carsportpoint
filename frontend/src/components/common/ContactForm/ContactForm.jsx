@@ -1,13 +1,10 @@
-// External libraries
 import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
-
-// Local form fields (components)
 import { defaultConfig } from "@shared/defaultConfig";
 
-import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
+import { sendContactForm } from "../../../../../backend/functions/sendContactForm";
 
 import NameField from "./fields/NameField";
 import EmailField from "./fields/EmailField";
@@ -15,18 +12,10 @@ import PhoneField from "./fields/PhoneField";
 import SubjectField from "./fields/SubjectField";
 import MessageField from "./fields/MessageField";
 import FileUploadField from "./fields/FileUploadField";
-
-// Form feedback UI
 import FeedbackMessage from "./formSubmitStatus/FeedbackMessage";
 import { showMessage } from "./formSubmitStatus/showMessage";
-
-// Configs & validation
 import validateProps from "./utils/validators/validateProps";
-
-// API handlers
-
 import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
-// import { sendContactForm, uploadFilesToS3 } from "./utils/api"; // this will be when the backend is ready
 
 const ContactForm = ({ displayMode = "placeholder" }) => {
   const [successMessage, setSuccessMessage] = useState("");
