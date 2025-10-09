@@ -1,4 +1,9 @@
 export default {
-  tailwindcss: {}, // Runs Tailwind to generate utility classes from config
-  autoprefixer: {}, // Adds browser-specific prefixes for better compatibility
+  plugins: {
+    // Tailwind CSS – lets use utility classes to style website quickly
+    tailwindcss: {},
+
+    // Autoprefixer – automatically adds browser prefixes for better compatibility
+    autoprefixer: {},
+  },
 };
