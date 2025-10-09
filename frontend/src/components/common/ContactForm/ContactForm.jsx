@@ -5,6 +5,9 @@ import { AnimatePresence } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
 // Local form fields (components)
+import { defaultConfig } from "@shared/defaultConfig";
+import { validationSchema } from "@shared/validationSchema";
+import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
 import NameField from "./fields/NameField";
 import EmailField from "./fields/EmailField";
 import PhoneField from "./fields/PhoneField";
@@ -18,11 +21,8 @@ import { showMessage } from "./formSubmitStatus/showMessage";
 
 // Configs & validation
 import validateProps from "./utils/validators/validateProps";
-import { defaultConfig } from "@shared/defaultConfig";
-import { validationSchema } from "@shared/validationSchema";
 
 // API handlers
-import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
 
 import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
 // import { sendContactForm, uploadFilesToS3 } from "./utils/api"; // this will be when the backend is ready

@@ -2,10 +2,10 @@ import React from "react";
 
 import axios from "axios";
 
+import { useAdmin } from "@context/AdminContext";
 import ImageUpload from "./ImageUpload";
 import ImagePreview from "./ImagePreview";
 
-import { useAdmin } from "@context/AdminContext";
 
 const API_URL =
   "https://vkaymzas8j.execute-api.eu-west-1.amazonaws.com/saveCompanyDetails";

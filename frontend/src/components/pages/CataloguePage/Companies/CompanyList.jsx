@@ -1,8 +1,8 @@
 import React from "react";
-import ResetMapButton from "./ResetMapButton";
 import { useCompany } from "@context/CompanyMapContext";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import ResetMapButton from "./ResetMapButton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const CompanyList = () => {

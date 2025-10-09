@@ -1,11 +1,11 @@
 import React from "react";
 
-import Logo from "../common/Logo";
 
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { LuDot } from "react-icons/lu";
+import Logo from "../common/Logo";
 
 const ICON_SIZE = 38;
 const DOT_SIZE = 46;
@@ -56,7 +56,7 @@ const Footer = () => {
             <MdEmail size={ICON_SIZE} />
           </a>
         </nav>
-        <div className="my-9 h-[1px] w-[88px] bg-footerCustomGrey"></div>
+        <div className="my-9 h-px w-[88px] bg-footerCustomGrey"></div>
         <p className="w-full text-sm text-footerCustomGrey md:w-1/2">
           Nulla facilisi. Proin ultrices dui in diam euismod, sed iaculis nunc
           interdum suspendisse vehicula porta. Ut felis erat, faucibus ac ipsum

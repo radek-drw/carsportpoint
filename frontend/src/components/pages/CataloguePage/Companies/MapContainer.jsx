@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
+import { useCompany } from "@context/CompanyMapContext";
 import MarkerList from "./MarkerList";
 import CompanyInfoWindow from "./CompanyInfoWindow";
 import ImageGalleryModal from "./ImageGalleryModal";
 
-import { useCompany } from "@context/CompanyMapContext";
 
 const center = {
   lat: 53.41291,
@@ -64,17 +64,17 @@ const MapContainer = () => {
   if (!isLoaded) {
     return (
       <div
-        className="flex flex-grow flex-col items-center justify-center"
+        className="flex grow flex-col items-center justify-center"
         style={{ height: mapContainerStyle.height }}
       >
-        <div className="h-16 w-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
+        <div className="size-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
         <p className="mt-4 text-gray-600">Loading Google Maps...</p>
       </div>
     );
   }
 
   return (
-    <div ref={mapRef} className="flex-grow">
+    <div ref={mapRef} className="grow">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={defaultZoom}

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import ProgressBar from "./ProgressBar";
-import SlideContent from "./SlideContent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import ResponsiveImage from "../../../common/ResponsiveImage";
+import ProgressBar from "./ProgressBar";
+import SlideContent from "./SlideContent";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import slidesData from "./slidesData";
@@ -10,7 +11,6 @@ import { useSlideAnimations } from "./textAnimations";
 import { SLIDER_TIMES } from "./config";
 import "./animations.css";
 
-import ResponsiveImage from "../../../common/ResponsiveImage";
 
 const Slider = () => {
   const [resetAnimation, setResetAnimation] = useState(false);
@@ -44,7 +44,7 @@ const Slider = () => {
         }}
         speed={SLIDER_TIMES.fadeTransitionDuration}
         loop={true}
-        className="mySwiper font-primary h-[330px] w-full md:h-[600px]"
+        className="h-[330px] w-full font-main md:h-[600px]"
         onSlideChange={handleSlideChange}
       >
         {slidesWithAnimations.map((slide, index) => (
@@ -65,7 +65,7 @@ const Slider = () => {
                 ]}
                 fallback={slide.images.fallback}
                 alt={`Slide ${index + 1}`}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 size-full object-cover"
               />
               <SlideContent
                 textAnimations={slide.animations}

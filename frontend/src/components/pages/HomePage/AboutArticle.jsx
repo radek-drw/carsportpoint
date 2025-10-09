@@ -1,11 +1,11 @@
 import React from "react";
 
-import CircularProgress from "./ProgressCircle";
 
 import Divider from "@common/Divider";
 
 import CarEngineCloseup from "@images/car-engine-closeup.webp";
 import decorativeA from "@images/section_bg1.png";
+import CircularProgress from "./ProgressCircle";
 
 const AboutArticle = () => {
   return (
