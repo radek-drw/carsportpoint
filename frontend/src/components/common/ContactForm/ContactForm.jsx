@@ -6,7 +6,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 // Local form fields (components)
 import { defaultConfig } from "@shared/defaultConfig";
-import { validationSchema } from "@shared/validationSchema";
 import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
 import NameField from "./fields/NameField";
 import EmailField from "./fields/EmailField";
