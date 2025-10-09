@@ -4,7 +4,7 @@ import { unmarshall } from "@aws-sdk/util-dynamodb";
 const dynamoClient = new DynamoDBClient({ region: "eu-west-1" });
 const TABLE_NAME = "companies";
 
-export const handler = async (event) => {
+export const handler = async () => {
   try {
     const command = new ScanCommand({ TableName: TABLE_NAME });
     const data = await dynamoClient.send(command);
