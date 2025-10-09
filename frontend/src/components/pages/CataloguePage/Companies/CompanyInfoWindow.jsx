@@ -49,16 +49,20 @@ const CompanyInfoWindow = () => {
         {selectedCompany?.images?.length > 0 && (
           <div className="mt-2 flex gap-2 overflow-x-auto">
             {selectedCompany.images.map((image, index) => (
-              <img
+              <button
                 key={index}
-                src={image}
-                alt={`${selectedCompany.name} - image ${index + 1}`}
-                className="max-h-20 shrink-0 cursor-pointer rounded-lg object-contain transition hover:opacity-75"
                 onClick={() => {
                   setCurrentImageIndex(index);
                   setIsGalleryOpen(true);
                 }}
-              />
+                className="cursor-pointer border-none bg-transparent p-0"
+              >
+                <img
+                  src={image}
+                  alt={`${selectedCompany.name} - image ${index + 1}`}
+                  className="max-h-20 shrink-0 rounded-lg object-contain transition hover:opacity-75"
+                />
+              </button>
             ))}
           </div>
         )}
