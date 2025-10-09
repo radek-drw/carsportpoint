@@ -44,19 +44,21 @@ const CompanyList = () => {
               </SkeletonTheme>
             ))
           : companies.map((company) => (
-              <li
-                key={company.id}
-                className={`cursor-pointer px-4 py-2 transition hover:bg-gray-200 ${
-                  hoveredCompany?.id === company.id
-                    ? "bg-gray-200"
-                    : "bg-transparent"
-                }`}
-                onMouseEnter={() => setHoveredCompany(company)}
-                onMouseLeave={() => setHoveredCompany(null)}
-                onClick={() => handleCompanyClick(company)}
-              >
-                <strong>{company.name}</strong>
-                <p>{company.address}</p>
+              <li key={company.id}>
+                <button
+                  type="button"
+                  className={`w-full px-4 py-2 text-left transition hover:bg-gray-200 ${
+                    hoveredCompany?.id === company.id
+                      ? "bg-gray-200"
+                      : "bg-transparent"
+                  }`}
+                  onMouseEnter={() => setHoveredCompany(company)}
+                  onMouseLeave={() => setHoveredCompany(null)}
+                  onClick={() => handleCompanyClick(company)}
+                >
+                  <strong>{company.name}</strong>
+                  <p>{company.address}</p>
+                </button>
               </li>
             ))}
       </ul>
