@@ -96,7 +96,7 @@ const Navbar = () => {
         {/* Logo */}
         <Logo
           isClickable
-          className={`${isSticky ? "max-w-[90px]" : "max-w-[225px]"} absolute left-1/2 -translate-x-1/2 transform xl:static xl:ml-5 xl:translate-x-0`}
+          className={`${isSticky ? "max-w-[90px]" : "max-w-[225px]"} absolute left-1/2 -translate-x-1/2 xl:static xl:ml-5 xl:translate-x-0`}
         />
         {/* Open mobile menu button */}
         <button
@@ -112,7 +112,7 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div
           ref={mobileMenuRef}
-          className={`fixed right-0 top-0 z-40 h-full w-64 transform bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${
+          className={`fixed right-0 top-0 z-40 h-full w-64 bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

@@ -27,9 +27,10 @@ const ImageGalleryModal = () => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-55"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black opacity-50"
       onClick={() => setIsGalleryOpen(false)}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         className="relative w-full max-w-3xl rounded-lg bg-white px-4 pb-4 pt-10"
         onClick={(e) => e.stopPropagation()}

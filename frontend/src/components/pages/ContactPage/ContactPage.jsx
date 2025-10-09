@@ -17,7 +17,7 @@ const ContactPage = () => {
   return (
     <section>
       {/* Image section */}
-      <div className="grid items-center justify-items-center md:grid-cols-2">
+      <div className="grid place-items-center md:grid-cols-2">
         <div>
           <ResponsiveImage
             sources={[
@@ -53,7 +53,7 @@ const ContactPage = () => {
             </h2>
             <a
               href="tel:0851234567"
-              className="hover:text-customRed-dark mb-14 inline-block font-form text-[39px] text-customRed lg:text-5xl"
+              className="mb-14 inline-block font-form text-[39px] text-customRed hover:text-customRed lg:text-5xl"
               aria-label="Call us at 085 123 4567"
             >
               <div className="flex items-center hover:underline">

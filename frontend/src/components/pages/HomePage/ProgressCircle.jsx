@@ -4,7 +4,7 @@ import { Flat } from "@alptugidin/react-circular-progress-bar";
 
 const CircularProgress = () => {
   return (
-    <div className="mx-auto mb-5 h-36 w-36">
+    <div className="mx-auto mb-5 size-36">
       <Flat
         progress={86}
         sx={{

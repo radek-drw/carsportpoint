@@ -53,7 +53,7 @@ const CompanyInfoWindow = () => {
                 key={index}
                 src={image}
                 alt={`${selectedCompany.name} - image ${index + 1}`}
-                className="max-h-20 flex-shrink-0 cursor-pointer rounded-lg object-contain transition hover:opacity-75"
+                className="max-h-20 shrink-0 cursor-pointer rounded-lg object-contain transition hover:opacity-75"
                 onClick={() => {
                   setCurrentImageIndex(index);
                   setIsGalleryOpen(true);

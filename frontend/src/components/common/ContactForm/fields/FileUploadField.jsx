@@ -78,7 +78,7 @@ const FileUploadField = ({
                       Unsupported file type.
                       <span className="group relative ml-2">
                         <FaInfoCircle
-                          className="duration-default cursor-pointer text-base text-blue-500 group-hover:text-blue-700"
+                          className="cursor-pointer text-base text-blue-500 duration-300 group-hover:text-blue-700"
                           aria-label={
                             "Supported formats are: jpg, jpeg, png, gif, pdf, doc, docx, txt"
                           }
@@ -86,7 +86,7 @@ const FileUploadField = ({
                         <span
                           role="tooltip"
                           aria-hidden="true"
-                          className="duration-default absolute left-0 z-10 mt-2 hidden whitespace-nowrap rounded-lg bg-gray-800 p-3 text-xs text-white shadow-lg transition-opacity ease-in-out group-hover:block"
+                          className="absolute left-0 z-10 mt-2 hidden whitespace-nowrap rounded-lg bg-gray-800 p-3 text-xs text-white shadow-lg transition-opacity duration-300 ease-in-out group-hover:block"
                         >
                           <strong>Supported formats: </strong>
                           JPG, JPEG, PNG, GIF, PDF, DOC, DOCX, TXT
@@ -104,7 +104,7 @@ const FileUploadField = ({
                 <button
                   type="button"
                   onClick={() => handleFileRemove(index)}
-                  className="duration-default text-sm font-bold text-red-500 hover:text-red-700"
+                  className="text-sm font-bold text-red-500 duration-300 hover:text-red-700"
                 >
                   Remove
                 </button>

@@ -38,7 +38,7 @@ const PhoneField = ({
         value={value}
         onChange={onChange}
         onCountryChange={setCurrentCountry}
-        className={`focus-within:shadow-inputShadow" input-bordered w-full transition focus-within:border-inputBorder ${
+        className={`input-bordered w-full transition focus-within:border-inputBorder focus-within:shadow-inputShadow ${
           errors[name] && touched[name] ? "border-red-500" : ""
         }`}
         required={required}
