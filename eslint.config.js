@@ -55,6 +55,9 @@ export default defineConfig([
           extensions: [".js", ".jsx"],
         },
       },
+      tailwindcss: {
+        config: "./frontend/tailwind.config.js",
+      },
     },
     rules: {
       ...react.configs.recommended.rules,
@@ -75,7 +78,7 @@ export default defineConfig([
             "sibling",
             "index",
           ],
-          "newlines-between": "always",
+          // "newlines-between": "always",
         },
       ],
     },
