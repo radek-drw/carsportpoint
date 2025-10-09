@@ -52,7 +52,7 @@ export const validationSchema = () => {
       then: (schema) =>
         schema
           .required("Phone is required")
-          .test("isValidPhone", "Invalid phone number", (value, context) => {
+          .test("isValidPhone", "Invalid phone number", (value) => {
             const phoneNumber = parsePhoneNumberFromString(
               value,
               defaultConfig.phone.country
