@@ -59,7 +59,7 @@ const CompanyInfoWindow = () => {
               >
                 <img
                   src={image}
-                  alt={`${selectedCompany.name} - image ${index + 1}`}
+                  alt={`${selectedCompany.name} ${index + 1}`}
                   className="max-h-20 shrink-0 rounded-lg object-contain transition hover:opacity-75"
                 />
               </button>
