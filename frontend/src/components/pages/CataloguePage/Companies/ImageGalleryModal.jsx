@@ -27,12 +27,22 @@ const ImageGalleryModal = () => {
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black opacity-50"
       onClick={() => setIsGalleryOpen(false)}
+      onKeyDown={(e) =>
+        (e.key === "Enter" || e.key === " ") && setIsGalleryOpen(false)
+      }
     >
-      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      {/* Disabling jsx-a11y rules here because this div is just the modal content container
+          It's not meant to be interactive itself—clicks inside should not close the overlay */}
+
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
       <div
-        className="relative w-full max-w-3xl rounded-lg bg-white px-4 pb-4 pt-10"
+        className="relative w-full max-w-3xl rounded-lg bg-red-500 px-4 pb-4 pt-10"
+        // stopPropagation stops the click event from bubbling up to the overlay
+        // so clicking inside the modal doesn't close it
         onClick={(e) => e.stopPropagation()}
       >
         <button
