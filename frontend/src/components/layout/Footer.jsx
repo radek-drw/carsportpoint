@@ -10,7 +10,7 @@ const DOT_SIZE = 46;
 
 const Footer = () => {
   return (
-    <footer className="px-mobile-padding flex size-16 flex-col pb-20 pt-16 md:flex-row md:px-[2vw]">
+    <footer className="px-mobile-padding flex flex-col pb-20 pt-16 md:flex-row md:px-[2vw]">
       <div className="mb-14 md:mb-0 md:basis-[65vw]">
         <nav className="flex items-center text-[#1E1E1E]" aria-label="Social media links">
           <a
