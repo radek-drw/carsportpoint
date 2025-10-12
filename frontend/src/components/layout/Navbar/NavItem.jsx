@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const NavItem = ({ label, href, isActive, onClick, isMobile }) => {
   // Base classes
-  const mobileBaseClasses = 'flex flex-col items-start text-xs lg:text-base px-4 py-3';
+  const mobileBaseClasses = ' flex-col items-start text-xs lg:text-base px-4 py-3 flex';
   const desktopBaseClasses =
     'flex items-center justify-center h-full px-4 text-base text-navDesktop transition-all duration-300';
 

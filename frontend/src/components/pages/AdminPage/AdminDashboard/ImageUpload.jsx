@@ -16,11 +16,7 @@ const ImageUpload = () => {
   return (
     <>
       <label
-        className={`btn mb-20 block w-full bg-gray-100 text-center text-gray-700 ${
-          formData.images.length >= MAX_FILES
-            ? 'cursor-not-allowed'
-            : 'blue-btn cursor-pointer hover:bg-gray-200'
-        }`}
+        className={`btn mb-20 block w-full bg-gray-100 text-center text-gray-700 ${formData.images.length >= MAX_FILES ? 'cursor-not-allowed' : 'blue-btn cursor-pointer hover:bg-gray-200'}`}
       >
         {formData.images.length >= MAX_FILES ? 'File Limit Reached' : 'Upload Images'}
         <input

@@ -31,9 +31,7 @@ const CompanyList = () => {
               <li key={company.id}>
                 <button
                   type="button"
-                  className={`w-full px-4 py-2 text-left transition hover:bg-gray-200 ${
-                    hoveredCompany?.id === company.id ? 'bg-gray-200' : 'bg-transparent'
-                  }`}
+                  className={`w-full px-4 py-2 text-left transition hover:bg-gray-200 ${hoveredCompany?.id === company.id ? 'bg-gray-200' : 'bg-transparent'}`}
                   onMouseEnter={() => setHoveredCompany(company)}
                   onMouseLeave={() => setHoveredCompany(null)}
                   onClick={() => handleCompanyClick(company)}

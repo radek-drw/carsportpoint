@@ -33,9 +33,7 @@ export const sendContactForm = async (event) => {
       <p><strong>Name:</strong> ${name || 'not provided'}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || 'not provided'}</p>
-      <p><strong>Message:</strong><br/>${
-        message ? message.replace(/\n/g, '<br/>') : 'not provided'
-      }</p>
+      <p><strong>Message:</strong><br/>${message ? message.replace(/\n/g, '<br/>') : 'not provided'}</p>
       <p><strong>Attached Files:</strong></p>
       <ul>${formatFileList(files)}</ul>
     `;

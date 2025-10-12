@@ -15,9 +15,7 @@ const EmailField = ({ name, label, placeholder, required, errors, touched }) => 
         name={name}
         placeholder={placeholder || undefined}
         type="email"
-        className={`input-bordered w-full transition ${
-          errors[name] && touched[name] ? 'border-red-500' : ''
-        }`}
+        className={`input-bordered w-full transition ${errors[name] && touched[name] ? 'border-red-500' : ''}`}
         aria-required={required}
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}

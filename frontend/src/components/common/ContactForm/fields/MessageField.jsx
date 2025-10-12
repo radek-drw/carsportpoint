@@ -16,9 +16,7 @@ const MessageField = ({ label, name, placeholder, required, errors, touched, row
         name={name}
         placeholder={placeholder || undefined}
         rows={rows}
-        className={`input-bordered w-full transition ${
-          errors[name] && touched[name] ? 'border-red-500' : ''
-        }`}
+        className={`input-bordered w-full transition ${errors[name] && touched[name] ? 'border-red-500' : ''}`}
         aria-required={required}
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}

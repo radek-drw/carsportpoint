@@ -76,9 +76,7 @@ const Navbar = () => {
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === 'Enter' && closeMenu()}
-        className={`fixed inset-0 z-30 bg-red-500 transition-opacity duration-300 ${
-          isMenuOpen ? 'pointer-events-auto opacity-60' : 'pointer-events-none opacity-0'
-        }`}
+        className={`fixed inset-0 z-30 bg-red-500 transition-opacity duration-300 ${isMenuOpen ? 'pointer-events-auto opacity-60' : 'pointer-events-none opacity-0'}`}
         onClick={closeMenu}
       />
 
@@ -110,9 +108,7 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div
           ref={mobileMenuRef}
-          className={`fixed right-0 top-0 z-40 h-full w-64 bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`fixed right-0 top-0 z-40 h-full w-64 bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           {/* Close mobile menu button */}
           <button
