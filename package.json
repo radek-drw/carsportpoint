@@ -22,11 +22,14 @@
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,mjs,json,css,md}": [
+    "**/*.{js,jsx,ts,tsx,mjs}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,scss,css,md}": [
       "prettier --write"
     ]
   }
