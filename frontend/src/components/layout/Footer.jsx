@@ -2,6 +2,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { FaYoutube } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { LuDot } from 'react-icons/lu';
+
 import Logo from '../common/Logo';
 
 const ICON_SIZE = 38;
