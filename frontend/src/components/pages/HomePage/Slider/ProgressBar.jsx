@@ -1,6 +1,6 @@
-import { LinearProgress } from "@mui/material";
+import { LinearProgress } from '@mui/material';
 
-import { PROGRESS_BAR, SLIDER_TIMES } from "./config";
+import { PROGRESS_BAR, SLIDER_TIMES } from './config';
 
 const ProgressBar = ({ progressKey }) => (
   <LinearProgress
@@ -9,20 +9,20 @@ const ProgressBar = ({ progressKey }) => (
     value={100}
     sx={{
       height: PROGRESS_BAR.height,
-      width: "100%",
-      position: "absolute",
+      width: '100%',
+      position: 'absolute',
       top: 0,
       left: 0,
       zIndex: 4,
       backgroundColor: PROGRESS_BAR.background,
-      "& .MuiLinearProgress-bar": {
+      '& .MuiLinearProgress-bar': {
         backgroundColor: PROGRESS_BAR.color,
-        width: "100%",
+        width: '100%',
         animation: `${SLIDER_TIMES.slideDuration}ms linear 0s infinite slide`,
       },
-      "@keyframes slide": {
+      '@keyframes slide': {
         from: { width: 0 },
-        to: { width: "100%" },
+        to: { width: '100%' },
       },
     }}
   />

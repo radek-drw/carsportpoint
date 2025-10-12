@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { InfoWindowF } from "@react-google-maps/api";
-import { useCompany } from "@context/CompanyMapContext";
+import { useEffect } from 'react';
+import { InfoWindowF } from '@react-google-maps/api';
+import { useCompany } from '@context/CompanyMapContext';
 
 const CompanyInfoWindow = () => {
   const {
@@ -20,7 +20,7 @@ const CompanyInfoWindow = () => {
         selectedCompany.images.map((image) => ({
           original: image,
           thumbnail: image,
-        })),
+        }))
       );
     }
   }, [selectedCompany]);

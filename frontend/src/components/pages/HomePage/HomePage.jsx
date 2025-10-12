@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Slider from "./Slider/Slider";
-import AboutArticle from "./AboutArticle";
-import TuningArticle from "./TuningArticle";
-import ContactArticle from "./ContactArticle";
+import Slider from './Slider/Slider';
+import AboutArticle from './AboutArticle';
+import TuningArticle from './TuningArticle';
+import ContactArticle from './ContactArticle';
 
 const HomePage = () => {
   return (

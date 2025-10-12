@@ -1,7 +1,5 @@
-import React from "react";
-
-import AboutUsArticle from "./AboutUsArticle";
-import PerformanceArticle from "./PerformanceArticle";
+import AboutUsArticle from './AboutUsArticle';
+import PerformanceArticle from './PerformanceArticle';
 
 const AboutUsPage = () => {
   return (

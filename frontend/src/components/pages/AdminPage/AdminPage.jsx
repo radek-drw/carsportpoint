@@ -1,11 +1,9 @@
-import React from "react";
-import { AdminProvider, useAdmin } from "@context/AdminContext";
+import { AdminProvider, useAdmin } from '@context/AdminContext';
 
-import Logo from "../../common/Logo.jsx";
+import Logo from '../../common/Logo.jsx';
 
-import AdminLogin from "./AdminLogin.js";
-import AdminDashboard from "./AdminDashboard/AdminDashboard.jsx";
-
+import AdminLogin from './AdminLogin.js';
+import AdminDashboard from './AdminDashboard/AdminDashboard.jsx';
 
 const AdminContent = () => {
   const { isLoggedIn } = useAdmin();

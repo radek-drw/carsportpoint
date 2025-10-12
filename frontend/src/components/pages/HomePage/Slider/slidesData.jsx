@@ -1,13 +1,13 @@
-import slide1_480w from "@images/slide1-480w.webp";
-import slide1_768w from "@images/slide1-768w.webp";
-import slide1_1280w from "@images/slide1-1280w.webp";
-import slide1_1920w from "@images/slide1-1920w.webp";
-import slide1_1920w_fallback from "@images/slide1-1920w-fallback.jpg";
-import slide2_480w from "@images/slide2-480w.webp";
-import slide2_768w from "@images/slide2-768w.webp";
-import slide2_1280w from "@images/slide2-1280w.webp";
-import slide2_1920w from "@images/slide2-1920w.webp";
-import slide2_1920w_fallback from "@images/slide2-1920w-fallback.jpg";
+import slide1_480w from '@images/slide1-480w.webp';
+import slide1_768w from '@images/slide1-768w.webp';
+import slide1_1280w from '@images/slide1-1280w.webp';
+import slide1_1920w from '@images/slide1-1920w.webp';
+import slide1_1920w_fallback from '@images/slide1-1920w-fallback.jpg';
+import slide2_480w from '@images/slide2-480w.webp';
+import slide2_768w from '@images/slide2-768w.webp';
+import slide2_1280w from '@images/slide2-1280w.webp';
+import slide2_1920w from '@images/slide2-1920w.webp';
+import slide2_1920w_fallback from '@images/slide2-1920w-fallback.jpg';
 
 const slidesData = [
   {
@@ -20,15 +20,15 @@ const slidesData = [
     },
     text: [
       {
-        content: "a product that can",
-        className: "capitalize text-white font-extrabold text-5xl xl:text-7xl",
+        content: 'a product that can',
+        className: 'capitalize text-white font-extrabold text-5xl xl:text-7xl',
       },
       {
-        content: "change your life",
-        className: "capitalize text-white font-extrabold text-5xl xl:text-7xl",
+        content: 'change your life',
+        className: 'capitalize text-white font-extrabold text-5xl xl:text-7xl',
       },
     ],
-    layout: "left",
+    layout: 'left',
   },
   {
     images: {
@@ -40,15 +40,15 @@ const slidesData = [
     },
     text: [
       {
-        content: "tuning and remaps",
-        className: "uppercase text-white font-extrabold text-5xl xl:text-7xl",
+        content: 'tuning and remaps',
+        className: 'uppercase text-white font-extrabold text-5xl xl:text-7xl',
       },
       {
-        content: "We unite the best in Ireland",
-        className: "tracking-[4px] text-sm text-white xl:text-lg",
+        content: 'We unite the best in Ireland',
+        className: 'tracking-[4px] text-sm text-white xl:text-lg',
       },
     ],
-    layout: "center",
+    layout: 'center',
   },
 ];
 

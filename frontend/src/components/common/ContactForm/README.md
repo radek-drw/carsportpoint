@@ -95,7 +95,7 @@ npm install react formik yup react-icons libphonenumber-js react-phone-number-in
 @layer base {
   input:-webkit-autofill {
     @apply bg-white;
-    -webkit-text-fill-color: theme("colors.inputText");
+    -webkit-text-fill-color: theme('colors.inputText');
     transition: background-color 5000s ease-in-out 0s;
   }
 }
@@ -106,7 +106,7 @@ npm install react formik yup react-icons libphonenumber-js react-phone-number-in
 1. Import the Contact Form component in your React file:
 
 ```javascript
-import ContactForm from "./components/ContactForm"; // Adjust the path as needed
+import ContactForm from './components/ContactForm'; // Adjust the path as needed
 ```
 
 2. Ensure that the tailwind.config.js and main.css files are configured and included in the project to prevent any styling issues.

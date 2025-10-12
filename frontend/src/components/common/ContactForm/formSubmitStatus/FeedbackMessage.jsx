@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { HiCheckCircle, HiExclamationCircle, HiX } from "react-icons/hi";
+import { motion } from 'framer-motion';
+import { HiCheckCircle, HiExclamationCircle, HiX } from 'react-icons/hi';
 
 const iconMap = {
   success: HiCheckCircle,
@@ -8,22 +8,22 @@ const iconMap = {
 
 const stylesMap = {
   success: {
-    container: "bg-green-100 text-green-800",
-    icon: "text-green-600",
-    close: "text-green-800 hover:text-green-900",
-    role: "status",
-    ariaLive: "polite",
+    container: 'bg-green-100 text-green-800',
+    icon: 'text-green-600',
+    close: 'text-green-800 hover:text-green-900',
+    role: 'status',
+    ariaLive: 'polite',
   },
   error: {
-    container: "bg-red-100 text-red-800",
-    icon: "text-red-600",
-    close: "text-red-800 hover:text-red-900",
-    role: "alert",
-    ariaLive: "assertive",
+    container: 'bg-red-100 text-red-800',
+    icon: 'text-red-600',
+    close: 'text-red-800 hover:text-red-900',
+    role: 'alert',
+    ariaLive: 'assertive',
   },
 };
 
-const FeedbackMessage = ({ type = "success", message, onClose }) => {
+const FeedbackMessage = ({ type = 'success', message, onClose }) => {
   if (!message) return null;
 
   const Icon = iconMap[type];

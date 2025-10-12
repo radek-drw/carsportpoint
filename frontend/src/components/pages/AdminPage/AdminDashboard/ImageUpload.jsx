@@ -1,5 +1,4 @@
-import React from "react";
-import { useAdmin } from "@context/AdminContext";
+import { useAdmin } from '@context/AdminContext';
 
 const MAX_FILES = 5;
 
@@ -19,13 +18,11 @@ const ImageUpload = () => {
       <label
         className={`btn mb-20 block w-full bg-gray-100 text-center text-gray-700 ${
           formData.images.length >= MAX_FILES
-            ? "cursor-not-allowed"
-            : "blue-btn cursor-pointer hover:bg-gray-200"
+            ? 'cursor-not-allowed'
+            : 'blue-btn cursor-pointer hover:bg-gray-200'
         }`}
       >
-        {formData.images.length >= MAX_FILES
-          ? "File Limit Reached"
-          : "Upload Images"}
+        {formData.images.length >= MAX_FILES ? 'File Limit Reached' : 'Upload Images'}
         <input
           type="file"
           accept="image/*"

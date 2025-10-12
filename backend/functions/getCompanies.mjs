@@ -1,8 +1,8 @@
-import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
-import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb';
+import { unmarshall } from '@aws-sdk/util-dynamodb';
 
-const dynamoClient = new DynamoDBClient({ region: "eu-west-1" });
-const TABLE_NAME = "companies";
+const dynamoClient = new DynamoDBClient({ region: 'eu-west-1' });
+const TABLE_NAME = 'companies';
 
 export const handler = async () => {
   try {
@@ -14,13 +14,13 @@ export const handler = async () => {
 
     return {
       statusCode: 200,
-      headers: { "Access-Control-Allow-Origin": "*" },
+      headers: { 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify(formattedData),
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Server error", error: error.message }),
+      body: JSON.stringify({ message: 'Server error', error: error.message }),
     };
   }
 };

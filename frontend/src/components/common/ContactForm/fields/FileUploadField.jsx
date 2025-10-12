@@ -1,16 +1,8 @@
-import React from "react";
-import { ErrorMessage } from "formik";
-import { FaInfoCircle } from "react-icons/fa";
-import { SUPPORTED_FORMATS } from "@shared/validationSchema";
+import { ErrorMessage } from 'formik';
+import { FaInfoCircle } from 'react-icons/fa';
+import { SUPPORTED_FORMATS } from '@shared/validationSchema';
 
-const FileUploadField = ({
-  label,
-  name,
-  files,
-  setFieldValue,
-  maxFilesCount,
-  maxFileSize,
-}) => {
+const FileUploadField = ({ label, name, files, setFieldValue, maxFilesCount, maxFileSize }) => {
   const errorId = `${name}-error`;
   const descriptionId = `${name}-description`;
 
@@ -18,7 +10,7 @@ const FileUploadField = ({
     const selectedFiles = Array.from(event.currentTarget.files);
     const newFiles = [...files, ...selectedFiles].slice(0, maxFilesCount);
     setFieldValue(name, newFiles);
-    event.target.value = "";
+    event.target.value = '';
   };
 
   const handleFileRemove = (index) => {
@@ -30,9 +22,9 @@ const FileUploadField = ({
     <div className="mb-input-gap">
       <label
         htmlFor={name}
-        className={`btn block w-full text-center ${files.length >= maxFilesCount ? "cursor-not-allowed bg-gray-300" : "blue-btn cursor-pointer"}`}
+        className={`btn block w-full text-center ${files.length >= maxFilesCount ? 'cursor-not-allowed bg-gray-300' : 'blue-btn cursor-pointer'}`}
       >
-        {files.length >= maxFilesCount ? "File Limit Reached" : label}
+        {files.length >= maxFilesCount ? 'File Limit Reached' : label}
         <input
           id={name}
           type="file"
@@ -48,8 +40,7 @@ const FileUploadField = ({
         />
       </label>
       <span className="text-sm text-gray-500" id={descriptionId}>
-        You can upload up to {maxFilesCount} files. Each file must be less than{" "}
-        {maxFileSize}MB
+        You can upload up to {maxFilesCount} files. Each file must be less than {maxFileSize}MB
       </span>
       <ErrorMessage
         name={name}
@@ -69,7 +60,7 @@ const FileUploadField = ({
               >
                 <div className="flex w-3/4 flex-col">
                   <span
-                    className={`truncate text-sm ${isInvalidFileType || isInvalidFileSize ? "text-gray-500 line-through" : "text-green-500"}`}
+                    className={`truncate text-sm ${isInvalidFileType || isInvalidFileSize ? 'text-gray-500 line-through' : 'text-green-500'}`}
                   >
                     {file.name} ({(file.size / (1024 * 1024)).toFixed(2)} MB)
                   </span>
@@ -80,7 +71,7 @@ const FileUploadField = ({
                         <FaInfoCircle
                           className="cursor-pointer text-base text-blue-500 duration-300 group-hover:text-blue-700"
                           aria-label={
-                            "Supported formats are: jpg, jpeg, png, gif, pdf, doc, docx, txt"
+                            'Supported formats are: jpg, jpeg, png, gif, pdf, doc, docx, txt'
                           }
                         />
                         <span
@@ -96,8 +87,7 @@ const FileUploadField = ({
                   )}
                   {isInvalidFileSize && (
                     <span className="text-xs text-red-500">
-                      File size exceeds {maxFileSize}MB. Please upload a smaller
-                      file.
+                      File size exceeds {maxFileSize}MB. Please upload a smaller file.
                     </span>
                   )}
                 </div>

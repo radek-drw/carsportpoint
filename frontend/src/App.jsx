@@ -1,13 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Layout from "./components/layout/Layout";
-import HomePage from "./components/pages/HomePage/HomePage";
-import AboutUsPage from "./components/pages/AboutUsPage/AboutUsPage";
-import PartnersPage from "./components/pages/PartnersPage/PartnersPage";
-import CataloguePage from "./components/pages/CataloguePage/CataloguePage";
-import ContactPage from "./components/pages/ContactPage/ContactPage";
-import AdminPage from "./components/pages/AdminPage/AdminPage";
+import Layout from './components/layout/Layout';
+import HomePage from './components/pages/HomePage/HomePage';
+import AboutUsPage from './components/pages/AboutUsPage/AboutUsPage';
+import PartnersPage from './components/pages/PartnersPage/PartnersPage';
+import CataloguePage from './components/pages/CataloguePage/CataloguePage';
+import ContactPage from './components/pages/ContactPage/ContactPage';
+import AdminPage from './components/pages/AdminPage/AdminPage';
 
 function App() {
   return (

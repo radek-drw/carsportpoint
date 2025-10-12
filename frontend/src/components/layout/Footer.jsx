@@ -1,22 +1,18 @@
-import React from "react";
-import { FaFacebook } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { LuDot } from "react-icons/lu";
+import { FaFacebook } from 'react-icons/fa';
+import { FaYoutube } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { LuDot } from 'react-icons/lu';
 
-import Logo from "../common/Logo";
+import Logo from '../common/Logo';
 
 const ICON_SIZE = 38;
 const DOT_SIZE = 46;
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col px-mobile-padding pb-20 pt-16 md:flex-row md:px-[2vw]">
+    <footer className="px-mobile-padding flex flex-col pb-20 pt-16 md:flex-row md:px-[2vw]">
       <div className="mb-14 md:mb-0 md:basis-[65vw]">
-        <nav
-          className="flex items-center text-[#1E1E1E]"
-          aria-label="Social media links"
-        >
+        <nav className="flex items-center text-[#1E1E1E]" aria-label="Social media links">
           <a
             href="https://www.facebook.com"
             target="_blank"
@@ -26,11 +22,7 @@ const Footer = () => {
           >
             <FaFacebook size={ICON_SIZE} />
           </a>
-          <LuDot
-            size={DOT_SIZE}
-            className="mx-2 text-footerCustomGrey"
-            aria-hidden="true"
-          />
+          <LuDot size={DOT_SIZE} className="text-footerCustomGrey mx-2" aria-hidden="true" />
           <a
             href="https://www.youtube.com"
             target="_blank"
@@ -40,11 +32,7 @@ const Footer = () => {
           >
             <FaYoutube size={ICON_SIZE} />
           </a>
-          <LuDot
-            size={DOT_SIZE}
-            className="mx-2 text-footerCustomGrey"
-            aria-hidden="true"
-          />
+          <LuDot size={DOT_SIZE} className="text-footerCustomGrey mx-2" aria-hidden="true" />
           <a
             href="mailto:example@example.com"
             target="_blank"
@@ -55,20 +43,18 @@ const Footer = () => {
             <MdEmail size={ICON_SIZE} />
           </a>
         </nav>
-        <div className="my-9 h-px w-[88px] bg-footerCustomGrey"></div>
-        <p className="w-full text-sm text-footerCustomGrey md:w-1/2">
-          Nulla facilisi. Proin ultrices dui in diam euismod, sed iaculis nunc
-          interdum suspendisse vehicula porta. Ut felis erat, faucibus ac ipsum
-          in
+        <div className="bg-footerCustomGrey my-9 h-px w-[88px]"></div>
+        <p className="text-footerCustomGrey w-full text-sm md:w-1/2">
+          Nulla facilisi. Proin ultrices dui in diam euismod, sed iaculis nunc interdum suspendisse
+          vehicula porta. Ut felis erat, faucibus ac ipsum in
         </p>
       </div>
       <div className="flex flex-1 flex-col items-center">
         <Logo />
-        <p className="mt-8 text-center text-sm text-footerCustomGrey">
-          &copy; {new Date().getFullYear()} Car Sport Point. All rights
-          reserved.
+        <p className="text-footerCustomGrey mt-8 text-center text-sm">
+          &copy; {new Date().getFullYear()} Car Sport Point. All rights reserved.
         </p>
-        <p className="mt-2 text-center text-sm text-footerCustomGrey">
+        <p className="text-footerCustomGrey mt-2 text-center text-sm">
           Website developed by Radek Drweski.
           <a
             href="mailto:rdrweski@gmail.com"
@@ -77,7 +63,7 @@ const Footer = () => {
           >
             rdrweski@gmail.com
           </a>
-          {" | "}
+          {' | '}
           <a
             href="https://radek-drweski.com/"
             target="_blank"

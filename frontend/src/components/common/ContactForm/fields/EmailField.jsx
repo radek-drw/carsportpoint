@@ -1,14 +1,6 @@
-import React from "react";
-import { Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from 'formik';
 
-const EmailField = ({
-  name,
-  label,
-  placeholder,
-  required,
-  errors,
-  touched,
-}) => {
+const EmailField = ({ name, label, placeholder, required, errors, touched }) => {
   const errorId = `${name}-error`;
 
   return (
@@ -24,7 +16,7 @@ const EmailField = ({
         placeholder={placeholder || undefined}
         type="email"
         className={`input-bordered w-full transition ${
-          errors[name] && touched[name] ? "border-red-500" : ""
+          errors[name] && touched[name] ? 'border-red-500' : ''
         }`}
         aria-required={required}
         aria-invalid={!!errors[name] && touched[name]}

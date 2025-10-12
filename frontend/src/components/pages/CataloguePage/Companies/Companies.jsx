@@ -1,8 +1,7 @@
-import React from "react";
-import { CompanyProvider } from "@context/CompanyMapContext";
+import { CompanyProvider } from '@context/CompanyMapContext';
 
-import CompanyList from "./CompanyList";
-import MapContainer from "./MapContainer";
+import CompanyList from './CompanyList';
+import MapContainer from './MapContainer';
 
 const Companies = () => {
   return (

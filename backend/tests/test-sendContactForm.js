@@ -1,25 +1,25 @@
-import { handler } from "../functions/sendContactForm.mjs";
+import { handler } from '../functions/sendContactForm.mjs';
 
 const testEvent = {
   body: JSON.stringify({
-    name: "",
-    email: "john.doe@example.com",
-    phone: "0858112473",
+    name: '',
+    email: 'john.doe@example.com',
+    phone: '0858112473',
     subject:
-      "qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyui",
-    message: "adasdasd",
+      'qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyui',
+    message: 'adasdasd',
     files: [
       {
-        url: "https://s3.amazonaws.com/fake-bucket/sample1.pdf",
-        name: "sample1.pdf",
+        url: 'https://s3.amazonaws.com/fake-bucket/sample1.pdf',
+        name: 'sample1.pdf',
         size: 1048576,
-        type: "application/pdf",
+        type: 'application/pdf',
       },
       {
-        url: "https://s3.amazonaws.com/fake-bucket/image.png",
-        name: "image.png",
+        url: 'https://s3.amazonaws.com/fake-bucket/image.png',
+        name: 'image.png',
         size: 5242880,
-        type: "image/png",
+        type: 'image/png',
       },
     ],
     customConfig: {},
@@ -29,9 +29,9 @@ const testEvent = {
 handler(testEvent)
   .then((response) => {
     const parsed = JSON.parse(response.body);
-    console.log("Status:", response.statusCode);
-    console.log("Response:", parsed);
+    console.log('Status:', response.statusCode);
+    console.log('Response:', parsed);
   })
   .catch((error) => {
-    console.error("Caught error:", error);
+    console.error('Caught error:', error);
   });
