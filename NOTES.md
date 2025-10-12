@@ -110,6 +110,18 @@ Reasons to use Vite:
 - `npm run build` - creates optimized production build in `dist/`
 - `npm run preview` - preview the production build (must run `npm run build` first)
 
+## 9. Husky + lint-staged workflow
+
+To automate code quality checks and formatting, `Husky` and `lint-staged` were installed and configured in the project
+This setup ensures that `ESLint` and `Prettier` run automatically before each commit, eliminating the need to execute them manually
+
+`Husky` integrates with Git hooks and triggers a predefined action right before a commit is created
+When a developer attempts to commit changes, Husky activates the `pre-commit` hook, which launches the process
+
+`lint-staged` then analyzes the files that are currently staged (those that have been modified and added to the commit). Instead of checking the entire project, it runs `ESLint` and `Prettier` only on the changed files, making the process faster and more efficient.
+
+If any issues are detected that cannot be fixed automatically, the commit is blocked until the problems are resolved.
+
 ## TODO
 
 - determine if the logo should be a separate component - DONE
