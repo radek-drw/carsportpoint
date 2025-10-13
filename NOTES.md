@@ -110,17 +110,21 @@ Reasons to use Vite:
 - `npm run build` - creates optimized production build in `dist/`
 - `npm run preview` - preview the production build (must run `npm run build` first)
 
-## 9. Husky + lint-staged workflow
+## 9. Husky & lint-staged – What They Do
 
-To automate code quality checks and formatting, `Husky` and `lint-staged` were installed and configured in the project
-This setup ensures that `ESLint` and `Prettier` run automatically before each commit, eliminating the need to execute them manually
+`Husky` helps automate Git hooks — scripts that run automatically during Git actions (like before a commit or push).
+It’s activated with `npx husky install`, and the `prepare` script in `package.json` makes sure it’s set up automatically after running npm install.
+`Husky` stores hook files inside the `.husky/` folder (for example, `pre-commit`).
 
-`Husky` integrates with Git hooks and triggers a predefined action right before a commit is created
-When a developer attempts to commit changes, Husky activates the `pre-commit` hook, which launches the process
+The `pre-commit` hook usually runs `lint-staged`, which checks only the files that are staged for commit — not the entire project.
+This keeps things fast and ensures only changed files are linted or formatted.
 
-`lint-staged` then analyzes the files that are currently staged (those that have been modified and added to the commit). Instead of checking the entire project, it runs `ESLint` and `Prettier` only on the changed files, making the process faster and more efficient.
+`lint-staged` runs tools like `ESLint` and `Prettier` on those staged files:
 
-If any issues are detected that cannot be fixed automatically, the commit is blocked until the problems are resolved.
+`eslint` --fix tries to automatically fix lint errors (and blocks the commit if there are remaining issues)
+`prettier` --write formats the code automatically
+
+Together, `Husky` and `lint-staged` make sure every commit includes clean, formatted, and consistent code before it’s added to the repository
 
 ## TODO
 
