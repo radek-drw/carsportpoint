@@ -19,12 +19,14 @@ jobs:
           cache: 'npm'
           cache-dependency-path: |
             package-lock.json
+            frontend/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
+      - name: Install root dev tools
+        run: npm ci --ignore-scripts --omit=optional --workspace-root
 
-      - name: List installed packages
-        run: npm ls --depth=0 --workspaces
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
 
       - name: Lint repo
         run: npm run lint
