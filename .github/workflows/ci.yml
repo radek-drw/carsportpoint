@@ -32,10 +32,11 @@ jobs:
 
       - name: Lint repo
         working-directory: .
-        run: npx eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix
+        run: npm run lint
 
       - name: Check Prettier formatting
-        run: npx prettier --check .
+        working-directory: .
+        run: npm run format
 
       - name: Build frontend
         working-directory: frontend
