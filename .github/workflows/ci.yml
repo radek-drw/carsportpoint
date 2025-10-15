@@ -1,0 +1,41 @@
+name: CI Quality Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      # Root tools only (ESLint, Prettier)
+      - name: Install root dev tools only
+        run: npm install --ignore-workspace-root-check --workspace-root
+
+      # Frontend deps
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Lint repo
+        run: npm run lint
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
