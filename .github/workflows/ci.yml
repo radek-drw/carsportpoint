@@ -31,10 +31,10 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Lint repo
-        run: npx run lint
+        run: npx lint
 
       - name: Check Prettier formatting
-        run: npx run format
+        run: npx format
 
       - name: Build frontend
         working-directory: frontend
