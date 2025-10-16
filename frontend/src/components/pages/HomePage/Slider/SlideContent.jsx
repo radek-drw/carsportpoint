@@ -1,7 +1,7 @@
-import { animated } from "@react-spring/web";
+import { animated } from '@react-spring/web';
 
 const SlideContent = ({ textAnimations, text, layout }) => {
-  const layoutClass = layout === "left" ? "text-left" : `text-${layout}`;
+  const layoutClass = layout === 'left' ? 'text-left' : `text-${layout}`;
 
   return (
     <div className={layoutClass}>

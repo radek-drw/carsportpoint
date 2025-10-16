@@ -3,13 +3,11 @@
 ## 1. Slider on the 'Home' Page
 
 - **Technologies Used:**
-
   - `swiper` - for image slides.
   - `react-spring/web` - for text animations.
   - `mui/material` - for the progress bar.
 
 - **Slider Configuration (config.js):**
-
   - Adjustable slide duration:
     - Used in text animation and progress bar animation.
     - Includes a ratio for the duration of the first and second slides.
@@ -33,7 +31,6 @@
 ## 3. Contact Form
 
 - **File Validation:**
-
   - **Libraries:** `formik` and `yup` - for form validation.
   - **Supported File Types:** `.jpg, .jpeg, .png, .gif, .pdf, .doc, .docx, .txt`.
   - **Maximum File Size:** 5 MB.
@@ -48,7 +45,6 @@
     - When an invalid file type is added, a tooltip appears next to the file name, displaying a message with the supported file formats.
 
 - **Field Validation:**
-
   - **Name:**
     - Length: The name cannot exceed 50 characters. If it does, the error message will be shown.
   - **Phone Number:**
@@ -108,6 +104,28 @@ Reasons to use Vite:
 - Optimized build process – pre-bundles dependencies with esbuild, making builds significantly faster.
 - Path aliasing – allows for cleaner and more manageable imports.
 
+## 8. NPM Scripts in `frontend/`
+
+- `npm run start` - development server (hot reload)
+- `npm run build` - creates optimized production build in `dist/`
+- `npm run preview` - preview the production build (must run `npm run build` first)
+
+## 9. Husky & lint-staged – What They Do
+
+`Husky` helps automate Git hooks — scripts that run automatically during Git actions (like before a commit or push).
+It’s activated with `npx husky install`, and the `prepare` script in `package.json` makes sure it’s set up automatically after running npm install.
+`Husky` stores hook files inside the `.husky/` folder (for example, `pre-commit`).
+
+The `pre-commit` hook usually runs `lint-staged`, which checks only the files that are staged for commit — not the entire project.
+This keeps things fast and ensures only changed files are linted or formatted.
+
+`lint-staged` runs tools like `ESLint` and `Prettier` on those staged files:
+
+`eslint` --fix tries to automatically fix lint errors (and blocks the commit if there are remaining issues)
+`prettier` --write formats the code automatically
+
+Together, `Husky` and `lint-staged` make sure every commit includes clean, formatted, and consistent code before it’s added to the repository
+
 ## TODO
 
 - determine if the logo should be a separate component - DONE
@@ -149,3 +167,7 @@ zaczalem robic walidacje po stronie backendu, moim celem bylo skorzystac z tgego
 - npm workspace wykonac
 - uzyc bundlera (esbuild) do backendu 'sendContactForm' w celu zbundlowania validationSchema ale zaleznosci takie jak yup i libphonenumber-js nie bundlowac (lambda skorzysta w lambda-layers)
 - dodac api's do index.js
+
+```
+
+```

@@ -1,8 +1,8 @@
-import axios from "axios";
-import { sanitizeFileName } from "../helpers/sanitizeFileName";
+import axios from 'axios';
 
-const S3_UPLOAD_URL =
-  "https://76dy56vmwa.execute-api.eu-west-1.amazonaws.com/uploadFilesToS3";
+import { sanitizeFileName } from '../helpers/sanitizeFileName';
+
+const S3_UPLOAD_URL = 'https://76dy56vmwa.execute-api.eu-west-1.amazonaws.com/uploadFilesToS3';
 
 export const uploadFilesToS3 = async (files) => {
   const formData = new FormData();
@@ -12,7 +12,7 @@ export const uploadFilesToS3 = async (files) => {
     const sanitizedFile = new File([file], sanitizedName, {
       type: file.type,
     });
-    formData.append("files", sanitizedFile);
+    formData.append('files', sanitizedFile);
   });
 
   const fileUploadRes = await axios.post(S3_UPLOAD_URL, formData);

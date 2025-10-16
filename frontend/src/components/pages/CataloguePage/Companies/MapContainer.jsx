@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { useEffect } from 'react';
+import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { useCompany } from '@context/CompanyMapContext';
 
-import MarkerList from "./MarkerList";
-import CompanyInfoWindow from "./CompanyInfoWindow";
-import ImageGalleryModal from "./ImageGalleryModal";
-
-import { useCompany } from "@context/CompanyMapContext";
+import MarkerList from './MarkerList';
+import CompanyInfoWindow from './CompanyInfoWindow';
+import ImageGalleryModal from './ImageGalleryModal';
 
 const center = {
   lat: 53.41291,
@@ -16,34 +15,25 @@ const ZOOM_LARGE_SCREEN = 7;
 const ZOOM_SMALL_SCREEN = 6.6;
 
 const mapContainerStyle = {
-  width: "100%",
-  height: "650px",
+  width: '100%',
+  height: '650px',
 };
 
-const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "";
+const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
 const MapContainer = () => {
   const { isLoaded } = useLoadScript({ googleMapsApiKey });
-  const {
-    selectedCompany,
-    map,
-    setMap,
-    setSelectedCompany,
-    defaultZoom,
-    setDefaultZoom,
-    mapRef,
-  } = useCompany();
+  const { selectedCompany, map, setMap, setSelectedCompany, defaultZoom, setDefaultZoom, mapRef } =
+    useCompany();
 
   // Updates map zoom when the screen width changes
   useEffect(() => {
     const handleResize = () => {
-      setDefaultZoom(
-        window.innerWidth <= 640 ? ZOOM_SMALL_SCREEN : ZOOM_LARGE_SCREEN,
-      );
+      setDefaultZoom(window.innerWidth <= 640 ? ZOOM_SMALL_SCREEN : ZOOM_LARGE_SCREEN);
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Adjusts map position and zoom when the user selects a different company from list
@@ -64,25 +54,21 @@ const MapContainer = () => {
   if (!isLoaded) {
     return (
       <div
-        className="flex flex-grow flex-col items-center justify-center"
+        className="flex grow flex-col items-center justify-center"
         style={{ height: mapContainerStyle.height }}
       >
-        <div className="h-16 w-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
+        <div className="size-16 animate-spin rounded-full border-t-4 border-blue-500"></div>
         <p className="mt-4 text-gray-600">Loading Google Maps...</p>
       </div>
     );
   }
 
   return (
-    <div ref={mapRef} className="flex-grow">
+    <div ref={mapRef} className="grow">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={defaultZoom}
-        center={
-          selectedCompany
-            ? { lat: selectedCompany.lat, lng: selectedCompany.lng }
-            : center
-        }
+        center={selectedCompany ? { lat: selectedCompany.lat, lng: selectedCompany.lng } : center}
         onLoad={(mapInstance) => setMap(mapInstance)}
       >
         <MarkerList />

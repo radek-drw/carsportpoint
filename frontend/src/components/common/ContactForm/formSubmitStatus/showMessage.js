@@ -1,11 +1,5 @@
-export const showMessage = (
-  setMessage,
-  messageRef,
-  text,
-  delay = 100,
-  duration = 5000,
-) => {
-  setMessage("");
+export const showMessage = (setMessage, messageRef, text, delay = 100, duration = 5000) => {
+  setMessage('');
   clearTimeout(messageRef.current);
 
   setTimeout(() => {
@@ -13,6 +7,6 @@ export const showMessage = (
   }, delay);
 
   messageRef.current = setTimeout(() => {
-    setMessage("");
+    setMessage('');
   }, duration);
 };

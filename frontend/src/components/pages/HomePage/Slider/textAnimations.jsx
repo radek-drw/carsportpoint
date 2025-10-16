@@ -1,5 +1,6 @@
-import { useTrail, easings } from "@react-spring/web";
-import { TEXT_ANIMATION } from "./config";
+import { useTrail, easings } from '@react-spring/web';
+
+import { TEXT_ANIMATION } from './config';
 
 export const useSlideAnimations = (resetAnimation) => {
   const textAnimationsSlide1 = useTrail(2, {
@@ -10,8 +11,8 @@ export const useSlideAnimations = (resetAnimation) => {
     },
     to: {
       opacity: 1,
-      transform: "translateX(0) scale(1)",
-      filter: "blur(0px)",
+      transform: 'translateX(0) scale(1)',
+      filter: 'blur(0px)',
     },
     config: {
       duration: TEXT_ANIMATION.firstSlide.animationDuration,
@@ -27,7 +28,7 @@ export const useSlideAnimations = (resetAnimation) => {
     },
     to: {
       opacity: 1,
-      transform: "scale(1)",
+      transform: 'scale(1)',
     },
     config: {
       duration: TEXT_ANIMATION.secondSlide.animationDuration,

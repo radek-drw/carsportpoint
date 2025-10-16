@@ -1,10 +1,37 @@
 {
-  "name": "carsportpoint",
-  "version": "1.0.0",
+  "name": "car-sport-point",
+  "private": true,
   "type": "module",
-  "description": "Monorepo for frontend and backend (Lambda) for carsportpoint project",
-  "dependencies": {
-    "libphonenumber-js": "^1.12.8",
-    "yup": "^1.6.1"
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^6.1.1",
+    "eslint-plugin-tailwindcss": "^3.18.2",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "format": "prettier --check .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,scss,css,md}": [
+      "prettier --write"
+    ]
   }
 }

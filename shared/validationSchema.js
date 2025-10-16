@@ -1,7 +1,7 @@
-import * as Yup from "yup";
-import { parsePhoneNumberFromString } from "libphonenumber-js";
+import * as Yup from 'yup';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
-import { defaultConfig } from "./defaultConfig.js";
+import { defaultConfig } from './defaultConfig.js';
 
 /* NOTE: When adding a new file type in SUPPORTED_FORMATS, make sure to update two places:
   
@@ -17,13 +17,13 @@ import { defaultConfig } from "./defaultConfig.js";
   The changes should be made in the following file: './FileUploadField.jsx' */
 
 export const SUPPORTED_FORMATS = [
-  "image/jpeg",
-  "image/png",
-  "image/gif",
-  "application/pdf",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "text/plain",
+  'image/jpeg',
+  'image/png',
+  'image/gif',
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'text/plain',
 ];
 
 export const validationSchema = () => {
@@ -35,64 +35,56 @@ export const validationSchema = () => {
   return Yup.object({
     name: Yup.string()
       .trim()
-      .max(50, "Name cannot exceed 50 characters")
+      .max(50, 'Name cannot exceed 50 characters')
       .when([], {
-        is: () => isRequired("name"),
-        then: (schema) => schema.required("Name is required"),
+        is: () => isRequired('name'),
+        then: (schema) => schema.required('Name is required'),
       }),
     email: Yup.string()
-      .email("Invalid email address")
-      .max(320, "Email cannot exceed 320 characters")
+      .email('Invalid email address')
+      .max(320, 'Email cannot exceed 320 characters')
       .when([], {
-        is: () => isRequired("email"),
-        then: (schema) => schema.required("Email is required"),
+        is: () => isRequired('email'),
+        then: (schema) => schema.required('Email is required'),
       }),
     phone: Yup.string().when([], {
-      is: () => isRequired("phone"),
+      is: () => isRequired('phone'),
       then: (schema) =>
         schema
-          .required("Phone is required")
-          .test("isValidPhone", "Invalid phone number", (value, context) => {
-            const phoneNumber = parsePhoneNumberFromString(
-              value,
-              defaultConfig.phone.country
-            );
+          .required('Phone is required')
+          .test('isValidPhone', 'Invalid phone number', (value) => {
+            const phoneNumber = parsePhoneNumberFromString(value, defaultConfig.phone.country);
             return phoneNumber && phoneNumber.isValid();
           }),
       otherwise: (schema) =>
-        schema.test("isValidPhone", "Invalid phone number", (value) => {
+        schema.test('isValidPhone', 'Invalid phone number', (value) => {
           if (!value) return true;
-          const phoneNumber = parsePhoneNumberFromString(
-            value,
-            defaultConfig.phone.country
-          );
+          const phoneNumber = parsePhoneNumberFromString(value, defaultConfig.phone.country);
           return phoneNumber && phoneNumber.isValid();
         }),
     }),
     subject: Yup.string()
       .trim()
-      .max(100, "Subject cannot exceed 100 characters")
+      .max(100, 'Subject cannot exceed 100 characters')
       .when([], {
-        is: () => isRequired("subject"),
-        then: (schema) => schema.required("Subject is required"),
+        is: () => isRequired('subject'),
+        then: (schema) => schema.required('Subject is required'),
       }),
     message: Yup.string()
       .trim()
-      .max(1000, "Message cannot exceed 1000 characters")
+      .max(1000, 'Message cannot exceed 1000 characters')
       .when([], {
-        is: () => isRequired("message"),
-        then: (schema) => schema.required("Message is required"),
+        is: () => isRequired('message'),
+        then: (schema) => schema.required('Message is required'),
       }),
     files: Yup.array()
       .of(Yup.mixed())
       .max(
         maxFilesCount,
-        `You can upload up to ${maxFilesCount} file${
-          maxFilesCount > 1 ? "s" : ""
-        }.`
+        `You can upload up to ${maxFilesCount} file${maxFilesCount > 1 ? 's' : ''}.`
       )
       .test(
-        "fileSize",
+        'fileSize',
         `Each file must be less than ${maxFileSize}MB.`,
         (files) =>
           !files ||
@@ -100,8 +92,8 @@ export const validationSchema = () => {
           files.every((file) => file.size <= maxFileSize * 1024 * 1024)
       )
       .test(
-        "fileType",
-        "Invalid file type.",
+        'fileType',
+        'Invalid file type.',
         (files) =>
           !files ||
           files.length === 0 ||

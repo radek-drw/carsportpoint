@@ -1,13 +1,11 @@
-import { createContext, useContext, useState, useRef, useEffect } from "react";
-
-import axios from "axios";
+import { createContext, useContext, useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 
 const CompanyMapContext = createContext();
 
 export const useCompany = () => useContext(CompanyMapContext);
 
-const API_URL =
-  "https://cr6hha4le3.execute-api.eu-west-1.amazonaws.com/getCompanies";
+const API_URL = 'https://cr6hha4le3.execute-api.eu-west-1.amazonaws.com/getCompanies';
 
 export const CompanyProvider = ({ children }) => {
   const [map, setMap] = useState(null);
@@ -27,7 +25,7 @@ export const CompanyProvider = ({ children }) => {
         const response = await axios.get(API_URL);
         setCompanies(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       } finally {
         setIsLoading(false);
       }

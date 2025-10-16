@@ -1,12 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import logo from "../../assets/images/carsportpoint_logo.png";
+import logo from '../../assets/images/carsportpoint_logo.png';
 
-const Logo = ({ isClickable = false, className = "" }) => {
-  const logoImage = (
-    <img src={logo} alt={isClickable ? "Car Sport Point" : ""} />
-  );
+const Logo = ({ isClickable = false, className = '' }) => {
+  const logoImage = <img src={logo} alt={isClickable ? 'Car Sport Point' : ''} />;
 
   return (
     <div className={className}>

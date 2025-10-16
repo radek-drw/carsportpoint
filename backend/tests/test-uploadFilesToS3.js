@@ -1,19 +1,20 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { handler } from "../functions/uploadFilesToS3.mjs";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import { handler } from '../functions/uploadFilesToS3.mjs';
 
 // In ESM, manually define __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function testUploadHandler() {
-  const testFilePath = path.join(__dirname, "test-assets", "example.txt");
+  const testFilePath = path.join(__dirname, 'test-assets', 'example.txt');
 
   // Read the file content into a Buffer
   const fileContent = fs.readFileSync(testFilePath);
 
-  const boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW";
+  const boundary = '----WebKitFormBoundary7MA4YWxkTrZu0gW';
 
   // Manually construct a multipart/form-data body
   const multipartBody =
@@ -29,16 +30,16 @@ async function testUploadHandler() {
   // Simulate an API Gateway event
   const event = {
     headers: {
-      "content-type": `multipart/form-data; boundary=${boundary}`,
+      'content-type': `multipart/form-data; boundary=${boundary}`,
     },
-    body: bodyBuffer.toString("base64"),
+    body: bodyBuffer.toString('base64'),
     isBase64Encoded: true,
   };
 
   const response = await handler(event);
 
-  console.log("Status:", response.statusCode);
-  console.log("Response:", JSON.parse(response.body));
+  console.log('Status:', response.statusCode);
+  console.log('Response:', JSON.parse(response.body));
 }
 
 testUploadHandler().catch(console.error);

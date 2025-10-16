@@ -1,6 +1,4 @@
-import React from "react";
-
-import { useAdmin } from "@context/AdminContext";
+import { useAdmin } from '@context/AdminContext';
 
 const LogoutButton = () => {
   const { setIsLoggedIn } = useAdmin();

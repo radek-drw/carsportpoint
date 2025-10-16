@@ -1,7 +1,7 @@
 {
   "name": "carsportpoint",
   "version": "0.1.0",
-  "homepage": "https://radek-drw.github.io/carsportpoint",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@alptugidin/react-circular-progress-bar": "^1.1.4",
@@ -27,20 +27,13 @@
     "react-phone-number-input": "^3.4.10",
     "react-router-dom": "^6.27.0",
     "react-spinners": "^0.15.0",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "yup": "^1.7.1"
   },
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -57,10 +50,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "gh-pages": "^6.3.0",
     "postcss": "^8.4.47",
-    "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.14",
     "vite": "^6.0.11"
   }

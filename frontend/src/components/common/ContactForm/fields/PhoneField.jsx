@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { ErrorMessage } from "formik";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+import { useState, useEffect } from 'react';
+import { ErrorMessage } from 'formik';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const PhoneField = ({
   name,
@@ -38,9 +38,7 @@ const PhoneField = ({
         value={value}
         onChange={onChange}
         onCountryChange={setCurrentCountry}
-        className={`focus-within:shadow-inputShadow" input-bordered w-full transition focus-within:border-inputBorder ${
-          errors[name] && touched[name] ? "border-red-500" : ""
-        }`}
+        className={`input-bordered focus-within:border-inputBorder focus-within:shadow-inputShadow w-full transition ${errors[name] && touched[name] ? 'border-red-500' : ''}`}
         required={required}
         aria-invalid={!!errors[name] && touched[name]}
         aria-describedby={!!errors[name] && touched[name] ? errorId : undefined}

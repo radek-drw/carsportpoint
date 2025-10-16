@@ -1,35 +1,23 @@
-// External libraries
-import React, { useState, useRef } from "react";
-import { Formik, Form } from "formik";
-import { AnimatePresence } from "framer-motion";
-import ClipLoader from "react-spinners/ClipLoader";
+import { useState, useRef } from 'react';
+import { Formik, Form } from 'formik';
+import { AnimatePresence } from 'framer-motion';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { defaultConfig } from '@shared/defaultConfig';
 
-// Local form fields (components)
-import NameField from "./fields/NameField";
-import EmailField from "./fields/EmailField";
-import PhoneField from "./fields/PhoneField";
-import SubjectField from "./fields/SubjectField";
-import MessageField from "./fields/MessageField";
-import FileUploadField from "./fields/FileUploadField";
+import NameField from './fields/NameField';
+import EmailField from './fields/EmailField';
+import PhoneField from './fields/PhoneField';
+import SubjectField from './fields/SubjectField';
+import MessageField from './fields/MessageField';
+import FileUploadField from './fields/FileUploadField';
+import FeedbackMessage from './formSubmitStatus/FeedbackMessage';
+import { showMessage } from './formSubmitStatus/showMessage';
+import validateProps from './utils/validators/validateProps';
+// import { uploadFilesToS3 } from './utils/api/uploadFilesToS3';
 
-// Form feedback UI
-import FeedbackMessage from "./formSubmitStatus/FeedbackMessage";
-import { showMessage } from "./formSubmitStatus/showMessage";
-
-// Configs & validation
-import validateProps from "./utils/validators/validateProps";
-import { defaultConfig } from "@shared/defaultConfig";
-import { validationSchema } from "@shared/validationSchema";
-
-// API handlers
-import { sendContactForm } from "../../../../../backend/functions/sendContactForm"; // connect with backend without API calls (only for test)
-
-import { uploadFilesToS3 } from "./utils/api/uploadFilesToS3";
-// import { sendContactForm, uploadFilesToS3 } from "./utils/api"; // this will be when the backend is ready
-
-const ContactForm = ({ displayMode = "placeholder" }) => {
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+const ContactForm = ({ displayMode = 'placeholder' }) => {
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const successTimeoutRef = useRef(null);
   const errorTimeoutRef = useRef(null);
@@ -39,19 +27,16 @@ const ContactForm = ({ displayMode = "placeholder" }) => {
   // the function throws an error with an appropriate message and stops further code execution
   validateProps(displayMode);
 
-  const visibleFields = Object.entries(defaultConfig).reduce(
-    (acc, [key, config]) => {
-      if (key === "submitLabel") return acc;
-      if (config.visible === false) return acc;
-      acc[key] = config;
-      return acc;
-    },
-    {},
-  );
+  const visibleFields = Object.entries(defaultConfig).reduce((acc, [key, config]) => {
+    if (key === 'submitLabel') return acc;
+    if (config.visible === false) return acc;
+    acc[key] = config;
+    return acc;
+  }, {});
 
   // Initial values based on visible fields
   const initialValues = Object.keys(visibleFields).reduce((acc, key) => {
-    acc[key] = key === "files" ? [] : "";
+    acc[key] = key === 'files' ? [] : '';
     return acc;
   }, {});
 
@@ -61,39 +46,33 @@ const ContactForm = ({ displayMode = "placeholder" }) => {
       // validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
-          let fileUrls = [];
+          // let fileUrls = [];
 
-          if (values.files && values.files.length > 0) {
-            fileUrls = await uploadFilesToS3(values.files);
-          }
+          // if (values.files && values.files.length > 0) {
+          //   fileUrls = await uploadFilesToS3(values.files);
+          // }
 
-          const payload = {
-            ...values,
-            files: fileUrls,
-          };
-          // console.log("Form submission payload:", payload);
-
-          await sendContactForm(payload);
+          // const payload = {
+          //   ...values,
+          //   files: fileUrls,
+          // };
 
           showMessage(
             setSuccessMessage,
             successTimeoutRef,
-            "The form has been successfully submitted!",
+            'The form has been successfully submitted!'
           );
           resetForm();
         } catch (error) {
-          console.error("Submission error:", error);
+          console.error('Submission error:', error);
 
-          if (
-            error?.response?.status === 400 &&
-            error?.response?.data?.errors
-          ) {
+          if (error?.response?.status === 400 && error?.response?.data?.errors) {
             setErrors(error.response.data.errors);
           } else {
             showMessage(
               setErrorMessage,
               errorTimeoutRef,
-              "Something went wrong. Please try again later",
+              'Something went wrong. Please try again later'
             );
           }
         } finally {

@@ -1,18 +1,18 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
+import { FiMenu } from 'react-icons/fi';
+import { IoCloseOutline } from 'react-icons/io5';
 
-import { FiMenu } from "react-icons/fi";
-import { IoCloseOutline } from "react-icons/io5";
+import Logo from '../../common/Logo';
 
-import Logo from "../../common/Logo";
-import NavItem from "./NavItem";
+import NavItem from './NavItem';
 
 const menuItems = [
-  { label: "home", href: "/" },
-  { label: "about us", href: "/about" },
-  { label: "our partners", href: "/partners" },
-  { label: "tuning companies catalogue", href: "/catalogue" },
-  { label: "contact", href: "/contact" },
+  { label: 'home', href: '/' },
+  { label: 'about us', href: '/about' },
+  { label: 'our partners', href: '/partners' },
+  { label: 'tuning companies catalogue', href: '/catalogue' },
+  { label: 'contact', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -33,30 +33,27 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const handleClickOutside = useCallback((event) => {
-    if (
-      mobileMenuRef.current &&
-      !mobileMenuRef.current.contains(event.target)
-    ) {
+    if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
       closeMenu();
     }
   }, []);
 
   // Toggle sticky navbar
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
     if (!isMenuOpen) return;
 
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [isMenuOpen, handleClickOutside]);
 
@@ -76,31 +73,30 @@ const Navbar = () => {
     <>
       {/* Mobile menu overlay | Darkens the background when menu is open */}
       <div
-        className={`fixed inset-0 z-30 bg-black transition-opacity duration-300 ${
-          isMenuOpen
-            ? "pointer-events-auto opacity-60"
-            : "pointer-events-none opacity-0"
-        }`}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && closeMenu()}
+        className={`fixed inset-0 z-30 bg-red-500 transition-opacity duration-300 ${isMenuOpen ? 'pointer-events-auto opacity-60' : 'pointer-events-none opacity-0'}`}
         onClick={closeMenu}
       />
 
       <nav
         ref={navbarRef}
-        className={`flex items-center justify-end font-navigation uppercase xl:justify-between ${
+        className={`font-navigation flex items-center justify-end uppercase xl:justify-between ${
           isSticky
-            ? "xl:sticky xl:top-0 xl:z-40 xl:h-14 xl:bg-[rgba(255,255,255,0.8)] xl:shadow-md"
-            : "relative h-24"
+            ? 'xl:sticky xl:top-0 xl:z-40 xl:h-14 xl:bg-[rgba(255,255,255,0.8)] xl:shadow-md'
+            : 'relative h-24'
         }`}
         aria-label="Main navigation"
       >
         {/* Logo */}
         <Logo
           isClickable
-          className={`${isSticky ? "max-w-[90px]" : "max-w-[225px]"} absolute left-1/2 -translate-x-1/2 transform xl:static xl:ml-5 xl:translate-x-0`}
+          className={`${isSticky ? 'max-w-[90px]' : 'max-w-[225px]'} absolute left-1/2 -translate-x-1/2 xl:static xl:ml-5 xl:translate-x-0`}
         />
         {/* Open mobile menu button */}
         <button
-          className="z-40 p-5 text-customRed focus:outline-none xl:hidden xl:p-0"
+          className="text-customRed z-40 p-5 focus:outline-none xl:hidden xl:p-0"
           onClick={openMenu}
           aria-label="Open menu"
         >
@@ -112,9 +108,7 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div
           ref={mobileMenuRef}
-          className={`fixed right-0 top-0 z-40 h-full w-64 transform bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed right-0 top-0 z-40 h-full w-64 bg-[#191919] shadow-lg transition-transform duration-300 xl:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           {/* Close mobile menu button */}
           <button
@@ -124,9 +118,7 @@ const Navbar = () => {
           >
             <IoCloseOutline size={30} />
           </button>
-          <ul className="flex h-full flex-col pt-20">
-            {renderMenuItems(true)}
-          </ul>
+          <ul className="flex h-full flex-col pt-20">{renderMenuItems(true)}</ul>
         </div>
       </nav>
     </>
