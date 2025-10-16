@@ -21,12 +21,11 @@ jobs:
             package-lock.json
             frontend/package-lock.json
 
-      - name: Install root dev tools
-        run: npm ci --ignore-scripts --omit=optional --workspace-root
+      - name: Install only root + frontend
+        run: npm install --workspaces --include-workspace-root --workspace=packages/frontend --ignore-scripts
 
-      - name: Install frontend dependencies
-        working-directory: frontend
-        run: npm ci --ignore-scripts
+      - name: List installed packages
+        run: npm ls --depth=0 --workspaces
 
       - name: Lint repo
         run: npm run lint
