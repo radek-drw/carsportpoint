@@ -21,16 +21,16 @@ jobs:
             package-lock.json
             frontend/package-lock.json
 
-      - name: Install only root + frontend
+      - name: Install dependencies (root & frontend)
         run: npm install --workspaces --include-workspace-root --workspace=frontend --ignore-scripts
 
       - name: List installed packages
         run: npm ls --depth=0 --workspaces
 
-      - name: Lint repo
+      - name: Run ESLint
         run: npm run lint
 
-      - name: Check Prettier formatting
+      - name: Check code formatting (Prettier)
         run: npm run format
 
       - name: Build frontend
