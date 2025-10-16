@@ -21,8 +21,8 @@
     "prettier-plugin-tailwindcss": "^0.6.14"
   },
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx --fix",
-    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
+    "format": "prettier --check .",
     "prepare": "husky"
   },
   "lint-staged": {
