@@ -4,8 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { defaultConfig } from '@shared/defaultConfig';
 
-import { sendContactForm } from '../../../../../backend/functions/sendContactForm';
-
 import NameField from './fields/NameField';
 import EmailField from './fields/EmailField';
 import PhoneField from './fields/PhoneField';
@@ -15,7 +13,7 @@ import FileUploadField from './fields/FileUploadField';
 import FeedbackMessage from './formSubmitStatus/FeedbackMessage';
 import { showMessage } from './formSubmitStatus/showMessage';
 import validateProps from './utils/validators/validateProps';
-import { uploadFilesToS3 } from './utils/api/uploadFilesToS3';
+// import { uploadFilesToS3 } from './utils/api/uploadFilesToS3';
 
 const ContactForm = ({ displayMode = 'placeholder' }) => {
   const [successMessage, setSuccessMessage] = useState('');
@@ -48,19 +46,16 @@ const ContactForm = ({ displayMode = 'placeholder' }) => {
       // validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm, setErrors }) => {
         try {
-          let fileUrls = [];
+          // let fileUrls = [];
 
-          if (values.files && values.files.length > 0) {
-            fileUrls = await uploadFilesToS3(values.files);
-          }
+          // if (values.files && values.files.length > 0) {
+          //   fileUrls = await uploadFilesToS3(values.files);
+          // }
 
-          const payload = {
-            ...values,
-            files: fileUrls,
-          };
-          // console.log("Form submission payload:", payload);
-
-          await sendContactForm(payload);
+          // const payload = {
+          //   ...values,
+          //   files: fileUrls,
+          // };
 
           showMessage(
             setSuccessMessage,
