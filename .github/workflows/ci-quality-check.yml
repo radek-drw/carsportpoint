@@ -24,8 +24,11 @@ jobs:
       - name: Install dependencies (root & frontend)
         run: npm install --workspaces --include-workspace-root --workspace=frontend --ignore-scripts
 
-      - name: List installed packages
+      - name: List root packages
         run: npm ls --depth=0
+
+      - name: List all workspaces
+        run: npm ls --depth=0 --workspaces --include-workspace-root
 
       - name: Run ESLint
         run: npm run lint
