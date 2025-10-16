@@ -104,7 +104,7 @@ Reasons to use Vite:
 - Optimized build process – pre-bundles dependencies with esbuild, making builds significantly faster.
 - Path aliasing – allows for cleaner and more manageable imports.
 
-## 8. NPM Scripts i `frontend/`
+## 8. NPM Scripts in `frontend/`
 
 - `npm run start` - development server (hot reload)
 - `npm run build` - creates optimized production build in `dist/`
