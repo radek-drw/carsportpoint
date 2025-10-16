@@ -22,7 +22,7 @@ jobs:
             frontend/package-lock.json
 
       - name: Install only root + frontend
-        run: npm install --workspaces --include-workspace-root --workspace=packages/frontend --ignore-scripts
+        run: npm install --workspaces --include-workspace-root --workspace=frontend --ignore-scripts
 
       - name: List installed packages
         run: npm ls --depth=0 --workspaces
