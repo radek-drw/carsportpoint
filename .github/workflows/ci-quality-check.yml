@@ -25,7 +25,7 @@ jobs:
         run: npm install --workspaces --include-workspace-root --workspace=frontend --ignore-scripts
 
       - name: List installed packages
-        run: npm ls --depth=0 --workspaces
+        run: npm ls --depth=0
 
       - name: Run ESLint
         run: npm run lint
