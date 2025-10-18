@@ -22,7 +22,7 @@
   },
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.mjs,.ts,.tsx",
-    "format": "prettier --check .",
+    "format:check": "prettier --check .",
     "prepare": "husky"
   },
   "lint-staged": {
