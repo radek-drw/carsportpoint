@@ -27,8 +27,8 @@ jobs:
 
       - name: Install dependencies (root & frontend)
         run: |
-          npm ci --include-workspace-root
-          npm ci --workspace=frontend
+          npm ci --include-workspace-root --ignore-scripts
+          npm ci --workspace=frontend --ignore-scripts
 
       - name: List installed packages
         run: npm ls --depth=0 --workspaces
