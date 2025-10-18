@@ -26,7 +26,9 @@ jobs:
             frontend/package-lock.json
 
       - name: Install dependencies (root & frontend)
-        run: npm install --workspaces --include-workspace-root --workspace=frontend --ignore-scripts
+        run: |
+          npm ci --include-workspace-root
+          npm ci --workspace=frontend
 
       - name: List installed packages
         run: npm ls --depth=0 --workspaces
